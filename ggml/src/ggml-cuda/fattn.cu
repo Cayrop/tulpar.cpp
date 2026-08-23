@@ -524,7 +524,9 @@ static best_fattn_kernel ggml_cuda_get_best_fattn_kernel(const int device, const
                     return BEST_FATTN_KERNEL_VEC;
                 }
             }
-        } else {
+        } else if (!(GGML_CUDA_CC_IS_RDNA3(cc) && Q->ne[0] == 256)) {
+            // RDNA3 vector kernels with head size 256 use 256 VGPRs per thread and lose
+            // to the tile kernel for quantized KV, even with the tile F16 staging cost.
             if (Q->ne[1] <= 2) {
                 return BEST_FATTN_KERNEL_VEC;
             }
