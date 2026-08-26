@@ -1,0 +1,28 @@
+{
+ "db": "184597_results.db",
+ "window_ms": 5510.4,
+ "busy_pct": 90.62,
+ "gap_pct": 9.39,
+ "n_gaps": 124134,
+ "gap_by_class_pct_of_gap": {
+  "hipStreamSynchronize": 96.2,
+  "hipGraphLaunch": 3.7,
+  "hipMemcpyAsync": 0.1,
+  "none": 0.0
+ },
+ "gap_histo_count": {
+  "<5us": 123476,
+  "5-50us": 401,
+  "50-500us": 193,
+  "0.5-2ms": 64,
+  ">2ms": 0
+ },
+ "inter_step_gap_pct": 63.2,
+ "intra_step_gap_pct": 36.8,
+ "memcpy_in_window": {
+  "n": 256,
+  "MB": 98.2,
+  "time_ms": 5.93
+ },
+ "top_big_gaps": []
+}

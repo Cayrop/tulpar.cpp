@@ -1,0 +1,27 @@
+# device AMD Radeon RX 7800 XT CUs=30
+[ref] row0=2822.8262
+shape0 N=17408 K=5120 row_bytes=1960 |ref|max=23120.5410
+  V0_baseline_wg32   max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V1_wg64            max_abs=9.766e-03 mean_abs=9.966e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=0.3473 | gpu0=2822.83 ref0=2822.83
+  V2_wg128           max_abs=9.766e-03 mean_abs=9.996e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=0.3354 | gpu0=2822.83 ref0=2822.83
+  V3_rows2_wg32      max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V4_rows4_wg128     max_abs=9.766e-03 mean_abs=9.996e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=0.3354 | gpu0=2822.83 ref0=2822.83
+  V5_fastld_funnel   max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V6_lds_grid        max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V7_ilp2            max_abs=9.766e-03 mean_abs=9.966e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=0.3473 | gpu0=2822.83 ref0=2822.83
+  V8_fastld_nt       max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V9_pipe_prefetch   max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+  V10_q8_uint4       max_abs=9.766e-03 mean_abs=9.977e-04 rel_max=4.224e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=2822.83 ref0=2822.83
+[ref] row0=-2018.1230
+shape1 N=5120 K=17408 row_bytes=6664 |ref|max=40361.5156
+  V0_baseline_wg32   max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V1_wg64            max_abs=3.125e-02 mean_abs=3.269e-03 rel_max=7.743e-07 vs_ref | vs_base_bitmatch=0.2600 | gpu0=-2018.12 ref0=-2018.12
+  V2_wg128           max_abs=3.125e-02 mean_abs=3.255e-03 rel_max=7.743e-07 vs_ref | vs_base_bitmatch=0.2480 | gpu0=-2018.12 ref0=-2018.12
+  V3_rows2_wg32      max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V4_rows4_wg128     max_abs=3.125e-02 mean_abs=3.255e-03 rel_max=7.743e-07 vs_ref | vs_base_bitmatch=0.2480 | gpu0=-2018.12 ref0=-2018.12
+  V5_fastld_funnel   max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V6_lds_grid        max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V7_ilp2            max_abs=3.125e-02 mean_abs=3.269e-03 rel_max=7.743e-07 vs_ref | vs_base_bitmatch=0.2600 | gpu0=-2018.12 ref0=-2018.12
+  V8_fastld_nt       max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V9_pipe_prefetch   max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12
+  V10_q8_uint4       max_abs=2.930e-02 mean_abs=3.336e-03 rel_max=7.259e-07 vs_ref | vs_base_bitmatch=1.0000 | gpu0=-2018.12 ref0=-2018.12

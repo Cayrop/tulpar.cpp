@@ -1,0 +1,12 @@
+[T1_mtpon] launching: rocprofv3 -r -d <REPO_ROOT>/results/traces/T1_mtpon -f csv -- <REPO_ROOT>/build/bin/llama-server -m /home/gencer/models/qwen38/Qwen3.8-27B...
+[T1_mtpon] health ok: True, pid=90589
+[T1_mtpon] 63k prompt tokens=63495
+{"exp_id": "T1_mtpon_warmup", "mode": "on", "prompt_n": 4, "prompt_ms": 86.527, "predicted_n": 16, "predicted_ms": 773.811, "decode_tok_s": 19.384578404804273, "prefill_tok_s": 46.22834490968137, "per_token_ms": 51.5874, "draft_n": 3, "draft_n_accepted": 3}
+{"exp_id": "T1_mtpon_1k_run1", "mode": "on", "prompt_n": 955, "prompt_ms": 2085.043, "predicted_n": 128, "predicted_ms": 3115.542, "decode_tok_s": 40.763372793562084, "prefill_tok_s": 458.0241270803528, "per_token_ms": 24.53182677165354, "draft_n": 87, "draft_n_accepted": 87}
+{"exp_id": "T1_mtpon_1k_run2", "mode": "on", "prompt_n": 4, "prompt_ms": 180.681, "predicted_n": 128, "predicted_ms": 4431.306, "decode_tok_s": 28.659722438486536, "prefill_tok_s": 22.138465029527175, "per_token_ms": 34.89217322834645, "draft_n": 67, "draft_n_accepted": 66}
+{"exp_id": "T1_mtpon_1k_run3", "mode": "on", "prompt_n": 4, "prompt_ms": 187.235, "predicted_n": 128, "predicted_ms": 5414.404, "decode_tok_s": 23.455951938569786, "prefill_tok_s": 21.363527118327234, "per_token_ms": 42.63310236220473, "draft_n": 99, "draft_n_accepted": 51}
+[T1_mtpon] 63k run1 starting
+{"exp_id": "T1_mtpon_63k_run1", "mode": "on", "prompt_n": 63495, "prompt_ms": 198465.801, "predicted_n": 380, "predicted_ms": 17465.116, "decode_tok_s": 21.700399814120903, "prefill_tok_s": 319.92917510256586, "per_token_ms": 46.08210026385225, "draft_n": 451, "draft_n_accepted": 241}
+[T1_mtpon] 63k run2 starting
+{"exp_id": "T1_mtpon_63k_run2", "mode": "on", "prompt_n": 4, "prompt_ms": 427.415, "predicted_n": 380, "predicted_ms": 12621.28, "decode_tok_s": 30.028650025987854, "prefill_tok_s": 9.35858591766784, "per_token_ms": 33.30153034300792, "draft_n": 285, "draft_n_accepted": 276}
+[T1_mtpon] session complete

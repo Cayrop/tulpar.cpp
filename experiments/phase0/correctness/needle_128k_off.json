@@ -1,0 +1,16 @@
+{
+ "tag": "needle_126k_single_mtp_off",
+ "ts": "2026-08-25 23:10:59",
+ "prompt_tokens": 124119,
+ "pass": true,
+ "expect": "SILVER-COMPASS-93",
+ "head": "  <think> The user is asking me to identify the \"magic word\" from the text they provided. Looking through the text, I can find the sentence: \"By the way, the magic word of this story is SILVER-COMPASS",
+ "prompt_ms": 515743.387,
+ "pp_tok_s": 240.66,
+ "predicted_n": 192,
+ "predicted_ms": 15028.616,
+ "tg_tok_s": 12.776,
+ "draft_n": null,
+ "draft_n_accepted": null,
+ "wall_s": 531.41
+}

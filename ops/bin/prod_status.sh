@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+PIDFILE="${ROOT}/ops/run/llama-server.pid"
+PROD_BIN="${ROOT}/build-p3/bin/llama-server"
+MODEL="/home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf"
+EXPECTED_PORT="8080"
+EXPECTED_HOST="0.0.0.0"
+
+usage() {
+    echo "Usage: $0 [--dry-run]"
+    echo "Read-only production server status report."
+    echo ""
+    echo "Checks:"
+    echo "  - pidfile existence and content"
+    echo "  - PID process liveness"
+    echo "  - /proc/PID/exe path match"
+    echo "  - /proc/PID/cmdline model/port/host"
+    echo "  - GPU memory status (read-only)"
+    echo "  - llama-server process discovery"
+}
+
+DRY_RUN=false
+if [[ "${1:-}" == "--dry-run" ]]; then
+    DRY_RUN=true
+    echo "[DRY-RUN] No changes will be made."
+fi
+
+echo "=== Production Server Status ==="
+echo ""
+
+echo "--- pidfile ---"
+if [[ -f "$PIDFILE" ]]; then
+    echo "pidfile exists: YES"
+    PID_IN_FILE=$(cat "$PIDFILE" 2>/dev/null || echo "UNREADABLE")
+    echo "pidfile content: $PID_IN_FILE"
+else
+    echo "pidfile exists: NO"
+    PID_IN_FILE=""
+fi
+echo ""
+
+if [[ -n "$PID_IN_FILE" ]] && [[ "$PID_IN_FILE" =~ ^[0-9]+$ ]]; then
+    echo "--- PID $PID_IN_FILE ---"
+    if kill -0 "$PID_IN_FILE" 2>/dev/null; then
+        echo "PID alive: YES"
+    else
+        echo "PID alive: NO (stale pidfile)"
+    fi
+
+    EXE_PATH=""
+    if [[ -d "/proc/$PID_IN_FILE" ]]; then
+        EXE_PATH=$(readlink /proc/$PID_IN_FILE/exe 2>/dev/null || echo "UNREADABLE")
+        CMDLINE=$(cat /proc/$PID_IN_FILE/cmdline 2>/dev/null | tr '\0' ' ' || echo "UNREADABLE")
+        echo "/proc/$PID_IN_FILE/exe: $EXE_PATH"
+        echo "/proc/$PID_IN_FILE/cmdline: $CMDLINE"
+
+        if [[ "$EXE_PATH" == *"$PROD_BIN" ]]; then
+            echo "exe matches production binary: YES"
+        else
+            echo "exe matches production binary: NO (expected: $PROD_BIN)"
+        fi
+
+        if [[ "$CMDLINE" == *"$MODEL"* ]]; then
+            echo "cmdline contains model path: YES"
+        else
+            echo "cmdline contains model path: NO"
+        fi
+
+        if [[ "$CMDLINE" == *"--port ${EXPECTED_PORT}"* ]] || [[ "$CMDLINE" == *"-p ${EXPECTED_PORT}"* ]]; then
+            echo "cmdline contains expected port: YES"
+        else
+            echo "cmdline contains expected port: check manually"
+        fi
+    else
+        echo "/proc/$PID_IN_FILE: not accessible"
+    fi
+else
+    echo "--- PID validation skipped (no valid PID in pidfile) ---"
+fi
+
+echo ""
+echo "--- GPU memory (read-only) ---"
+if command -v rocm-smi &>/dev/null; then
+    rocm-smi --showmeminfo vram 2>/dev/null | grep -E "Total|Used" || echo "rocm-smi memory query failed"
+else
+    echo "rocm-smi not available"
+fi
+echo ""
+
+echo "--- llama-server process discovery (pgrep, read-only) ---"
+pgrep -ax llama-server 2>/dev/null || echo "No llama-server processes found"
+echo ""
+
+echo "=== Status report complete ==="

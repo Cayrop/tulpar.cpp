@@ -1,0 +1,98 @@
+{
+ "arm_id": "T-1k-OFF",
+ "mode": "traced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 2048,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 4201024,
+ "prompt_n": 991,
+ "npred_probe": 1,
+ "npred_main": 32,
+ "vram_guard_b": 16752282317,
+ "started_ts": "2026-08-26 03:36:31",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 4577910784,
+  "mem_avail_b": 28987686912,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1501433856,
+  "ts": "2026-08-26 03:36:31"
+ },
+ "gpu_vram_before_b": 10322665472,
+ "metrics_after": {
+  "prompt_tokens_total": 995.0,
+  "prompt_tokens_cached_total": 987.0,
+  "prompt_seconds_total": 1.97897,
+  "tokens_predicted_total": 33.0,
+  "tokens_predicted_seconds_total": 1.44552,
+  "n_decode_total": 35.0,
+  "n_tokens_max": 1022.0,
+  "spec_decode_num_draft_tokens_total": 0.0,
+  "spec_decode_num_accepted_tokens_total": 0.0,
+  "spec_decode_num_drafts_total": 0.0,
+  "prompt_tokens_seconds": 51.8995,
+  "predicted_tokens_seconds": 21.4456,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0
+ },
+ "vram_peak_b": 10608373760,
+ "vram_peak_gib": 9.88,
+ "vram_samples_n": 11,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 5015453696,
+  "mem_avail_b": 28550144000,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1501368320,
+  "ts": "2026-08-26 03:36:38"
+ },
+ "swap_delta_b": -65536,
+ "acceptance": {
+  "draft_n_total": 0,
+  "draft_n_accepted_total": 0,
+  "rate": null
+ },
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 1.907,
+   "prompt_n": 991,
+   "prompt_ms": 1903.482,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 520.62,
+   "tg_tok_s": 1000000.0,
+   "draft_n": null,
+   "draft_n_accepted": null,
+   "stop_reason": null,
+   "content_head": "\n\n"
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 1.57,
+   "prompt_n": 4,
+   "prompt_ms": 121.399,
+   "predicted_n": 32,
+   "predicted_ms": 1445.517,
+   "pp_tok_s": 32.95,
+   "tg_tok_s": 22.137,
+   "draft_n": null,
+   "draft_n_accepted": null,
+   "stop_reason": null,
+   "content_head": "\n\n<think>\nThe user wants me to summarize the topic of the text in one sentence. The text appears to be a jumbled collect"
+  }
+ ],
+ "finished_ts": "2026-08-26 03:36:38"
+}

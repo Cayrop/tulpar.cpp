@@ -1,0 +1,20 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 559.96,
+  "prompt_n": 129487,
+  "prompt_ms": 552140.631,
+  "predicted_n": 96,
+  "predicted_ms": 7571.976,
+  "pp_tok_s": 234.52,
+  "tg_tok_s": 12.678,
+  "e2e_tok_s": 0.171,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "draft_per_token_ms": null,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user wants me to summarize the topic of the text in one sentence. Let me look at the text carefully.\n\nThe text appears to be a massive, repetitive"
+ }
+]

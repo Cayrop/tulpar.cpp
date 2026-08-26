@@ -1,0 +1,352 @@
+[
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 5, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 6336,
+  "total_ms": 1006.3942280000025,
+  "share": 22.402940819208908,
+  "mean_us": 158.83747285353573,
+  "median_us": 179.161,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int, ",
+  "n": 3328,
+  "total_ms": 639.5016619999998,
+  "share": 14.235691629554633,
+  "mean_us": 192.1579513221153,
+  "median_us": 195.2815,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 3687,
+  "total_ms": 512.5053080000002,
+  "share": 11.408676406532818,
+  "mean_us": 139.00333821535128,
+  "median_us": 165.761,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 2, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 3298,
+  "total_ms": 392.3740240000013,
+  "share": 8.734481770762763,
+  "mean_us": 118.97332443905437,
+  "median_us": 140.841,
+  "grid": [
+   "557056",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 222,
+  "total_ms": 326.2101890000001,
+  "share": 7.261635008890311,
+  "mean_us": 1469.4152657657664,
+  "median_us": 1468.7910000000002,
+  "grid": [
+   "7946240",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 2496,
+  "total_ms": 159.51331299999953,
+  "share": 3.5508622879491787,
+  "mean_us": 63.90757732371776,
+  "median_us": 65.9605,
+  "grid": [
+   "196608",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 5, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 2178,
+  "total_ms": 150.60457600000015,
+  "share": 3.3525484440974407,
+  "mean_us": 69.14810651974295,
+  "median_us": 67.64,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)18, 3, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 1152,
+  "total_ms": 146.70001700000006,
+  "share": 3.265630612328923,
+  "mean_us": 127.3437647569445,
+  "median_us": 152.161,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 2522,
+  "total_ms": 128.42861499999992,
+  "share": 2.8588982143267585,
+  "mean_us": 50.92332077716096,
+  "median_us": 49.56,
+  "grid": [
+   "32768",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 1268,
+  "total_ms": 79.854413,
+  "share": 1.7776072624610304,
+  "mean_us": 62.97666640378549,
+  "median_us": 61.44,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3u>)",
+  "n": 38375,
+  "total_ms": 67.09098800000298,
+  "share": 1.4934857452961445,
+  "mean_us": 1.7482993615635956,
+  "median_us": 1.68,
+  "grid": [
+   "5120",
+   "2",
+   "1",
+   "256"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)11, 5, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 22,
+  "total_ms": 65.882811,
+  "share": 1.466590998608273,
+  "mean_us": 2994.673227272727,
+  "median_us": 2980.222,
+  "grid": [
+   "7946240",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 2, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 1132,
+  "total_ms": 63.930833000000035,
+  "share": 1.4231387942953555,
+  "mean_us": 56.47600088339226,
+  "median_us": 52.441,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, long, long, long, long, long, long, long",
+  "n": 19791,
+  "total_ms": 57.018453999997966,
+  "share": 1.2692650802491852,
+  "mean_us": 2.8810294578342663,
+  "median_us": 2.84,
+  "grid": [
+   "30720",
+   "1",
+   "1",
+   "64"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)23, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int, ",
+  "n": 442,
+  "total_ms": 55.43408800000003,
+  "share": 1.2339961401595165,
+  "mean_us": 125.41648868778287,
+  "median_us": 125.121,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void gated_delta_net_cuda<128, false, true>(float const*, float const*, float const*, float const*, float const*, float const*, float*, float*, long, ",
+  "n": 3660,
+  "total_ms": 53.69334400000016,
+  "share": 1.1952461317349945,
+  "mean_us": 14.670312568306054,
+  "median_us": 15.361,
+  "grid": [
+   "1536",
+   "4",
+   "32",
+   "32"
+  ]
+ },
+ {
+  "name": "void concat_non_cont<unsigned int, 0>(char const*, char const*, char*, long, long, long, long, unsigned long, unsigned long, unsigned long, unsigned l",
+  "n": 2412,
+  "total_ms": 49.72870000000018,
+  "share": 1.1069907717278713,
+  "mean_us": 20.61720563847437,
+  "median_us": 20.44,
+  "grid": [
+   "2621440",
+   "1",
+   "1",
+   "256"
+  ]
+ },
+ {
+  "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, long, long, HIP_vector_type<unsigned int,",
+  "n": 11191,
+  "total_ms": 46.92386500000073,
+  "share": 1.0445534576372413,
+  "mean_us": 4.1930001787151046,
+  "median_us": 4.12,
+  "grid": [
+   "2048",
+   "1",
+   "1",
+   "1024"
+  ]
+ },
+ {
+  "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3u>, unsigned long, unsigned long, unsign",
+  "n": 3660,
+  "total_ms": 35.812193000000185,
+  "share": 0.7972009557124464,
+  "mean_us": 9.784752185792401,
+  "median_us": 9.56,
+  "grid": [
+   "256",
+   "768",
+   "1",
+   "256"
+  ]
+ },
+ {
+  "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char const*, char const*, int const*, float*",
+  "n": 416,
+  "total_ms": 34.04798400000001,
+  "share": 0.7579286022747042,
+  "mean_us": 81.84611538461539,
+  "median_us": 82.561,
+  "grid": [
+   "32",
+   "20",
+   "24",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int, ",
+  "n": 637,
+  "total_ms": 33.42372500000003,
+  "share": 0.7440322214690923,
+  "mean_us": 52.47052590266881,
+  "median_us": 52.6,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)11, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 12,
+  "total_ms": 30.98579,
+  "share": 0.6897623220534145,
+  "mean_us": 2582.1491666666666,
+  "median_us": 2586.699,
+  "grid": [
+   "7946240",
+   "1",
+   "1",
+   "32"
+  ]
+ },
+ {
+  "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float*, unsigned int, unsigned int, unsigned ",
+  "n": 11440,
+  "total_ms": 25.49993799999995,
+  "share": 0.5676439570234636,
+  "mean_us": 2.229015559440555,
+  "median_us": 2.2,
+  "grid": [
+   "5120",
+   "1",
+   "1",
+   "128"
+  ]
+ },
+ {
+  "name": "void rms_norm_f32<256, true, false>(float const*, float*, int, long, long, long, float, float const*, long, long, long, HIP_vector_type<unsigned int, ",
+  "n": 6642,
+  "total_ms": 25.23714100000052,
+  "share": 0.5617939377421001,
+  "mean_us": 3.799629780186769,
+  "median_us": 2.16,
+  "grid": [
+   "12288",
+   "2",
+   "1",
+   "256"
+  ]
+ },
+ {
+  "name": "void mul_mat_vec_q<(ggml_type)21, 3, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_device, float*, unsigned int,",
+  "n": 396,
+  "total_ms": 22.722323999999997,
+  "share": 0.5058125987651123,
+  "mean_us": 57.37960606060605,
+  "median_us": 56.121,
+  "grid": [
+   "163840",
+   "1",
+   "1",
+   "32"
+  ]
+ }
+]

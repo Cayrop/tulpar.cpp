@@ -1,0 +1,84 @@
+{
+ "arm_id": "T2_P2-off-63k",
+ "mode": "traced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 777001,
+ "prompt_n": 64529,
+ "npred_probe": 1,
+ "npred_main": 40,
+ "started_ts": "2026-08-25 21:02:32",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 13086347264,
+  "mem_avail_b": 20479250432,
+  "swap_total_b": 4360830976,
+  "swap_used_b": 29204082688,
+  "ts": "2026-08-25 21:02:32"
+ },
+ "gpu_vram_before_b": "ce ============================\n================================== Memory Usage (Bytes) ==================================\nGPU[0]\t\t: VRAM Total Memory (B): 17163091968\nGPU[0]\t\t: VRAM Total Used Memory (B): 14805114880\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+ "metrics_after": {
+  "prompt_tokens_total": 64533.0,
+  "prompt_tokens_cached_total": 64525.0,
+  "prompt_seconds_total": 194.555,
+  "tokens_predicted_total": 41.0,
+  "tokens_predicted_seconds_total": 2.65243,
+  "n_decode_total": 74.0,
+  "n_tokens_max": 64568.0,
+  "prompt_tokens_seconds": 0.0,
+  "predicted_tokens_seconds": 14.7035,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0
+ },
+ "vram_peak_b": 14890553344,
+ "vram_samples_n": 321,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 13063356416,
+  "mem_avail_b": 20502241280,
+  "swap_total_b": 5143973888,
+  "swap_used_b": 28420939776,
+  "ts": "2026-08-25 21:05:53"
+ },
+ "swap_delta_b": -783142912,
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 194.558,
+   "prompt_n": 64529,
+   "prompt_ms": 194432.398,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 331.88,
+   "tg_tok_s": 1000000.0,
+   "stop_reason": null,
+   "content_head": "\n\n"
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 3.01,
+   "prompt_n": 4,
+   "prompt_ms": 230.792,
+   "predicted_n": 40,
+   "predicted_ms": 2652.432,
+   "pp_tok_s": 17.33,
+   "tg_tok_s": 15.08,
+   "stop_reason": null,
+   "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at this text car"
+  }
+ ],
+ "finished_ts": "2026-08-25 21:05:53"
+}

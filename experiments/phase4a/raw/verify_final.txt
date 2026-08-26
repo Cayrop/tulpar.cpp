@@ -1,0 +1,2 @@
+verify type=18 K=17408 N=5120 fused=0 variant=V0_vs_V1 -> IDENTICAL max_abs_diff=0 differing=0 checksum0=00000af897815461 checksum1=00000af897815461
+verify type=18 K=5120 N=17408 fused=1 variant=V0_vs_V1 -> IDENTICAL max_abs_diff=0 differing=0 checksum0=00000bbf8a603eb7 checksum1=00000bbf8a603eb7

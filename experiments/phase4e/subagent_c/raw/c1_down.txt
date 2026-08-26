@@ -1,0 +1,1 @@
+type=18 shape=0 batch=1 fused=0 variant=C1 ms=0.1418 min=0.1378 p10=0.1414 p90=0.1432 max=0.1483 GBps_weight=162.0 regs=81 occ_blocks=56 wg=32

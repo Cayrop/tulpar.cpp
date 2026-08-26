@@ -1,0 +1,13 @@
+target 1024, actual tokens: 966
+{"exp_id": "ctx_1k_mtp_on_run_1_v2", "prompt_n": 966, "prompt_ms": 2827.308, "prefill_tok_s": 341.66776311601, "predicted_n": 128, "predicted_ms": 2932.973, "decode_tok_s": 43.64172462549093}
+{"exp_id": "ctx_1k_mtp_on_run_2_v2", "predicted_n": 128, "predicted_ms": 3873.79, "decode_tok_s": 33.04257587530558}
+{"exp_id": "ctx_1k_mtp_on_run_3_v2", "predicted_n": 128, "predicted_ms": 4548.09, "decode_tok_s": 28.143682293006513}
+{"exp_id": "ctx_1k_mtp_on_run_4_v2", "predicted_n": 128, "predicted_ms": 3321.001, "decode_tok_s": 38.54259604257872}
+{"exp_id": "ctx_1k_mtp_on_run_5_v2", "predicted_n": 128, "predicted_ms": 2711.17, "decode_tok_s": 47.212089245602456}
+target 65536, actual tokens: 65468
+{"exp_id": "ctx_64k_mtp_on_run_1_v2", "prompt_n": 65468, "prompt_ms": 207490.961, "prefill_tok_s": 315.52217833720476, "predicted_n": 65, "predicted_ms": 2963.779, "decode_tok_s": 21.93145980182733}
+{"exp_id": "ctx_64k_mtp_on_run_2_v2", "predicted_n": 68, "predicted_ms": 6957.541, "decode_tok_s": 9.773567989035207}
+{"exp_id": "ctx_64k_mtp_on_run_3_v2", "predicted_n": 64, "predicted_ms": 4256.208, "decode_tok_s": 15.03685910087101}
+{"exp_id": "ctx_64k_mtp_on_run_4_v2", "predicted_n": 65, "predicted_ms": 3160.363, "decode_tok_s": 20.56725762198836}
+{"exp_id": "ctx_64k_mtp_on_run_5_v2", "predicted_n": 64, "predicted_ms": 2559.718, "decode_tok_s": 25.00275420964341}
+DONE

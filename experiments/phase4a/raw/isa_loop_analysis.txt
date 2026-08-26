@@ -1,0 +1,5 @@
+kernel       inst/trip gld_b32gather gld_stream s_load ds_load v_dot4  waitcnt first-appearance sequence
+v0_down            414            10          4      0       0      8  lgkmcnt(0) -> vmcnt(2) -> vmcnt(9) -> vmcnt(7) -> vmcnt(6) -> vmcnt(5) -> vmcnt(4) -> vmcnt(3) -> vmcnt(0)  (n_waitcnt=10)
+v1_down            413             2          4      0       8      8  lgkmcnt(0) -> vmcnt(5) -> vmcnt(4) -> lgkmcnt(7) -> lgkmcnt(6) -> lgkmcnt(5) -> lgkmcnt(4) -> lgkmcnt(3) -> vmcnt(3) -> lgkmcnt(2) -> lgkmcnt(1) -> vmcnt(1) -> vmcnt(0)  (n_waitcnt=14)
+v0_gateup          918            19          6      0       0     16  vmcnt(1) -> vmcnt(2) -> vmcnt(0)  (n_waitcnt=22)
+v1_gateup          781             3          6      0      16     16  vmcnt(5) -> vmcnt(4) -> vmcnt(3) -> vmcnt(2) -> vmcnt(0) -> lgkmcnt(7) -> lgkmcnt(6) -> lgkmcnt(5) -> lgkmcnt(4) -> lgkmcnt(11) -> lgkmcnt(10) -> lgkmcnt(9) -> lgkmcnt(8) -> lgkmcnt(3) -> lgkmcnt(2) -> lgkmcnt(1) -> lgkmcnt(0)  (n_waitcnt=21)

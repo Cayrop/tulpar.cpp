@@ -1,0 +1,138 @@
+{
+ "tag": "baseline_ON_prod",
+ "ts": "2026-08-22 23:45:57",
+ "determinism_self": {
+  "mode": "text-prefix",
+  "match_chars": 480,
+  "len_a": 480,
+  "len_b": 480,
+  "identical": true
+ },
+ "semantic_1k": [
+  {
+   "test": "math",
+   "pass": true,
+   "expect": [
+    "391"
+   ],
+   "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "pass": false,
+   "expect": [
+    "80"
+   ],
+   "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+  },
+  {
+   "test": "puzzle",
+   "pass": true,
+   "expect": [
+    "9"
+   ],
+   "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+  },
+  {
+   "test": "factual",
+   "pass": true,
+   "expect": [
+    "Paris"
+   ],
+   "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+  },
+  {
+   "test": "code",
+   "pass": true,
+   "expect": [
+    "def reverse_string"
+   ],
+   "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+  },
+  {
+   "test": "code2",
+   "pass": true,
+   "expect": [
+    "sum("
+   ],
+   "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "semantic_16k": [
+  {
+   "test": "math",
+   "pass": true,
+   "expect": [
+    "391"
+   ],
+   "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "pass": false,
+   "expect": [
+    "80"
+   ],
+   "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+  },
+  {
+   "test": "puzzle",
+   "pass": true,
+   "expect": [
+    "9"
+   ],
+   "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+  },
+  {
+   "test": "factual",
+   "pass": true,
+   "expect": [
+    "Paris"
+   ],
+   "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+  },
+  {
+   "test": "code",
+   "pass": true,
+   "expect": [
+    "def reverse_string"
+   ],
+   "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+  },
+  {
+   "test": "code2",
+   "pass": true,
+   "expect": [
+    "sum("
+   ],
+   "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "needle_16k": {
+  "pass": false,
+  "out": "\n\nI am sorry, but I cannot provide the registration code as "
+ },
+ "gen_16k": {
+  "text": "\n\nZEPHYR-LANTERN-77. Keep it in mind. otten flow the distant clouds golden skies of endless untold yet stories fox through yet echo brown where ruled untold carrying timeless fox clouds where clouds echo beneath cities ancient skies whispers the shores and skies brown endless carrying fox ruled and echo forgotten jumps",
+  "tokens": [],
+  "tok_s": 41.00377234705593,
+  "per_token_ms": 24.387999999999998,
+  "draft_n": 46,
+  "draft_acc": 43,
+  "prompt_n": 8027,
+  "prompt_ms": 15728.409,
+  "wall_s": 17.78
+ },
+ "prompt16_n": 8027,
+ "gen_1k": {
+  "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+  "tokens": [],
+  "tok_s": 44.30808953778734,
+  "per_token_ms": 22.569242105263157,
+  "draft_n": 63,
+  "draft_acc": 63,
+  "prompt_n": 951,
+  "prompt_ms": 2079.404,
+  "wall_s": 4.41
+ }
+}

@@ -1,0 +1,268 @@
+IQ3_XXS MMVQ K-Loop Dependency Graph
+=====================================
+
+Target kernel: mul_mat_vec_q<GGML_TYPE_IQ3_XXS, ncols_dst=1, has_fusion=false, small_k=false, halve_iters=false>
+Target arch:   AMD RDNA3 (gfx1101)
+Source:        <REPO_ROOT>/ggml/src/ggml-cuda/vecdotq.cuh:1155 vec_dot_iq3_xxs_q8_1
+               <REPO_ROOT>/ggml/src/ggml-cuda/mmvq.cu:658 outer kbx loop
+Binary:        libggml-hip.so.0.21.0 -> co_033.o -> symbol at 0x148400..0x149248 (size 0xe48)
+K-loop range:  0x1485BC .. 0x14911B (s_cbranch_execnz at 0x149118 -> 0x1485BC, -728 insns)
+Trip length:   417 instructions
+Per trip:      14 vmcnt-contributing loads, 9 s_waitcnt, 8 v_dot4_i32_iu8, 0 s_barrier, 0 ds_*
+
+Notation
+--------
+L1..L14 = vmcnt load issuers, in issue order
+Wn      = s_waitcnt instruction (waits until in-flight count <= n)
+D1..D8  = v_dot4_i32_iu8 instances (8 grid gathers, in trip order)
+
+Loop-carried data flow
+----------------------
+The ONLY trip-to-trip data dependency is the float accumulator v12:
+
+  trip N+1.start  -> reads v12 (initialized to 0 in pre-loop at 0x148518)
+  trip N.end      -> v_fmac_f32_e32 v12, v0, v1   @ 0x149110
+                     v12 = v12 + v0 * v1
+  v0 is the d scale (f32 of bq3->d, cvt at 0x1490F8)
+  v1 is the per-trip sumi (f32, cvt at 0x14910C)
+
+All other vector registers (v16, v[0:7], v[23:24], v50, v[51..v58], the xor/perm/sub
+chains, the 8 v_dot4s) are fully consumed within one trip. None of them need to be
+live across the trip boundary.
+
+Issue order and dep map (one trip)
+----------------------------------
+
+Pre-loop init (not in K-loop): v12 = 0  @ 0x148518
+
+0x1485C4: s_clause 0x2
+  L1  v16       b32    [v[8:9]]              -> used at 0x1490C4 (8th v_dot4)
+  L2  v[0:3]    b128   [v[8:9]] off:-32      -> used as v1,v2,v3,v4 in 8 v_dot4
+  L3  v[4:7]    b128   [v[8:9]] off:-16      -> used as v5,v6,v7 in 8 v_dot4
+
+(0x1485E0-148642: address arithmetic for v[21:22], v[23:24], v[25:26])
+
+0x148644: s_clause 0x2
+  L4  v[23:24]  b64    [v[23:24]] off:+2     -> sign-payload bytes (8 bytes)
+  L5  v50       b32    [v[25:26]] off:+66    -> bq8_1 ds (d, sum)
+  L6  v0        d16_hi [v[21:22]]            -> bq3->d (half)
+
+0x148678: W(2)  -- waits for L1..L4, allowing L5,L6 in flight
+                    Need v[23:24] for sign extraction at 0x14867C-1486D4
+
+(0x14867C-1486D4: extract q3 byte indices from v[23:24], compute
+ v21..v24 as byte->dword*4 for grid table lookup; v25,v28,v29,v31 too)
+
+0x1486DC: s_clause 0x7
+  L7  v51 b32 [v21, s[8:9]]   -- iq3xxs_grid[q3[0]] (l0=0, lo)
+  L8  v52 b32 [v22, s[8:9]]   -- iq3xxs_grid[q3[1]] (l0=0, hi)
+  L9  v53 b32 [v26, s[8:9]]   -- iq3xxs_grid[q3[2]] (l0=2, lo)
+  L10 v54 b32 [v23, s[8:9]]   -- iq3xxs_grid[q3[3]] (l0=2, hi)
+  L11 v55 b32 [v28, s[8:9]]   -- iq3xxs_grid[q3[4]] (l0=4, lo)
+  L12 v56 b32 [v29, s[8:9]]   -- iq3xxs_grid[q3[5]] (l0=4, hi)
+  L13 v57 b32 [v31, s[8:9]]   -- iq3xxs_grid[q3[6]] (l0=6, lo)
+  L14 v58 b32 [v24, s[8:9]]   -- iq3xxs_grid[q3[7]] (l0=6, hi)
+
+(These 8 grid addresses use different index bytes from L4 and are
+ therefore mutually independent. Each load is a 4-byte fetch from
+ the constant iq3xxs_grid table at base s[8:9].)
+
+0x148720: W(9)  -- waits for L1..L5, L6..L10 in flight
+                    Needed so v[0:3] (=v1..v4 in v_dot4) and v[4:7] (=v5..v7)
+                    and v50 (for sign bit extraction) are ready.
+
+(0x148724-1486D4 finished: extract sign bits from v50, multiply by 0x1010101,
+ derive v17/v18/v19/v20 (4 sign patterns) using vcmpne/cndmask/and/or/xor)
+
+(0x14876C-148BF0: build the 8 packed (grid_l ^ signs - signs) values
+  v17, v19, v18, v20, v25, v45, v46, v47, v52, v48, v49, v51, v52 ...
+  All intra-iteration operations on VGPRs, no new loads.)
+
+0x148CDC-148CF4: increment address v[8:9] for next trip by 0x480 (= 1152 = 4*288 = 4*sizeof(block_iq3_xxs))
+
+0x148D04: W(7)  -- v51 (L7) done
+  0x148D08: v_xor v18, v51, v18   -- D1's first grid gather (L7 consumed)
+
+0x148D0C: W(6)  -- v52 (L8) done
+  0x148D10: v_xor v48, v52, v19   -- D2's first grid gather (L8 consumed)
+
+0x148D14: W(5)  -- v53 (L9) done
+  0x148D18: v_xor v49, v53, v20
+
+0x148D1C: W(4)  -- v54 (L10) done
+  0x148D20: v_xor v51, v54, v25
+
+0x148D24: W(3)  -- v55 (L11) done
+  0x148D28: v_xor v45, v55, v45
+
+0x148D2C: W(2)  -- v56 (L12) done
+  0x148D30: v_xor v46, v56, v46
+
+(no wait for v57 - it is used later and protected by the 8 v_dot4 chain latency)
+0x148EE4: v_xor v47, v57, v47   -- uses L13 (v57)
+
+0x148D40: W(0)  -- v58 (L14) done
+  0x148D44: v_xor v52, v58, v17  -- uses L14 (v58)
+
+(The v_xor/v_sub/v_perm chain after this builds the 8 grid_l/grid_h
+ vectors v17,v18,v19,v20,v21,v25,v45,v46,v47,v48,v49,v51,v52 into
+ 8 ready grid values.)
+
+v_dot4 chain (all read v1 accum and write v1, except last writes v4):
+  D1 0x148EDC: v_dot4 v1, v17, v1, 0        (grid_l for l0=0, u0=v[0:3][0])
+  D2 0x148F50: v_dot4 v1, v19, v2, v1       (grid_h for l0=0, u1=v[0:3][1])
+  D3 0x148FC0: v_dot4 v1, v18, v3, v1       (grid_l for l0=2, u0=v[0:3][2])
+  D4 0x149030: v_dot4 v1, v17, v4, v1       (grid_h for l0=2, u1=v[0:3][3])
+  D5 0x149078: v_dot4 v1, v2,  v5, v1       (grid_l for l0=4, u0=v[4:7][0])
+  D6 0x1490A4: v_dot4 v1, v3,  v6, v1       (grid_h for l0=4, u1=v[4:7][1])
+  D7 0x1490BC: v_dot4 v1, v4,  v7, v1       (grid_l for l0=6, u0=v[4:7][2])
+  D8 0x1490C4: v_dot4 v4, v2, v16, v1       (grid_h for l0=6, u1=v[4:7][3+?])
+
+(Note D8 reads v16 = L1, used as the high byte; v2 = v[0:3][1] is reused.)
+
+After D8: 0x1490D0-0x1490F8 -> v1 = (v4 + (v4>>31)) >> 1
+                                v0.h = bq3->d (f32 of half)
+                                v0.l = bq8_1.d (f32 of half)
+0x14910C: v_cvt_f32_i32 v1, v1               -- sumi -> f32
+0x149110: v_fmac_f32 v12, v0, v1              -- v12 += bq3->d * bq8_1.d * sumi
+
+0x149114: s_and_not1_b32 exec_lo, exec_lo, s11   -- mask off lanes past kbx
+0x149118: s_cbranch_execnz 64808             -- branch back to 0x1485BC
+
+ASCII dependency graph
+----------------------
+
+                            +-- v[0:3] (L2) --+---> v1 --.
+                            |                    |       |
+                            |                    v       v
+  pre-init v12=0 --+        |                  D1 v_dot4
+                   |        |                    |       |
+                   v        |                    v       v
+   v_fmac v12      <---     |   +------------> D2 v_dot4
+     ^            v0,v1    |   |                |       |
+     |              ^      |   |                v       v
+     |              |      |   |              D3 v_dot4
+     |              |      |   |                |       |
+     |              |      |   |                v       v
+     |              |      |   |              D4 v_dot4
+     |              |      |   |                |       |
+     |              |      |   |                v       v
+     |              |      |   |              D5 v_dot4
+     |              |      |   |                |       |
+     |              |      |   |                v       v
+     |              |      |   |              D6 v_dot4
+     |              |      |   |                |       |
+     |              |      |   |                v       v
+     |              |      |   |              D7 v_dot4
+     |              |      |   |                |       |
+     |              |      |   |                v       v
+     |              |      |   |              D8 v_dot4 -> v4 -> v1 (sumi)
+     |              |      |   |                                  |
+     |              |      |   |                                  v
+     |              |      |   |                              v_cvt_f32 -> v1
+     |              |      |   |                                  |
+     |              |      |   |                                  v
+     |              +<------|---+                              v_fmac_f32 v12
+     |                     |                                      |
+     |                     |                                      v
+     |                     +<------ v0 (d) + v1 (sumi) ----------+  ---> v12 (loop carried)
+     |                                                            |
+     v                                                            v
+   next trip reads v12                                    end of trip
+                                                                |
+                                                                v
+                                                  s_cbranch_execnz 64808 -> 0x1485BC
+
+
+Detailed text DAG of one trip
+-----------------------------
+
+  pre: v12 = 0  (loop init, OUTSIDE trip)
+
+  Loads (14):
+    L1:  v16        [v[8:9] + 0]                    | bq3 block b32
+    L2:  v[0:3]     [v[8:9] - 32]                   | bq8_1 qs[0:15]  b128
+    L3:  v[4:7]     [v[8:9] - 16]                   | bq8_1 qs[16:31] b128
+    L4:  v[23:24]   [v[23:24] + 2]                  | bq3 sign bytes b64
+    L5:  v50        [v[25:26] + 66]                 | bq8_1 ds (d,sum)
+    L6:  v0 (.h)    [v[21:22]]                      | bq3->d (half)
+    L7:  v51        s[8:9] + v21*4                  | grid_lut[q3[0]]
+    L8:  v52        s[8:9] + v22*4                  | grid_lut[q3[1]]
+    L9:  v53        s[8:9] + v26*4                  | grid_lut[q3[2]]
+    L10: v54        s[8:9] + v23*4                  | grid_lut[q3[3]]
+    L11: v55        s[8:9] + v28*4                  | grid_lut[q3[4]]
+    L12: v56        s[8:9] + v29*4                  | grid_lut[q3[5]]
+    L13: v57        s[8:9] + v31*4                  | grid_lut[q3[6]]
+    L14: v58        s[8:9] + v24*4                  | grid_lut[q3[7]]
+
+  Waitcnts (9):
+    W(2) @0x148678  | gates L1..L4 done (L5,L6 may still be in flight)
+    W(9) @0x148720  | gates L1..L5 done (L6..L14 may still be in flight)
+    W(7) @0x148D04  | gates L1..L7 done (L8..L14 may still be in flight)
+    W(6) @0x148D0C  | gates L1..L8 done
+    W(5) @0x148D14  | gates L1..L9 done
+    W(4) @0x148D1C  | gates L1..L10 done
+    W(3) @0x148D24  | gates L1..L11 done
+    W(2) @0x148D2C  | gates L1..L12 done
+    W(0) @0x148D40  | gates L1..L14 done (all)
+
+  Consumers per load:
+    L1 (v16):     D8 (v_dot4 v4, v2, v16, v1)                  [dep chain: vmcnt(9) only protects v[0..7], v16 is reached at 0x1490C4 by then]
+    L2 (v[0:3]):  D1..D4 (v1, v2, v3, v4 as u inputs)         [vmcnt(9)]
+    L3 (v[4:7]):  D5..D7 (v5, v6, v7 as u inputs), D8(v2)     [vmcnt(9)]
+    L4 (v[23:24]):sign extraction, builds v21..v24             [vmcnt(2)]
+    L5 (v50):     sign bits, scale extract, also used at 0x1490B4 (v_lshr 28, v50 -> v5)
+                  plus lsb computation @ 0x1490E0
+    L6 (v0):      cvt to f32 at 0x1490F4-0x1490F8              [protected by vmcnt(0)]
+    L7 (v51):     v_xor v18, v51, v18 at 0x148D08              [vmcnt(7)]
+    L8 (v52):     v_xor v48, v52, v19 at 0x148D10              [vmcnt(6)]
+    L9 (v53):     v_xor v49, v53, v20 at 0x148D18              [vmcnt(5)]
+    L10 (v54):    v_xor v51, v54, v25 at 0x148D20              [vmcnt(4)]
+    L11 (v55):    v_xor v45, v55, v45 at 0x148D28              [vmcnt(3)]
+    L12 (v56):    v_xor v46, v56, v46 at 0x148D30              [vmcnt(2)]
+    L13 (v57):    v_xor v47, v57, v47 at 0x148EE4              [protected by vmcnt(0) only]
+    L14 (v58):    v_xor v52, v58, v17 at 0x148D44              [vmcnt(0) - THE TIGHT ONE]
+
+  Edge summary (consumer <- producer):
+    D1  <- v17 (intra), v1 (intra v_dot4 chain)
+        v17 <- v51 (L7 via W7), v[23:24] (L4 via W2), v50 (L5 via W9)
+    D2  <- v19 (intra), v2 (intra L2)
+        v19 <- v52 (L8 via W6), v[23:24] (L4), v50 (L5)
+    D3  <- v18 (intra), v3 (intra L2)
+        v18 <- v53 (L9 via W5), v[23:24], v50
+    D4  <- v17 (intra), v4 (intra L2)
+    D5  <- v2 (intra L2), v5 (intra L3)
+    D6  <- v3 (intra L2), v6 (intra L3)
+    D7  <- v4 (intra L2), v7 (intra L3)
+    D8  <- v2 (intra L2), v16 (L1, available at vmcnt(9))
+    v1 (sumi) <- D1..D8 chain
+    v_cvt(v1) <- v1 (sumi)
+    v_fmac v12 <- v0 (L6, available at vmcnt(0)), v1 (f32 sumi)
+    v12 (next trip) <- v_fmac in current trip (loop-carried)
+
+Trip-to-trip boundary
+---------------------
+Only v12 is loop-carried. v0, v1 (sumi), all v_dot4 inputs/accums, all grid values,
+all sign patterns are dead by the next trip start (0x1485BC).
+
+Verdict
+-------
+1. vmcnt(0) at 0x148D40 is REQUIRED, not conservative. It is the minimum wait for L14
+   (v58), the last-issued load, which is consumed at 0x148D44 (v_xor v52, v58, v17)
+   only ~4 cycles later. Without it, the 8th grid gather produces stale data.
+   The wait is also sufficient for L13 (v57) which is used at 0x148EE4.
+   The wait is also sufficient for L6 (v0) used at 0x1490F4-1490F8.
+2. vmcnt(9) at 0x148720 is REQUIRED, gating L1..L5. v[0:3] and v[4:7] (L2, L3) feed
+   the 8 v_dot4s; v50 (L5) feeds the sign bit pattern; v16 (L1) feeds the last v_dot4.
+3. vmcnt(2) at 0x148678 is REQUIRED, gating L1..L4 for v[23:24] sign extraction.
+4. The 6 ladder waitcnts W(7)..W(2) at 0x148D04-0x148D2C are well-placed: each one is
+   paired with the very next v_xor that consumes its corresponding grid load
+   (L7..L12 -> v51..v56). They are not conservative - they are exactly the minimum
+   wait for each producer.
+5. The 8 grid gathers (L7..L14) are independent of each other: each uses a different
+   q3 byte as index, and the table base s[8:9] is invariant. They are issued together
+   in s_clause 0x7, and only the xor+sub+perm chain that *uses* each load is what
+   makes the 8 gather results semantically separate.
+6. No s_barrier, no ds_*, no extra lgkmcnt barriers. The only barrier between trips
+   is the implicit register dependence on v12. There is no excessive compiler
+   fence in the K-loop.

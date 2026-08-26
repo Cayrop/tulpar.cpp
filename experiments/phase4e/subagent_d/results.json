@@ -1,0 +1,238 @@
+{
+  "experiment": "Phase-4E / Subagent-D: VDR-increase variants of IQ3_XXS MMVQ",
+  "baseline": "V0 = current harness IQ3_XXS kernel, VDR=2 (production-equivalent)",
+  "variants": {
+    "V0": "1 iqs slice per vec_dot call (production VDR=2)",
+    "D1": "2 iqs slices per call (VDR=4)",
+    "D2": "4 iqs slices per call (VDR=8)",
+    "D3": "8 iqs slices per call (VDR=16)"
+  },
+  "device": {
+    "name": "gfx1101",
+    "CUs": 30,
+    "clock_mhz": 2254
+  },
+  "kernel_characteristics": {
+    "V0": {
+      "VGPR_count": 77,
+      "occ_blocks_per_CU": 64,
+      "kloop_insns": 417,
+      "vdot4_per_call": 8,
+      "trips_per_thread": 17,
+      "per_row_total_vdot4": 136
+    },
+    "D1": {
+      "VGPR_count": 38,
+      "occ_blocks_per_CU": 64,
+      "kloop_insns": 913,
+      "vdot4_per_call": 16,
+      "trips_per_thread": 9,
+      "per_row_total_vdot4": 136
+    },
+    "D2": {
+      "VGPR_count": 44,
+      "occ_blocks_per_CU": 64,
+      "kloop_insns": 1797,
+      "vdot4_per_call": 32,
+      "trips_per_thread": 5,
+      "per_row_total_vdot4": 160
+    },
+    "D3": {
+      "VGPR_count": 55,
+      "occ_blocks_per_CU": 64,
+      "kloop_insns": 3565,
+      "vdot4_per_call": 64,
+      "trips_per_thread": 3,
+      "per_row_total_vdot4": 192
+    }
+  },
+  "ffn_down_K17408_N5120_batch1": {
+    "shape": "ffn_down",
+    "K": 17408,
+    "N": 5120,
+    "batch": 1,
+    "fused": false,
+    "V0": {
+      "ms_median": 0.1398,
+      "GBps_weight": 164.3,
+      "GBps_total": 164.6,
+      "VGPR": 77,
+      "occ_blocks": 64
+    },
+    "D1": {
+      "ms_median": 0.1429,
+      "GBps_weight": 160.8,
+      "GBps_total": 161.1,
+      "VGPR": 38,
+      "occ_blocks": 64,
+      "delta_pct_vs_V0": -2.1
+    },
+    "D2": {
+      "ms_median": 0.1528,
+      "GBps_weight": 150.4,
+      "GBps_total": 150.6,
+      "VGPR": 44,
+      "occ_blocks": 64,
+      "delta_pct_vs_V0": -8.5
+    },
+    "D3": {
+      "ms_median": 0.1842,
+      "GBps_weight": 124.7,
+      "GBps_total": 124.9,
+      "VGPR": 55,
+      "occ_blocks": 64,
+      "delta_pct_vs_V0": -24.1
+    }
+  },
+  "fused_gateup_K5120_N17408_batch1": {
+    "shape": "fused_gateup",
+    "K": 5120,
+    "N": 17408,
+    "batch": 1,
+    "fused": true,
+    "V0": {
+      "ms_median": 0.2512,
+      "GBps_weight": 182.9,
+      "GBps_total": 183.2,
+      "VGPR": 30,
+      "occ_blocks": 64
+    },
+    "D1": {
+      "ms_median": 0.2919,
+      "GBps_weight": 157.5,
+      "GBps_total": 157.7,
+      "VGPR": 43,
+      "occ_blocks": 64,
+      "delta_pct_vs_V0": -13.9
+    },
+    "D2": {
+      "ms_median": 0.3828,
+      "GBps_weight": 120.0,
+      "GBps_total": 120.2,
+      "VGPR": 67,
+      "occ_blocks": 64,
+      "delta_pct_vs_V0": -34.4
+    },
+    "D3": {
+      "ms_median": 0.3896,
+      "GBps_weight": 118.0,
+      "GBps_total": 118.2,
+      "VGPR": 113,
+      "occ_blocks": 44,
+      "delta_pct_vs_V0": -35.5,
+      "occupancy_drop": true
+    }
+  },
+  "stall_metrics_rocprofv3": {
+    "tool": "rocprofv3 1.1.0 (ROCm 7.2.4)",
+    "metrics_collected": [
+      "SQ_WAVE_CYCLES",
+      "SQ_WAIT_INST_ANY",
+      "SQ_WAIT_ANY",
+      "GRBM_GUI_ACTIVE"
+    ],
+    "metrics_unavailable_on_gfx1101": ["SQ_ACTIVE_INST_ANY", "SQ_ACTIVE_INST_VALU", "SQ_ACTIVE_INST_VMEM"],
+    "ffn_down_batch1": {
+      "V0": {
+        "wave_issue_wait_pct": 78.29,
+        "wave_dep_wait_pct": 14.46,
+        "wave_cycles_median": 483339605
+      },
+      "D1": {
+        "wave_issue_wait_pct": 55.40,
+        "wave_dep_wait_pct": 38.66,
+        "wave_cycles_median": 783135870
+      },
+      "D2": {
+        "wave_issue_wait_pct": 59.21,
+        "wave_dep_wait_pct": 34.37,
+        "wave_cycles_median": 915111066
+      },
+      "D3": {
+        "wave_issue_wait_pct": 68.61,
+        "wave_dep_wait_pct": 24.91,
+        "wave_cycles_median": 660457016
+      }
+    },
+    "fused_gateup_batch1": {
+      "V0": {
+        "wave_issue_wait_pct": 67.02,
+        "wave_dep_wait_pct": 26.59,
+        "wave_cycles_median": 1033664129
+      },
+      "D1": {
+        "wave_issue_wait_pct": 68.24,
+        "wave_dep_wait_pct": 25.44,
+        "wave_cycles_median": 1209982858
+      },
+      "D2": {
+        "wave_issue_wait_pct": 73.19,
+        "wave_dep_wait_pct": 20.59,
+        "wave_cycles_median": 1596307941
+      },
+      "D3": {
+        "wave_issue_wait_pct": 52.73,
+        "wave_dep_wait_pct": 39.27,
+        "wave_cycles_median": 1234229128
+      }
+    }
+  },
+  "bit_exact_verification": {
+    "method": "Same-seed, 3 warmups + 1 production launch, compare per-element dst[0..N-1] floats to V0",
+    "ffn_down_K17408_N5120_fused0": {
+      "V0_checksum": "00000af897816b9b",
+      "D1_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 0.25,
+        "max_rel_diff": 0.000177202,
+        "ulp_distribution": {"1": 1293, "2": 918, "3": 351, "4+": 2558}
+      },
+      "D2_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 0.25,
+        "max_rel_diff": 0.000379795,
+        "ulp_distribution": {"1": 1291, "2": 940, "3": 323, "4+": 2566}
+      },
+      "D3_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 0.25,
+        "max_rel_diff": 0.000531713,
+        "ulp_distribution": {"1": 1329, "2": 954, "3": 361, "4+": 2476}
+      }
+    },
+    "fused_gateup_K5120_N17408_fused1": {
+      "V0_checksum": "00000bbf8a5cdbe4",
+      "D1_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 262144,
+        "max_rel_diff": 0.0225205,
+        "ulp_distribution": {"1": 402, "2": 1860, "3": 1032, "4+": 14114}
+      },
+      "D2_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 262144,
+        "max_rel_diff": 0.00220305,
+        "ulp_distribution": {"1": 399, "2": 1884, "3": 1066, "4+": 14059}
+      },
+      "D3_vs_V0": {
+        "verdict": "BEYOND_3ULP",
+        "max_abs_diff": 262144,
+        "max_rel_diff": 0.0230391,
+        "ulp_distribution": {"1": 396, "2": 1856, "3": 1047, "4+": 14109}
+      }
+    }
+  },
+  "verdict": {
+    "VDR_increase_helps": false,
+    "optimal_VDR": "V0 (VDR=2, 1 iqs slice per call) is optimal; all higher VDRs are slower or equal",
+    "trip_reduction_valid_lever": false,
+    "summary": "VDR increase (more iqs-slices per vec_dot call) does NOT help on gfx1101 IQ3_XXS. The per-trip fixed cost (loop overhead, address compute) is small (~5 insns out of 417 = 1.2%), so amortizing it is negligible. The per-trip work scales linearly with VDR (8*vdot4 per call), but the per-row total work is unchanged. D1 has 16 vdot4 per call vs V0's 8, so each call is 2.19x longer (913 vs 417 insns) but trip count halves (17 -> 9), giving 1.16x more total insns per row. D2 and D3 scale worse. The fused gateup path is more sensitive because the 2x weight-matrix reads dominate; D3's occupancy drop (44 vs 64 blocks/CU) and VGPR spike (113) further degrade performance.",
+    "why_not_works": [
+      "Per-trip fixed cost is small (1.2% of 417 insns in V0); amortization gives no win",
+      "Per-trip work scales linearly with VDR; total per-row insns increases with VDR",
+      "Independent accumulators expose ILP, but the 8-deep v_dot4 chain is still 8-deep per iqs-slice, so the chain depth is unchanged within each slice",
+      "For V0: 8-deep chain into v1; For D1: 2 independent 8-deep chains into v1 and another accumulator. The 2 chains can issue in parallel, but the SIMD pipe is already saturated by the existing chain"
+    ],
+    "subagent_a_alignment": "Subagent-A's ISA analysis identified the 8-deep v_dot4 chain as the binding serialization. Splitting into 2 4-deep chains (their top recommendation) is different from VDR increase, which is 2 8-deep chains into independent accumulators. VDR increase does not reduce chain depth per slice; it only reduces trip count. The subagent-A recommendation is for chain-depth reduction, not trip-count reduction."
+  }
+}

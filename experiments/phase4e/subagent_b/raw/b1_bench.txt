@@ -1,0 +1,2 @@
+type=18 shape=0 batch=1 fused=0 variant=V0 nwarps_ovr=0 ms=0.1384 min=0.1341 p10=0.1370 p90=0.1393 max=0.1527 GBps_weight=166.0 regs=76 occ_blocks=64 wg=32
+type=18 shape=1 batch=1 fused=1 variant=V0 nwarps_ovr=0 ms=0.2459 min=0.2448 p10=0.2454 p90=0.2505 max=0.2551 GBps_weight=186.9 regs=33 occ_blocks=64 wg=32

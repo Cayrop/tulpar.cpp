@@ -1,0 +1,10 @@
+{
+ "tag": "t16k",
+ "words": 16320,
+ "bench": {
+  "prompt_n": 16356,
+  "prefill_tok_s": 483.98,
+  "decode_tok_s": 18.826,
+  "draft_acc": null
+ }
+}

@@ -1,0 +1,501 @@
+{
+ "tag": "baseline_v3",
+ "ts_recorded": "2026-08-26 01:20:27",
+ "window": "phase-0 completion (V3 baseline establishment), started 2026-08-25 ~23:55 +03",
+ "supersedes": [
+  "baseline_ON_prod_v3.json (proven contaminated: foreign KV echo in 'factual' head + recorded against pre-swap V2-equivalent bytes; see experiments/phase0/model_swap_verification.md and phase0_blockers.md B0-4)"
+ ],
+ "model": {
+  "path": "/home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf",
+  "version_label": "V3",
+  "sha256": "fd4730dd8aad070517978752b63d530aeb1740d2283cab9fa24f1e404032ddb0",
+  "file_size_bytes": 9828981664,
+  "note": "sha256 recomputed at record time; matches fd4730dd... fingerprint of v3_quant_distribution.json. That JSON's file_size field (9817985024) is misrecorded; actual size is 9828981664 B."
+ },
+ "binary": {
+  "path": "<REPO_ROOT>/build-p3/bin/llama-server",
+  "sha256": "280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13"
+ },
+ "git_head": "66dcba5eb",
+ "gate_context": "correctness_gate_v3.md GATE_FAIL adjudicated by human: probe deltas accepted as known V3 behavior changes; baselines mandated by 'PHASE-0 COMPLETION' task.",
+ "known_v3_behavior_changes": [
+  {
+   "test": "puzzle",
+   "mtp_on_pass": false,
+   "mtp_off_pass": false,
+   "head_mtp_off": "\n\n8\n\n**Explanation:**\nThe phrase \"All but 9\" means that everyone except 9 sheep ran away. Therefore, the 9 sheep that did not run away are the ones remaining.\n\n",
+   "metrics_mtp_off": {
+    "n_words": 39,
+    "uniq_ratio": 0.7949,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.0789,
+    "trigram_rep_rate": 0.027,
+    "longest_repeated_ngram": 3,
+    "last50_uniq": 31
+   }
+  },
+  {
+   "test": "degen_trap_p1k",
+   "mtp_on_pass": false,
+   "mtp_off_pass": false,
+   "head_mtp_off": " and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while",
+   "metrics_mtp_off": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  }
+ ],
+ "expected_gate_signature": {
+  "deterministic_fails": [
+   "puzzle",
+   "degen_trap_p1k"
+  ],
+  "note": "puzzle answers 8 instead of 9; degen_trap_p1k produces a different degenerate loop surface instead of the V2 'and where...' head. Both stable across MTP ON/OFF and reps. All other deterministic tests and sampled sanity are expected to pass."
+ },
+ "suite_mtp_on_ctx65536_prod_flags": {
+  "summary": {
+   "det_pass": 10,
+   "det_total": 12,
+   "samp_pass": 9,
+   "samp_total": 9
+  },
+  "tests": [
+   {
+    "test": "factual_en",
+    "pass": true,
+    "tok_s": 40.3655226905768,
+    "prompt_n": 19
+   },
+   {
+    "test": "arith_simple",
+    "pass": true,
+    "tok_s": 42.0481567698427,
+    "prompt_n": 21
+   },
+   {
+    "test": "arith_multistep",
+    "pass": true,
+    "tok_s": 37.34521741140736,
+    "prompt_n": 33
+   },
+   {
+    "test": "puzzle",
+    "pass": false,
+    "tok_s": 36.04605656141218,
+    "prompt_n": 34
+   },
+   {
+    "test": "code_func",
+    "pass": true,
+    "tok_s": 45.485296997443726,
+    "prompt_n": 15
+   },
+   {
+    "test": "code_oneliner",
+    "pass": true,
+    "tok_s": 46.86324564973424,
+    "prompt_n": 24
+   },
+   {
+    "test": "turkish",
+    "pass": true,
+    "tok_s": 28.656789220169504,
+    "prompt_n": 26
+   },
+   {
+    "test": "list_struct",
+    "pass": true,
+    "tok_s": 44.59641506528606,
+    "prompt_n": 20
+   },
+   {
+    "test": "needle16k_single",
+    "pass": true,
+    "tok_s": 36.31941000544601,
+    "prompt_n": 24840
+   },
+   {
+    "test": "needle_multi",
+    "pass": true,
+    "tok_s": 43.11324276509065,
+    "prompt_n": 24048
+   },
+   {
+    "test": "longgen_story",
+    "pass": true,
+    "tok_s": 28.517096669918267,
+    "prompt_n": 10
+   },
+   {
+    "test": "degen_trap_p1k",
+    "pass": false,
+    "tok_s": 46.40248834564871,
+    "prompt_n": 951
+   }
+  ],
+  "sampled": [
+   {
+    "test": "turkish",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0286,
+    "last50_uniq": 28,
+    "head": " Ankara\n\nSoru: 2+2 ka\u00e7 eder?\nCevap: 4\n\nSoru: Ay hangi gezege"
+   },
+   {
+    "test": "turkish",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.0263,
+    "last50_uniq": 28,
+    "head": " Ankara\n\nSoru: Bir hafta ka\u00e7 g\u00fcnd\u00fcr?\nCevap: 7\n\nSoru: 2 + 2 k"
+   },
+   {
+    "test": "turkish",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.186,
+    "last50_uniq": 29,
+    "head": "\n\n<think>\nThe user is asking \"What is the capital of Turkey?"
+   },
+   {
+    "test": "story",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0308,
+    "last50_uniq": 39,
+    "head": "\n\n<think>\n\n</think>\n\nThe wind did not howl; it screamed. It "
+   },
+   {
+    "test": "story",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.1392,
+    "last50_uniq": 38,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "story",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.08,
+    "last50_uniq": 42,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "arith",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 38,
+    "head": "\n\nTo determine the average speed in km/h, we first need to c"
+   },
+   {
+    "test": "arith",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.0179,
+    "last50_uniq": 38,
+    "head": "\n\nTo find the average speed in km/h, we first need to conver"
+   },
+   {
+    "test": "arith",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 38,
+    "head": "\n\nTo find the average speed in km/h, we first need to conver"
+   }
+  ],
+  "raw": "results2/correctness/suite_on_v3_completion.json"
+ },
+ "suite_mtp_off_ctx131072_no_spec": {
+  "summary": {
+   "det_pass": 10,
+   "det_total": 12,
+   "samp_pass": 8,
+   "samp_total": 9
+  },
+  "tests": [
+   {
+    "test": "factual_en",
+    "pass": true,
+    "tok_s": 23.47710981792752,
+    "prompt_n": 19
+   },
+   {
+    "test": "arith_simple",
+    "pass": true,
+    "tok_s": 23.585260717493743,
+    "prompt_n": 21
+   },
+   {
+    "test": "arith_multistep",
+    "pass": true,
+    "tok_s": 23.586159491856787,
+    "prompt_n": 33
+   },
+   {
+    "test": "puzzle",
+    "pass": false,
+    "tok_s": 23.603842106032207,
+    "prompt_n": 34
+   },
+   {
+    "test": "code_func",
+    "pass": true,
+    "tok_s": 23.6148991618948,
+    "prompt_n": 15
+   },
+   {
+    "test": "code_oneliner",
+    "pass": true,
+    "tok_s": 23.572534176452578,
+    "prompt_n": 24
+   },
+   {
+    "test": "turkish",
+    "pass": true,
+    "tok_s": 23.497262568910724,
+    "prompt_n": 26
+   },
+   {
+    "test": "list_struct",
+    "pass": true,
+    "tok_s": 23.66491903472135,
+    "prompt_n": 20
+   },
+   {
+    "test": "needle16k_single",
+    "pass": true,
+    "tok_s": 20.196113781309926,
+    "prompt_n": 24840
+   },
+   {
+    "test": "needle_multi",
+    "pass": true,
+    "tok_s": 20.3172065705368,
+    "prompt_n": 24048
+   },
+   {
+    "test": "longgen_story",
+    "pass": true,
+    "tok_s": 23.010223391760306,
+    "prompt_n": 10
+   },
+   {
+    "test": "degen_trap_p1k",
+    "pass": false,
+    "tok_s": 23.389111851410696,
+    "prompt_n": 951
+   }
+  ],
+  "sampled": [
+   {
+    "test": "turkish",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.1282,
+    "last50_uniq": 30,
+    "head": " Ankara\n\nSoru: 2+2 ka\u00e7 eder?\nCevap: 4\n\nSoru: \"Kelebek\" kelim"
+   },
+   {
+    "test": "turkish",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.125,
+    "last50_uniq": 27,
+    "head": " Ankara\n\nSoru: Bir hafta ka\u00e7 g\u00fcnd\u00fcr?\nCevap: 7\n\nSoru: 2 + 2 k"
+   },
+   {
+    "test": "turkish",
+    "seed": 777,
+    "pass": false,
+    "bigram_rep": 0.5091,
+    "last50_uniq": 17,
+    "head": "\n\n<think>\nThe user is asking \"What is the capital of Turkey?"
+   },
+   {
+    "test": "story",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0274,
+    "last50_uniq": 40,
+    "head": "\n\n<think>\n\n</think>\n\nThe wind did not blow on the coast of B"
+   },
+   {
+    "test": "story",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.0789,
+    "last50_uniq": 38,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "story",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.0676,
+    "last50_uniq": 40,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "arith",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 38,
+    "head": "\n\nTo determine the average speed in km/h, we first need to c"
+   },
+   {
+    "test": "arith",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.0179,
+    "last50_uniq": 38,
+    "head": "\n\nTo find the average speed in km/h, we first need to conver"
+   },
+   {
+    "test": "arith",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 38,
+    "head": "\n\nTo find the average speed in km/h, we first need to conver"
+   }
+  ],
+  "raw": "results2/correctness/suite_off_v3_completion.json"
+ },
+ "semantic_smoke_mtp_on": {
+  "ts": "2026-08-26 00:24:01",
+  "mtp": "on",
+  "server_base": "http://localhost:8080",
+  "semantic_smoke": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": true,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  480/45 = 10.666666666666667 480/45 = 10.666666666"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep "
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P"
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa"
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "determinism_self_1k_seed4242": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "gen_1k_head": " and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while"
+ },
+ "semantic_smoke_mtp_off": {
+  "ts": "2026-08-26 00:29:12",
+  "mtp": "off",
+  "server_base": "http://localhost:8080",
+  "semantic_smoke": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": true,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  480/45 = 10.666666666666667 480/45 = 10.666666666"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep "
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P"
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa"
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "determinism_self_1k_seed4242": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "gen_1k_head": " and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while"
+ },
+ "usage_as_restore_target": "Compare future restore checks against semantic_smoke_mtp_on.semantic_smoke out_heads (recorded with cache_prompt=False per request; determinism self-check identical=true). Character-exact match required only for heads marked pass=true here."
+}

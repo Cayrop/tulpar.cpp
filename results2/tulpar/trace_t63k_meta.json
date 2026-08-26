@@ -1,0 +1,10 @@
+{
+ "tag": "t63k",
+ "words": 64512,
+ "bench": {
+  "prompt_n": 64554,
+  "prefill_tok_s": 331.01,
+  "decode_tok_s": 14.804,
+  "draft_acc": null
+ }
+}

@@ -1,0 +1,4 @@
+Linux cachyos-x8664 7.2.0-1-cachyos #1 SMP PREEMPT_DYNAMIC Thu, 20 Aug 2026 16:18:38 +0000 x86_64 GNU/Linux
+  Name:                    AMD Ryzen 7 5700X 8-Core Processor 
+  Marketing Name:          AMD Ryzen 7 5700X 8-Core Processor 
+66dcba5eb7dd92cd460cfc040c7cae42f1254e20

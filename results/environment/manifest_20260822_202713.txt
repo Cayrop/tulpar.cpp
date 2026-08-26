@@ -1,0 +1,64 @@
+=== REPRODUCIBILITY MANIFEST ===
+UTC: 2026-08-22 17:27:13
+
+--- llama.cpp ---
+849798132 ggml: fix backend split scheduler race condition (#26040)
+b10524-6-g849798132
+binary: <REPO_ROOT>/build/bin/llama-server
+version: 0.1.2-dev (build 10530, commit 849798132)
+built with Clang 22.0.0 for Linux x86_64
+
+--- OS / Kernel ---
+7.1.8-1-cachyos GNU/Linux
+PRETTY_NAME="CachyOS"
+
+--- ROCm ---
+7.2.4
+             version: 1.1.0
+        git_revision: 97f5574fe2fdc7bef44fb01545347912ee9f1779
+        library_arch: 
+amd
+--- GPU ---
+  Marketing Name:          AMD Radeon RX 7800 XT              
+Driver version: 7.1.8-1-cachyos
+GPU[0]		: Temperature (Sensor edge) (C): 37.0
+GPU[0]		: mclk clock level: 1: (456Mhz)
+GPU[0]		: sclk clock level: S: (129Mhz)
+=================================== Power Consumption ====================================
+GPU[0]		: Average Graphics Package Power (W): 23.0
+GPU[0]		: GPU use (%): 5
+GPU[0]		: VRAM Total Memory (B): 17163091968
+GPU[0]		: VRAM Total Used Memory (B): 14369230848
+
+--- CPU/RAM ---
+CPU(s) scaling MHz:                      73%
+İşlemci en yüksek MHz:                   5488,9761
+İşlemci asgari MHz:                      661,3230
+               total        used        free      shared  buff/cache   available
+Mem:            31Gi        13Gi       7,3Gi       111Mi        10Gi        17Gi
+NUMA düğümü(leri):                       1
+NUMA düğüm0 işlemci:                     0-15
+
+--- llama-server PID 55154 cmdline ---
+./llama-server -m /home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf --alias Qwen3.8-27b -c 65536 -ngl 999 --load-mode mmap -fa on -ctk q4_0 -ctv q4_0 --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.0 --cache-prompt --ctx-checkpoints 4 -t 8 -np 1 --host 0.0.0.0 --port 8080 --metrics --tools all --chat-template-kwargs {"preserve_thinking": true} --spec-type draft-mtp --spec-draft-n-max 4 --spec-draft-p-min 0.8 
+    PID    PPID  NI CLS RTPRIO                         
+  55154   34125  -4  TS      - Cts Ağu 22 20:22:28 2026
+
+--- Process tree / namespace ---
+toplam 0
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 cgroup -> cgroup:[4026531835]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 mnt -> mnt:[4026531832]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 net -> net:[4026531833]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 pid -> pid:[4026531836]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 pid_for_children -> pid:[4026531836]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 time -> time:[4026531834]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 time_for_children -> time:[4026531834]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 user -> user:[4026531837]
+lrwxrwxrwx 1 gencer gencer 0 Ağu 22 20:27 uts -> uts:[4026531838]
+systemd 261 (261.2-1-arch)
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+--- Model file ---
+-rw-r--r-- 1 gencer gencer 10676423744 Ağu 14 19:00 /home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf
+9cecae1d6d66aa79559b807252404192  /home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf

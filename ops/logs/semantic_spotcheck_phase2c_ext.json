@@ -1,0 +1,50 @@
+[
+ {
+  "test": "math",
+  "expect": [
+   "391"
+  ],
+  "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *",
+  "match": true
+ },
+ {
+  "test": "math2",
+  "expect": [
+   "80"
+  ],
+  "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di",
+  "match": false
+ },
+ {
+  "test": "puzzle",
+  "expect": [
+   "9"
+  ],
+  "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th",
+  "match": true
+ },
+ {
+  "test": "factual",
+  "expect": [
+   "Paris"
+  ],
+  "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  ",
+  "match": true
+ },
+ {
+  "test": "code",
+  "expect": [
+   "def reverse_string"
+  ],
+  "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. ",
+  "match": true
+ },
+ {
+  "test": "code2",
+  "expect": [
+   "sum("
+  ],
+  "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of ",
+  "match": true
+ }
+]

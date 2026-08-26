@@ -1,0 +1,12 @@
+#!/bin/bash
+ROOT="$(git rev-parse --show-toplevel)"
+cd "${ROOT}/build/bin"
+exec ./llama-server \
+  -m /home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf \
+  --alias Qwen3.8-27b \
+  -c 65536 -ngl 999 --load-mode mmap -fa on -ctk q4_0 -ctv q4_0 \
+  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.0 \
+  --cache-prompt --ctx-checkpoints 4 -t 8 -np 1 \
+  --host 0.0.0.0 --port 8080 --metrics --tools all \
+  --chat-template-kwargs '{"preserve_thinking": true}' \
+  --spec-type draft-mtp --spec-draft-n-max 4 --spec-draft-p-min 0.8

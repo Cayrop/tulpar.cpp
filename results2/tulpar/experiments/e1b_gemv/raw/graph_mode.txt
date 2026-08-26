@@ -1,0 +1,9 @@
+# device AMD Radeon RX 7800 XT CUs=30
+shape0 v0_stream med_us_per_call=131.15 eff_gbps=260.1
+shape0 v0_graph med_us_per_call=131.11 eff_gbps=260.2 nodes=24
+shape0 dep_chain_stream med_us_per_node=2.96
+shape0 dep_chain_graph med_us_per_node=2.61
+shape1 v0_stream med_us_per_call=131.91 eff_gbps=258.7
+shape1 v0_graph med_us_per_call=131.71 eff_gbps=259.1 nodes=24
+shape1 dep_chain_stream med_us_per_node=2.97
+shape1 dep_chain_graph med_us_per_node=2.61

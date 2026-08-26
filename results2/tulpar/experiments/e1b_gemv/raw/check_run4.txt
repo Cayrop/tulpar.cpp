@@ -1,0 +1,43 @@
+# device AMD Radeon RX 7800 XT CUs=30
+[gpu] block0 contrib=114.145638 sumi_check
+[gpu] block1 contrib=-103.036095 sumi_check
+[gpu] block2 contrib=-1175.542969 sumi_check
+[gpu] block3 contrib=1.786595 sumi_check
+[gpu] q3p=82687abf f032d323 grid0=242c142c grid1=14141c3e
+[gpu] sumi_full=10058 ls=3 scaled=17601 d=0.583008 dy=0.011124 final=114.145638
+[gpu] q3p=82687abf f032d323 aux=33dc9f25 gx=242c142c gy=14141c3e v7=25 sg=a5a5a5a5 m0=00000000 m1=00000000
+[gpu2] sg=a5a5a5a5 s0=00ff00ff gl=24d414d4 u0=36d01de8 builtin=5692 manual=5692
+[cpu] d=38aa aux=33dc9f25 y.d=0.011124 y.q0=161
+[cpu] row0=778.856567 blocks=[114.145638 396.046051 -213.734177 330.466125]
+shape0 N=17408 K=5120 |ref|max=23492.904297
+  dbg dst[0..3]=-527.219 -3206.99 604.687 -9573.09
+  V0_baseline_wg32   max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=1.0000
+  V1_wg64            max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=0.3558
+  V2_wg128           max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=0.3295
+  V3_rows2_wg32      max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=1.0000
+  V4_rows4_wg128     max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=0.3295
+  V5_stream_dword    max_abs=3.557e+08 mean_abs=7.271e+07 rel_max=1.514e+04 vs_baseline_bitmatch=0.0000
+  V6_lds_grid        max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=1.0000
+  V7_ilp2            max_abs=3.109e+04 mean_abs=6.299e+03 rel_max=1.323e+00 vs_baseline_bitmatch=0.2910
+  V8_stream_nt       max_abs=3.557e+08 mean_abs=7.271e+07 rel_max=1.514e+04 vs_baseline_bitmatch=0.0000
+[gpu] block0 contrib=-1040.121826 sumi_check
+[gpu] block1 contrib=254.804169 sumi_check
+[gpu] block2 contrib=240.822372 sumi_check
+[gpu] block3 contrib=-201.255814 sumi_check
+[gpu] q3p=85472d03 e4b1e668 grid0=04040c0c grid1=04243e1c
+[gpu] sumi_full=-31734 ls=9 scaled=-150736 d=0.586914 dy=0.011757 final=-1040.121826
+[gpu] q3p=85472d03 e4b1e668 aux=9ebff499 gx=04040c0c gy=04243e1c v7=99 sg=99999999 m0=00000000 m1=00000000
+[gpu2] sg=99999999 s0=ff0000ff gl=fc040cf4 u0=899c9132 builtin=-1856 manual=-1856
+[cpu] d=38b2 aux=9ebff499 y.d=0.011757 y.q0=132
+[cpu] row0=8873.129883 blocks=[-1040.121826 -364.328888 451.521942 -254.651169]
+shape1 N=5120 K=17408 |ref|max=38091.148438
+  dbg dst[0..3]=-8759.31 -18905.2 5570.27 14436.2
+  V0_baseline_wg32   max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=1.0000
+  V1_wg64            max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=0.2600
+  V2_wg128           max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=0.2586
+  V3_rows2_wg32      max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=1.0000
+  V4_rows4_wg128     max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=0.2586
+  V5_stream_dword    max_abs=8.030e+08 mean_abs=1.355e+08 rel_max=2.108e+04 vs_baseline_bitmatch=0.0000
+  V6_lds_grid        max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=1.0000
+  V7_ilp2            max_abs=5.489e+04 mean_abs=1.149e+04 rel_max=1.441e+00 vs_baseline_bitmatch=0.2354
+  V8_stream_nt       max_abs=8.030e+08 mean_abs=1.355e+08 rel_max=2.108e+04 vs_baseline_bitmatch=0.0000

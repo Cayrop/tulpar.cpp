@@ -1,0 +1,63 @@
+{
+ "ts": "2026-08-26 00:24:01",
+ "mtp": "on",
+ "server_base": "http://localhost:8080",
+ "semantic_smoke": [
+  {
+   "test": "math",
+   "pass": true,
+   "expect": [
+    "391"
+   ],
+   "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "pass": true,
+   "expect": [
+    "80"
+   ],
+   "out_head": "  480/45 = 10.666666666666667 480/45 = 10.666666666"
+  },
+  {
+   "test": "puzzle",
+   "pass": true,
+   "expect": [
+    "9"
+   ],
+   "out_head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep "
+  },
+  {
+   "test": "factual",
+   "pass": true,
+   "expect": [
+    "Paris"
+   ],
+   "out_head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P"
+  },
+  {
+   "test": "code",
+   "pass": true,
+   "expect": [
+    "def reverse_string"
+   ],
+   "out_head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa"
+  },
+  {
+   "test": "code2",
+   "pass": true,
+   "expect": [
+    "sum("
+   ],
+   "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "determinism_self_1k_seed4242": {
+  "mode": "text-prefix",
+  "match_chars": 480,
+  "len_a": 480,
+  "len_b": 480,
+  "identical": true
+ },
+ "gen_1k_head": " and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while"
+}

@@ -1,0 +1,19 @@
+{
+  "round1": [
+    {"id": "V0", "name": "baseline_wg32", "mechanism": "production copy (nwarps=1)", "s0_gbps": 259.3, "s1_gbps": 259.9, "result": "BASELINE"},
+    {"id": "V1", "name": "wg64 (nwarps=2)",  "mechanism": "more threads per row", "s0_gbps": 215.3, "s1_gbps": 244.4, "delta_s0_pct": -17.0, "result": "REGRESS"},
+    {"id": "V2", "name": "wg128 (nwarps=4)", "mechanism": "more threads per row", "s0_gbps": 161.0, "s1_gbps": 222.1, "delta_s0_pct": -37.9, "result": "REGRESS"},
+    {"id": "V3", "name": "rows2_wg32", "mechanism": "2 rows per block, amortize y", "s0_gbps": 259.8, "s1_gbps": 231.4, "delta_s0_pct": +0.2, "result": "NEUTRAL_S0_REGRESS_S1"},
+    {"id": "V4", "name": "rows4_wg128", "mechanism": "4 rows per block", "s0_gbps": 171.4, "s1_gbps": 219.8, "delta_s0_pct": -33.9, "result": "REGRESS"},
+    {"id": "V5", "name": "fastld_funnel", "mechanism": "aligned dword + funnel shift vs byte assembly", "s0_gbps": 234.9, "s1_gbps": 232.3, "delta_s0_pct": -9.4, "result": "REGRESS"},
+    {"id": "V6", "name": "lds_grid", "mechanism": "iq3xxs_grid in LDS", "s0_gbps": 246.4, "s1_gbps": 252.0, "delta_s0_pct": -5.0, "result": "REGRESS"},
+    {"id": "V7", "name": "ilp2", "mechanism": "2 independent accumulator chains", "s0_gbps": 260.5, "s1_gbps": 257.0, "delta_s0_pct": "+0.5 / -1.1", "result": "NOISE_LEVEL"},
+    {"id": "V8", "name": "fastld_nt", "mechanism": "V5 + nontemporal weight loads", "s0_gbps": 234.7, "s1_gbps": 233.6, "delta_s0_pct": -9.5, "result": "REGRESS"}
+  ],
+  "round2": [
+    {"id": "V9", "name": "pipe_prefetch", "mechanism": "software pipeline: next-iteration loads issued before current arithmetic", "s0_gbps": 220.7, "s1_gbps": 220.6, "delta_s0_pct": -14.7, "result": "REGRESS"},
+    {"id": "V10", "name": "q8_uint4", "mechanism": "uint4 vectorized q8 loads (8 dwords -> 2)", "s0_gbps": 231.4, "s1_gbps": 228.3, "delta_s0_pct": -10.7, "result": "REGRESS"}
+  ],
+  "best_overall": {"gbps": 260.5, "variant": "V7_ilp2 shape0", "vs_baseline_pct": +0.5, "verdict": "within run-to-run noise; not a win"},
+  "conclusion": "No mechanism from the planned sweep improves the production configuration. The kernel is at a local optimum for this algorithm shape on gfx1101."
+}

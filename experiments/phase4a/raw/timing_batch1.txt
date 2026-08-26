@@ -1,0 +1,9 @@
+=== timing batch=1, 100 reps ===
+type=18 shape=0 batch=1 fused=0 variant=V0 nwarps_ovr=0 ms=0.1396 min=0.1361 p10=0.1384 p90=0.1400 max=0.1406 GBps_weight=164.7 regs=76 occ_blocks=64 wg=32
+type=18 shape=0 batch=1 fused=0 variant=V1 nwarps_ovr=0 ms=0.1400 min=0.1358 p10=0.1398 p90=0.1405 max=0.1489 GBps_weight=164.1 regs=75 occ_blocks=56 wg=32
+type=18 shape=1 batch=1 fused=1 variant=V0 nwarps_ovr=0 ms=0.2493 min=0.2477 p10=0.2481 p90=0.2530 max=0.2697 GBps_weight=184.3 regs=33 occ_blocks=64 wg=32
+type=18 shape=1 batch=1 fused=1 variant=V1 nwarps_ovr=0 ms=0.2588 min=0.2560 p10=0.2582 p90=0.2610 max=0.2682 GBps_weight=177.6 regs=92 occ_blocks=51 wg=32
+=== nwarps sweep, ffn_down batch=1, V0 arithmetic, 100 reps ===
+type=18 shape=0 batch=1 fused=0 variant=V0 nwarps_ovr=1 ms=0.1396 min=0.1364 p10=0.1371 p90=0.1401 max=0.1440 GBps_weight=164.7 regs=76 occ_blocks=64 wg=32
+type=18 shape=0 batch=1 fused=0 variant=V0 nwarps_ovr=2 ms=0.1460 min=0.1421 p10=0.1458 p90=0.1465 max=0.4116 GBps_weight=157.4 regs=76 occ_blocks=32 wg=64
+type=18 shape=0 batch=1 fused=0 variant=V0 nwarps_ovr=4 ms=0.1602 min=0.1563 p10=0.1600 p90=0.1608 max=0.1706 GBps_weight=143.4 regs=76 occ_blocks=16 wg=128

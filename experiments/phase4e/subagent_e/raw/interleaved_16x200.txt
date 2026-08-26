@@ -1,0 +1,15 @@
+=== Interleaved bench: 16 rounds x 200 reps/variant ===
+
+=== shape ffn_down (fused=0) ===
+variant  ms_min    ms_med    ms_max    gbps_min   gbps_med   gbps_max   samples
+V0       0.1730    0.1870    0.2079    110.50     122.80     132.80     16
+E1       0.1542    0.1863    0.2030    113.20     123.35     149.10     16
+E2       0.1696    0.1923    0.2018    113.80     119.55     135.50     16
+E3       0.1725    0.1948    0.2083    110.30     117.95     133.20     16
+
+=== shape ffn_gateup (fused=1) ===
+variant  ms_min    ms_med    ms_max    gbps_min   gbps_med   gbps_max   samples
+V0       0.2943    0.2988    0.3150    145.90     153.80     156.20     16
+E1       0.2950    0.3005    0.3147    146.00     152.95     155.80     16
+E2       0.2983    0.3081    0.3194    143.90     149.10     154.10     16
+E3       0.2766    0.3024    0.3130    146.80     152.00     166.20     16

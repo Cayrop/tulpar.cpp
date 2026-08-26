@@ -1,0 +1,13 @@
+# Stall ratio (SQ_WAIT_INST_ANY / SQ_WAVE_CYCLES) and related metrics
+# from rocprofv3 (averaged over 30 reps).
+# Format: variant shape stall cycles/wave valu/wave lds_insts lds_waits tex_loads
+rocprof/V0_down           0.7953   92988.5    6119.3     853          36         2.79
+rocprof/C1_down           0.7767   79529.9    5176.1     25429        1072       38.88
+rocprof/C2_down           0.7866   96400.3    6356.0     25429        1042       0.00
+rocprof/C3_down           0.7860   97548.3    6424.0     25429        1210       0.00
+rocprof/C4_down           0.7998   84724.1    5587.2     853          36         11.22
+rocprof/V0_gateup         0.6075   59411.5    3362.7     5641         25         0.04
+rocprof/C1_gateup         0.8165   54505.2    3213.0     55287        4293       62.01
+rocprof/C2_gateup         0.8157   61623.7    3640.7     55287        4619       2.69
+rocprof/C3_gateup         0.8181   56876.4    3356.7     55287        3848       54.82
+rocprof/C4_gateup         0.6079   55154.9    3101.9     5642         26         27.56

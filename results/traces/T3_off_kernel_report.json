@@ -1,0 +1,2012 @@
+{
+ "file": "results/traces/T3_mtpoff/cachyos-x8664/87605_kernel_trace.csv",
+ "kernel_rows": 2516489,
+ "unique_kernels": 62,
+ "total_gpu_time_s": 268.39888741995924,
+ "wall_span_s": 290.88556412,
+ "gpu_busy_pct": 92.269579699471,
+ "n_phases": 25,
+ "phases": [
+  {
+   "i": 0,
+   "start_s": 0.0,
+   "end_s": 0.000169721,
+   "dur_s": 0.000169721,
+   "n_kernels": 1,
+   "gpu_time_s": 0.000169721
+  },
+  {
+   "i": 1,
+   "start_s": 5.109232751,
+   "end_s": 6.00255604,
+   "dur_s": 0.8933232889999999,
+   "n_kernels": 176,
+   "gpu_time_s": 0.0005334059999999999
+  },
+  {
+   "i": 2,
+   "start_s": 6.340874268,
+   "end_s": 6.343479242,
+   "dur_s": 0.0026049739999994635,
+   "n_kernels": 2,
+   "gpu_time_s": 0.002428903
+  },
+  {
+   "i": 3,
+   "start_s": 6.392709408,
+   "end_s": 6.534247426,
+   "dur_s": 0.14153801800000015,
+   "n_kernels": 2310,
+   "gpu_time_s": 0.058654816999999956
+  },
+  {
+   "i": 4,
+   "start_s": 6.562394837,
+   "end_s": 6.620992900999999,
+   "dur_s": 0.05859806399999931,
+   "n_kernels": 2294,
+   "gpu_time_s": 0.05487564000000002
+  },
+  {
+   "i": 5,
+   "start_s": 8.852066601,
+   "end_s": 8.857391731,
+   "dur_s": 0.00532513000000082,
+   "n_kernels": 136,
+   "gpu_time_s": 0.0027663060000000014
+  },
+  {
+   "i": 6,
+   "start_s": 8.878357956,
+   "end_s": 8.994913393,
+   "dur_s": 0.11655543699999898,
+   "n_kernels": 4101,
+   "gpu_time_s": 0.09571462599999954
+  },
+  {
+   "i": 7,
+   "start_s": 9.015236692,
+   "end_s": 9.707150748,
+   "dur_s": 0.6919140559999999,
+   "n_kernels": 26355,
+   "gpu_time_s": 0.5863474900000045
+  },
+  {
+   "i": 8,
+   "start_s": 9.786445372,
+   "end_s": 9.787882085000001,
+   "dur_s": 0.0014367130000013859,
+   "n_kernels": 32,
+   "gpu_time_s": 9.132000000000001e-05
+  },
+  {
+   "i": 9,
+   "start_s": 9.808065432,
+   "end_s": 9.8218026,
+   "dur_s": 0.013737167999999599,
+   "n_kernels": 19,
+   "gpu_time_s": 0.0016981760000000002
+  },
+  {
+   "i": 10,
+   "start_s": 9.876156279,
+   "end_s": 10.661634322000001,
+   "dur_s": 0.7854780430000015,
+   "n_kernels": 2515,
+   "gpu_time_s": 0.7672397519999986
+  },
+  {
+   "i": 11,
+   "start_s": 10.684163882,
+   "end_s": 11.732723314,
+   "dur_s": 1.048559432,
+   "n_kernels": 6579,
+   "gpu_time_s": 0.988081584000001
+  },
+  {
+   "i": 12,
+   "start_s": 11.763302187999999,
+   "end_s": 18.08159407,
+   "dur_s": 6.318291882000001,
+   "n_kernels": 239267,
+   "gpu_time_s": 5.33513237100269
+  },
+  {
+   "i": 13,
+   "start_s": 18.20213992,
+   "end_s": 24.735072746,
+   "dur_s": 6.532932825999998,
+   "n_kernels": 243424,
+   "gpu_time_s": 5.514207357002838
+  },
+  {
+   "i": 14,
+   "start_s": 24.859071725,
+   "end_s": 31.336822302,
+   "dur_s": 6.477750576999999,
+   "n_kernels": 243424,
+   "gpu_time_s": 5.441018844002622
+  },
+  {
+   "i": 15,
+   "start_s": 32.540565611,
+   "end_s": 114.479626045,
+   "dur_s": 81.939060434,
+   "n_kernels": 161296,
+   "gpu_time_s": 80.77636564100186
+  },
+  {
+   "i": 16,
+   "start_s": 114.522465658,
+   "end_s": 220.58889333300002,
+   "dur_s": 106.066427675,
+   "n_kernels": 138952,
+   "gpu_time_s": 105.0036531590041
+  },
+  {
+   "i": 17,
+   "start_s": 220.627291259,
+   "end_s": 223.003925212,
+   "dur_s": 2.376633953000009,
+   "n_kernels": 6576,
+   "gpu_time_s": 2.3192815979999852
+  },
+  {
+   "i": 18,
+   "start_s": 223.025651113,
+   "end_s": 245.066241351,
+   "dur_s": 22.040590238000007,
+   "n_kernels": 472602,
+   "gpu_time_s": 20.077489737993318
+  },
+  {
+   "i": 19,
+   "start_s": 245.09061480199998,
+   "end_s": 256.54083453,
+   "dur_s": 11.450219728000015,
+   "n_kernels": 244836,
+   "gpu_time_s": 10.435066126004845
+  },
+  {
+   "i": 20,
+   "start_s": 256.792242537,
+   "end_s": 256.975084687,
+   "dur_s": 0.18284215000000595,
+   "n_kernels": 4154,
+   "gpu_time_s": 0.1617587830000004
+  },
+  {
+   "i": 21,
+   "start_s": 256.998027843,
+   "end_s": 270.000624216,
+   "dur_s": 13.002596373000026,
+   "n_kernels": 277235,
+   "gpu_time_s": 11.85754877600414
+  },
+  {
+   "i": 22,
+   "start_s": 270.062130598,
+   "end_s": 272.677593184,
+   "dur_s": 2.6154625860000253,
+   "n_kernels": 53835,
+   "gpu_time_s": 2.393204418999961
+  },
+  {
+   "i": 23,
+   "start_s": 272.754977669,
+   "end_s": 279.34925216299996,
+   "dur_s": 6.594274493999958,
+   "n_kernels": 141532,
+   "gpu_time_s": 6.0091863880024246
+  },
+  {
+   "i": 24,
+   "start_s": 279.372583833,
+   "end_s": 290.88556412,
+   "dur_s": 11.512980287000001,
+   "n_kernels": 244836,
+   "gpu_time_s": 10.473557529004642
+  }
+ ],
+ "top_kernels": [
+  {
+   "name": "void flash_attn_tile<256, 256, 16, 2, false>(char const*, char const*, char const*, char const*, char const*, int const*",
+   "cat": "flash_attn",
+   "n": 2016,
+   "total_ms": 79898.87,
+   "share_pct": 29.77,
+   "mean_us": 39632.38,
+   "median_us": 39352.31,
+   "max_us": 222128.7
+  },
+  {
+   "name": "void mul_mat_q<(ggml_type)18, 128, false>(char const*, int const*, int const*, int const*, float*, float*, float const*,",
+   "cat": "mulmat_other",
+   "n": 36000,
+   "total_ms": 79359.14,
+   "share_pct": 29.57,
+   "mean_us": 2204.42,
+   "median_us": 2591.11,
+   "max_us": 35411.53
+  },
+  {
+   "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char const*, c",
+   "cat": "flash_attn",
+   "n": 18464,
+   "total_ms": 30726.69,
+   "share_pct": 11.45,
+   "mean_us": 1664.14,
+   "median_us": 2465.19,
+   "max_us": 104970.67
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_",
+   "cat": "mmvq",
+   "n": 147712,
+   "total_ms": 28244.25,
+   "share_pct": 10.52,
+   "mean_us": 191.21,
+   "median_us": 247.58,
+   "max_us": 71618.71
+  },
+  {
+   "name": "void mul_mat_q<(ggml_type)21, 128, false>(char const*, int const*, int const*, int const*, float*, float*, float const*,",
+   "cat": "mulmat_other",
+   "n": 12000,
+   "total_ms": 12184.98,
+   "share_pct": 4.54,
+   "mean_us": 1015.41,
+   "median_us": 1003.57,
+   "max_us": 2164.94
+  },
+  {
+   "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float const*, float",
+   "cat": "ssm_gdn",
+   "n": 61872,
+   "total_ms": 7574.11,
+   "share_pct": 2.82,
+   "mean_us": 122.42,
+   "median_us": 6.32,
+   "max_us": 1305.65
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 110784,
+   "total_ms": 7037.44,
+   "share_pct": 2.62,
+   "mean_us": 63.52,
+   "median_us": 75.92,
+   "max_us": 2309.37
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 92320,
+   "total_ms": 4645.78,
+   "share_pct": 1.73,
+   "mean_us": 50.32,
+   "median_us": 48.68,
+   "max_us": 43332.55
+  },
+  {
+   "name": "void unary_gated_op_kernel<&(op_silu(float)), float>(float const*, float const*, float*, long, long, long, long)",
+   "cat": "glu_silu",
+   "n": 70512,
+   "total_ms": 1870.41,
+   "share_pct": 0.7,
+   "mean_us": 26.53,
+   "median_us": 2.04,
+   "max_us": 1015.41
+  },
+  {
+   "name": "void quantize_mmq_q8_1<(mmq_q8_1_ds_layout)0, false>(float const*, int const*, void*, long, long, long, long, long, int,",
+   "cat": "quantize_act",
+   "n": 50400,
+   "total_ms": 1807.16,
+   "share_pct": 0.67,
+   "mean_us": 35.86,
+   "median_us": 19.28,
+   "max_us": 3116.13
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 1162,
+   "total_ms": 1701.01,
+   "share_pct": 0.63,
+   "mean_us": 1463.86,
+   "median_us": 1457.52,
+   "max_us": 2054.5
+  },
+  {
+   "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, long, long,",
+   "cat": "rms_norm",
+   "n": 166281,
+   "total_ms": 1200.68,
+   "share_pct": 0.45,
+   "mean_us": 7.22,
+   "median_us": 4.28,
+   "max_us": 267.16
+  },
+  {
+   "name": "void concat_non_cont<unsigned int, 0>(char const*, char const*, char*, long, long, long, long, unsigned long, unsigned l",
+   "cat": "copy_cast",
+   "n": 6480,
+   "total_ms": 1178.38,
+   "share_pct": 0.44,
+   "mean_us": 181.85,
+   "median_us": 193.64,
+   "max_us": 287.08
+  },
+  {
+   "name": "void rms_norm_f32<256, true, false>(float const*, float*, int, long, long, long, float, float const*, long, long, long, ",
+   "cat": "rms_norm",
+   "n": 103120,
+   "total_ms": 989.33,
+   "share_pct": 0.37,
+   "mean_us": 9.59,
+   "median_us": 1.92,
+   "max_us": 212.16
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args_",
+   "cat": "mmvq",
+   "n": 18464,
+   "total_ms": 968.77,
+   "share_pct": 0.36,
+   "mean_us": 52.47,
+   "median_us": 52.28,
+   "max_us": 76.36
+  },
+  {
+   "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float*, unsigne",
+   "cat": "elementwise_add",
+   "n": 134544,
+   "total_ms": 824.92,
+   "share_pct": 0.31,
+   "mean_us": 6.13,
+   "median_us": 2.12,
+   "max_us": 598.41
+  },
+  {
+   "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3u>)",
+   "cat": "quantize_act",
+   "n": 504154,
+   "total_ms": 759.09,
+   "share_pct": 0.28,
+   "mean_us": 1.51,
+   "median_us": 1.4,
+   "max_us": 784.89
+  },
+  {
+   "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, int, int con",
+   "cat": "rope",
+   "n": 41248,
+   "total_ms": 580.52,
+   "share_pct": 0.22,
+   "mean_us": 14.07,
+   "median_us": 6.76,
+   "max_us": 193.2
+  },
+  {
+   "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3u>, unsign",
+   "cat": "get_rows",
+   "n": 61872,
+   "total_ms": 571.06,
+   "share_pct": 0.21,
+   "mean_us": 9.23,
+   "median_us": 8.84,
+   "max_us": 640.93
+  },
+  {
+   "name": "void mul_mat_q<(ggml_type)18, 112, false>(char const*, int const*, int const*, int const*, float*, float*, float const*,",
+   "cat": "mulmat_other",
+   "n": 288,
+   "total_ms": 559.96,
+   "share_pct": 0.21,
+   "mean_us": 1944.31,
+   "median_us": 2295.42,
+   "max_us": 2564.9
+  },
+  {
+   "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, long, long",
+   "cat": "copy_cast",
+   "n": 82496,
+   "total_ms": 550.32,
+   "share_pct": 0.21,
+   "mean_us": 6.67,
+   "median_us": 2.88,
+   "max_us": 161.16
+  },
+  {
+   "name": "void dequantize_block_q4_0<__half>(void const*, __half*, int)",
+   "cat": "quantize_act",
+   "n": 4256,
+   "total_ms": 522.78,
+   "share_pct": 0.19,
+   "mean_us": 122.83,
+   "median_us": 104.84,
+   "max_us": 807.77
+  },
+  {
+   "name": "void mul_mat_q<(ggml_type)23, 128, false>(char const*, int const*, int const*, int const*, float*, float*, float const*,",
+   "cat": "mulmat_other",
+   "n": 2000,
+   "total_ms": 493.8,
+   "share_pct": 0.18,
+   "mean_us": 246.9,
+   "median_us": 246.46,
+   "max_us": 324.36
+  },
+  {
+   "name": "void ssm_conv_long_token_f32<true, 128ul, 4ul, 32l>(float const*, float const*, float const*, int, int, int, int, float*",
+   "cat": "ssm_gdn",
+   "n": 6048,
+   "total_ms": 470.8,
+   "share_pct": 0.18,
+   "mean_us": 77.84,
+   "median_us": 77.76,
+   "max_us": 106.72
+  },
+  {
+   "name": "void convert_unary<float, __half>(void const*, __half*, long, long, long, HIP_vector_type<unsigned int, 3u>, long, long,",
+   "cat": "ssm_gdn",
+   "n": 12096,
+   "total_ms": 464.91,
+   "share_pct": 0.17,
+   "mean_us": 38.43,
+   "median_us": 38.28,
+   "max_us": 757.97
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 110784,
+   "total_ms": 415.45,
+   "share_pct": 0.15,
+   "mean_us": 3.75,
+   "median_us": 3.76,
+   "max_us": 17.24
+  },
+  {
+   "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+   "cat": "other_norm",
+   "n": 123744,
+   "total_ms": 367.66,
+   "share_pct": 0.14,
+   "mean_us": 2.97,
+   "median_us": 2.2,
+   "max_us": 425.08
+  },
+  {
+   "name": "Cijk_Alik_Bljk_HB_MT32x32x32_MI16x16x16x1_SN_1LDSB1_APM1_ABV0_ACED0_AF0EM1_AF1EM1_AMAS0_ASE_ASGT_ASLT_ASM_ASAE01_ASCE01_",
+   "cat": "reduce",
+   "n": 12096,
+   "total_ms": 363.67,
+   "share_pct": 0.14,
+   "mean_us": 30.07,
+   "median_us": 29.96,
+   "max_us": 70.2
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)18, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 1728,
+   "total_ms": 242.22,
+   "share_pct": 0.09,
+   "mean_us": 140.18,
+   "median_us": 166.68,
+   "max_us": 184.24
+  },
+  {
+   "name": "_ZL16k_set_rows_quantIl10block_q4_0Li32ETnPFvPKfPT0_EXadL_ZL23quantize_f32_q4_0_blockS2_PS0_EEEvS2_PKT_S4_llllllllllllll",
+   "cat": "quantize_act",
+   "n": 41248,
+   "total_ms": 190.66,
+   "share_pct": 0.07,
+   "mean_us": 4.62,
+   "median_us": 4.44,
+   "max_us": 48.04
+  },
+  {
+   "name": "void mul_mat_vec_q<(ggml_type)23, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fusion_args",
+   "cat": "mmvq",
+   "n": 18464,
+   "total_ms": 136.98,
+   "share_pct": 0.05,
+   "mean_us": 7.42,
+   "median_us": 7.36,
+   "max_us": 703.65
+  },
+  {
+   "name": "void k_get_rows_float<float, float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3u>, uns",
+   "cat": "get_rows",
+   "n": 63034,
+   "total_ms": 136.97,
+   "share_pct": 0.05,
+   "mean_us": 2.17,
+   "median_us": 1.92,
+   "max_us": 128.0
+  },
+  {
+   "name": "void fwht_cuda<256>(float const*, float*, long, float)",
+   "cat": "unclassified",
+   "n": 41248,
+   "total_ms": 135.98,
+   "share_pct": 0.05,
+   "mean_us": 3.3,
+   "median_us": 2.36,
+   "max_us": 108.4
+  },
+  {
+   "name": "void concat_cont<unsigned int, 0>(unsigned int const*, unsigned int const*, unsigned int*, long, long, long, long, long,",
+   "cat": "copy_cast",
+   "n": 55392,
+   "total_ms": 131.96,
+   "share_pct": 0.05,
+   "mean_us": 2.38,
+   "median_us": 2.28,
+   "max_us": 39.8
+  },
+  {
+   "name": "void fwht_cuda<64>(float const*, float*, long, float)",
+   "cat": "unclassified",
+   "n": 41248,
+   "total_ms": 130.71,
+   "share_pct": 0.05,
+   "mean_us": 3.17,
+   "median_us": 1.48,
+   "max_us": 72.6
+  },
+  {
+   "name": "void unary_gated_op_kernel<&(op_sigmoid(float)), float>(float const*, float const*, float*, long, long, long, long)",
+   "cat": "unclassified",
+   "n": 20624,
+   "total_ms": 125.99,
+   "share_pct": 0.05,
+   "mean_us": 6.11,
+   "median_us": 2.08,
+   "max_us": 542.77
+  },
+  {
+   "name": "void ssm_conv_f32<true, 128ul, 4ul>(float const*, float const*, float const*, int, int, int, int, float*, int, int, int,",
+   "cat": "ssm_gdn",
+   "n": 55824,
+   "total_ms": 118.86,
+   "share_pct": 0.04,
+   "mean_us": 2.13,
+   "median_us": 2.08,
+   "max_us": 38.08
+  },
+  {
+   "name": "void unary_gated_op_kernel<&(op_softplus(float)), float>(float const*, float const*, float*, long, long, long, long)",
+   "cat": "unclassified",
+   "n": 55392,
+   "total_ms": 111.99,
+   "share_pct": 0.04,
+   "mean_us": 2.02,
+   "median_us": 1.96,
+   "max_us": 38.88
+  },
+  {
+   "name": "void mul_mat_q<(ggml_type)21, 112, false>(char const*, int const*, int const*, int const*, float*, float*, float const*,",
+   "cat": "mulmat_other",
+   "n": 96,
+   "total_ms": 87.14,
+   "share_pct": 0.03,
+   "mean_us": 907.75,
+   "median_us": 897.07,
+   "max_us": 1642.69
+  },
+  {
+   "name": "void flash_attn_combine_results<256>(float const*, HIP_vector_type<float, 2u> const*, float*, int)",
+   "cat": "flash_attn",
+   "n": 18352,
+   "total_ms": 83.46,
+   "share_pct": 0.03,
+   "mean_us": 4.55,
+   "median_us": 5.2,
+   "max_us": 52.48
+  }
+ ],
+ "categories": {
+  "flash_attn": {
+   "total_ms": 110761.45,
+   "share_pct": 41.27,
+   "n": 38976
+  },
+  "mulmat_other": {
+   "total_ms": 92688.47,
+   "share_pct": 34.53,
+   "n": 50400
+  },
+  "mmvq": {
+   "total_ms": 43559.33,
+   "share_pct": 16.23,
+   "n": 504154
+  },
+  "ssm_gdn": {
+   "total_ms": 8653.49,
+   "share_pct": 3.22,
+   "n": 147936
+  },
+  "quantize_act": {
+   "total_ms": 3309.02,
+   "share_pct": 1.23,
+   "n": 612154
+  },
+  "rms_norm": {
+   "total_ms": 2190.01,
+   "share_pct": 0.82,
+   "n": 269401
+  },
+  "copy_cast": {
+   "total_ms": 1888.4,
+   "share_pct": 0.7,
+   "n": 152585
+  },
+  "glu_silu": {
+   "total_ms": 1870.41,
+   "share_pct": 0.7,
+   "n": 70512
+  },
+  "elementwise_add": {
+   "total_ms": 824.92,
+   "share_pct": 0.31,
+   "n": 134544
+  },
+  "get_rows": {
+   "total_ms": 708.03,
+   "share_pct": 0.26,
+   "n": 124906
+  },
+  "unclassified": {
+   "total_ms": 614.48,
+   "share_pct": 0.23,
+   "n": 227353
+  },
+  "rope": {
+   "total_ms": 580.52,
+   "share_pct": 0.22,
+   "n": 41248
+  },
+  "other_norm": {
+   "total_ms": 367.66,
+   "share_pct": 0.14,
+   "n": 123744
+  },
+  "reduce": {
+   "total_ms": 363.67,
+   "share_pct": 0.14,
+   "n": 12096
+  },
+  "elementwise_mul": {
+   "total_ms": 19.03,
+   "share_pct": 0.01,
+   "n": 6480
+  }
+ },
+ "phase_top": {
+  "12": {
+   "dur_s": 11.76,
+   "tops": [
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 16128,
+     "total_ms": 3074.64,
+     "share_pct": 57.63,
+     "mean_us": 190.64
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12096,
+     "total_ms": 769.3,
+     "share_pct": 14.42,
+     "mean_us": 63.6
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 10080,
+     "total_ms": 503.24,
+     "share_pct": 9.43,
+     "mean_us": 49.92
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 126,
+     "total_ms": 184.6,
+     "share_pct": 3.46,
+     "mean_us": 1465.06
+    },
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2016,
+     "total_ms": 163.4,
+     "share_pct": 3.06,
+     "mean_us": 81.05
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2016,
+     "total_ms": 105.93,
+     "share_pct": 1.99,
+     "mean_us": 52.55
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 54558,
+     "total_ms": 81.0,
+     "share_pct": 1.52,
+     "mean_us": 1.48
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 16254,
+     "total_ms": 68.05,
+     "share_pct": 1.28,
+     "mean_us": 4.19
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 6048,
+     "total_ms": 54.42,
+     "share_pct": 1.02,
+     "mean_us": 9.0
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12096,
+     "total_ms": 45.28,
+     "share_pct": 0.85,
+     "mean_us": 3.74
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 6048,
+     "total_ms": 38.92,
+     "share_pct": 0.73,
+     "mean_us": 6.43
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 12096,
+     "total_ms": 25.13,
+     "share_pct": 0.47,
+     "mean_us": 2.08
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 8064,
+     "total_ms": 24.94,
+     "share_pct": 0.47,
+     "mean_us": 3.09
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 12096,
+     "total_ms": 24.34,
+     "share_pct": 0.46,
+     "mean_us": 2.01
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 4032,
+     "total_ms": 23.33,
+     "share_pct": 0.44,
+     "mean_us": 5.79
+    }
+   ]
+  },
+  "13": {
+   "dur_s": 18.2,
+   "tops": [
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 16256,
+     "total_ms": 3176.64,
+     "share_pct": 57.61,
+     "mean_us": 195.41
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12192,
+     "total_ms": 774.23,
+     "share_pct": 14.04,
+     "mean_us": 63.5
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 10160,
+     "total_ms": 507.75,
+     "share_pct": 9.21,
+     "mean_us": 49.98
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 128,
+     "total_ms": 187.47,
+     "share_pct": 3.4,
+     "mean_us": 1464.61
+    },
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2032,
+     "total_ms": 164.87,
+     "share_pct": 2.99,
+     "mean_us": 81.14
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2032,
+     "total_ms": 106.87,
+     "share_pct": 1.94,
+     "mean_us": 52.59
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 55488,
+     "total_ms": 83.97,
+     "share_pct": 1.52,
+     "mean_us": 1.51
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 16512,
+     "total_ms": 70.18,
+     "share_pct": 1.27,
+     "mean_us": 4.25
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 6144,
+     "total_ms": 55.4,
+     "share_pct": 1.0,
+     "mean_us": 9.02
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12192,
+     "total_ms": 45.8,
+     "share_pct": 0.83,
+     "mean_us": 3.76
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 288,
+     "total_ms": 40.37,
+     "share_pct": 0.73,
+     "mean_us": 140.19
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 6144,
+     "total_ms": 39.94,
+     "share_pct": 0.72,
+     "mean_us": 6.5
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 12368,
+     "total_ms": 25.79,
+     "share_pct": 0.47,
+     "mean_us": 2.09
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 8192,
+     "total_ms": 25.5,
+     "share_pct": 0.46,
+     "mean_us": 3.11
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 12288,
+     "total_ms": 24.91,
+     "share_pct": 0.45,
+     "mean_us": 2.03
+    }
+   ]
+  },
+  "14": {
+   "dur_s": 24.86,
+   "tops": [
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 16256,
+     "total_ms": 3105.14,
+     "share_pct": 57.07,
+     "mean_us": 191.02
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12192,
+     "total_ms": 775.56,
+     "share_pct": 14.25,
+     "mean_us": 63.61
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 10160,
+     "total_ms": 508.07,
+     "share_pct": 9.34,
+     "mean_us": 50.01
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 128,
+     "total_ms": 187.57,
+     "share_pct": 3.45,
+     "mean_us": 1465.4
+    },
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2032,
+     "total_ms": 163.82,
+     "share_pct": 3.01,
+     "mean_us": 80.62
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2032,
+     "total_ms": 106.91,
+     "share_pct": 1.96,
+     "mean_us": 52.61
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 55488,
+     "total_ms": 83.35,
+     "share_pct": 1.53,
+     "mean_us": 1.5
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 16512,
+     "total_ms": 69.88,
+     "share_pct": 1.28,
+     "mean_us": 4.23
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 6144,
+     "total_ms": 55.58,
+     "share_pct": 1.02,
+     "mean_us": 9.05
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12192,
+     "total_ms": 45.73,
+     "share_pct": 0.84,
+     "mean_us": 3.75
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 288,
+     "total_ms": 40.24,
+     "share_pct": 0.74,
+     "mean_us": 139.73
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 6144,
+     "total_ms": 39.87,
+     "share_pct": 0.73,
+     "mean_us": 6.49
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 12368,
+     "total_ms": 25.67,
+     "share_pct": 0.47,
+     "mean_us": 2.08
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 8192,
+     "total_ms": 25.42,
+     "share_pct": 0.47,
+     "mean_us": 3.1
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 12288,
+     "total_ms": 24.79,
+     "share_pct": 0.46,
+     "mean_us": 2.02
+    }
+   ]
+  },
+  "15": {
+   "dur_s": 32.54,
+   "tops": [
+    {
+     "name": "void mul_mat_q<(ggml_type)18, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 19167,
+     "total_ms": 42196.17,
+     "share_pct": 52.24,
+     "mean_us": 2201.5
+    },
+    {
+     "name": "void flash_attn_tile<256, 256, 16, 2, false>(char const*, char const*, char const*, char const*, char const*, ",
+     "n": 1064,
+     "total_ms": 23015.19,
+     "share_pct": 28.49,
+     "mean_us": 21630.82
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)21, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 6389,
+     "total_ms": 6478.69,
+     "share_pct": 8.02,
+     "mean_us": 1014.04
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 3195,
+     "total_ms": 3809.35,
+     "share_pct": 4.72,
+     "mean_us": 1192.29
+    },
+    {
+     "name": "void quantize_mmq_q8_1<(mmq_q8_1_ds_layout)0, false>(float const*, int const*, void*, long, long, long, long, ",
+     "n": 26621,
+     "total_ms": 955.52,
+     "share_pct": 1.18,
+     "mean_us": 35.89
+    },
+    {
+     "name": "void unary_gated_op_kernel<&(op_silu(float)), float>(float const*, float const*, float*, long, long, long, lon",
+     "n": 7454,
+     "total_ms": 926.36,
+     "share_pct": 1.15,
+     "mean_us": 124.28
+    },
+    {
+     "name": "void concat_non_cont<unsigned int, 0>(char const*, char const*, char*, long, long, long, long, unsigned long, ",
+     "n": 3195,
+     "total_ms": 615.55,
+     "share_pct": 0.76,
+     "mean_us": 192.66
+    },
+    {
+     "name": "void rms_norm_f32<256, true, false>(float const*, float*, int, long, long, long, float, float const*, long, lo",
+     "n": 5325,
+     "total_ms": 427.04,
+     "share_pct": 0.53,
+     "mean_us": 80.2
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 11713,
+     "total_ms": 312.36,
+     "share_pct": 0.39,
+     "mean_us": 26.67
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 8585,
+     "total_ms": 297.48,
+     "share_pct": 0.37,
+     "mean_us": 34.65
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)23, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 1065,
+     "total_ms": 262.91,
+     "share_pct": 0.33,
+     "mean_us": 246.86
+    },
+    {
+     "name": "void ssm_conv_long_token_f32<true, 128ul, 4ul, 32l>(float const*, float const*, float const*, int, int, int, i",
+     "n": 3195,
+     "total_ms": 248.93,
+     "share_pct": 0.31,
+     "mean_us": 77.91
+    },
+    {
+     "name": "void convert_unary<float, __half>(void const*, __half*, long, long, long, HIP_vector_type<unsigned int, 3u>, l",
+     "n": 6390,
+     "total_ms": 246.07,
+     "share_pct": 0.3,
+     "mean_us": 38.51
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 2130,
+     "total_ms": 193.16,
+     "share_pct": 0.24,
+     "mean_us": 90.69
+    },
+    {
+     "name": "Cijk_Alik_Bljk_HB_MT32x32x32_MI16x16x16x1_SN_1LDSB1_APM1_ABV0_ACED0_AF0EM1_AF1EM1_AMAS0_ASE_ASGT_ASLT_ASM_ASAE",
+     "n": 6390,
+     "total_ms": 191.98,
+     "share_pct": 0.24,
+     "mean_us": 30.04
+    }
+   ]
+  },
+  "16": {
+   "dur_s": 114.52,
+   "tops": [
+    {
+     "name": "void flash_attn_tile<256, 256, 16, 2, false>(char const*, char const*, char const*, char const*, char const*, ",
+     "n": 903,
+     "total_ms": 55533.8,
+     "share_pct": 52.89,
+     "mean_us": 61499.23
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)18, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 16257,
+     "total_ms": 35891.33,
+     "share_pct": 34.18,
+     "mean_us": 2207.75
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)21, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 5419,
+     "total_ms": 5510.55,
+     "share_pct": 5.25,
+     "mean_us": 1016.89
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 2757,
+     "total_ms": 3238.35,
+     "share_pct": 3.08,
+     "mean_us": 1174.59
+    },
+    {
+     "name": "void quantize_mmq_q8_1<(mmq_q8_1_ds_layout)0, false>(float const*, int const*, void*, long, long, long, long, ",
+     "n": 22579,
+     "total_ms": 812.01,
+     "share_pct": 0.77,
+     "mean_us": 35.96
+    },
+    {
+     "name": "void unary_gated_op_kernel<&(op_silu(float)), float>(float const*, float const*, float*, long, long, long, lon",
+     "n": 6434,
+     "total_ms": 786.46,
+     "share_pct": 0.75,
+     "mean_us": 122.23
+    },
+    {
+     "name": "void concat_non_cont<unsigned int, 0>(char const*, char const*, char*, long, long, long, long, unsigned long, ",
+     "n": 2757,
+     "total_ms": 530.15,
+     "share_pct": 0.5,
+     "mean_us": 192.29
+    },
+    {
+     "name": "void dequantize_block_q4_0<__half>(void const*, __half*, int)",
+     "n": 1838,
+     "total_ms": 378.48,
+     "share_pct": 0.36,
+     "mean_us": 205.92
+    },
+    {
+     "name": "void rms_norm_f32<256, true, false>(float const*, float*, int, long, long, long, float, float const*, long, lo",
+     "n": 4595,
+     "total_ms": 361.32,
+     "share_pct": 0.34,
+     "mean_us": 78.63
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 10111,
+     "total_ms": 264.93,
+     "share_pct": 0.25,
+     "mean_us": 26.2
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 7411,
+     "total_ms": 252.25,
+     "share_pct": 0.24,
+     "mean_us": 34.04
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)23, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 903,
+     "total_ms": 222.98,
+     "share_pct": 0.21,
+     "mean_us": 246.93
+    },
+    {
+     "name": "void ssm_conv_long_token_f32<true, 128ul, 4ul, 32l>(float const*, float const*, float const*, int, int, int, i",
+     "n": 2709,
+     "total_ms": 211.17,
+     "share_pct": 0.2,
+     "mean_us": 77.95
+    },
+    {
+     "name": "void convert_unary<float, __half>(void const*, __half*, long, long, long, HIP_vector_type<unsigned int, 3u>, l",
+     "n": 5418,
+     "total_ms": 208.23,
+     "share_pct": 0.2,
+     "mean_us": 38.43
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 1838,
+     "total_ms": 164.07,
+     "share_pct": 0.16,
+     "mean_us": 89.26
+    }
+   ]
+  },
+  "17": {
+   "dur_s": 220.63,
+   "tops": [
+    {
+     "name": "void flash_attn_tile<256, 256, 16, 2, false>(char const*, char const*, char const*, char const*, char const*, ",
+     "n": 16,
+     "total_ms": 1276.66,
+     "share_pct": 55.05,
+     "mean_us": 79791.07
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)18, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 288,
+     "total_ms": 637.32,
+     "share_pct": 27.48,
+     "mean_us": 2212.93
+    },
+    {
+     "name": "void mul_mat_q<(ggml_type)21, 128, false>(char const*, int const*, int const*, int const*, float*, float*, flo",
+     "n": 96,
+     "total_ms": 98.18,
+     "share_pct": 4.23,
+     "mean_us": 1022.72
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 144,
+     "total_ms": 58.66,
+     "share_pct": 2.53,
+     "mean_us": 407.35
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 288,
+     "total_ms": 40.99,
+     "share_pct": 1.77,
+     "mean_us": 142.33
+    },
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 16,
+     "total_ms": 39.58,
+     "share_pct": 1.71,
+     "mean_us": 2473.86
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 128,
+     "total_ms": 24.42,
+     "share_pct": 1.05,
+     "mean_us": 190.8
+    },
+    {
+     "name": "void dequantize_block_q4_0<__half>(void const*, __half*, int)",
+     "n": 64,
+     "total_ms": 17.75,
+     "share_pct": 0.77,
+     "mean_us": 277.42
+    },
+    {
+     "name": "void flash_attn_tile<256, 256, 4, 2, false>(char const*, char const*, char const*, char const*, char const*, i",
+     "n": 16,
+     "total_ms": 15.87,
+     "share_pct": 0.68,
+     "mean_us": 991.94
+    },
+    {
+     "name": "void unary_gated_op_kernel<&(op_silu(float)), float>(float const*, float const*, float*, long, long, long, lon",
+     "n": 272,
+     "total_ms": 14.37,
+     "share_pct": 0.62,
+     "mean_us": 52.83
+    },
+    {
+     "name": "void quantize_mmq_q8_1<(mmq_q8_1_ds_layout)0, false>(float const*, int const*, void*, long, long, long, long, ",
+     "n": 400,
+     "total_ms": 14.27,
+     "share_pct": 0.62,
+     "mean_us": 35.67
+    },
+    {
+     "name": "void concat_non_cont<unsigned int, 0>(char const*, char const*, char*, long, long, long, long, unsigned long, ",
+     "n": 96,
+     "total_ms": 10.47,
+     "share_pct": 0.45,
+     "mean_us": 109.11
+    },
+    {
+     "name": "void rms_norm_f32<256, true, false>(float const*, float*, int, long, long, long, float, float const*, long, lo",
+     "n": 240,
+     "total_ms": 6.83,
+     "share_pct": 0.29,
+     "mean_us": 28.46
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 4, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 96,
+     "total_ms": 6.24,
+     "share_pct": 0.27,
+     "mean_us": 65.01
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 96,
+     "total_ms": 6.18,
+     "share_pct": 0.27,
+     "mean_us": 64.33
+    }
+   ]
+  },
+  "18": {
+   "dur_s": 223.03,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 3984,
+     "total_ms": 9857.56,
+     "share_pct": 49.1,
+     "mean_us": 2474.29
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 31872,
+     "total_ms": 6071.03,
+     "share_pct": 30.24,
+     "mean_us": 190.48
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 23904,
+     "total_ms": 1515.09,
+     "share_pct": 7.55,
+     "mean_us": 63.38
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 19920,
+     "total_ms": 991.57,
+     "share_pct": 4.94,
+     "mean_us": 49.78
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 249,
+     "total_ms": 363.73,
+     "share_pct": 1.81,
+     "mean_us": 1460.75
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 3984,
+     "total_ms": 208.7,
+     "share_pct": 1.04,
+     "mean_us": 52.38
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 107817,
+     "total_ms": 161.91,
+     "share_pct": 0.81,
+     "mean_us": 1.5
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 32121,
+     "total_ms": 137.2,
+     "share_pct": 0.68,
+     "mean_us": 4.27
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 11952,
+     "total_ms": 106.59,
+     "share_pct": 0.53,
+     "mean_us": 8.92
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 23904,
+     "total_ms": 89.38,
+     "share_pct": 0.45,
+     "mean_us": 3.74
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 11952,
+     "total_ms": 76.81,
+     "share_pct": 0.38,
+     "mean_us": 6.43
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 15936,
+     "total_ms": 49.69,
+     "share_pct": 0.25,
+     "mean_us": 3.12
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 23904,
+     "total_ms": 49.44,
+     "share_pct": 0.25,
+     "mean_us": 2.07
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 23904,
+     "total_ms": 47.8,
+     "share_pct": 0.24,
+     "mean_us": 2.0
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 7968,
+     "total_ms": 45.97,
+     "share_pct": 0.23,
+     "mean_us": 5.77
+    }
+   ]
+  },
+  "19": {
+   "dur_s": 245.09,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2064,
+     "total_ms": 5140.7,
+     "share_pct": 49.26,
+     "mean_us": 2490.65
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 16512,
+     "total_ms": 3145.09,
+     "share_pct": 30.14,
+     "mean_us": 190.47
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12384,
+     "total_ms": 785.19,
+     "share_pct": 7.52,
+     "mean_us": 63.4
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 10320,
+     "total_ms": 513.68,
+     "share_pct": 4.92,
+     "mean_us": 49.78
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 129,
+     "total_ms": 188.92,
+     "share_pct": 1.81,
+     "mean_us": 1464.46
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2064,
+     "total_ms": 108.18,
+     "share_pct": 1.04,
+     "mean_us": 52.41
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 55857,
+     "total_ms": 83.52,
+     "share_pct": 0.8,
+     "mean_us": 1.5
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 16641,
+     "total_ms": 70.98,
+     "share_pct": 0.68,
+     "mean_us": 4.27
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 6192,
+     "total_ms": 55.2,
+     "share_pct": 0.53,
+     "mean_us": 8.91
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12384,
+     "total_ms": 46.29,
+     "share_pct": 0.44,
+     "mean_us": 3.74
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 6192,
+     "total_ms": 39.86,
+     "share_pct": 0.38,
+     "mean_us": 6.44
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 8256,
+     "total_ms": 25.75,
+     "share_pct": 0.25,
+     "mean_us": 3.12
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 12384,
+     "total_ms": 25.57,
+     "share_pct": 0.25,
+     "mean_us": 2.06
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 12384,
+     "total_ms": 24.75,
+     "share_pct": 0.24,
+     "mean_us": 2.0
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 4128,
+     "total_ms": 23.83,
+     "share_pct": 0.23,
+     "mean_us": 5.77
+    }
+   ]
+  },
+  "21": {
+   "dur_s": 257.0,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2337,
+     "total_ms": 5798.71,
+     "share_pct": 48.9,
+     "mean_us": 2481.26
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 18696,
+     "total_ms": 3569.41,
+     "share_pct": 30.1,
+     "mean_us": 190.92
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 14023,
+     "total_ms": 891.89,
+     "share_pct": 7.52,
+     "mean_us": 63.6
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 11685,
+     "total_ms": 625.48,
+     "share_pct": 5.27,
+     "mean_us": 53.53
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 146,
+     "total_ms": 213.56,
+     "share_pct": 1.8,
+     "mean_us": 1462.74
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2337,
+     "total_ms": 122.54,
+     "share_pct": 1.03,
+     "mean_us": 52.43
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 63246,
+     "total_ms": 96.9,
+     "share_pct": 0.82,
+     "mean_us": 1.53
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 18843,
+     "total_ms": 82.12,
+     "share_pct": 0.69,
+     "mean_us": 4.36
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 7012,
+     "total_ms": 62.79,
+     "share_pct": 0.53,
+     "mean_us": 8.95
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 14022,
+     "total_ms": 52.62,
+     "share_pct": 0.44,
+     "mean_us": 3.75
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 7011,
+     "total_ms": 45.61,
+     "share_pct": 0.38,
+     "mean_us": 6.51
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 14022,
+     "total_ms": 29.79,
+     "share_pct": 0.25,
+     "mean_us": 2.12
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 9349,
+     "total_ms": 29.51,
+     "share_pct": 0.25,
+     "mean_us": 3.16
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 14023,
+     "total_ms": 28.93,
+     "share_pct": 0.24,
+     "mean_us": 2.06
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 4674,
+     "total_ms": 27.04,
+     "share_pct": 0.23,
+     "mean_us": 5.79
+    }
+   ]
+  },
+  "22": {
+   "dur_s": 270.06,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 454,
+     "total_ms": 1229.44,
+     "share_pct": 51.37,
+     "mean_us": 2708.03
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 3630,
+     "total_ms": 692.56,
+     "share_pct": 28.94,
+     "mean_us": 190.79
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 2723,
+     "total_ms": 172.63,
+     "share_pct": 7.21,
+     "mean_us": 63.4
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 2270,
+     "total_ms": 113.01,
+     "share_pct": 4.72,
+     "mean_us": 49.78
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 28,
+     "total_ms": 40.87,
+     "share_pct": 1.71,
+     "mean_us": 1459.6
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 453,
+     "total_ms": 23.77,
+     "share_pct": 0.99,
+     "mean_us": 52.47
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 12282,
+     "total_ms": 18.03,
+     "share_pct": 0.75,
+     "mean_us": 1.47
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 3658,
+     "total_ms": 15.44,
+     "share_pct": 0.65,
+     "mean_us": 4.22
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 1361,
+     "total_ms": 12.12,
+     "share_pct": 0.51,
+     "mean_us": 8.91
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 2724,
+     "total_ms": 10.17,
+     "share_pct": 0.43,
+     "mean_us": 3.73
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 1362,
+     "total_ms": 8.79,
+     "share_pct": 0.37,
+     "mean_us": 6.45
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 1815,
+     "total_ms": 5.66,
+     "share_pct": 0.24,
+     "mean_us": 3.12
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 2724,
+     "total_ms": 5.63,
+     "share_pct": 0.24,
+     "mean_us": 2.07
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 2723,
+     "total_ms": 5.44,
+     "share_pct": 0.23,
+     "mean_us": 2.0
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 908,
+     "total_ms": 5.23,
+     "share_pct": 0.22,
+     "mean_us": 5.76
+    }
+   ]
+  },
+  "23": {
+   "dur_s": 272.75,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 1193,
+     "total_ms": 2952.38,
+     "share_pct": 49.13,
+     "mean_us": 2474.75
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 9546,
+     "total_ms": 1815.73,
+     "share_pct": 30.22,
+     "mean_us": 190.21
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 7158,
+     "total_ms": 454.64,
+     "share_pct": 7.57,
+     "mean_us": 63.52
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 5965,
+     "total_ms": 296.57,
+     "share_pct": 4.94,
+     "mean_us": 49.72
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 75,
+     "total_ms": 109.79,
+     "share_pct": 1.83,
+     "mean_us": 1463.92
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 1194,
+     "total_ms": 62.55,
+     "share_pct": 1.04,
+     "mean_us": 52.39
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 32289,
+     "total_ms": 46.7,
+     "share_pct": 0.78,
+     "mean_us": 1.45
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 9620,
+     "total_ms": 40.15,
+     "share_pct": 0.67,
+     "mean_us": 4.17
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 3579,
+     "total_ms": 32.27,
+     "share_pct": 0.54,
+     "mean_us": 9.02
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 7158,
+     "total_ms": 26.81,
+     "share_pct": 0.45,
+     "mean_us": 3.75
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 3579,
+     "total_ms": 23.46,
+     "share_pct": 0.39,
+     "mean_us": 6.55
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 4772,
+     "total_ms": 14.86,
+     "share_pct": 0.25,
+     "mean_us": 3.11
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 7158,
+     "total_ms": 14.76,
+     "share_pct": 0.25,
+     "mean_us": 2.06
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 7158,
+     "total_ms": 14.34,
+     "share_pct": 0.24,
+     "mean_us": 2.0
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 2386,
+     "total_ms": 13.79,
+     "share_pct": 0.23,
+     "mean_us": 5.78
+    }
+   ]
+  },
+  "24": {
+   "dur_s": 279.37,
+   "tops": [
+    {
+     "name": "void flash_attn_ext_vec<256, 1, (ggml_type)2, (ggml_type)2, false>(char const*, char const*, char const*, char",
+     "n": 2064,
+     "total_ms": 5159.8,
+     "share_pct": 49.27,
+     "mean_us": 2499.9
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 16512,
+     "total_ms": 3155.41,
+     "share_pct": 30.13,
+     "mean_us": 191.1
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)18, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12384,
+     "total_ms": 789.17,
+     "share_pct": 7.53,
+     "mean_us": 63.73
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 10320,
+     "total_ms": 514.41,
+     "share_pct": 4.91,
+     "mean_us": 49.85
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)11, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 129,
+     "total_ms": 189.37,
+     "share_pct": 1.81,
+     "mean_us": 1467.98
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)21, 1, true, false, false>(void const*, void const*, int const*, ggml_cuda_mm_fu",
+     "n": 2064,
+     "total_ms": 108.22,
+     "share_pct": 1.03,
+     "mean_us": 52.43
+    },
+    {
+     "name": "quantize_q8_1(float const*, void*, long, long, long, long, long, unsigned int, HIP_vector_type<unsigned int, 3",
+     "n": 55857,
+     "total_ms": 83.87,
+     "share_pct": 0.8,
+     "mean_us": 1.5
+    },
+    {
+     "name": "void rms_norm_f32<1024, true, false>(float const*, float*, int, long, long, long, float, float const*, long, l",
+     "n": 16641,
+     "total_ms": 70.43,
+     "share_pct": 0.67,
+     "mean_us": 4.23
+    },
+    {
+     "name": "void k_get_rows_float_vec<float>(float const*, int const*, float*, long, long, HIP_vector_type<unsigned int, 3",
+     "n": 6192,
+     "total_ms": 56.08,
+     "share_pct": 0.54,
+     "mean_us": 9.06
+    },
+    {
+     "name": "void mul_mat_vec_q<(ggml_type)29, 1, false, false, false>(void const*, void const*, int const*, ggml_cuda_mm_f",
+     "n": 12384,
+     "total_ms": 46.49,
+     "share_pct": 0.44,
+     "mean_us": 3.75
+    },
+    {
+     "name": "void gated_delta_net_cuda<128, false, false>(float const*, float const*, float const*, float const*, float con",
+     "n": 6192,
+     "total_ms": 39.96,
+     "share_pct": 0.38,
+     "mean_us": 6.45
+    },
+    {
+     "name": "void cpy_scalar<&(void cpy_1_scalar<float, float>(char const*, char*))>(char const*, char*, long, long, long, ",
+     "n": 8256,
+     "total_ms": 26.17,
+     "share_pct": 0.25,
+     "mean_us": 3.17
+    },
+    {
+     "name": "void k_bin_bcast<&(op_add(float, float)), float, float, float, float const*>(float const*, float const*, float",
+     "n": 12384,
+     "total_ms": 26.14,
+     "share_pct": 0.25,
+     "mean_us": 2.11
+    },
+    {
+     "name": "void l2_norm_f32<32>(float const*, float*, int, long, long, long, float)",
+     "n": 12384,
+     "total_ms": 24.89,
+     "share_pct": 0.24,
+     "mean_us": 2.01
+    },
+    {
+     "name": "void rope_multi<true, false, float>(float const*, float*, int, int, int, int, int, int, int, int, int, int, in",
+     "n": 4128,
+     "total_ms": 23.81,
+     "share_pct": 0.23,
+     "mean_us": 5.77
+    }
+   ]
+  }
+ }
+}

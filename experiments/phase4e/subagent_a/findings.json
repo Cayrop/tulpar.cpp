@@ -1,0 +1,151 @@
+{
+  "analysis_metadata": {
+    "phase": "4E",
+    "subagent": "A",
+    "task": "IQ3_XXS MMVQ ISA Dependency Analysis (read-only)",
+    "binary_path": "<REPO_ROOT>/build-p3/bin/libggml-hip.so.0.21.0",
+    "binary_size_bytes": 91801528,
+    "fatbin_section": ".hip_fatbin at 0x127000 size 0x477e8d0",
+    "target_arch": "AMD RDNA3 (gfx1101)",
+    "tool_used": "llvm-objdump -d (amd gpu)",
+    "kernel_symbol": "_ZL13mul_mat_vec_qIL9ggml_type18ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusion_args_devicePfj15HIP_vector_typeIjLj3EEjjjS8_jjjS8_jjjj",
+    "kernel_code_object": "co_033.o (extracted from Clang offload bundle)",
+    "kernel_text_range": "0x148400..0x149248 (size 0xe48)",
+    "kloop_range": "0x1485BC..0x14911B",
+    "kloop_trip_length_instructions": 417,
+    "kloop_back_branch": "s_cbranch_execnz 64808 at 0x149118 -> 0x1485BC (signed offset -728 insns)",
+    "source_kernel": "vec_dot_iq3_xxs_q8_1 in ggml/src/ggml-cuda/vecdotq.cuh:1155",
+    "source_outer_loop": "for (kbx=...) in mul_mat_vec_q in ggml/src/ggml-cuda/mmvq.cu:658"
+  },
+
+  "kloop_inventory": {
+    "load_instructions_per_trip": {
+      "global_load_b32": 10,
+      "global_load_b64": 1,
+      "global_load_b128": 2,
+      "global_load_d16_hi_b16": 1,
+      "total_vmcnt_contributors": 14
+    },
+    "waitcnts_per_trip": 9,
+    "waitcnt_breakdown": [
+      {"addr": "0x148678", "type": "vmcnt", "value": 2,  "guards": "loads 1-4 (v16, v[0:3], v[4:7], v[23:24]); v50,v0 still in flight"},
+      {"addr": "0x148720", "type": "vmcnt", "value": 9,  "guards": "loads 1-5; v[0:3], v[4:7], v50 needed; v0..v58 still in flight"},
+      {"addr": "0x148D04", "type": "vmcnt", "value": 7,  "guards": "loads 1-7 (v51 done for 1st v_xor at 0x148D08)"},
+      {"addr": "0x148D0C", "type": "vmcnt", "value": 6,  "guards": "loads 1-8 (v52 done for 2nd v_xor at 0x148D10)"},
+      {"addr": "0x148D14", "type": "vmcnt", "value": 5,  "guards": "loads 1-9 (v53 done for 3rd v_xor at 0x148D18)"},
+      {"addr": "0x148D1C", "type": "vmcnt", "value": 4,  "guards": "loads 1-10 (v54 done for 4th v_xor at 0x148D20)"},
+      {"addr": "0x148D24", "type": "vmcnt", "value": 3,  "guards": "loads 1-11 (v55 done for 5th v_xor at 0x148D28)"},
+      {"addr": "0x148D2C", "type": "vmcnt", "value": 2,  "guards": "loads 1-12 (v56 done for 6th v_xor at 0x148D30)"},
+      {"addr": "0x148D40", "type": "vmcnt", "value": 0,  "guards": "loads 1-14 (v58 done for 8th v_xor at 0x148D44); also v0 (L6) and v57 (L13) done by their consumers"}
+    ],
+    "dot4_instructions_per_trip": 8,
+    "dot4_addresses": [
+      "0x148EDC", "0x148F50", "0x148FC0", "0x149030",
+      "0x149078", "0x1490A4", "0x1490BC", "0x1490C4"
+    ],
+    "s_barrier_count": 0,
+    "ds_instruction_count": 0,
+    "lgkmcnt_in_loop": 0,
+    "buffer_gl0_in_loop": 0
+  },
+
+  "loads_detail": [
+    {"id": "L1",  "addr": "0x1485C8", "op": "global_load_b32",        "dest": "v16",      "addr_src": "v[8:9]",            "offset": 0,   "approx_meaning": "bq3 partial data (lives at bq3+0 in block)"},
+    {"id": "L2",  "addr": "0x1485D0", "op": "global_load_b128",       "dest": "v[0:3]",   "addr_src": "v[8:9]",            "offset": -32, "approx_meaning": "bq8_1 qs[0:15]"},
+    {"id": "L3",  "addr": "0x1485D8", "op": "global_load_b128",       "dest": "v[4:7]",   "addr_src": "v[8:9]",            "offset": -16, "approx_meaning": "bq8_1 qs[16:31]"},
+    {"id": "L4",  "addr": "0x148648", "op": "global_load_b64",        "dest": "v[23:24]", "addr_src": "v[23:24]",          "offset": 2,   "approx_meaning": "bq3->qs sign payload (aux32)"},
+    {"id": "L5",  "addr": "0x148650", "op": "global_load_b32",        "dest": "v50",      "addr_src": "v[25:26]",          "offset": 66,  "approx_meaning": "bq8_1 ds (d, sum) packed"},
+    {"id": "L6",  "addr": "0x148658", "op": "global_load_d16_hi_b16", "dest": "v0",       "addr_src": "v[21:22]",          "offset": 0,   "approx_meaning": "bq3->d (half-precision scale)"},
+    {"id": "L7",  "addr": "0x1486E0", "op": "global_load_b32",        "dest": "v51",      "addr_src": "v21, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[0]] (l0=0 lo)"},
+    {"id": "L8",  "addr": "0x1486E8", "op": "global_load_b32",        "dest": "v52",      "addr_src": "v22, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[1]] (l0=0 hi)"},
+    {"id": "L9",  "addr": "0x1486F0", "op": "global_load_b32",        "dest": "v53",      "addr_src": "v26, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[2]] (l0=2 lo)"},
+    {"id": "L10", "addr": "0x1486F8", "op": "global_load_b32",        "dest": "v54",      "addr_src": "v23, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[3]] (l0=2 hi)"},
+    {"id": "L11", "addr": "0x148700", "op": "global_load_b32",        "dest": "v55",      "addr_src": "v28, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[4]] (l0=4 lo)"},
+    {"id": "L12", "addr": "0x148708", "op": "global_load_b32",        "dest": "v56",      "addr_src": "v29, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[5]] (l0=4 hi)"},
+    {"id": "L13", "addr": "0x148710", "op": "global_load_b32",        "dest": "v57",      "addr_src": "v31, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[6]] (l0=6 lo)"},
+    {"id": "L14", "addr": "0x148718", "op": "global_load_b32",        "dest": "v58",      "addr_src": "v24, s[8:9]",       "offset": 0,   "approx_meaning": "iq3xxs_grid[q3[7]] (l0=6 hi)"}
+  ],
+
+  "loop_carried_dependencies": {
+    "registers_live_across_trip_boundary": ["v12"],
+    "v12_purpose": "float partial-sum accumulator, used as v12 += bq3->d * bq8_1.d * sumi at 0x149110",
+    "v12_init": "v_mov_b32_e32 v12, 0 at 0x148518 (pre-loop)",
+    "registers_dead_at_trip_boundary": [
+      "v16 (L1, last use 0x1490C4)",
+      "v[0:3] (L2, last use 0x1490A4)",
+      "v[4:7] (L3, last use 0x1490BC)",
+      "v[23:24] (L4, last use 0x1486A0)",
+      "v50 (L5, last use 0x1490E0)",
+      "v0 (L6, last use 0x149110)",
+      "v51..v58 (L7..L14, all consumed by 0x148EE4 / 0x148D44)",
+      "all xor/perm/sub intermediates"
+    ]
+  },
+
+  "grid_gather_independence": {
+    "count": 8,
+    "all_independent": true,
+    "reason": "Each gather uses a different byte of q3 (q3[l0+0] or q3[l0+1] for l0 in {0,2,4,6}) as the table index, the 8 index bytes are loaded together in L2 (v[0:3]), and the table base s[8:9] is constant across the trip. The 8 loads are issued in a single s_clause 0x7 group. Each consumer is independent of the others - the v_dot4 chain produces a single sumi, but the 8 grid values are all used as separate 'a' operands of independent v_dot4s.",
+    "issue_clause": "s_clause 0x7 at 0x1486DC",
+    "issue_width": "8 b32 in a single clause"
+  },
+
+  "verdict": {
+    "vmcnt0_required": true,
+    "vmcnt0_conservative": false,
+    "vmcnt0_minimum": "vmcnt(0) is the minimum wait for L14 (v58, the last load issued) to be visible to its consumer at 0x148D44. vmcnt(1) would allow L14 to be in-flight, which is incorrect. vmcnt(0) is also sufficient for L13 (v57, used at 0x148EE4) and L6 (v0, used at 0x1490F4). The wait is tight, not loose.",
+    "all_8_grid_gathers_independent": true,
+    "all_8_grid_gathers_already_issued_in_parallel": true,
+    "all_8_grid_gathers_consumer_serialized": true,
+    "consumer_serialization_reason": "The 8 grid results feed 8 v_dot4s whose outputs accumulate into a single accumulator v1 (sumi). The 8 v_dot4s are statically scheduled in source order in the SASS (D1..D8), each depending on the previous via v1. This is an intra-trip accumulator dependency, not a load dependency. The 8 v_dot4s could in principle be reordered to expose more ILP because the only dep chain is via v1 (sumi), but the compiler chose to keep them in source order. The 8 grid loads themselves are issued in one s_clause and have no inter-load dependency.",
+    "compiler_barriers_present": {
+      "s_barrier_in_loop": 0,
+      "ds_read_or_write_in_loop": 0,
+      "extra_lgkmcnt_in_loop": 0,
+      "verdict": "No unnecessary barriers. The kernel is single-warp-per-row (ncols_dst=1, rows_per_cuda_block=1), so no __syncthreads is needed inside the K-loop. The only lgkmcnt(0) instructions are at constant loads in the pre-loop (0x148418, 0x148468, 0x148510, 0x148584) and the post-loop reduction (0x149128..0x14920C). They are all required to bring constant data into SGPRs before use."
+    }
+  },
+
+  "waitcnt_relaxation_safety": {
+    "vmcnt0_at_0x148D40": {
+      "current": "vmcnt(0)",
+      "tightest_correct_relaxation": "none (cannot weaken)",
+      "rationale": "L14 (v58) is consumed at 0x148D44 (4 instructions later). L14 is the 14th and last load issued. vmcnt(0) means 'all 14 loads done'. vmcnt(1) would still allow v58 to be in flight, but v58 is needed at 0x148D44. Therefore vmcnt(0) is the tightest possible wait for L14's consumer."
+    },
+    "vmcnt9_at_0x148720": {
+      "current": "vmcnt(9)",
+      "tightest_correct_relaxation": "could be vmcnt(11) if v50 is not needed until later",
+      "rationale": "L5 (v50) is consumed at 0x148724 (4 instructions later, in v_and_b32_e32 v25, 0xff, v50). So vmcnt(9) is the minimum for L5 as well. Cannot weaken."
+    },
+    "vmcnt2_at_0x148678": {
+      "current": "vmcnt(2)",
+      "tightest_correct_relaxation": "none (cannot weaken)",
+      "rationale": "L4 (v[23:24]) is consumed at 0x14867C (next instruction). vmcnt(2) waits for L1..L4 done, with L5 and L6 still in flight. This is the minimum for L4's first consumer."
+    },
+    "ladder_wmcnt7_through_wmcnt2": {
+      "current": "W(7) W(6) W(5) W(4) W(3) W(2) at 0x148D04..0x148D2C",
+      "tightest_correct_relaxation": "none (each is exactly the minimum for its paired v_xor consumer)",
+      "rationale": "Each waitcnt is followed within ~4 instructions by the v_xor that uses the corresponding grid load. The pattern: W(7)+v_xor v18,v51,v18; W(6)+v_xor v48,v52,v19; etc. Each wait is the minimum to allow its paired xor to see the loaded data. The compiler has already placed each wait immediately before its consumer; no relaxation is possible without re-scheduling."
+    }
+  },
+
+  "concrete_recommendation": {
+    "summary": "The s_waitcnt vmcnt(0) at 0x148D40 is REQUIRED, not conservative. No waitcnt in the K-loop can be weakened. The kernel is well-scheduled: each wait is the minimum for its paired consumer.",
+    "no_relaxation_safe": true,
+    "alternative_optimizations": [
+      "Reduce the number of loads by combining v[0:3] and v[4:7] into a single global_load_b256 (compiler limit on RDNA3 is b128 per load; would need 2 loads anyway). Already optimal.",
+      "Issue all 8 grid lookups in parallel and use v_dot4 with the 4 high-half + 4 low-half pairs in a different order to expose more ILP. The 8 v_dot4s are statically serialized via the v1 accumulator; the dependency chain is sumi += dp4a_i for i in 0..7. If v_dot4 supported 4-way accumulation, this could be one instruction instead of 8.",
+      "Hoist the address computation (v_mad_i64_i32 v[21:22], null, 0x62, v18, s[16:17]) so the L1..L3 loads can be issued even earlier. Currently 0x1485FC (the v_mad) is between L3 and L4.",
+      "The L4 (v[23:24]) sign payload load and L1..L3 q3/q8 loads could be combined into a single b256 fetch per block. RDNA3 hw limit is b128, so 2 b128s are needed anyway, but they could be issued in 1 s_clause instead of 2.",
+      "Move the 8 waitcnts W(7)..W(2) earlier so they overlap with the long sign-extraction chain. Currently they sit AFTER the sign chain completes (0x148D04 is ~500 insns after the L7..L14 issue). The waits could be issued immediately after L7..L14 and the sign work in between would benefit from hiding the load latency. The current scheduling wastes ~50 cycles of hidden latency between issue and use."
+    ]
+  },
+
+  "loop_count": {
+    "outer_kbx_loop": "for (int kbx = tid / (qi/vdr); kbx < blocks_per_row_x; kbx += blocks_per_iter)",
+    "blocks_per_iter_value": "vdr * nwarps * warp_size / qi = 2 * 1 * 32 / 32 = 2 (for nwarps=1, warp_size=32, vdr=2, qi=32)",
+    "k_trips_per_thread": "depends on blocks_per_row_x (= ncols_x / 256 for IQ3_XXS qk=256)",
+    "unroll_factor_of_inner_l0_loop": 4,
+    "grid_lookups_per_trip": 8
+  }
+}

@@ -1,0 +1,99 @@
+{
+ "tag": "tulpar_base_off",
+ "spec": false,
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "ctxs": {
+  "1k": [
+   {
+    "prompt_n": 981,
+    "prefill_tok_s": 499.13,
+    "decode_tok_s": 21.733,
+    "draft_acc": null,
+    "rep": 1
+   },
+   {
+    "prompt_n": 981,
+    "prefill_tok_s": 498.19,
+    "decode_tok_s": 21.398,
+    "draft_acc": null,
+    "rep": 2
+   },
+   {
+    "prompt_n": 4,
+    "prefill_tok_s": 21.44,
+    "decode_tok_s": 21.355,
+    "draft_acc": null,
+    "rep": 3
+   }
+  ],
+  "16k": [
+   {
+    "prompt_n": 16356,
+    "prefill_tok_s": 485.66,
+    "decode_tok_s": 20.17,
+    "draft_acc": null,
+    "rep": 1
+   },
+   {
+    "prompt_n": 16356,
+    "prefill_tok_s": 486.43,
+    "decode_tok_s": 20.338,
+    "draft_acc": null,
+    "rep": 2
+   },
+   {
+    "prompt_n": 4,
+    "prefill_tok_s": 22.07,
+    "decode_tok_s": 20.322,
+    "draft_acc": null,
+    "rep": 3
+   }
+  ],
+  "63k": [
+   {
+    "prompt_n": 64554,
+    "prefill_tok_s": 331.76,
+    "decode_tok_s": 15.588,
+    "draft_acc": null,
+    "rep": 1
+   },
+   {
+    "prompt_n": 64554,
+    "prefill_tok_s": 331.26,
+    "decode_tok_s": 15.667,
+    "draft_acc": null,
+    "rep": 2
+   },
+   {
+    "prompt_n": 4,
+    "prefill_tok_s": 19.13,
+    "decode_tok_s": 15.669,
+    "draft_acc": null,
+    "rep": 3
+   }
+  ],
+  "128k": [
+   {
+    "prompt_n": 129355,
+    "prefill_tok_s": 231.7,
+    "decode_tok_s": 12.123,
+    "draft_acc": null,
+    "rep": 1
+   },
+   {
+    "prompt_n": 129355,
+    "prefill_tok_s": 231.85,
+    "decode_tok_s": 12.154,
+    "draft_acc": null,
+    "rep": 2
+   },
+   {
+    "prompt_n": 4,
+    "prefill_tok_s": 16.62,
+    "decode_tok_s": 12.16,
+    "draft_acc": null,
+    "rep": 3
+   }
+  ]
+ }
+}

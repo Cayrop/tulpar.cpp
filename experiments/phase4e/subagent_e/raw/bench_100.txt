@@ -1,0 +1,16 @@
+device=gfx1101 CUs=30 clock=2254 MHz
+reps=100
+
+=== shape ffn_down_K17408_N5120 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.1916        120.0         120.2        32     76     64
+E1           1            0.1979        116.1         116.3        32     75     64
+E2           1            0.1937        118.6         118.8        32     76     64
+E3           1            0.4968         46.2          46.3        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3171        144.9         145.2        32     33     64 [fused-glu]
+E1           1            0.3109        147.8         148.1        32     37     64 [fused-glu]
+E2           1            0.3186        144.3         144.5        32     35     64 [fused-glu]
+E3           1            0.3064        150.0         150.2        32     40     64 [fused-glu]

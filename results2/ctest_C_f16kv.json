@@ -1,0 +1,31 @@
+{
+ "tag": "C_f16kv",
+ "kv": "f16",
+ "perf": [
+  {
+   "exp_id": "C_f16kv_warmup",
+   "decode_tok_s": 21.93,
+   "per_token_ms": 45.60066666666667
+  },
+  {
+   "exp_id": "C_f16kv_16k_r1",
+   "decode_tok_s": 21.297,
+   "per_token_ms": 46.95588188976378
+  },
+  {
+   "exp_id": "C_f16kv_16k_r2",
+   "decode_tok_s": 21.306,
+   "per_token_ms": 46.93587401574803
+  },
+  {
+   "exp_id": "C_f16kv_16k_r3",
+   "decode_tok_s": 21.316,
+   "per_token_ms": 46.91204724409449
+  },
+  {
+   "exp_id": "C_f16kv_16k_r4",
+   "decode_tok_s": 21.344,
+   "per_token_ms": 46.85070866141732
+  }
+ ]
+}

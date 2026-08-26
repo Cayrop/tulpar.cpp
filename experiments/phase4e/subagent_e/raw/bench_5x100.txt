@@ -1,0 +1,55 @@
+=== run 1 ===
+E1           1            0.1786        128.7         128.9        32     75     64
+E2           1            0.1483        154.9         155.2        32     76     64
+E3           1            0.2005        114.6         114.8        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3280        140.1         140.3        32     33     64 [fused-glu]
+E1           1            0.3218        142.8         143.0        32     37     64 [fused-glu]
+E2           1            0.3249        141.5         141.7        32     35     64 [fused-glu]
+E3           1            0.3380        136.0         136.2        32     40     64 [fused-glu]
+=== run 2 ===
+E1           1            0.1927        119.3         119.5        32     75     64
+E2           1            0.1952        117.7         117.9        32     76     64
+E3           1            0.1857        123.7         123.9        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3041        151.1         151.4        32     33     64 [fused-glu]
+E1           1            0.3349        137.2         137.5        32     37     64 [fused-glu]
+E2           1            0.3234        142.1         142.3        32     35     64 [fused-glu]
+E3           1            0.3262        140.9         141.1        32     40     64 [fused-glu]
+=== run 3 ===
+E1           1            0.1841        124.8         125.0        32     75     64
+E2           1            0.1858        123.6         123.9        32     76     64
+E3           1            0.1999        115.0         115.2        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3244        141.7         141.9        32     33     64 [fused-glu]
+E1           1            0.3142        146.3         146.5        32     37     64 [fused-glu]
+E2           1            0.3160        145.4         145.7        32     35     64 [fused-glu]
+E3           1            0.3397        135.3         135.5        32     40     64 [fused-glu]
+=== run 4 ===
+E1           1            0.1904        120.7         120.9        32     75     64
+E2           1            0.1964        117.0         117.2        32     76     64
+E3           1            0.1954        117.6         117.8        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3151        145.8         146.1        32     33     64 [fused-glu]
+E1           1            0.3154        145.7         145.9        32     37     64 [fused-glu]
+E2           1            0.3165        145.2         145.4        32     35     64 [fused-glu]
+E3           1            0.3142        146.2         146.5        32     40     64 [fused-glu]
+=== run 5 ===
+E1           1            0.1474        155.9         156.2        32     75     64
+E2           1            0.1946        118.1         118.3        32     76     64
+E3           1            0.1848        124.3         124.5        32     76     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+variant      batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0           1            0.3068        149.8         150.0        32     33     64 [fused-glu]
+E1           1            0.3240        141.9         142.1        32     37     64 [fused-glu]
+E2           1            0.3182        144.4         144.7        32     35     64 [fused-glu]
+E3           1            0.3376        136.1         136.3        32     40     64 [fused-glu]

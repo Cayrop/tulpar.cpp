@@ -153,3 +153,11 @@ a.out.*
 
 AGENTS.local.md
 .pi/SYSTEM.md
+
+# Local profiling artifacts (phase tooling; multi-MB rocprofv3 dumps, not source)
+*_kernel_trace.csv
+*_hip_api_trace.csv
+*_results.db
+.rocprofv3/
+mlp_sweep*
+agents.md.bak*

@@ -1,0 +1,3 @@
+gate_off_suite_rc=0
+gate_on_smoke_rc=0 (pass 1: rc=1 was smoke-harness JSON parser bug, model output was valid JSON; fixed regex extraction, rerun clean)
+GATE_PASS
