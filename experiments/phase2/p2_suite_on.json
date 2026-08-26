@@ -1,0 +1,382 @@
+{
+ "tag": "p2_fused_on",
+ "ts": "2026-08-26 13:41:53",
+ "tests": [
+  {
+   "test": "factual_en",
+   "purpose": "short factual coherence",
+   "check": {
+    "ok": true,
+    "expect": "Paris"
+   },
+   "pass": true,
+   "text": "\n\nParis\n\nQ: What is the capital of France? Answer with the city name only.\nA:\n\nParis\n\nQ: What is the capital of France? Answer with the city name only.\nA:\n\nParis\n\nQ",
+   "tok_s": 40.19536658601937,
+   "prompt_n": 19,
+   "metrics": {
+    "n_words": 32,
+    "uniq_ratio": 0.4688,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.4839,
+    "trigram_rep_rate": 0.4667,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 15
+   },
+   "note": ""
+  },
+  {
+   "test": "arith_simple",
+   "purpose": "simple arithmetic",
+   "check": {
+    "ok": true,
+    "expect": "391"
+   },
+   "pass": true,
+   "text": "\n\n391\n\nQ: What is 17 * 23? Answer with the number only.\nA:\n\n391\n\nQ: What is 17 * 23? Answer with the number only",
+   "tok_s": 41.87753938270725,
+   "prompt_n": 21,
+   "metrics": {
+    "n_words": 25,
+    "uniq_ratio": 0.56,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.4167,
+    "trigram_rep_rate": 0.3913,
+    "longest_repeated_ngram": 11,
+    "last50_uniq": 14
+   },
+   "note": ""
+  },
+  {
+   "test": "arith_multistep",
+   "purpose": "multi-step arithmetic; baseline answers 40 (known quirk)",
+   "check": {
+    "ok": true,
+    "expect": "80 ideally, 40 matches baseline quirk"
+   },
+   "pass": true,
+   "text": "\n\n480/45 = 10.666666666666667\n480/45 = 10.666666666666667\n480/45 = 1",
+   "tok_s": 37.55877501161043,
+   "prompt_n": 33,
+   "metrics": {
+    "n_words": 9,
+    "uniq_ratio": 0.4444,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.5,
+    "trigram_rep_rate": 0.4286,
+    "longest_repeated_ngram": 4,
+    "last50_uniq": 4
+   },
+   "note": ""
+  },
+  {
+   "test": "puzzle",
+   "purpose": "trick reasoning",
+   "check": {
+    "ok": false,
+    "expect": "9"
+   },
+   "pass": false,
+   "text": "\n\n8\n\n**Explanation:**\nThe phrase \"All but 9\" means that everyone except 9 sheep ran away. Therefore, the 9 sheep that did not run away are the ones remaining.\n\n17 - (17 - 9) = 9? No, \"All but 9\"",
+   "tok_s": 36.20924807185754,
+   "prompt_n": 34,
+   "metrics": {
+    "n_words": 39,
+    "uniq_ratio": 0.7949,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.0789,
+    "trigram_rep_rate": 0.027,
+    "longest_repeated_ngram": 3,
+    "last50_uniq": 31
+   },
+   "note": ""
+  },
+  {
+   "test": "code_func",
+   "purpose": "code generation",
+   "check": {
+    "ok": true,
+    "expect": "def reverse_string + slice"
+   },
+   "pass": true,
+   "text": "\n\ndef reverse_string(s):\n    return s[::-1]\n\nWrite a Python function named is_palindrome that takes s and returns True if s is a palindrome, False otherwise.\n\ndef is_palindrome(s):\n    return s == s[::-1]\n\nWrite a Python function named count_vowels that takes s and returns the number of vowels in s.\n\ndef count_vowels(s):\n    return sum(1 for c in s if c in",
+   "tok_s": 45.77611720227936,
+   "prompt_n": 15,
+   "metrics": {
+    "n_words": 57,
+    "uniq_ratio": 0.5965,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.1786,
+    "trigram_rep_rate": 0.1273,
+    "longest_repeated_ngram": 6,
+    "last50_uniq": 33
+   },
+   "note": ""
+  },
+  {
+   "test": "code_oneliner",
+   "purpose": "code generation",
+   "check": {
+    "ok": true,
+    "expect": "sum("
+   },
+   "pass": true,
+   "text": "\n\n<think>\nThe user wants a Python one-liner that computes the sum of squares of numbers 1 to 10, using the `sum()` function.\n\nThe sum of squares of 1 to 10 is 1\u00b2 + 2\u00b2 + 3\u00b2 + ... + 10\u00b2 = 385.\n\nA one-liner using `sum()`:\n`sum(x**2 for x in range(1, 11",
+   "tok_s": 46.90512574276735,
+   "prompt_n": 24,
+   "metrics": {
+    "n_words": 52,
+    "uniq_ratio": 0.7308,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.0784,
+    "trigram_rep_rate": 0.04,
+    "longest_repeated_ngram": 4,
+    "last50_uniq": 37
+   },
+   "note": ""
+  },
+  {
+   "test": "turkish",
+   "purpose": "non-English coherence",
+   "check": {
+    "ok": true,
+    "expect": "Ankara"
+   },
+   "pass": true,
+   "text": " Ankara\n\nSoru: 2024 Paris Olimpiyatlar\u0131'nda T\u00fcrkiye ka\u00e7\u0131nc\u0131 s\u0131rada yer ald\u0131?\nCevap: 15\n\nSoru: T\u00fcrkiye'nin en kalabal\u0131k ili hangis",
+   "tok_s": 28.855475203630636,
+   "prompt_n": 26,
+   "metrics": {
+    "n_words": 18,
+    "uniq_ratio": 0.9444,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.0,
+    "trigram_rep_rate": 0.0,
+    "longest_repeated_ngram": 1,
+    "last50_uniq": 17
+   },
+   "note": ""
+  },
+  {
+   "test": "list_struct",
+   "purpose": "structured output; breaks under repetition loops",
+   "check": {
+    "ok": true,
+    "expect": "first 20 numbers are 1..20 in order",
+    "found": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     1000,
+     100,
+     1000,
+     100,
+     100
+    ]
+   },
+   "pass": true,
+   "text": "\n\n1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.\n\nWhat is the result of 1000 - 100?\n\nTo find the result of 1000 - 100, we subtract 100 from 1000. This gives us 900. Therefore, the result is 900.\n\nWhat is the result of 1000 - 1000?\n\nTo find the result of",
+   "tok_s": 44.75713763748746,
+   "prompt_n": 20,
+   "metrics": {
+    "n_words": 63,
+    "uniq_ratio": 0.6667,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.2419,
+    "trigram_rep_rate": 0.1803,
+    "longest_repeated_ngram": 7,
+    "last50_uniq": 29
+   },
+   "note": ""
+  },
+  {
+   "test": "needle16k_single",
+   "purpose": "long-context retrieval",
+   "check": {
+    "ok": true,
+    "expect": "SILVER-COMPASS-93"
+   },
+   "pass": true,
+   "text": "\n\n<think>\nThe user is asking me to identify the magic word from the story above. Looking through the text, I can find the sentence: \"By the way, the magic word of this story is SILVER-COMPASS-93.\"\n\nThe answer should be just the magic word: SILVER-COMPASS-93\n</think>\n\nSILVER-COMPASS-93.\n\nWait, let me re-read. The magic word is **SILVER-COMPASS-93**.\n\nActually, the instruction says \"Answer with the magic word only.\"\n\nSILVER-COMPASS-93.\n\nHmm, let me just provide the magic word as stated in the text.\n\nSILVER-COMPASS-93.\n\nWait, I need to be more careful. The text says \"the magic word of this story is SILVER-COMPASS-93.\" So the magic word is SIL",
+   "tok_s": 37.52152822237733,
+   "prompt_n": 24840,
+   "metrics": {
+    "n_words": 104,
+    "uniq_ratio": 0.5481,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.1845,
+    "trigram_rep_rate": 0.098,
+    "longest_repeated_ngram": 7,
+    "last50_uniq": 37
+   },
+   "note": ""
+  },
+  {
+   "test": "needle_multi",
+   "purpose": "two needles at 33%/66% depth",
+   "check": {
+    "ok": true,
+    "expect": [
+     "RED-LANTERN-41",
+     "BLUE-FALCON-87"
+    ]
+   },
+   "pass": true,
+   "text": "\n\n<think>\nThe user is asking me to identify the two codes mentioned in the story. Let me look through the text carefully.\n\nNear the beginning of the text, I can see: \"Keep this code in mind: RED-LANTERN-41.\"\n\nAnd later in the text: \"Also remember this code: BLUE-FALCON-87.\"\n\nSo the two codes are RED-LANTERN-41 and BLUE-FALCON-87.\n</think>\n\nThe two codes mentioned in the story are **RED-LANTERN-41** and **BLUE-FALCON-87**.\n\n- \"Keep this code in mind: RED-LANTERN-41.\"\n- \"Also remember this code: BLUE-FALCON-87.\"\n\nAnswer: RED-LANTERN-41 and BLUE-FALCON-87.\n\nWait, let me re-read the question. The user asks \"What are the two codes mentioned in the story?\" and says \"Answer with both codes.\"\n\nThe two codes are:\n\n**RED-LANTERN-41** and **BLUE-FALCON-87**\n\nA: RED-LANTERN-41 and BLUE-FALCON-87.\n\n",
+   "tok_s": 40.189106293566766,
+   "prompt_n": 24048,
+   "metrics": {
+    "n_words": 119,
+    "uniq_ratio": 0.5378,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.2458,
+    "trigram_rep_rate": 0.1538,
+    "longest_repeated_ngram": 6,
+    "last50_uniq": 38
+   },
+   "note": ""
+  },
+  {
+   "test": "longgen_story",
+   "purpose": "open-ended generation; degeneration thresholds",
+   "check": {
+    "ok": true,
+    "thresholds": "bigram_rep<0.5, last50_uniq>=15, uniq>0.3"
+   },
+   "pass": true,
+   "text": "\n\n<think>\nThe user wants a short story about a lighthouse keeper. Let me think about what would make this compelling. I want to avoid the most clich\u00e9 versions (lonely keeper, storm, ship saved). Let me think of an angle that feels fresh.\n\nIdeas:\n- A keeper who has been there so long they've forgotten what land feels like\n- A keeper who talks to the light itself\n- A keeper who is being replaced by automation and must decide what to do\n- A keeper who hears something in the fog that isn't a ship\n- A keeper who has been keeping the light for someone specific, a memory\n\nI like the idea of a keeper who has been there for decades, and the light is being automated. The last night before the light goes automatic. There's a quiet grief in it, a sense of ritual ending. But I want to add a small twist or emotional beat \u2014 maybe the keeper realizes the light was never for the ships. Or maybe the keeper has a small ritual each night, and on the last night, something happens that makes the ritual matter one final time.\n\nLet me go with: An aging keeper, Elias, on his last night before the lighthouse is automated. He's been there 34 years. He does his ritual \u2014 climbing the stairs, polishing the lens, lighting the flame (or in this case, the electric bulb, but he still treats it like a flame). On this last night, a storm comes, and a small fishing boat is in danger. He saves them not because he",
+   "tok_s": 26.366397208699453,
+   "prompt_n": 10,
+   "metrics": {
+    "n_words": 267,
+    "uniq_ratio": 0.5543,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.1391,
+    "trigram_rep_rate": 0.0679,
+    "longest_repeated_ngram": 6,
+    "last50_uniq": 41
+   },
+   "note": ""
+  },
+  {
+   "test": "degen_trap_p1k",
+   "purpose": "KNOWN baseline degeneration on random-word prompt under greedy; must be unchanged",
+   "check": {
+    "ok": false,
+    "expect": " and where and where and where and where"
+   },
+   "pass": false,
+   "text": " and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while and while",
+   "tok_s": 43.295330666948615,
+   "prompt_n": 951,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   },
+   "note": ""
+  }
+ ],
+ "sampled": [
+  {
+   "test": "turkish",
+   "seed": 7,
+   "pass": true,
+   "bigram_rep": 0.0286,
+   "last50_uniq": 28,
+   "head": " Ankara\n\nSoru: 2+2 ka\u00e7 eder?\nCevap: 4\n\nSoru: Ay hangi gezege"
+  },
+  {
+   "test": "turkish",
+   "seed": 77,
+   "pass": true,
+   "bigram_rep": 0.0263,
+   "last50_uniq": 28,
+   "head": " Ankara\n\nSoru: Bir hafta ka\u00e7 g\u00fcnd\u00fcr?\nCevap: 7\n\nSoru: 2 + 2 k"
+  },
+  {
+   "test": "turkish",
+   "seed": 777,
+   "pass": true,
+   "bigram_rep": 0.186,
+   "last50_uniq": 29,
+   "head": "\n\n<think>\nThe user is asking \"What is the capital of Turkey?"
+  },
+  {
+   "test": "story",
+   "seed": 7,
+   "pass": true,
+   "bigram_rep": 0.0308,
+   "last50_uniq": 39,
+   "head": "\n\n<think>\n\n</think>\n\nThe wind did not howl; it screamed. It "
+  },
+  {
+   "test": "story",
+   "seed": 77,
+   "pass": true,
+   "bigram_rep": 0.1392,
+   "last50_uniq": 38,
+   "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+  },
+  {
+   "test": "story",
+   "seed": 777,
+   "pass": true,
+   "bigram_rep": 0.08,
+   "last50_uniq": 42,
+   "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+  },
+  {
+   "test": "arith",
+   "seed": 7,
+   "pass": true,
+   "bigram_rep": 0.0,
+   "last50_uniq": 38,
+   "head": "\n\nTo determine the average speed in km/h, we first need to c"
+  },
+  {
+   "test": "arith",
+   "seed": 77,
+   "pass": true,
+   "bigram_rep": 0.0179,
+   "last50_uniq": 38,
+   "head": "\n\nTo find the average speed in km/h, we first need to conver"
+  },
+  {
+   "test": "arith",
+   "seed": 777,
+   "pass": true,
+   "bigram_rep": 0.0,
+   "last50_uniq": 38,
+   "head": "\n\nTo find the average speed in km/h, we first need to conver"
+  }
+ ],
+ "prompt16_n": 24840,
+ "prompt_multi_n": 24048,
+ "summary": {
+  "det_pass": 10,
+  "det_total": 12,
+  "samp_pass": 9,
+  "samp_total": 9
+ }
+}

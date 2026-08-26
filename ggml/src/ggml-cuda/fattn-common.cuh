@@ -84,6 +84,21 @@ static inline ggml_cuda_flash_attn_ext_f16_extra_data ggml_cuda_flash_attn_ext_g
     return data;
 }
 
+// True when the tile kernel reads quantized K/V directly and no F16 staging
+// buffer is needed. Must stay in sync between alloc sizing and kernel launch.
+static inline bool ggml_cuda_fattn_tile_fuses_quantized_kv(const ggml_tensor * dst) {
+    const ggml_tensor * K = dst->src[1];
+    const ggml_tensor * V = dst->src[2];
+
+    const int cc = ggml_cuda_info().devices[ggml_cuda_get_device()].cc;
+
+    return K->ne[0] == 256 && V->ne[0] == 256 &&
+        K->type == GGML_TYPE_Q4_0 && V->type == GGML_TYPE_Q4_0 &&
+        K->nb[0] == sizeof(block_q4_0) && V->nb[0] == sizeof(block_q4_0) &&
+        K->nb[1] % sizeof(block_q4_0) == 0 && V->nb[1] % sizeof(block_q4_0) == 0 &&
+        fast_fp16_available(cc);
+}
+
 template <int D, int nthreads>
 static __device__ __forceinline__ float vec_dot_fattn_vec_KQ_f16(
     const char * __restrict__ K_c, const void * __restrict__ Q_v, const int * __restrict__ Q_q8 , const void * __restrict__ Q_ds_v) {
