@@ -21,8 +21,13 @@ Date: 2026-08-26 (+03). Created during the PHASE-2 window per task section 1.
 
 | hash | message | note |
 |------|---------|------|
-| 091aec112 | chore: Phase-1 full profiling trace baseline (V3 Q2_K_XL) | Baseline state commit (Step 1.3); includes experiment, report, and tooling state. |
-| (implementation commit appended here after Step 5.5) | | |
+| ca49ee25b | chore: Phase-1 full profiling trace baseline (V3 Q2_K_XL) | Baseline state commit (Step 1.3); includes experiment, report, and tooling state. |
+| 2e033a696 | feat: eliminate staging dequant for q4_0 KV cache (PATH A) | Implementation commit (Step 5.5); kernel change + phase-2 reports/tooling; pushed to fork. |
+
+## Final state
+
+- Branch head after Step 5.5: `2e033a696`. Hashes rewritten 2026-08-26 by EXP-000 hygiene (hardcoded path removal); pre-rewrite state: 091aec112 -> ca49ee25b, 2ca80327b -> 2e033a696 (backup branch: hygiene-backup).
+- Source delta vs baseline: 3 files under ggml/src/ggml-cuda/, +174/-41.
 
 ## Remote configuration
 

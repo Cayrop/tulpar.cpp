@@ -414,3 +414,65 @@ Therefore, every GEMV modification MUST pass all three of:
 
 A GEMV change that alters numerical results must be explicitly flagged and
 must NOT be merged unless all three checks pass.
+
+## 16. Experiment Logging Standard (MANDATORY)
+
+Every significant experiment MUST be recorded in
+experiments/<phase>/EXPERIMENT_LOG.md using this exact format:
+
+    ## EXP-<NNN>: <short title>
+
+    PROBLEM
+    <one paragraph: what was broken/slow>
+
+    EVIDENCE
+    <trace data, ms/tok, kernel counts, bandwidth>
+
+    HYPOTHESIS
+    <what change should fix it and why>
+
+    CHANGE
+    <what was actually modified: file, function, logic>
+
+    RESULT
+    <before/after metrics, VRAM, regression notes>
+
+    WHY IT WORKED
+    <root cause explanation>
+
+    CAVEAT
+    <what was NOT measured, known risks, follow-ups>
+
+Rules:
+- One page per experiment. No narrative, no process story.
+- Entries are APPENDED, never deleted. If superseded, mark with
+  SUPERSEDED BY EXP-<NNN>.
+- Agent must append this log BEFORE declaring phase complete.
+- All phase prompts must reference this standard.
+
+## 17. Hardcoded Path Prohibition
+
+No script, config, or source file may contain absolute user-specific
+paths such as /home/gencer/llama.cpp.
+
+Required patterns:
+- Python: ROOT = Path(__file__).resolve().parents[N]
+  where N is the directory depth from script to repo root.
+- Shell:  ROOT="$(git rev-parse --show-toplevel)"
+- Paths outside the repo (e.g., model directory) must come from
+  environment variables or a config file, never hardcoded in logic.
+
+Verification command (must return zero matches):
+  grep -rn "/home/gencer/llama.cpp" --include="*.py" --include="*.sh" \
+    --include="*.cu" --include="*.cuh" --include="*.cpp" --include="*.h" .
+
+## 18. Fork-Only Policy (No Upstream PR)
+
+This fork is for private, aggressive optimization only.
+- NEVER create a pull request to ggml-org/llama.cpp.
+- NEVER push to the upstream remote. Upstream is fetch-only.
+- All commits and pushes target the fork remote exclusively.
+- Upstream sync, if ever needed, is merge/rebase FROM upstream,
+  never push TO upstream.
+- This rule is permanent and overrides any future suggestion to
+  submit changes upstream.
