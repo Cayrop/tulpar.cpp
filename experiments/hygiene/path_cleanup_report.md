@@ -124,5 +124,10 @@ commit introduces a hardcoded path; both amended commits show zero matches.
   rule 3 (explicitly deferred by phase constraint).
 - FOLLOW-UP: `<REPO_ROOT>` marker semantics documented here apply to all
   historical evidence JSON/md captures.
+- FOLLOW-UP: `parents[N]` depth is verified today but breaks silently if a
+  script is moved between directories; candidate for a shared helper module.
 
-HYGIENE_OK
+Verdict refined after review: repo-root hygiene is complete; external model
+path migration remains open by explicit phase constraint.
+
+REPO_ROOT_HYGIENE_OK; EXTERNAL_MODEL_PATH_MIGRATION_PENDING

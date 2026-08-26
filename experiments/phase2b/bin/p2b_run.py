@@ -25,8 +25,13 @@ def run(cmd):
 
 
 def vram_used_bytes():
-    out = run(["rocm-smi", "--showmeminfo", "vram"]).stdout
-    m = re.search(r"VRAM Total Used Memory \(B\):\s*(\d+)", out)
+    try:
+        r_ = run(["rocm-smi", "--showmeminfo", "vram"])
+    except OSError:
+        return None
+    if r_.returncode != 0:
+        return None
+    m = re.search(r"VRAM Total Used Memory \(B\):\s*(\d+)", r_.stdout)
     return int(m.group(1)) if m else None
 
 
@@ -49,6 +54,7 @@ class VramMonitor(threading.Thread):
         self.interval = interval
         self.samples = []
         self.peak = 0
+        self.failed_reads = 0
         self._stop = threading.Event()
 
     def run(self):
@@ -57,7 +63,15 @@ class VramMonitor(threading.Thread):
             if u is not None:
                 self.samples.append((round(time.time(), 3), u))
                 self.peak = max(self.peak, u)
+            else:
+                self.failed_reads += 1
             self._stop.wait(self.interval)
+
+    def first_sample(self, timeout_s=10):
+        deadline = time.time() + timeout_s
+        while time.time() < deadline and not self.samples:
+            time.sleep(0.25)
+        return bool(self.samples)
 
     def halt(self):
         self._stop.set()
@@ -103,6 +117,12 @@ def do_reps(args, outdir):
 
     mon = VramMonitor()
     mon.start()
+    if not mon.first_sample():
+        mon.halt()
+        rec["status"] = "VRAM_MONITOR_FAIL"
+        rec["error"] = "rocm-smi sampling produced no valid read"
+        json.dump(rec, open(f"{outdir}/arm_record.json", "w"), indent=1)
+        sys.exit(6)
     m_before = metrics()
     reps = []
     status = "OK"
@@ -148,6 +168,8 @@ def do_reps(args, outdir):
     rec["metrics_delta_keys"] = sorted(set(m_after) - set(m_before))
     rec["vram_peak_b"] = mon.peak
     rec["vram_samples_n"] = len(mon.samples)
+    rec["vram_failed_reads"] = mon.failed_reads
+    rec["vram_peak_note"] = "sampled every 0.5 s; true transient peak can exceed this value"
     with open(f"{outdir}/vram_samples.json", "w") as f:
         json.dump(mon.samples, f)
     rec["mem_after"] = mem_snapshot()
