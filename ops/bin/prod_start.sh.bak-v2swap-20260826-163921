@@ -9,7 +9,7 @@ PIDFILE="${ROOT}/ops/run/llama-server.pid"
 PROD_BIN="${ROOT}/build-p3/bin/llama-server"
 # FALLBACK (not production): use only to restore service if PROD_BIN is unavailable
 FALLBACK_BIN="${ROOT}/build/bin/llama-server"
-MODEL="/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf"
+MODEL="/home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf"
 LOG_DIR="${ROOT}/ops/logs"
 FLAG_MANIFEST="${ROOT}/ops/manifest/prod_flags.env"
 

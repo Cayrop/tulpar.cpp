@@ -1,0 +1,117 @@
+{
+ "wall_s": 7.695,
+ "body": {
+  "index": 0,
+  "content": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog, golden skies, and ancient cities\u2014rather than a coherent narrative with a specific topic.\n\n**Answer:** The text is a disjointed stream-of-consciousness list of abstract imagery and keywords, lacking a coherent narrative or specific topic.\n\n*(Note: The input text appears to be a \"word salad\" or generated noise consisting of repeated nouns and adjectives without grammatical structure or semantic meaning.)*\n\n---\n\n**Alternative Interpretation (if forced to find a \"theme\"):**\nIf one were to interpret the",
+  "tokens": [],
+  "id_slot": 0,
+  "stop": true,
+  "model": "Qwen3.8-27b",
+  "tokens_predicted": 128,
+  "tokens_evaluated": 991,
+  "generation_settings": {
+   "seed": 1234,
+   "temperature": 0.0,
+   "dynatemp_range": 0.0,
+   "dynatemp_exponent": 1.0,
+   "top_k": 1,
+   "top_p": 0.949999988079071,
+   "min_p": 0.0,
+   "top_n_sigma": -1.0,
+   "xtc_probability": 0.0,
+   "xtc_threshold": 0.10000000149011612,
+   "typical_p": 1.0,
+   "repeat_last_n": 64,
+   "repeat_penalty": 1.0,
+   "presence_penalty": 0.0,
+   "frequency_penalty": 0.0,
+   "dry_multiplier": 0.0,
+   "dry_base": 1.75,
+   "dry_allowed_length": 2,
+   "dry_penalty_last_n": 64,
+   "dry_sequence_breakers": [
+    "\n",
+    ":",
+    "\"",
+    "*"
+   ],
+   "mirostat": 0,
+   "mirostat_tau": 5.0,
+   "mirostat_eta": 0.10000000149011612,
+   "adaptive_target": -1.0,
+   "adaptive_decay": 0.8999999761581421,
+   "stop": [],
+   "max_tokens": 128,
+   "n_predict": 128,
+   "n_keep": 0,
+   "n_discard": 0,
+   "ignore_eos": true,
+   "stream": false,
+   "logit_bias": [
+    {
+     "bias": null,
+     "token": 248044
+    },
+    {
+     "bias": null,
+     "token": 248046
+    },
+    {
+     "bias": null,
+     "token": 248063
+    },
+    {
+     "bias": null,
+     "token": 248064
+    },
+    {
+     "bias": null,
+     "token": 248065
+    }
+   ],
+   "n_probs": 0,
+   "min_keep": 0,
+   "grammar": "",
+   "grammar_lazy": false,
+   "grammar_triggers": [],
+   "preserved_tokens": [],
+   "chat_format": "Content-only",
+   "reasoning_format": "deepseek",
+   "reasoning_in_content": false,
+   "generation_prompt": "",
+   "samplers": [
+    "penalties",
+    "dry",
+    "top_n_sigma",
+    "top_k",
+    "typ_p",
+    "top_p",
+    "min_p",
+    "xtc",
+    "temperature"
+   ],
+   "speculative.types": "none",
+   "timings_per_token": false,
+   "post_sampling_probs": false,
+   "backend_sampling": false,
+   "lora": []
+  },
+  "prompt": "ruled flow distant distant rivers shores brown yet and beneath yet yet endless ruled untold the echo and horizons clouds drift rivers lazy brown silent drift beneath lazy golden starlit jumps once golden mountains clouds fox cities echo once whispers over flow brown dog carrying skies distant lazy through of distant beneath clouds whispers of echo and valleys mountains cities kings mountains kings through stories golden over whispers once skies carrying distant yet golden fox drift through where wandering of valleys drift rivers the forgotten stories across valleys brown jumps dog timeless stories echo flow flow silent whispers forgotten cities golden quick forgotten mountains drift the across once beneath ancient flow ruled skies silent over clouds silent carrying wandering valleys valleys flow ruled where the ruled once mountains whispers through through valleys mountains where lazy dog the fox of dog golden kings fox cities dog skies through distant jumps dog jumps carrying valleys stories clouds fox flow beneath skies where brown endless kings valleys endless whispers wandering silent distant beneath over timeless and the endless once flow carrying silent yet wandering wandering horizons across brown starlit starlit through where brown silent drift where carrying of ancient endless and carrying brown dog over over timeless once ruled kings mountains flow dog fox and timeless ruled wandering while cities rivers while wandering while stories clouds brown whispers whispers wandering the yet golden golden once quick drift brown the mountains across cities ruled beneath beneath silent carrying endless where cities stories ancient kings stories ruled ancient flow endless stories jumps across whispers echo ruled of and kings over kings of the across untold horizons beneath and cities of silent echo shores jumps cities echo flow stories beneath of quick endless horizons through kings beneath silent timeless beneath once quick silent through shores carrying where whispers and starlit skies whispers once echo of mountains cities fox rivers of ancient fox fox through ancient fox endless cities while whispers wandering lazy golden brown dog whispers once beneath lazy and skies ancient cities quick lazy yet forgotten carrying horizons distant brown clouds yet of the where where ruled quick where the where carrying timeless and horizons dog ancient whispers beneath endless brown through carrying distant flow dog jumps distant forgotten echo valleys kings beneath timeless through brown quick valleys fox carrying echo fox kings clouds fox brown shores fox silent stories carrying clouds jumps jumps timeless flow skies valleys endless jumps of distant whispers brown timeless horizons through brown forgotten of starlit clouds clouds echo valleys rivers ancient valleys drift distant of silent of echo rivers skies ruled whispers skies whispers shores distant dog once starlit whispers mountains golden stories flow wandering across wandering silent untold wandering brown quick untold the valleys of starlit mountains untold timeless endless horizons over mountains cities dog starlit flow jumps once kings once untold where endless wandering rivers forgotten beneath ancient timeless silent over whispers dog whispers yet drift untold yet and mountains ruled endless golden shores dog the timeless ancient while cities brown ancient where across over stories ruled shores endless cities clouds of over flow ruled clouds drift clouds across lazy stories of skies across shores and carrying yet once endless starlit jumps forgotten echo rivers ruled drift mountains ruled once brown the starlit brown once and across lazy cities echo where over golden ancient horizons through skies lazy while drift beneath jumps echo whispers horizons brown cities shores skies through cities over golden of flow echo beneath kings while carrying untold and golden dog flow skies clouds distant where distant and and whispers drift dog drift of carrying once lazy beneath across beneath timeless echo over ruled timeless and forgotten horizons yet valleys kings ancient of endless quick forgotten quick while whispers horizons through through jumps endless drift wandering wandering and brown brown ruled flow brown mountains and drift kings and through ancient distant through echo while where fox stories echo dog yet ancient flow timeless across silent jumps shores echo flow stories untold silent skies horizons quick the cities rivers whispers clouds fox stories over golden kings dog beneath over over distant yet endless untold and silent distant untold distant fox dog rivers distant starlit brown whispers of untold horizons forgotten carrying wandering skies lazy distant carrying untold fox across ancient shores distant starlit rivers golden ruled and quick and over yet rivers shores of brown rivers distant where brown kings quick distant across ancient ancient beneath and ruled beneath ancient untold the wandering cities golden shores lazy untold flow once fox endless once lazy silent golden timeless golden horizons drift timeless dog beneath the carrying golden whispers flow through forgotten through silent the stories through through timeless through clouds wandering of and endless timeless quick echo timeless flow endless timeless starlit untold brown carrying while whispers the of endless untold golden while flow starlit and over dog beneath where endless wandering echo ancient timeless dog rivers quick rivers brown ancient untold stories brown of beneath dog golden of lazy through over stories yet stories golden mountains of kings distant quick cities yet shores golden forgotten dog beneath ruled timeless kings starlit of flow fox echo cities endless mountains brown ancient skies lazy horizons lazy cities kings and quick echo over untold whispers horizons golden drift skies across kings rivers timeless over rivers horizons valleys flow distant wandering where brown and over ancient and once brown while mountains starlit jumps the untold fox starlit distant endless drift ancient brown timeless while and\n\nQ: Summarize the topic of the text above in one sentence.\nA:",
+  "has_new_line": true,
+  "truncated": false,
+  "stop_type": "limit",
+  "stopping_word": "",
+  "tokens_cached": 1118,
+  "timings": {
+   "cache_n": 0,
+   "prompt_n": 991,
+   "prompt_ms": 1924.772,
+   "prompt_per_token_ms": 1.9422522704339051,
+   "prompt_per_second": 514.8661763575114,
+   "predicted_n": 128,
+   "predicted_ms": 5767.186,
+   "predicted_per_token_ms": 45.41091338582677,
+   "predicted_per_second": 22.021138211946003
+  }
+ }
+}

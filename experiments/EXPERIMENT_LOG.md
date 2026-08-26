@@ -111,3 +111,30 @@ The 0.5 s sampling interval itself is unchanged; peak underestimation risk
 remains inherent and is only documented, not fixed. Kernel static_assert
 hardening for the plane-alignment invariant requires a separate approved
 kernel-source change.
+
+## EXP-002: V2 Model Swap + Baseline
+
+PROBLEM
+V3 showed quality degradation (puzzle anomaly, SVG quality).
+V2 known to be superior for reasoning and creative tasks.
+
+EVIDENCE
+V3 puzzle: "8" (anomalous, 10/10 correct on retry)
+V3 SVG: lower quality than V2
+V2: IQ3_XXS dominant (75.9%), proven reasoning capability
+
+HYPOTHESIS
+V2 + fused q4_0 optimization should maintain decode gains
+while providing superior reasoning and creative output.
+
+CHANGE
+Model path updated to V2 GGUF. No code changes.
+
+RESULT
+(To be filled after measurement)
+
+WHY IT WORKED
+(To be filled after measurement)
+
+CAVEAT
+(To be filled after measurement)

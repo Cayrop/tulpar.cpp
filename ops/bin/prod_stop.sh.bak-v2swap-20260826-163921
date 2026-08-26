@@ -83,7 +83,7 @@ if [[ "$EXE_PATH" != *"$PROD_BIN" ]]; then
     VALIDATION_FAILED=true
 fi
 
-if [[ "$CMDLINE" != *"/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf"* ]]; then
+if [[ "$CMDLINE" != *"/home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf"* ]]; then
     echo "ERROR: cmdline does not contain expected model path."
     VALIDATION_FAILED=true
 fi

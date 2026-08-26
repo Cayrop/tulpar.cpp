@@ -1,0 +1,63 @@
+{
+ "ts": "2026-08-26 17:00:01",
+ "mtp": "off",
+ "server_base": "http://localhost:8080",
+ "semantic_smoke": [
+  {
+   "test": "math",
+   "pass": true,
+   "expect": [
+    "391"
+   ],
+   "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "pass": false,
+   "expect": [
+    "80"
+   ],
+   "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+  },
+  {
+   "test": "puzzle",
+   "pass": true,
+   "expect": [
+    "9"
+   ],
+   "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+  },
+  {
+   "test": "factual",
+   "pass": true,
+   "expect": [
+    "Paris"
+   ],
+   "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+  },
+  {
+   "test": "code",
+   "pass": true,
+   "expect": [
+    "def reverse_string"
+   ],
+   "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+  },
+  {
+   "test": "code2",
+   "pass": true,
+   "expect": [
+    "sum("
+   ],
+   "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "determinism_self_1k_seed4242": {
+  "mode": "text-prefix",
+  "match_chars": 480,
+  "len_a": 480,
+  "len_b": 480,
+  "identical": true
+ },
+ "gen_1k_head": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where"
+}
