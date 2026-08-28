@@ -1,0 +1,119 @@
+{
+  "total_dispatches": 220409,
+  "model_loading_dispatches": 4879,
+  "inference_dispatches": 215530,
+  "total_gpu_time_ms": 85555.49073800001,
+  "total_inference_ms": 80181.591916,
+  "category_attribution": {
+    "MMQ": {
+      "count": 52800,
+      "total_ms": 48948.025,
+      "pct": 61.0,
+      "avg_grid": 496147
+    },
+    "FA": {
+      "count": 2002,
+      "total_ms": 22274.481,
+      "pct": 27.8,
+      "avg_grid": 60029
+    },
+    "GDN": {
+      "count": 4565,
+      "total_ms": 3760.5,
+      "pct": 4.7,
+      "avg_grid": 196608
+    },
+    "Other": {
+      "count": 58384,
+      "total_ms": 2296.665,
+      "pct": 2.9,
+      "avg_grid": 1393089
+    },
+    "GEMV_IQ3_XXS": {
+      "count": 6579,
+      "total_ms": 902.535,
+      "pct": 1.1,
+      "avg_grid": 320637
+    },
+    "Norm_RMS": {
+      "count": 19872,
+      "total_ms": 733.767,
+      "pct": 0.9,
+      "avg_grid": 1404369
+    },
+    "Broadcast": {
+      "count": 17705,
+      "total_ms": 325.037,
+      "pct": 0.4,
+      "avg_grid": 621423
+    },
+    "GDN_SSM_Conv": {
+      "count": 4565,
+      "total_ms": 246.843,
+      "pct": 0.3,
+      "avg_grid": 115327
+    },
+    "RoPE": {
+      "count": 3042,
+      "total_ms": 195.138,
+      "pct": 0.2,
+      "avg_grid": 1257649
+    },
+    "GEMV_IQ3_XS": {
+      "count": 6050,
+      "total_ms": 156.254,
+      "pct": 0.2,
+      "avg_grid": 86366
+    },
+    "Dequant": {
+      "count": 8480,
+      "total_ms": 135.08,
+      "pct": 0.2,
+      "avg_grid": 585697
+    },
+    "Norm": {
+      "count": 9130,
+      "total_ms": 79.681,
+      "pct": 0.1,
+      "avg_grid": 179585
+    },
+    "Get_Rows": {
+      "count": 9159,
+      "total_ms": 63.388,
+      "pct": 0.1,
+      "avg_grid": 113320
+    },
+    "GEMV_Q4_0": {
+      "count": 29,
+      "total_ms": 42.494,
+      "pct": 0.1,
+      "avg_grid": 7946240
+    },
+    "Quantize_Q8_1": {
+      "count": 12658,
+      "total_ms": 19.933,
+      "pct": 0.0,
+      "avg_grid": 7880
+    },
+    "Copy": {
+      "count": 510,
+      "total_ms": 1.771,
+      "pct": 0.0,
+      "avg_grid": 608
+    }
+  },
+  "gemv_by_quant": {
+    "GEMV_IQ3_XXS": {
+      "count": 6579,
+      "total_ms": 902.535
+    },
+    "GEMV_IQ3_XS": {
+      "count": 6050,
+      "total_ms": 156.254
+    },
+    "GEMV_Q4_0": {
+      "count": 29,
+      "total_ms": 42.494
+    }
+  }
+}

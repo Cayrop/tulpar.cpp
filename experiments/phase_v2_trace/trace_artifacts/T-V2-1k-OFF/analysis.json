@@ -1,0 +1,424 @@
+{
+  "arm": "T-V2-1k-OFF",
+  "server_timings": {
+    "p_prompt_ms": 493.336,
+    "p_prompt_n": 161,
+    "p_predicted_ms": 0.001,
+    "p_predicted_n": 1,
+    "d_prompt_ms": 492.857,
+    "d_prompt_n": 161,
+    "d_predicted_ms": 3686.86,
+    "d_predicted_n": 64
+  },
+  "trace_counts": {
+    "p_total_dispatches": 5947,
+    "p_inference_dispatches": 1132,
+    "d_total_dispatches": 125090,
+    "d_load_end_idx": 4815,
+    "d_prefill_dispatches": 2484,
+    "d_decode_dispatches": 117791,
+    "d_last_mmq_idx": 7298
+  },
+  "tokens_estimated": 82,
+  "tokens_from_fa": 58,
+  "tokens_from_fwht": 82,
+  "n_predict": 64,
+  "prefill": {
+    "total_ms": 321.92,
+    "category": {
+      "MMQ_IQ3_XXS": {
+        "count": 288,
+        "total_ms": 239.381,
+        "pct": 74.36
+      },
+      "MMQ_IQ3_S": {
+        "count": 96,
+        "total_ms": 36.564,
+        "pct": 11.36
+      },
+      "GDN": {
+        "count": 48,
+        "total_ms": 17.263,
+        "pct": 5.36
+      },
+      "Copy": {
+        "count": 117,
+        "total_ms": 3.883,
+        "pct": 1.21
+      },
+      "Activation": {
+        "count": 224,
+        "total_ms": 3.668,
+        "pct": 1.14
+      },
+      "Norm_RMS": {
+        "count": 208,
+        "total_ms": 3.482,
+        "pct": 1.08
+      },
+      "Quantize_q8_1_MMQ": {
+        "count": 400,
+        "total_ms": 3.136,
+        "pct": 0.97
+      },
+      "hipBLAS_GEMM": {
+        "count": 96,
+        "total_ms": 2.753,
+        "pct": 0.86
+      },
+      "FA_tile": {
+        "count": 16,
+        "total_ms": 2.091,
+        "pct": 0.65
+      },
+      "Broadcast": {
+        "count": 223,
+        "total_ms": 1.83,
+        "pct": 0.57
+      },
+      "MMQ_IQ4_XS": {
+        "count": 16,
+        "total_ms": 1.615,
+        "pct": 0.5
+      },
+      "Convert": {
+        "count": 192,
+        "total_ms": 1.416,
+        "pct": 0.44
+      },
+      "GDN_SSM_Conv": {
+        "count": 48,
+        "total_ms": 1.331,
+        "pct": 0.41
+      },
+      "RoPE": {
+        "count": 32,
+        "total_ms": 0.943,
+        "pct": 0.29
+      },
+      "Scale": {
+        "count": 96,
+        "total_ms": 0.652,
+        "pct": 0.2
+      },
+      "Get_Rows": {
+        "count": 96,
+        "total_ms": 0.578,
+        "pct": 0.18
+      },
+      "Norm_L2": {
+        "count": 96,
+        "total_ms": 0.553,
+        "pct": 0.17
+      },
+      "GDN_FWHT": {
+        "count": 64,
+        "total_ms": 0.373,
+        "pct": 0.12
+      },
+      "Dequant_block": {
+        "count": 96,
+        "total_ms": 0.233,
+        "pct": 0.07
+      },
+      "KV_Store": {
+        "count": 32,
+        "total_ms": 0.176,
+        "pct": 0.05
+      }
+    },
+    "mmq_bw": {
+      "IQ3_XXS": {
+        "count": 288,
+        "total_ms": 239.381,
+        "effective_BW_GBs": 5442.68,
+        "ms_per_token": 1.4868
+      },
+      "IQ3_S": {
+        "count": 96,
+        "total_ms": 36.564,
+        "effective_BW_GBs": 6060.93,
+        "ms_per_token": 0.2271
+      },
+      "IQ4_XS": {
+        "count": 16,
+        "total_ms": 1.615,
+        "effective_BW_GBs": 21655.66,
+        "ms_per_token": 0.01
+      }
+    },
+    "gaps_ms": {
+      "count": 2483,
+      "total_ms": 75.155,
+      "median_ms": 0.0086,
+      "p95_ms": 0.0218,
+      "p99_ms": 0.0296,
+      "max_ms": 38.5257
+    }
+  },
+  "decode": {
+    "total_ms": 2554.42,
+    "category": {
+      "GEMV_IQ3_XXS": {
+        "count": 13921,
+        "total_ms": 1892.201,
+        "pct": 74.08,
+        "avg_ms": 0.1359
+      },
+      "GEMV_IQ3_S": {
+        "count": 5937,
+        "total_ms": 297.105,
+        "pct": 11.63,
+        "avg_ms": 0.05
+      },
+      "GEMV_Q3_K": {
+        "count": 61,
+        "total_ms": 88.955,
+        "pct": 3.48,
+        "avg_ms": 1.4583
+      },
+      "Norm_RMS": {
+        "count": 12928,
+        "total_ms": 42.235,
+        "pct": 1.65,
+        "avg_ms": 0.0033
+      },
+      "Quantize_q8_1": {
+        "count": 26849,
+        "total_ms": 37.814,
+        "pct": 1.48,
+        "avg_ms": 0.0014
+      },
+      "Get_Rows": {
+        "count": 6001,
+        "total_ms": 32.802,
+        "pct": 1.28,
+        "avg_ms": 0.0055
+      },
+      "GEMV_IQ1_M": {
+        "count": 5940,
+        "total_ms": 22.258,
+        "pct": 0.87,
+        "avg_ms": 0.0037
+      },
+      "GDN": {
+        "count": 2970,
+        "total_ms": 18.877,
+        "pct": 0.74,
+        "avg_ms": 0.0064
+      },
+      "Activation": {
+        "count": 9963,
+        "total_ms": 17.982,
+        "pct": 0.7,
+        "avg_ms": 0.0018
+      },
+      "FA_tile": {
+        "count": 989,
+        "total_ms": 15.257,
+        "pct": 0.6,
+        "avg_ms": 0.0154
+      },
+      "Copy": {
+        "count": 4441,
+        "total_ms": 15.211,
+        "pct": 0.6,
+        "avg_ms": 0.0034
+      },
+      "Broadcast": {
+        "count": 6069,
+        "total_ms": 12.958,
+        "pct": 0.51,
+        "avg_ms": 0.0021
+      },
+      "Norm_L2": {
+        "count": 5940,
+        "total_ms": 11.464,
+        "pct": 0.45,
+        "avg_ms": 0.0019
+      },
+      "RoPE": {
+        "count": 1978,
+        "total_ms": 11.428,
+        "pct": 0.45,
+        "avg_ms": 0.0058
+      },
+      "KV_Store": {
+        "count": 1978,
+        "total_ms": 7.484,
+        "pct": 0.29,
+        "avg_ms": 0.0038
+      },
+      "GEMV_IQ4_XS": {
+        "count": 989,
+        "total_ms": 7.32,
+        "pct": 0.29,
+        "avg_ms": 0.0074
+      },
+      "GDN_FWHT": {
+        "count": 3956,
+        "total_ms": 6.791,
+        "pct": 0.27,
+        "avg_ms": 0.0017
+      },
+      "Other": {
+        "count": 2922,
+        "total_ms": 6.611,
+        "pct": 0.26,
+        "avg_ms": 0.0023
+      },
+      "GDN_SSM_Conv": {
+        "count": 2970,
+        "total_ms": 6.315,
+        "pct": 0.25,
+        "avg_ms": 0.0021
+      },
+      "FA_combine": {
+        "count": 989,
+        "total_ms": 3.351,
+        "pct": 0.13,
+        "avg_ms": 0.0034
+      }
+    },
+    "gemv_bw": {
+      "IQ3_XXS": {
+        "count": 13921,
+        "total_ms": 1892.201,
+        "calls_per_token": 169.77,
+        "avg_grid": 319420,
+        "bytes_per_step": 8092385280,
+        "effective_BW_GBs": 350.69,
+        "ms_per_token": 23.0756
+      },
+      "IQ1_M": {
+        "count": 5940,
+        "total_ms": 22.258,
+        "calls_per_token": 72.44,
+        "avg_grid": 1536,
+        "bytes_per_step": 5160960,
+        "effective_BW_GBs": 19.01,
+        "ms_per_token": 0.2714
+      },
+      "IQ3_S": {
+        "count": 5937,
+        "total_ms": 297.105,
+        "calls_per_token": 72.4,
+        "avg_grid": 180215,
+        "bytes_per_step": 1376460800,
+        "effective_BW_GBs": 379.9,
+        "ms_per_token": 3.6232
+      },
+      "IQ4_XS": {
+        "count": 989,
+        "total_ms": 7.32,
+        "calls_per_token": 12.06,
+        "avg_grid": 32768,
+        "bytes_per_step": 217251840,
+        "effective_BW_GBs": 2433.64,
+        "ms_per_token": 0.0893
+      },
+      "Q3_K": {
+        "count": 61,
+        "total_ms": 88.955,
+        "calls_per_token": 0.74,
+        "avg_grid": 7946240,
+        "bytes_per_step": 546304000,
+        "effective_BW_GBs": 503.59,
+        "ms_per_token": 1.0848
+      }
+    },
+    "gaps_ms": {
+      "count": 117790,
+      "total_ms": 1099.622,
+      "median_ms": 0.0084,
+      "p95_ms": 0.0654,
+      "p99_ms": 0.1806,
+      "max_ms": 17.2676
+    }
+  },
+  "p_inference_for_reference": {
+    "total_ms": 146.681,
+    "category": {
+      "MMQ_IQ3_XXS": {
+        "count": 131,
+        "total_ms": 109.158
+      },
+      "MMQ_IQ3_S": {
+        "count": 43,
+        "total_ms": 16.341
+      },
+      "GDN": {
+        "count": 22,
+        "total_ms": 7.94
+      },
+      "Copy": {
+        "count": 56,
+        "total_ms": 1.86
+      },
+      "Activation": {
+        "count": 102,
+        "total_ms": 1.672
+      },
+      "Norm_RMS": {
+        "count": 95,
+        "total_ms": 1.605
+      },
+      "Quantize_q8_1_MMQ": {
+        "count": 181,
+        "total_ms": 1.438
+      },
+      "hipBLAS_GEMM": {
+        "count": 44,
+        "total_ms": 1.269
+      },
+      "FA_tile": {
+        "count": 7,
+        "total_ms": 0.915
+      },
+      "Broadcast": {
+        "count": 102,
+        "total_ms": 0.839
+      },
+      "MMQ_IQ4_XS": {
+        "count": 7,
+        "total_ms": 0.704
+      },
+      "Convert": {
+        "count": 88,
+        "total_ms": 0.652
+      },
+      "GDN_SSM_Conv": {
+        "count": 22,
+        "total_ms": 0.634
+      },
+      "RoPE": {
+        "count": 14,
+        "total_ms": 0.411
+      },
+      "Scale": {
+        "count": 44,
+        "total_ms": 0.356
+      },
+      "Get_Rows": {
+        "count": 44,
+        "total_ms": 0.274
+      },
+      "Norm_L2": {
+        "count": 44,
+        "total_ms": 0.264
+      },
+      "GDN_FWHT": {
+        "count": 28,
+        "total_ms": 0.163
+      },
+      "Dequant_block": {
+        "count": 44,
+        "total_ms": 0.109
+      },
+      "KV_Store": {
+        "count": 14,
+        "total_ms": 0.077
+      }
+    }
+  }
+}

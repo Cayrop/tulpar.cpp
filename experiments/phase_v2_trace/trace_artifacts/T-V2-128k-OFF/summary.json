@@ -1,0 +1,12 @@
+{
+    "arm": "T-V2-128k-OFF",
+    "ctx_size": 131072,
+    "prompt_tokens_target": 128000,
+    "prompt_tokens_payload": 128000,
+    "n_predict": 64,
+    "p_request_ms": 21320,
+    "d_request_ms": 25102,
+    "model": "/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf",
+    "binary": "/home/gencer/llama.cpp/build-p3/bin/llama-server",
+    "timestamp": "2026-08-27T11:41:51+03:00"
+}

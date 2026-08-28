@@ -1,0 +1,11 @@
+grid: (256, 4) coset: (256, 4) full: (4096, 4)
+coset set == grid set? False
+grid byte set: [np.float64(4.0), np.float64(12.0), np.float64(20.0), np.float64(28.0), np.float64(36.0), np.float64(44.0), np.float64(52.0), np.float64(62.0)]
+N(0,1)                               D4-256 (real grid)               MSE=   3.59747    0.0075%  SNR= 41.28 dB
+N(0,1)                               even-level coset (0,2,4,6)^4     MSE=   6.24263    0.0129%  SNR= 38.88 dB
+N(0,1)                               unconstrained 4096 (upper bound = scalar 3-bit) MSE=   2.60984    0.0054%  SNR= 42.67 dB
+
+mixture 50% N(0,0.3) + 50% N(0,1.5)  D4-256 (real grid)               MSE=   6.70916    0.0119%  SNR= 39.25 dB
+mixture 50% N(0,0.3) + 50% N(0,1.5)  even-level coset (0,2,4,6)^4     MSE=   8.25088    0.0146%  SNR= 38.35 dB
+mixture 50% N(0,0.3) + 50% N(0,1.5)  unconstrained 4096 (upper bound = scalar 3-bit) MSE=   4.99785    0.0088%  SNR= 40.53 dB
+

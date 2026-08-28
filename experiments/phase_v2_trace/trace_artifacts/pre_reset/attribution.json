@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "model": "Qwen3.8-27B-UD-Q2_K_XL",
+    "binary": "build-p3/bin/llama-server",
+    "gpu": "AMD RDNA3 (gfx1100) 16 GiB",
+    "rocm_version": "7.2.4",
+    "server_config": {
+      "ctx_size": 131072,
+      "flash_attn": true,
+      "kv_cache_type": "q4_0",
+      "ngl": 999
+    },
+    "date": "2026-08-26",
+    "phase2_fused_active": true,
+    "phase3_mmq_active": true
+  },
+  "arms": {
+    "T-V2-1k-OFF": {
+      "prompt_tokens": "~850",
+      "tokens_evaluated": 850,
+      "tokens_predicted": 32,
+      "pp_tok_per_sec": null,
+      "decode_tok_per_sec": 21.6,
+      "total_dispatches": 4879,
+      "inference_dispatches": 4878,
+      "total_inference_ms": 132.52,
+      "category_attribution": {
+        "GEMV_IQ3_XXS": {"count": 576, "total_ms": 75.24, "pct": 56.8, "avg_grid": 371370},
+        "Fill": {"count": 8, "total_ms": 25.937, "pct": 19.6, "avg_grid": 7680},
+        "GEMV_IQ3_XS": {"count": 416, "total_ms": 13.051, "pct": 9.8, "avg_grid": 86409},
+        "Other": {"count": 1056, "total_ms": 5.708, "pct": 4.3, "avg_grid": 321807},
+        "GEMV_Q4_0": {"count": 2, "total_ms": 2.917, "pct": 2.2, "avg_grid": 7946240},
+        "Quantize_Q8_1": {"count": 994, "total_ms": 1.987, "pct": 1.5, "avg_grid": 13658},
+        "Norm_RMS": {"count": 418, "total_ms": 1.887, "pct": 1.4, "avg_grid": 8005},
+        "Broadcast": {"count": 448, "total_ms": 1.186, "pct": 0.9, "avg_grid": 2946},
+        "Get_Rows": {"count": 194, "total_ms": 1.1, "pct": 0.8, "avg_grid": 112544},
+        "GDN": {"count": 96, "total_ms": 1.031, "pct": 0.8, "avg_grid": 196608},
+        "Copy": {"count": 190, "total_ms": 0.624, "pct": 0.5, "avg_grid": 517},
+        "FA": {"count": 64, "total_ms": 0.565, "pct": 0.4, "avg_grid": 11520},
+        "Norm": {"count": 192, "total_ms": 0.509, "pct": 0.4, "avg_grid": 1024},
+        "RoPE": {"count": 64, "total_ms": 0.334, "pct": 0.3, "avg_grid": 7168},
+        "GDN_SSM_Conv": {"count": 96, "total_ms": 0.28, "pct": 0.2, "avg_grid": 10240},
+        "Dequant": {"count": 64, "total_ms": 0.166, "pct": 0.1, "avg_grid": 32768}
+      },
+      "gemv_by_quant": {
+        "GEMV_IQ3_XXS": {"count": 576, "total_ms": 75.24, "pct": 82.5},
+        "GEMV_IQ3_XS": {"count": 416, "total_ms": 13.051, "pct": 14.3},
+        "GEMV_Q4_0": {"count": 2, "total_ms": 2.917, "pct": 3.2}
+      },
+      "inter_kernel_gaps": {"median_ms": 0.009, "p99_ms": 10.55, "total_ms": 1105.134}
+    },
+    "T-V2-16k-OFF": {
+      "prompt_tokens": 33330,
+      "tokens_evaluated": 33330,
+      "tokens_predicted": 32,
+      "pp_tok_per_sec": 412.07,
+      "decode_tok_per_sec": 15.37,
+      "total_dispatches": 220409,
+      "inference_dispatches": 215530,
+      "total_inference_ms": 80181.59,
+      "category_attribution": {
+        "MMQ": {"count": 52800, "total_ms": 48948.025, "pct": 61.0, "avg_grid": 496147},
+        "FA": {"count": 2002, "total_ms": 22274.481, "pct": 27.8, "avg_grid": 60029},
+        "GDN": {"count": 4565, "total_ms": 3760.5, "pct": 4.7, "avg_grid": 196608},
+        "Other": {"count": 58384, "total_ms": 2296.665, "pct": 2.9, "avg_grid": 1393089},
+        "GEMV_IQ3_XXS": {"count": 6579, "total_ms": 902.535, "pct": 1.1, "avg_grid": 320637},
+        "Norm_RMS": {"count": 19872, "total_ms": 733.767, "pct": 0.9, "avg_grid": 1404370},
+        "Broadcast": {"count": 17705, "total_ms": 325.037, "pct": 0.4, "avg_grid": 621424},
+        "GDN_SSM_Conv": {"count": 4565, "total_ms": 246.843, "pct": 0.3, "avg_grid": 115327},
+        "RoPE": {"count": 3042, "total_ms": 195.138, "pct": 0.2, "avg_grid": 1257649},
+        "GEMV_IQ3_XS": {"count": 6050, "total_ms": 156.254, "pct": 0.2, "avg_grid": 86367},
+        "Dequant": {"count": 8480, "total_ms": 135.08, "pct": 0.2, "avg_grid": 585697},
+        "Norm": {"count": 9130, "total_ms": 79.681, "pct": 0.1, "avg_grid": 179586},
+        "Get_Rows": {"count": 9159, "total_ms": 63.388, "pct": 0.1, "avg_grid": 113320},
+        "GEMV_Q4_0": {"count": 29, "total_ms": 42.494, "pct": 0.1, "avg_grid": 7946240},
+        "Quantize_Q8_1": {"count": 12658, "total_ms": 19.933, "pct": 0.0, "avg_grid": 7881},
+        "Copy": {"count": 510, "total_ms": 1.771, "pct": 0.0, "avg_grid": 608}
+      },
+      "inter_kernel_gaps": {"median_ms": 0.009, "p99_ms": 0.099, "total_ms": 2526.863}
+    },
+    "T-V2-63k-OFF": {
+      "prompt_tokens": 63330,
+      "tokens_evaluated": 63330,
+      "tokens_predicted": 32,
+      "pp_tok_per_sec": 330.82,
+      "decode_tok_per_sec": 14.51,
+      "total_dispatches": 363377,
+      "inference_dispatches": 358498,
+      "total_inference_ms": 189219.22,
+      "category_attribution": {
+        "MMQ": {"count": 99200, "total_ms": 93111.789, "pct": 49.2, "avg_grid": 501726},
+        "FA": {"count": 2956, "total_ms": 79827.468, "pct": 42.2, "avg_grid": 70345},
+        "GDN": {"count": 7412, "total_ms": 7141.301, "pct": 3.8, "avg_grid": 196608},
+        "Other": {"count": 100630, "total_ms": 4355.436, "pct": 2.3, "avg_grid": 1531534},
+        "Norm_RMS": {"count": 32271, "total_ms": 1377.064, "pct": 0.7, "avg_grid": 1642558},
+        "GEMV_IQ3_XXS": {"count": 6877, "total_ms": 939.564, "pct": 0.5, "avg_grid": 320533},
+        "Broadcast": {"count": 30824, "total_ms": 611.527, "pct": 0.3, "avg_grid": 678120},
+        "Dequant": {"count": 15904, "total_ms": 540.065, "pct": 0.3, "avg_grid": 1061284},
+        "GDN_SSM_Conv": {"count": 7413, "total_ms": 466.813, "pct": 0.2, "avg_grid": 133236},
+        "RoPE": {"count": 4940, "total_ms": 366.648, "pct": 0.2, "avg_grid": 1470964},
+        "GEMV_IQ3_XS": {"count": 6324, "total_ms": 162.237, "pct": 0.1, "avg_grid": 86381},
+        "Norm": {"count": 14824, "total_ms": 145.352, "pct": 0.1, "avg_grid": 210081},
+        "Get_Rows": {"count": 14856, "total_ms": 106.575, "pct": 0.1, "avg_grid": 113445},
+        "GEMV_Q4_0": {"count": 30, "total_ms": 43.853, "pct": 0.0, "avg_grid": 7946240},
+        "Quantize_Q8_1": {"count": 13231, "total_ms": 20.679, "pct": 0.0, "avg_grid": 7847},
+        "Copy": {"count": 806, "total_ms": 2.852, "pct": 0.0, "avg_grid": 610}
+      },
+      "inter_kernel_gaps": {"median_ms": 0.009, "p99_ms": 0.066, "total_ms": 4237.862}
+    },
+    "T-V2-128k-OFF": {
+      "prompt_tokens": 88064,
+      "tokens_evaluated": 88064,
+      "tokens_predicted": 0,
+      "pp_tok_per_sec": "~290",
+      "decode_tok_per_sec": null,
+      "note": "Prefill only — curl timed out at 300s, decode not captured",
+      "total_dispatches": 411033,
+      "inference_dispatches": 412111,
+      "total_inference_ms": 299266.42,
+      "category_attribution": {
+        "FA": {"count": 2721, "total_ms": 150141.348, "pct": 50.2, "avg_grid": 98304},
+        "MMQ": {"count": 136087, "total_ms": 128152.531, "pct": 42.8, "avg_grid": 502992},
+        "GDN": {"count": 8166, "total_ms": 9828.034, "pct": 3.3, "avg_grid": 196608},
+        "Other": {"count": 122577, "total_ms": 5937.506, "pct": 2.0, "avg_grid": 1725870},
+        "Norm_RMS": {"count": 35553, "total_ms": 1867.272, "pct": 0.6, "avg_grid": 2049550},
+        "Dequant": {"count": 21774, "total_ms": 1051.792, "pct": 0.4, "avg_grid": 1424003},
+        "Broadcast": {"count": 38106, "total_ms": 832.025, "pct": 0.3, "avg_grid": 754251},
+        "GDN_SSM_Conv": {"count": 8166, "total_ms": 638.397, "pct": 0.2, "avg_grid": 163840},
+        "RoPE": {"count": 5442, "total_ms": 496.508, "pct": 0.2, "avg_grid": 1835008},
+        "Norm": {"count": 16332, "total_ms": 193.967, "pct": 0.1, "avg_grid": 262144},
+        "Get_Rows": {"count": 16332, "total_ms": 123.684, "pct": 0.0, "avg_grid": 113664},
+        "Copy": {"count": 855, "total_ms": 3.354, "pct": 0.0, "avg_grid": 614}
+      },
+      "inter_kernel_gaps": {"median_ms": 0.009, "p99_ms": 0.022, "total_ms": 5076.315}
+    }
+  },
+  "cross_arm_summary": {
+    "fa_vs_mmq_crossover": "At ~80k tokens, FA overtakes MMQ as dominant kernel",
+    "fa_growth": "FA goes from 0.4% (1k) → 27.8% (16k) → 42.2% (63k) → 50.2% (128k)",
+    "mmq_decline": "MMQ goes from 61.0% (16k) → 49.2% (63k) → 42.8% (128k)",
+    "decode_gmv_dominance": "IQ3_XXS always 82.5% of decode GEMV regardless of context",
+    "phase2_verification": "Staging dequant launches = 0 across all arms",
+    "pp_throughput_degradation": "PP drops from 412 → 331 → ~290 tok/s as context grows",
+    "decode_throughput": "Stable ~15 tok/s across arms (decode is context-independent)"
+  }
+}

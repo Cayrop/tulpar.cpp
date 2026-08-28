@@ -1,0 +1,82 @@
+{
+  "total_dispatches": 416990,
+  "model_loading_dispatches": 4879,
+  "inference_dispatches": 412111,
+  "total_gpu_time_ms": 307359.409202,
+  "total_inference_ms": 299266.418624,
+  "category_attribution": {
+    "FA": {
+      "count": 2721,
+      "total_ms": 150141.348,
+      "pct": 50.2,
+      "avg_grid": 98304
+    },
+    "MMQ": {
+      "count": 136087,
+      "total_ms": 128152.531,
+      "pct": 42.8,
+      "avg_grid": 502991
+    },
+    "GDN": {
+      "count": 8166,
+      "total_ms": 9828.034,
+      "pct": 3.3,
+      "avg_grid": 196608
+    },
+    "Other": {
+      "count": 122577,
+      "total_ms": 5937.506,
+      "pct": 2.0,
+      "avg_grid": 1725870
+    },
+    "Norm_RMS": {
+      "count": 35553,
+      "total_ms": 1867.272,
+      "pct": 0.6,
+      "avg_grid": 2049549
+    },
+    "Dequant": {
+      "count": 21774,
+      "total_ms": 1051.792,
+      "pct": 0.4,
+      "avg_grid": 1424002
+    },
+    "Broadcast": {
+      "count": 38106,
+      "total_ms": 832.025,
+      "pct": 0.3,
+      "avg_grid": 754250
+    },
+    "GDN_SSM_Conv": {
+      "count": 8166,
+      "total_ms": 638.397,
+      "pct": 0.2,
+      "avg_grid": 163840
+    },
+    "RoPE": {
+      "count": 5442,
+      "total_ms": 496.508,
+      "pct": 0.2,
+      "avg_grid": 1835008
+    },
+    "Norm": {
+      "count": 16332,
+      "total_ms": 193.967,
+      "pct": 0.1,
+      "avg_grid": 262144
+    },
+    "Get_Rows": {
+      "count": 16332,
+      "total_ms": 123.684,
+      "pct": 0.0,
+      "avg_grid": 113664
+    },
+    "Copy": {
+      "count": 855,
+      "total_ms": 3.354,
+      "pct": 0.0,
+      "avg_grid": 614
+    }
+  },
+  "gemv_by_quant": {}
+}
