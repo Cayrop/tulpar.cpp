@@ -1,0 +1,150 @@
+{
+ "tolerance_policy": "rel_max <= 1e-4 accepted as fp accumulation-order noise; no variant loosens accuracy",
+ "reference": "host dequant replication (ref_cpu.cpp); cross-validated by independent python replication of slice math",
+ "checks": [
+  {
+   "variant": "V0_baseline_wg32",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009977,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 78
+  },
+  {
+   "variant": "V1_wg64",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009966,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 0.3473,
+   "vgprs": 80
+  },
+  {
+   "variant": "V2_wg128",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009996,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 0.3354,
+   "vgprs": 80
+  },
+  {
+   "variant": "V3_rows2_wg32",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009977,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 38
+  },
+  {
+   "variant": "V4_rows4_wg128",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009996,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 0.3354,
+   "vgprs": 49
+  },
+  {
+   "variant": "V5_fastld_funnel",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009977,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 75
+  },
+  {
+   "variant": "V6_lds_grid",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009977,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 79
+  },
+  {
+   "variant": "V7_ilp2",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009966,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 0.3473,
+   "vgprs": 69
+  },
+  {
+   "variant": "V8_fastld_nt",
+   "max_abs": 0.009766,
+   "mean_abs": 0.0009977,
+   "rel_max_vs_ref": 4.224e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 75
+  },
+  {
+   "variant": "V0_baseline_wg32",
+   "max_abs": 0.0293,
+   "mean_abs": 0.003336,
+   "rel_max_vs_ref": 7.259e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 78
+  },
+  {
+   "variant": "V1_wg64",
+   "max_abs": 0.03125,
+   "mean_abs": 0.003269,
+   "rel_max_vs_ref": 7.743e-07,
+   "bitmatch_vs_baseline": 0.26,
+   "vgprs": 80
+  },
+  {
+   "variant": "V2_wg128",
+   "max_abs": 0.03125,
+   "mean_abs": 0.003255,
+   "rel_max_vs_ref": 7.743e-07,
+   "bitmatch_vs_baseline": 0.248,
+   "vgprs": 80
+  },
+  {
+   "variant": "V3_rows2_wg32",
+   "max_abs": 0.0293,
+   "mean_abs": 0.003336,
+   "rel_max_vs_ref": 7.259e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 38
+  },
+  {
+   "variant": "V4_rows4_wg128",
+   "max_abs": 0.03125,
+   "mean_abs": 0.003255,
+   "rel_max_vs_ref": 7.743e-07,
+   "bitmatch_vs_baseline": 0.248,
+   "vgprs": 49
+  },
+  {
+   "variant": "V5_fastld_funnel",
+   "max_abs": 0.0293,
+   "mean_abs": 0.003336,
+   "rel_max_vs_ref": 7.259e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 75
+  },
+  {
+   "variant": "V6_lds_grid",
+   "max_abs": 0.0293,
+   "mean_abs": 0.003336,
+   "rel_max_vs_ref": 7.259e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 79
+  },
+  {
+   "variant": "V7_ilp2",
+   "max_abs": 0.03125,
+   "mean_abs": 0.003269,
+   "rel_max_vs_ref": 7.743e-07,
+   "bitmatch_vs_baseline": 0.26,
+   "vgprs": 69
+  },
+  {
+   "variant": "V8_fastld_nt",
+   "max_abs": 0.0293,
+   "mean_abs": 0.003336,
+   "rel_max_vs_ref": 7.259e-07,
+   "bitmatch_vs_baseline": 1.0,
+   "vgprs": 75
+  }
+ ]
+}

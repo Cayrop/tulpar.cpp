@@ -1,0 +1,12 @@
+RUNNING 2026-08-26 17:02:46
+off-1k rc=0 status=OK peak=11.294 health=ok
+off-16k rc=0 status=OK peak=11.655 health=ok
+off-63k rc=0 status=OK peak=12.5 health=ok
+off-128k rc=0 status=OK peak=13.686 health=ok
+off-131k rc=0 status=OK peak=13.764 health=ok
+on-1k rc=0 status=OK peak=12.215 health=ok
+on-16k rc=0 status=OK peak=12.554 health=ok
+on-63k rc=0 status=OK peak=14.375 health=ok
+on-128k rc=0 status=OK peak=15.161 health=ok
+on-131k rc=0 status=OK peak=15.279 health=ok
+DONE ok=1 2026-08-26 17:56:01

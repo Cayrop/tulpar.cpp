@@ -1161,10 +1161,19 @@ static __device__ __forceinline__ float vec_dot_iq3_xxs_q8_1(
     const uint8_t * q3 = (const uint8_t *) &q3_packed;
     const uint32_t aux32 = get_int_b2(bq3->qs, QK_K/16 + iqs/2);
 
+    // Hoist the 8 dependent iq3xxs_grid gathers before the dp4a chain so the
+    // loads overlap instead of serializing on each dp4a. dp4a order unchanged.
+    const uint32_t grid[8] = {
+        iq3xxs_grid[q3[0]], iq3xxs_grid[q3[1]],
+        iq3xxs_grid[q3[2]], iq3xxs_grid[q3[3]],
+        iq3xxs_grid[q3[4]], iq3xxs_grid[q3[5]],
+        iq3xxs_grid[q3[6]], iq3xxs_grid[q3[7]],
+    };
+
     int sumi = 0;
 #pragma unroll
     for (int l0 = 0; l0 < 8; l0 += 2) {
-        const int2 grid_pos = make_int2(iq3xxs_grid[q3[l0 + 0]], iq3xxs_grid[q3[l0 + 1]]);
+        const int2 grid_pos = make_int2(grid[l0 + 0], grid[l0 + 1]);
         const uint32_t signs = unpack_ksigns(aux32 >> (7*l0/2));
 
         const int signs0 = __vcmpne4(signs & 0x08040201, 0);

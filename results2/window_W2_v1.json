@@ -1,0 +1,255 @@
+{
+ "tag": "W2_v1",
+ "binary": "<REPO_ROOT>/build-v1/bin/llama-server",
+ "spec": false,
+ "perf": [
+  {
+   "exp_id": "W2_v1_warmup",
+   "prompt_n": 5,
+   "predicted_n": 16,
+   "decode_tok_s": 20.106,
+   "per_token_ms": 49.735866666666666,
+   "prefill_tok_s": 19.93,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_1k_r1",
+   "prompt_n": 955,
+   "predicted_n": 128,
+   "decode_tok_s": 20.676,
+   "per_token_ms": 48.36559055118111,
+   "prefill_tok_s": 514.94,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_1k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 20.727,
+   "per_token_ms": 48.246464566929134,
+   "prefill_tok_s": 18.77,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_1k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 20.787,
+   "per_token_ms": 48.107125984251965,
+   "prefill_tok_s": 19.79,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_1k_r4",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 20.768,
+   "per_token_ms": 48.15132283464567,
+   "prefill_tok_s": 20.13,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_16k_r1",
+   "prompt_n": 16337,
+   "predicted_n": 128,
+   "decode_tok_s": 17.41,
+   "per_token_ms": 57.43856692913386,
+   "prefill_tok_s": 480.02,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_16k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 17.414,
+   "per_token_ms": 57.42390551181103,
+   "prefill_tok_s": 22.21,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_16k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 17.385,
+   "per_token_ms": 57.51979527559055,
+   "prefill_tok_s": 21.6,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_63k_r1",
+   "prompt_n": 63495,
+   "predicted_n": 380,
+   "decode_tok_s": 11.065,
+   "per_token_ms": 90.37505540897098,
+   "prefill_tok_s": 336.13,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_63k_r2",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 11.053,
+   "per_token_ms": 90.4748073878628,
+   "prefill_tok_s": 19.55,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "W2_v1_63k_r3",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 11.045,
+   "per_token_ms": 90.54236939313984,
+   "prefill_tok_s": 19.39,
+   "draft_n": null,
+   "draft_acc": null
+  }
+ ],
+ "gate": {
+  "tag": "W2_v1_g",
+  "ts": "2026-08-23 00:15:39",
+  "determinism_self": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "semantic_1k": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "semantic_16k": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "needle_16k": {
+   "pass": true,
+   "out": "\n\n<think>\nThe user is asking me to identify the \"magic word\""
+  },
+  "gen_16k": {
+   "text": "\n\n<think>\nThe user is asking me to identify the \"magic word\" from the text above. Let me search through the text for any mention of a \"magic word.\"\n\nI found it: \"By the way, the magic word of this story is SILVER-COMPASS-93.\"\n\nThe user",
+   "tokens": [],
+   "tok_s": 15.155269342814597,
+   "per_token_ms": 65.9836507936508,
+   "draft_n": null,
+   "draft_acc": null,
+   "prompt_n": 24840,
+   "prompt_ms": 56162.396,
+   "wall_s": 60.91
+  },
+  "prompt16_n": 24840,
+  "gen_1k": {
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tokens": [],
+   "tok_s": 18.90998092679608,
+   "per_token_ms": 52.88212631578947,
+   "draft_n": null,
+   "draft_acc": null,
+   "prompt_n": 951,
+   "prompt_ms": 2036.121,
+   "wall_s": 7.39
+  }
+ }
+}

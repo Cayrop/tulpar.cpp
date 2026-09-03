@@ -1,0 +1,13 @@
+device=gfx1101 CUs=30 clock=2254 MHz
+
+variant    shape                         ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+V0         ffn_down_K17408_N5120      0.1396        164.6         164.8        32     76     64
+C1         ffn_down_K17408_N5120      0.1434        160.2         160.5        32     81     56
+C2         ffn_down_K17408_N5120      0.1441        159.4         159.7        32     81     56
+C3         ffn_down_K17408_N5120      0.1459        157.5         157.8        32     81     56
+C4         ffn_down_K17408_N5120      0.1408        163.2         163.5        32     76     64
+V0         ffn_gateup_K5120_N17408      0.2516        182.7         183.0        32     33     64
+C1         ffn_gateup_K5120_N17408      0.2580        178.2         178.4        32     83     51
+C2         ffn_gateup_K5120_N17408      0.2587        177.6         177.9        32     83     51
+C3         ffn_gateup_K5120_N17408      0.2611        176.0         176.3        32     83     51
+C4         ffn_gateup_K5120_N17408      0.2496        184.1         184.4        32     33     64

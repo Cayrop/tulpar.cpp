@@ -1,0 +1,32 @@
+[
+ {
+  "req": "probe",
+  "cache_prompt": false,
+  "wall_s": 578.873,
+  "prompt_n": 129487,
+  "prompt_ms": 578632.197,
+  "predicted_n": 1,
+  "predicted_ms": 0.001,
+  "pp_tok_s": 223.78,
+  "tg_tok_s": 1000000.0,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "stop_reason": null,
+  "content_head": "\n\n"
+ },
+ {
+  "req": "main",
+  "cache_prompt": true,
+  "wall_s": 2.202,
+  "prompt_n": 4,
+  "prompt_ms": 593.243,
+  "predicted_n": 32,
+  "predicted_ms": 1374.741,
+  "pp_tok_s": 6.74,
+  "tg_tok_s": 23.277,
+  "draft_n": 21,
+  "draft_n_accepted": 21,
+  "stop_reason": null,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at the text care"
+ }
+]

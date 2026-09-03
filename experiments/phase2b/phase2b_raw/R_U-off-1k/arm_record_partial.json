@@ -1,0 +1,47 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 8.205,
+  "prompt_n": 1040,
+  "prompt_ms": 2018.807,
+  "predicted_n": 128,
+  "predicted_ms": 5754.511,
+  "pp_tok_s": 515.16,
+  "tg_tok_s": 22.243,
+  "e2e_tok_s": 15.6,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog, golden skies, and ancient cities\u2014rather"
+ },
+ {
+  "rep": 2,
+  "cache_prompt": true,
+  "wall_s": 5.933,
+  "prompt_n": 4,
+  "prompt_ms": 184.153,
+  "predicted_n": 128,
+  "predicted_ms": 5745.424,
+  "pp_tok_s": 21.72,
+  "tg_tok_s": 22.279,
+  "e2e_tok_s": 21.574,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog, golden skies, and ancient cities\u2014rather"
+ },
+ {
+  "rep": 3,
+  "cache_prompt": true,
+  "wall_s": 5.956,
+  "prompt_n": 4,
+  "prompt_ms": 176.498,
+  "predicted_n": 128,
+  "predicted_ms": 5776.363,
+  "pp_tok_s": 22.66,
+  "tg_tok_s": 22.159,
+  "e2e_tok_s": 21.491,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog, golden skies, and ancient cities\u2014rather"
+ }
+]

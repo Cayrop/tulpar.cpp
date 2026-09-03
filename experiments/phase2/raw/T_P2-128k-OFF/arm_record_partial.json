@@ -1,0 +1,32 @@
+[
+ {
+  "req": "probe",
+  "cache_prompt": false,
+  "wall_s": 573.384,
+  "prompt_n": 129487,
+  "prompt_ms": 573123.617,
+  "predicted_n": 1,
+  "predicted_ms": 0.001,
+  "pp_tok_s": 225.93,
+  "tg_tok_s": 1000000.0,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "stop_reason": null,
+  "content_head": "\n\n"
+ },
+ {
+  "req": "main",
+  "cache_prompt": true,
+  "wall_s": 2.536,
+  "prompt_n": 4,
+  "prompt_ms": 225.869,
+  "predicted_n": 32,
+  "predicted_ms": 2066.682,
+  "pp_tok_s": 17.71,
+  "tg_tok_s": 15.484,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "stop_reason": null,
+  "content_head": "\n\n<think>\nThe user wants me to summarize the topic of the text in one sentence. Let me look at the text carefully.\n\nThe "
+ }
+]

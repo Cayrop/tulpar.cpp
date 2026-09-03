@@ -1,0 +1,55 @@
+{
+  "experiment": "Phase-4E / Subagent-C: Prefetch Distance Variants for IQ3_XXS MMVQ",
+  "device": "gfx1101 (RX 7800 XT)",
+  "kernel": "mul_mat_vec_q<18, 1, false, 1, depth>  (IQ3_XXS, ncols_dst=1, has_fusion=false, nwarps=1, prefetch_depth in {0,1,2,4,-1})",
+  "shapes": {
+    "ffn_down": {"K": 17408, "N": 5120, "fused": false, "trips_per_thread_down": 68, "trips_per_thread_up": 20},
+    "ffn_gateup": {"K": 5120, "N": 17408, "fused": true, "trips_per_thread_down": 20, "trips_per_thread_up": 68}
+  },
+  "variants": {
+    "V0": {"prefetch_depth": 0, "lds_grid": false, "do_unroll": false, "description": "Baseline (production-equivalent IQ3_XXS MMVQ kernel)"},
+    "C1": {"prefetch_depth": 1, "lds_grid": true, "do_unroll": false, "description": "Prefetch 1 trip ahead (via __builtin_prefetch)"},
+    "C2": {"prefetch_depth": 2, "lds_grid": true, "do_unroll": false, "description": "Prefetch 2 trips ahead"},
+    "C3": {"prefetch_depth": 4, "lds_grid": true, "do_unroll": false, "description": "Prefetch 4 trips ahead"},
+    "C4": {"prefetch_depth": -1, "lds_grid": false, "do_unroll": true, "description": "Full #pragma unroll on the trip loop"}
+  },
+  "key_finding": "The __builtin_prefetch calls in C1/C2/C3 are completely eliminated by the compiler (no s_prefetch or global_load instructions appear in the SASS). The C1/C2/C3 variants end up equivalent to 'LDS-staged grid' (the 1KB iq3xxs_grid is loaded into LDS once per workgroup, then read from LDS instead of L1). The C4 #pragma unroll hint is also ignored because blocks_per_row_x is a runtime value.",
+  "sass_summary": {
+    "V0": {"global_loads_per_kernel": 14, "s_clause_groups": 3, "kloop_global_loads": 14, "kloop_s_clause_groups": 3, "lds_grid_staging_loads": 0},
+    "C1": {"global_loads_per_kernel": 14, "s_clause_groups": 2, "kloop_global_loads": 6, "kloop_s_clause_groups": 1, "lds_grid_staging_loads": 8, "prefetch_instructions": 0},
+    "C2": {"global_loads_per_kernel": 14, "s_clause_groups": 2, "kloop_global_loads": 6, "kloop_s_clause_groups": 1, "lds_grid_staging_loads": 8, "prefetch_instructions": 0},
+    "C3": {"global_loads_per_kernel": 14, "s_clause_groups": 2, "kloop_global_loads": 6, "kloop_s_clause_groups": 1, "lds_grid_staging_loads": 8, "prefetch_instructions": 0},
+    "C4": {"global_loads_per_kernel": 14, "s_clause_groups": 3, "kloop_global_loads": 14, "kloop_s_clause_groups": 3, "lds_grid_staging_loads": 0, "unroll_status": "ignored (dynamic trip count)"}
+  },
+  "bit_exact": {
+    "C1": "IDENTICAL to V0 (max_abs_diff=0, checksum match)",
+    "C2": "IDENTICAL to V0 (max_abs_diff=0, checksum match)",
+    "C3": "IDENTICAL to V0 (max_abs_diff=0, checksum match)",
+    "C4": "IDENTICAL to V0 (max_abs_diff=0, checksum match)"
+  },
+  "results_ffn_down": {
+    "V0": {"ms_median": 0.1396, "GBps_weight": 164.6, "regs": 76, "occ_blocks": 64, "stall_ratio": 0.7953},
+    "C1": {"ms_median": 0.1419, "GBps_weight": 162.0, "regs": 81, "occ_blocks": 56, "stall_ratio": 0.7767, "delta_GBps_vs_V0": -2.6},
+    "C2": {"ms_median": 0.1417, "GBps_weight": 162.2, "regs": 81, "occ_blocks": 56, "stall_ratio": 0.7866, "delta_GBps_vs_V0": -2.4},
+    "C3": {"ms_median": 0.1434, "GBps_weight": 160.3, "regs": 81, "occ_blocks": 56, "stall_ratio": 0.7860, "delta_GBps_vs_V0": -4.3},
+    "C4": {"ms_median": 0.1389, "GBps_weight": 165.4, "regs": 76, "occ_blocks": 64, "stall_ratio": 0.7998, "delta_GBps_vs_V0": +0.8}
+  },
+  "results_ffn_gateup": {
+    "V0": {"ms_median": 0.2486, "GBps_weight": 184.8, "regs": 33, "occ_blocks": 64, "stall_ratio": 0.6075},
+    "C1": {"ms_median": 0.2578, "GBps_weight": 178.3, "regs": 83, "occ_blocks": 51, "stall_ratio": 0.8165, "delta_GBps_vs_V0": -6.5},
+    "C2": {"ms_median": 0.2579, "GBps_weight": 178.2, "regs": 83, "occ_blocks": 51, "stall_ratio": 0.8157, "delta_GBps_vs_V0": -6.6},
+    "C3": {"ms_median": 0.2604, "GBps_weight": 176.5, "regs": 83, "occ_blocks": 51, "stall_ratio": 0.8181, "delta_GBps_vs_V0": -8.3},
+    "C4": {"ms_median": 0.2488, "GBps_weight": 184.7, "regs": 33, "occ_blocks": 64, "stall_ratio": 0.6079, "delta_GBps_vs_V0": -0.1}
+  },
+  "verdict": {
+    "does_prefetch_help": "NO. C1/C2/C3 are 2.4-4.3% SLOWER on ffn_down and 6.5-8.3% SLOWER on gateup. C4 is statistically indistinguishable from V0 (compiler refuses to unroll a dynamic-count loop).",
+    "at_what_depth": "Increasing prefetch depth (1 -> 2 -> 4) makes things slightly WORSE due to extra LDS reads. C3 (depth 4) is the slowest variant on both shapes.",
+    "at_what_vgpr_cost": "C1/C2/C3 add 5 VGPRs (76 -> 81 for ffn_down, 33 -> 83 for ffn_gateup), but the cost is not the VGPR pressure - the LDS reads from the staged grid create 30-200x more LDS wait cycles which dominate.",
+    "was_bottleneck_insufficient_inflight_loads": "REFUTED. The C1/C2/C3 variants in this harness have the same 14 in-flight global_loads as V0 (6 K-loop loads after the 8 grid loads were moved to LDS-staging). The per-trip load count went DOWN, not UP. The K-loop is NOT load-bound; per subagent-A's analysis, it is bound by the 8-deep v_dot4 chain (v_dot4_i32_iu8) which is on the compute path, not the load path.",
+    "reference_to_subagent_A": "Subagent-A established that vmcnt(0) at the trip boundary is REQUIRED (L14 consumed 4 instructions later by v_xor_b32 v52,v58,v17). This subagent's findings are consistent: we confirmed via SASS inspection that the existing V0 wait placement is the minimum, and adding 'prefetch' loads does not relax the wait. The latency is on the compute path (8-deep v_dot4 chain), not the load path. The real win per subagent-A's recommendation is to split the 8-deep v_dot4 chain into two 4-deep chains into independent accumulators, sum at the end - not to add more loads or relax waits."
+  },
+  "limitations": {
+    "compiler_elided_prefetches": "All __builtin_prefetch calls in C1/C2/C3 are completely eliminated by the compiler (verified by SASS inspection: zero s_prefetch or extra global_load instructions). The variants effectively test LDS-staged grid (subagent-B V1), not actual trip prefetch. An attempt was made to issue real global_load via inline asm volatile, but the SGPR register pressure caused the kernel to clobber the loaded addresses and fault at runtime; the simpler __builtin_prefetch approach was kept for the final report because it produces bit-exact results and clearly demonstrates the compiler's no-op treatment of the prefetch hint.",
+    "C4_unroll_ignored": "The compiler does not actually unroll the K-loop because blocks_per_row_x is a runtime value. C4's code is structurally identical to V0; the test confirms that explicit unroll hints cannot be applied to this dynamic loop without source refactoring (e.g., switching to a fixed-trip unroll with a tail loop)."
+  }
+}

@@ -1,0 +1,46 @@
+{
+ "tag": "phase1_restore_semantic_check",
+ "ts": "2026-08-26 05:19:13",
+ "matches": 6,
+ "n": 6,
+ "results": [
+  {
+   "test": "math",
+   "match": true,
+   "head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *",
+   "want": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "match": true,
+   "head": "  480/45 = 10.666666666666667 480/45 = 10.666666666",
+   "want": "  480/45 = 10.666666666666667 480/45 = 10.666666666"
+  },
+  {
+   "test": "puzzle",
+   "match": true,
+   "head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep ",
+   "want": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep "
+  },
+  {
+   "test": "factual",
+   "match": true,
+   "head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P",
+   "want": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P"
+  },
+  {
+   "test": "code",
+   "match": true,
+   "head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa",
+   "want": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa"
+  },
+  {
+   "test": "code2",
+   "match": true,
+   "head": "  <think> The user wants a Python one-liner that computes the sum of squares of ",
+   "want": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "degen_trap_head": "\n\napple, banana, apple, banana, apple, banana, apple, banana, apple, banana, apple, banana, apple, banana, apple, banana",
+ "expected_degen_family": "V3 loop surface ('and while...' family per baseline_v3 known changes)"
+}

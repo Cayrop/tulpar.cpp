@@ -1,0 +1,87 @@
+# device AMD Radeon RX 7800 XT CUs=30
+[gpu] row0 sb0 ip0=298.1388
+[gpu] row0 sb0 ip1=-355.9147
+[gpu] row0 sb0 ip2=-289.2114
+[gpu] row0 sb0 ip3=-106.9941
+[gpu] row0 sb0 ip4=142.7053
+[gpu] row0 sb0 ip5=-633.0055
+[gpu] row0 sb0 ip6=87.7930
+[gpu] row0 sb0 ip7=338.0487
+[gpu] row0 sb1 ip0=2.9475
+[gpu] row0 sb1 ip1=-149.1173
+[gpu] row0 sb1 ip2=915.0612
+[gpu] row0 sb1 ip3=601.5040
+[gpu] row0 sb1 ip4=92.3436
+[gpu] row0 sb1 ip5=741.6389
+[gpu] row0 sb1 ip6=-48.5217
+[gpu] row0 sb1 ip7=-226.7883
+[gpu] row0 sb2 ip0=227.7018
+[gpu] row0 sb2 ip1=-55.4978
+[gpu] row0 sb2 ip2=-365.8813
+[gpu] row0 sb2 ip3=-20.6175
+[gpu] row0 sb2 ip4=-134.6199
+[gpu] row0 sb2 ip5=335.5579
+[gpu] row0 sb2 ip6=1000.5045
+[gpu] row0 sb2 ip7=-40.0590
+[gpu] partial acc(3sb)=2357.7168
+[cpu-side] gpu0 printed above
+[ref] row0=2822.8262
+shape0 N=17408 K=5120 row_bytes=1960 |ref|max=23120.5410
+[f5cmp] fast=7.417e+06 base=298.1 qa=82687abf qb=f032d323 aux=bfd26038 dy=0.0116501 d=14504
+[f5man] sumi=43895 contrib=7.41706e+06
+[f5] kbx=0 kqs=0 slice=7417063.0000
+[f5] kbx=4 kqs=0 slice=-2822146.0000
+[f5] kbx=8 kqs=0 slice=618043.4375
+[f5] kbx=12 kqs=0 slice=43927116.0000
+[f5] kbx=16 kqs=0 slice=-974402.1875
+[f5] pre-reduce tmp=48165672.0000
+  V5_fastld_funnel   max_abs=5.451e+08 mean_abs=1.055e+08 rel_max=2.358e+04 vs_ref | vs_base_bitmatch=0.0000 | gpu0=5.22059e+07 ref0=2822.83
+[gpu] row0 sb0 ip0=71.4435
+[gpu] row0 sb0 ip1=679.1796
+[gpu] row0 sb0 ip2=821.7297
+[gpu] row0 sb0 ip3=138.1335
+[gpu] row0 sb0 ip4=-349.0329
+[gpu] row0 sb0 ip5=162.2087
+[gpu] row0 sb0 ip6=45.7866
+[gpu] row0 sb0 ip7=-1.9025
+[gpu] row0 sb1 ip0=19.5587
+[gpu] row0 sb1 ip1=536.5206
+[gpu] row0 sb1 ip2=-233.6077
+[gpu] row0 sb1 ip3=-166.6754
+[gpu] row0 sb1 ip4=-76.4733
+[gpu] row0 sb1 ip5=920.8646
+[gpu] row0 sb1 ip6=-409.5026
+[gpu] row0 sb1 ip7=101.1328
+[gpu] row0 sb2 ip0=-48.4612
+[gpu] row0 sb2 ip1=378.0647
+[gpu] row0 sb2 ip2=-412.1668
+[gpu] row0 sb2 ip3=-110.5749
+[gpu] row0 sb2 ip4=62.8783
+[gpu] row0 sb2 ip5=-313.7284
+[gpu] row0 sb2 ip6=-397.7165
+[gpu] row0 sb2 ip7=-527.8602
+[gpu] partial acc(3sb)=889.7988
+[cpu-side] gpu0 printed above
+[ref] row0=-2018.1230
+shape1 N=5120 K=17408 row_bytes=6664 |ref|max=40361.5156
+[f5cmp] fast=1.495e+06 base=71.44 qa=0adbf8db qb=7b01d212 aux=5460dbec dy=0.0114365 d=14752
+[f5man] sumi=8860 contrib=1.49478e+06
+[f5] kbx=0 kqs=0 slice=1494776.7500
+[f5] kbx=4 kqs=0 slice=-30150116.0000
+[f5] kbx=8 kqs=0 slice=-11146012.0000
+[f5] kbx=12 kqs=0 slice=-3540415.2500
+[f5] kbx=16 kqs=0 slice=-3135844.7500
+[f5] kbx=20 kqs=0 slice=2691802.5000
+[f5] kbx=24 kqs=0 slice=13487.1719
+[f5] kbx=28 kqs=0 slice=11493166.0000
+[f5] kbx=32 kqs=0 slice=1089940.8750
+[f5] kbx=36 kqs=0 slice=-8665868.0000
+[f5] kbx=40 kqs=0 slice=-4490299.0000
+[f5] kbx=44 kqs=0 slice=-31364544.0000
+[f5] kbx=48 kqs=0 slice=-1190559.3750
+[f5] kbx=52 kqs=0 slice=-11977962.0000
+[f5] kbx=56 kqs=0 slice=1371537.0000
+[f5] kbx=60 kqs=0 slice=-4686537.5000
+[f5] kbx=64 kqs=0 slice=-19534496.0000
+[f5] pre-reduce tmp=-111727936.0000
+  V5_fastld_funnel   max_abs=9.306e+08 mean_abs=1.957e+08 rel_max=2.306e+04 vs_ref | vs_base_bitmatch=0.0000 | gpu0=-2.87078e+07 ref0=-2018.12

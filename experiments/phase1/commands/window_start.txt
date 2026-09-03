@@ -1,0 +1,13 @@
+Phase-1 GOD-MODE TRACE window
+start: 2026-08-26T02:27:46+03:00
+operator authorization: user task 'PHASE-1: GOD-MODE TRACE - ULTIMATE PROFILING'
+(scope: MEASUREMENT ONLY; pidfile lifecycle only; VRAM guard 15.6 GiB sampled;
+131k MTP ON forbidden; restore mandatory at end)
+P1-0a note: production found DOWN at window start (pidfile PID 96742 dead,
+port 8080 silent); relaunched via prod_start.sh -> PID 106088 validated
+(/proc/106088/exe = build-p3/bin/llama-server), health ok.
+model sha256 verified fd4730dd8aad070517978752b63d530aeb1740d2283cab9fa24f1e404032ddb0
+binary sha256 280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13
+P1-0b GPU idle at pre-flight: GPU use 4% transient, VRAM used 1.14 GB desktop only
+P1-0c rocprofv3 1.1.0 present
+P1-0d initial: VRAM used 1.14 GB; MemAvail 16.05 GB; SwapUsed 5.92 GB; disk free 66 GB

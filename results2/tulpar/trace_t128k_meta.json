@@ -1,0 +1,10 @@
+{
+ "tag": "t128k",
+ "words": 129400,
+ "bench": {
+  "prompt_n": 129355,
+  "prefill_tok_s": 231.4,
+  "decode_tok_s": 11.622,
+  "draft_acc": null
+ }
+}

@@ -1,0 +1,43 @@
+W20260825 00:45:26.897787 139847225421440 simple_timer.cpp:55] [rocprofv3] tool initialization ::     0.107171 sec
+W20260825 00:45:26.898019 139847225421440 simple_timer.cpp:55] [rocprofv3] '<REPO_ROOT>/experiments/phase3/synthetic/mmvq_bench 30 18 0 1 0 0 0' ::     0.000000 sec
+W20260825 00:45:27.034308 139847225421440 tool.cpp:2423] HSA version 1.18.0 initialized (instance=0)
+F20260825 00:45:27.061005 139847225421440 tool.cpp:1199]  :: [/usr/src/debug/rocprofiler/rocm-systems/projects/rocprofiler-sdk/source/lib/rocprofiler-sdk-tool/tool.cpp:1199]
+	rocprofiler_create_counter_config( agent_id, counters_v.data(), counters_v.size(), &profile_v)
+
+Could not construct profile cfg failed with error code 38: Request exceeds the capabilities of the hardware to collect
+    @     0x7f30bb17d700  google::LogMessage::Fail()
+    @     0x7f30bb19690a  google::LogMessageFatal::~LogMessageFatal()
+    @     0x7f30bb2aeca2  (/opt/rocm/lib/rocprofiler-sdk/librocprofiler-sdk-tool.so.1.1.0+0xaeca1)
+    @     0x7f30baefcd38  (/opt/rocm/lib/librocprofiler-sdk.so.1.1.0+0x6fcd37)
+    @     0x7f30baef4e51  (/opt/rocm/lib/librocprofiler-sdk.so.1.1.0+0x6f4e50)
+    @     0x7f30baa78937  (/opt/rocm/lib/librocprofiler-sdk.so.1.1.0+0x278936)
+    @     0x7f30baa7b278  (/opt/rocm/lib/librocprofiler-sdk.so.1.1.0+0x27b277)
+    @     0x7f30ade86cd6  (/opt/rocm/lib/libhsa-runtime64.so.1.18.0+0x86cd5)
+    @     0x7f30ade72a5e  (/opt/rocm/lib/libhsa-runtime64.so.1.18.0+0x72a5d)
+    @     0x7f30b914c365  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x54c364)
+    @     0x7f30b91492e2  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x5492e1)
+    @     0x7f30b9149b9e  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x549b9d)
+    @     0x7f30b9105dfd  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x505dfc)
+    @     0x7f30b8f538c7  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x3538c6)
+    @     0x7f30b8fc0a08  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x3c0a07)
+    @     0x7f30b8f52bac  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x352bab)
+    @     0x7f30b8f6a198  (/opt/rocm/lib/libamdhip64.so.7.2.53211-3d9ef42+0x36a197)
+    @     0x7f30baeabd0d  (/opt/rocm/lib/librocprofiler-sdk.so.1.1.0+0x6abd0c)
+    @     0x55992f97c606  bench_one(int, int, int, int, int, bool, int, int)
+    @     0x55992f97adba  main
+    @     0x7f30bb29daef  (/opt/rocm/lib/rocprofiler-sdk/librocprofiler-sdk-tool.so.1.1.0+0x9daee)
+    @     0x7f30b8427d0e  (/usr/lib/libc.so.6+0x27d0d)
+    @     0x7f30b8427e4b  __libc_start_main
+    @     0x55992f979f45  _start
+W20260825 00:45:27.091486 139847225421440 tool.cpp:3105] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 caught signal 6...
+W20260825 00:45:27.091518 139847225421440 tool.cpp:3128] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 will wait for 0 children to exit
+W20260825 00:45:27.091524 139847225421440 tool.cpp:3143] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 finalizing after signal 6...
+W20260825 00:45:32.091631 139847225421440 queue.cpp:939] Timeout while waiting for queue sync: 1 kernels still active
+W20260825 00:45:32.091667 139847225421440 pool.hpp:201] Pool object at index 0 is still in use during pool clear
+W20260825 00:45:32.092159 139847225421440 correlation_id.cpp:231] retiring dangling correlation ID 1 from thread 20871 :: remaining reference count: 2
+W20260825 00:45:37.092276 139847225421440 queue.cpp:939] Timeout while waiting for queue sync: 1 kernels still active
+W20260825 00:45:37.093085 139847225421440 simple_timer.cpp:55] [rocprofv3] output generation ::     0.000773 sec
+W20260825 00:45:37.093132 139847225421440 simple_timer.cpp:55] [rocprofv3] tool finalization ::     0.000826 sec
+W20260825 00:45:37.093187 139847225421440 tool.cpp:3185] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 found chained signal handler for 6... executing chained sigaction (SIGINFO)
+W20260825 00:45:37.093215 139847225421440 tool.cpp:3105] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 caught signal 6...
+W20260825 01:00:26.793913 139847225421440 tool.cpp:3105] [PPID=20869][PID=20871][TID=20871][rocprofv3_error_signal_handler] rocprofv3 caught signal 15...

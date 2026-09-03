@@ -1,0 +1,229 @@
+{
+ "tag": "T_P2-off-63k_tg",
+ "n_dispatch_total": 1043711,
+ "load_gap_s": 61.049,
+ "phases": {
+  "load": {
+   "span_s": 2.298,
+   "busy_s": 0.143,
+   "host_gap_s": 2.155,
+   "categories": {
+    "GEMV_IQ3_XXS": {
+     "calls": 576,
+     "total_ms": 77.017
+    },
+    "OTHER": {
+     "calls": 457,
+     "total_ms": 33.755
+    },
+    "GEMV_IQ3_S": {
+     "calls": 192,
+     "total_ms": 12.023
+    },
+    "NORM_ROPE_ACT": {
+     "calls": 1858,
+     "total_ms": 10.473
+    },
+    "GEMV_Q3_K": {
+     "calls": 2,
+     "total_ms": 2.96
+    },
+    "QUANT_ROW_decode": {
+     "calls": 994,
+     "total_ms": 2.323
+    },
+    "GDN": {
+     "calls": 320,
+     "total_ms": 1.796
+    },
+    "GEMV_IQ1_M": {
+     "calls": 192,
+     "total_ms": 1.015
+    },
+    "KV_STORE_COPY": {
+     "calls": 128,
+     "total_ms": 0.576
+    },
+    "ATTN_FA_TILE": {
+     "calls": 64,
+     "total_ms": 0.564
+    },
+    "GEMV_IQ4_XS": {
+     "calls": 32,
+     "total_ms": 0.325
+    },
+    "STAGING_dequant": {
+     "calls": 64,
+     "total_ms": 0.165
+    }
+   }
+  },
+  "prefill": {
+   "span_s": 193.583,
+   "busy_s": 191.423,
+   "host_gap_s": 2.16,
+   "categories": {
+    "ATTN_FA_TILE": {
+     "calls": 2048,
+     "total_ms": 81590.948
+    },
+    "MMQ_GEMM_IQ3_XXS": {
+     "calls": 36000,
+     "total_ms": 79729.072
+    },
+    "MMQ_GEMM_IQ3_S": {
+     "calls": 12000,
+     "total_ms": 12220.5
+    },
+    "GDN": {
+     "calls": 20160,
+     "total_ms": 7876.326
+    },
+    "NORM_ROPE_ACT": {
+     "calls": 105054,
+     "total_ms": 5684.8
+    },
+    "QUANT_MMQ_prefill": {
+     "calls": 50000,
+     "total_ms": 1881.655
+    },
+    "STAGING_dequant": {
+     "calls": 16032,
+     "total_ms": 559.079
+    },
+    "MMQ_GEMM_IQ4_XS": {
+     "calls": 2000,
+     "total_ms": 494.606
+    },
+    "STAGING_f32_to_f16": {
+     "calls": 12000,
+     "total_ms": 475.854
+    },
+    "ROCBLAS_GEMM": {
+     "calls": 12000,
+     "total_ms": 371.785
+    },
+    "KV_STORE_COPY": {
+     "calls": 8064,
+     "total_ms": 316.836
+    },
+    "OTHER": {
+     "calls": 16760,
+     "total_ms": 145.566
+    },
+    "GEMV_IQ3_XXS": {
+     "calls": 288,
+     "total_ms": 40.913
+    },
+    "STAGING_f16_to_f32": {
+     "calls": 12000,
+     "total_ms": 25.412
+    },
+    "GEMV_IQ3_S": {
+     "calls": 96,
+     "total_ms": 6.216
+    },
+    "GEMV_Q3_K": {
+     "calls": 1,
+     "total_ms": 1.494
+    },
+    "QUANT_ROW_decode": {
+     "calls": 497,
+     "total_ms": 1.116
+    },
+    "GEMV_IQ1_M": {
+     "calls": 96,
+     "total_ms": 0.524
+    },
+    "GEMV_IQ4_XS": {
+     "calls": 16,
+     "total_ms": 0.157
+    }
+   }
+  },
+  "decode": {
+   "span_s": 25.848,
+   "busy_s": 22.753,
+   "host_gap_s": 3.094,
+   "categories": {
+    "GEMV_IQ3_XXS": {
+     "calls": 85184,
+     "total_ms": 11777.952,
+     "ms_per_token": 30.9946,
+     "pct_of_busy": 51.76
+    },
+    "ATTN_FA_TILE": {
+     "calls": 12160,
+     "total_ms": 3630.634,
+     "ms_per_token": 9.5543,
+     "pct_of_busy": 15.96
+    },
+    "STAGING_dequant": {
+     "calls": 12160,
+     "total_ms": 3346.849,
+     "ms_per_token": 8.8075,
+     "pct_of_busy": 14.71
+    },
+    "GEMV_IQ3_S": {
+     "calls": 36480,
+     "total_ms": 1855.007,
+     "ms_per_token": 4.8816,
+     "pct_of_busy": 8.15
+    },
+    "NORM_ROPE_ACT": {
+     "calls": 243772,
+     "total_ms": 629.415,
+     "ms_per_token": 1.6564,
+     "pct_of_busy": 2.77
+    },
+    "GEMV_Q3_K": {
+     "calls": 380,
+     "total_ms": 557.149,
+     "ms_per_token": 1.4662,
+     "pct_of_busy": 2.45
+    },
+    "OTHER": {
+     "calls": 51300,
+     "total_ms": 256.436,
+     "ms_per_token": 0.6748,
+     "pct_of_busy": 1.13
+    },
+    "QUANT_ROW_decode": {
+     "calls": 164604,
+     "total_ms": 235.551,
+     "ms_per_token": 0.6199,
+     "pct_of_busy": 1.04
+    },
+    "GDN": {
+     "calls": 60800,
+     "total_ms": 202.344,
+     "ms_per_token": 0.5325,
+     "pct_of_busy": 0.89
+    },
+    "GEMV_IQ1_M": {
+     "calls": 36480,
+     "total_ms": 139.209,
+     "ms_per_token": 0.3663,
+     "pct_of_busy": 0.61
+    },
+    "KV_STORE_COPY": {
+     "calls": 24320,
+     "total_ms": 77.523,
+     "ms_per_token": 0.204,
+     "pct_of_busy": 0.34
+    },
+    "GEMV_IQ4_XS": {
+     "calls": 6080,
+     "total_ms": 45.227,
+     "ms_per_token": 0.119,
+     "pct_of_busy": 0.2
+    }
+   },
+   "per_token": {
+    "step_wall_ms": 68.021,
+    "kernel_busy_ms": 59.877,
+    "host_gap_ms_per_token": 8.143
+   }
+  }
+ }
+}

@@ -1,0 +1,604 @@
+{
+  "source": "recomputed from trace_artifacts/<arm>/analysis.json + bytes_per_step.json; compared against attribution_decode.md, attribution_prefill.md, effective_bandwidth.md",
+  "arms": [
+    {
+      "arm": "T-V2-1k-OFF",
+      "checks": [
+        {
+          "name": "decode_total_ms",
+          "reported": 2554.4,
+          "recomputed": 2554.42,
+          "ok": true
+        },
+        {
+          "name": "decode_ms_per_token",
+          "reported": 39.91,
+          "recomputed": 39.9128,
+          "ok": true
+        },
+        {
+          "name": "decode_wall_ms_per_token",
+          "reported": 57.61,
+          "recomputed": 57.6072,
+          "ok": true
+        },
+        {
+          "name": "decode_kernel_plus_gap_ms_per_token",
+          "reported": 57.6071875,
+          "recomputed": 57.0944,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_total_ms",
+          "reported": 1892.2,
+          "recomputed": 1892.201,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_pct",
+          "reported": 74.1,
+          "recomputed": 74.0756,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_ms_per_token_vs_n_predict",
+          "reported": 23.0756,
+          "recomputed": 29.5656,
+          "ok": false
+        },
+        {
+          "name": "decode_tokens_denominator",
+          "reported": 82,
+          "recomputed": 64,
+          "ok": false
+        },
+        {
+          "name": "gemv_iq3xxs_effective_BW_GBps",
+          "reported": 350.7,
+          "recomputed": 350.6901,
+          "ok": true
+        },
+        {
+          "name": "bytes_per_step_iq3xxs",
+          "reported": 8092385280,
+          "recomputed": 8092385280,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ1_M_GBps",
+          "reported": 19.01,
+          "recomputed": 19.0161,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ3_S_GBps",
+          "reported": 379.9,
+          "recomputed": 379.902,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ4_XS_GBps",
+          "reported": 2433.64,
+          "recomputed": 2432.8314,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_Q3_K_GBps",
+          "reported": 503.59,
+          "recomputed": 503.5988,
+          "ok": true
+        },
+        {
+          "name": "prefill_total_ms",
+          "reported": 321.9,
+          "recomputed": 321.92,
+          "ok": true
+        },
+        {
+          "name": "server_prompt_ms",
+          "reported": 492.9,
+          "recomputed": 493.336,
+          "ok": true
+        },
+        {
+          "name": "prefill_ms_per_token",
+          "reported": 2.0,
+          "recomputed": 1.9995,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_total_ms",
+          "reported": 239.38,
+          "recomputed": 239.381,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_pct",
+          "reported": 74.4,
+          "recomputed": 74.3604,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_ms_per_token",
+          "reported": 1.4868,
+          "recomputed": 1.4868,
+          "ok": true
+        }
+      ],
+      "corrected_decode_BW": {
+        "IQ3_XXS": {
+          "ms_per_token_n_predict": 29.5656,
+          "effective_BW_GBs_n_predict": 273.71
+        },
+        "IQ1_M": {
+          "ms_per_token_n_predict": 0.3478,
+          "effective_BW_GBs_n_predict": 14.84
+        },
+        "IQ3_S": {
+          "ms_per_token_n_predict": 4.6423,
+          "effective_BW_GBs_n_predict": 296.51
+        },
+        "IQ4_XS": {
+          "ms_per_token_n_predict": 0.1144,
+          "effective_BW_GBs_n_predict": 1899.47
+        },
+        "Q3_K": {
+          "ms_per_token_n_predict": 1.3899,
+          "effective_BW_GBs_n_predict": 393.05
+        }
+      },
+      "all_ok": false
+    },
+    {
+      "arm": "T-V2-16k-OFF",
+      "checks": [
+        {
+          "name": "decode_total_ms",
+          "reported": 2592.2,
+          "recomputed": 2592.176,
+          "ok": true
+        },
+        {
+          "name": "decode_ms_per_token",
+          "reported": 40.5,
+          "recomputed": 40.5027,
+          "ok": true
+        },
+        {
+          "name": "decode_wall_ms_per_token",
+          "reported": 57.83,
+          "recomputed": 57.8336,
+          "ok": true
+        },
+        {
+          "name": "decode_kernel_plus_gap_ms_per_token",
+          "reported": 57.83359375,
+          "recomputed": 57.8612,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_total_ms",
+          "reported": 1910.55,
+          "recomputed": 1910.554,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_pct",
+          "reported": 73.7,
+          "recomputed": 73.7046,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_ms_per_token_vs_n_predict",
+          "reported": 23.0187,
+          "recomputed": 29.8524,
+          "ok": false
+        },
+        {
+          "name": "decode_tokens_denominator",
+          "reported": 83,
+          "recomputed": 64,
+          "ok": false
+        },
+        {
+          "name": "gemv_iq3xxs_effective_BW_GBps",
+          "reported": 351.6,
+          "recomputed": 351.557,
+          "ok": true
+        },
+        {
+          "name": "bytes_per_step_iq3xxs",
+          "reported": 8092385280,
+          "recomputed": 8092385280,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ1_M_GBps",
+          "reported": 18.95,
+          "recomputed": 18.9463,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ3_S_GBps",
+          "reported": 378.65,
+          "recomputed": 378.6479,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ4_XS_GBps",
+          "reported": 2428.11,
+          "recomputed": 2427.3949,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_Q3_K_GBps",
+          "reported": 501.31,
+          "recomputed": 501.2883,
+          "ok": true
+        },
+        {
+          "name": "prefill_total_ms",
+          "reported": 2535.0,
+          "recomputed": 2534.965,
+          "ok": true
+        },
+        {
+          "name": "server_prompt_ms",
+          "reported": 2782.7,
+          "recomputed": 2787.744,
+          "ok": true
+        },
+        {
+          "name": "prefill_ms_per_token",
+          "reported": 1.784,
+          "recomputed": 1.7839,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_total_ms",
+          "reported": 1824.64,
+          "recomputed": 1824.637,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_pct",
+          "reported": 72.0,
+          "recomputed": 71.9788,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_ms_per_token",
+          "reported": 1.2841,
+          "recomputed": 1.2841,
+          "ok": true
+        }
+      ],
+      "corrected_decode_BW": {
+        "IQ3_XXS": {
+          "ms_per_token_n_predict": 29.8524,
+          "effective_BW_GBs_n_predict": 271.08
+        },
+        "IQ1_M": {
+          "ms_per_token_n_predict": 0.3532,
+          "effective_BW_GBs_n_predict": 14.61
+        },
+        "IQ3_S": {
+          "ms_per_token_n_predict": 4.7144,
+          "effective_BW_GBs_n_predict": 291.97
+        },
+        "IQ4_XS": {
+          "ms_per_token_n_predict": 0.116,
+          "effective_BW_GBs_n_predict": 1872.36
+        },
+        "Q3_K": {
+          "ms_per_token_n_predict": 1.4133,
+          "effective_BW_GBs_n_predict": 386.55
+        }
+      },
+      "all_ok": false
+    },
+    {
+      "arm": "T-V2-63k-OFF",
+      "checks": [
+        {
+          "name": "decode_total_ms",
+          "reported": 2602.1,
+          "recomputed": 2602.139,
+          "ok": true
+        },
+        {
+          "name": "decode_ms_per_token",
+          "reported": 40.66,
+          "recomputed": 40.6584,
+          "ok": true
+        },
+        {
+          "name": "decode_wall_ms_per_token",
+          "reported": 58.68,
+          "recomputed": 58.6772,
+          "ok": true
+        },
+        {
+          "name": "decode_kernel_plus_gap_ms_per_token",
+          "reported": 58.6771875,
+          "recomputed": 58.1085,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_total_ms",
+          "reported": 1893.09,
+          "recomputed": 1893.094,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_pct",
+          "reported": 72.8,
+          "recomputed": 72.7515,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_ms_per_token_vs_n_predict",
+          "reported": 23.0865,
+          "recomputed": 29.5796,
+          "ok": false
+        },
+        {
+          "name": "decode_tokens_denominator",
+          "reported": 82,
+          "recomputed": 64,
+          "ok": false
+        },
+        {
+          "name": "gemv_iq3xxs_effective_BW_GBps",
+          "reported": 350.5,
+          "recomputed": 350.5246,
+          "ok": true
+        },
+        {
+          "name": "bytes_per_step_iq3xxs",
+          "reported": 8092385280,
+          "recomputed": 8092385280,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ1_M_GBps",
+          "reported": 19.11,
+          "recomputed": 19.1147,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ3_S_GBps",
+          "reported": 378.16,
+          "recomputed": 378.1693,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ4_XS_GBps",
+          "reported": 2410.52,
+          "recomputed": 2411.2302,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_Q3_K_GBps",
+          "reported": 502.75,
+          "recomputed": 502.7646,
+          "ok": true
+        },
+        {
+          "name": "prefill_total_ms",
+          "reported": 9692.7,
+          "recomputed": 9692.67,
+          "ok": true
+        },
+        {
+          "name": "server_prompt_ms",
+          "reported": 10167.6,
+          "recomputed": 10179.616,
+          "ok": true
+        },
+        {
+          "name": "prefill_ms_per_token",
+          "reported": 1.815,
+          "recomputed": 1.8148,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_total_ms",
+          "reported": 6626.86,
+          "recomputed": 6626.859,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_pct",
+          "reported": 68.4,
+          "recomputed": 68.3698,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_ms_per_token",
+          "reported": 1.2408,
+          "recomputed": 1.2408,
+          "ok": true
+        }
+      ],
+      "corrected_decode_BW": {
+        "IQ3_XXS": {
+          "ms_per_token_n_predict": 29.5796,
+          "effective_BW_GBs_n_predict": 273.58
+        },
+        "IQ1_M": {
+          "ms_per_token_n_predict": 0.346,
+          "effective_BW_GBs_n_predict": 14.92
+        },
+        "IQ3_S": {
+          "ms_per_token_n_predict": 4.6635,
+          "effective_BW_GBs_n_predict": 295.15
+        },
+        "IQ4_XS": {
+          "ms_per_token_n_predict": 0.1155,
+          "effective_BW_GBs_n_predict": 1881.48
+        },
+        "Q3_K": {
+          "ms_per_token_n_predict": 1.3922,
+          "effective_BW_GBs_n_predict": 392.39
+        }
+      },
+      "all_ok": false
+    },
+    {
+      "arm": "T-V2-128k-OFF",
+      "checks": [
+        {
+          "name": "decode_total_ms",
+          "reported": 2653.7,
+          "recomputed": 2653.748,
+          "ok": true
+        },
+        {
+          "name": "decode_ms_per_token",
+          "reported": 41.46,
+          "recomputed": 41.4648,
+          "ok": true
+        },
+        {
+          "name": "decode_wall_ms_per_token",
+          "reported": 59.37,
+          "recomputed": 59.3657,
+          "ok": true
+        },
+        {
+          "name": "decode_kernel_plus_gap_ms_per_token",
+          "reported": 59.365734375,
+          "recomputed": 58.7967,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_total_ms",
+          "reported": 1897.28,
+          "recomputed": 1897.275,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_pct",
+          "reported": 71.5,
+          "recomputed": 71.4942,
+          "ok": true
+        },
+        {
+          "name": "gemv_iq3xxs_ms_per_token_vs_n_predict",
+          "reported": 23.1375,
+          "recomputed": 29.6449,
+          "ok": false
+        },
+        {
+          "name": "decode_tokens_denominator",
+          "reported": 82,
+          "recomputed": 64,
+          "ok": false
+        },
+        {
+          "name": "gemv_iq3xxs_effective_BW_GBps",
+          "reported": 349.8,
+          "recomputed": 349.7519,
+          "ok": true
+        },
+        {
+          "name": "bytes_per_step_iq3xxs",
+          "reported": 8092385280,
+          "recomputed": 8092385280,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ1_M_GBps",
+          "reported": 19.28,
+          "recomputed": 19.2717,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ3_S_GBps",
+          "reported": 377.97,
+          "recomputed": 377.972,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_IQ4_XS_GBps",
+          "reported": 2411.8,
+          "recomputed": 2411.2302,
+          "ok": true
+        },
+        {
+          "name": "gemv_bw_Q3_K_GBps",
+          "reported": 501.91,
+          "recomputed": 501.9331,
+          "ok": true
+        },
+        {
+          "name": "prefill_total_ms",
+          "reported": 20514.6,
+          "recomputed": 20514.571,
+          "ok": true
+        },
+        {
+          "name": "server_prompt_ms",
+          "reported": 21280.1,
+          "recomputed": 21294.358,
+          "ok": true
+        },
+        {
+          "name": "prefill_ms_per_token",
+          "reported": 1.922,
+          "recomputed": 1.9225,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_total_ms",
+          "reported": 13218.39,
+          "recomputed": 13218.393,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_pct",
+          "reported": 64.4,
+          "recomputed": 64.4342,
+          "ok": true
+        },
+        {
+          "name": "mmq_iq3xxs_ms_per_token",
+          "reported": 1.2387,
+          "recomputed": 1.2387,
+          "ok": true
+        }
+      ],
+      "corrected_decode_BW": {
+        "IQ3_XXS": {
+          "ms_per_token_n_predict": 29.6449,
+          "effective_BW_GBs_n_predict": 272.98
+        },
+        "IQ1_M": {
+          "ms_per_token_n_predict": 0.3431,
+          "effective_BW_GBs_n_predict": 15.04
+        },
+        "IQ3_S": {
+          "ms_per_token_n_predict": 4.6659,
+          "effective_BW_GBs_n_predict": 295.0
+        },
+        "IQ4_XS": {
+          "ms_per_token_n_predict": 0.1154,
+          "effective_BW_GBs_n_predict": 1882.5
+        },
+        "Q3_K": {
+          "ms_per_token_n_predict": 1.3946,
+          "effective_BW_GBs_n_predict": 391.73
+        }
+      },
+      "all_ok": false
+    }
+  ],
+  "known_discrepancies": [
+    "decode gemv_bw ms_per_token / effective_BW_GBs (analysis.json, effective_bandwidth.md, bandwidth_investigation/verdict.md) divide total GEMV time by tokens_estimated = max(FA_tile//17, GDN_FWHT//48) = 82..83 instead of n_predict = 64 (server predicted_n, the ground-truth decode token count). This inflates reported decode bandwidth by ~1.28x. Corrected IQ3_XXS effective BW is ~271-274 GB/s (43-44% of nominal 624 GB/s, ~52% of the measured 525 GB/s VRAM ceiling), not 349.8-351.6 GB/s. Q3_K corrected is ~393 GB/s (63% nominal, ~75% of ceiling), not 503.6 GB/s (96%). Corrected per-quant values per arm are in corrected_decode_BW. Qualitative conclusions (not at hardware limit; Q3_K faster than IQ3_XXS due to zero dependent gather loads) still hold.",
+    "IQ4_XS decode 'bandwidth' (~1.9-2.4 TB/s, >100% of nominal) is a cache artifact (IQ4_XS weights are small, 217 MB total, resident in L2/IC); not a real VRAM stream. Marked UNCERTAIN in effective_bandwidth.md.",
+    "server prompt_n (161/1421/5341/10671) is smaller than summary.json prompt_tokens_payload (1792/17000/64000/128000); the analysis tables use prompt_n. Reason for the difference is not documented (UNCERTAIN)."
+  ],
+  "all_ok": false,
+  "n_failed_checks": 8
+}

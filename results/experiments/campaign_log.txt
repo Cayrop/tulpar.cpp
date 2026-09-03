@@ -1,0 +1,51 @@
+== warmup ON ==
+== warmup OFF ==
+{"exp_id": "ctx_1k_mtp_on_run_1", "prompt_n": 1633, "prompt_ms": 3626.15, "prefill_tok_s": 450.3398921721385, "predicted_n": 128, "predicted_ms": 4729.483, "decode_tok_s": 27.064268969779572}
+{"exp_id": "ctx_1k_mtp_on_run_2", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3775.301, "decode_tok_s": 33.90458138304734}
+{"exp_id": "ctx_1k_mtp_on_run_3", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3786.62, "decode_tok_s": 33.80323349055358}
+{"exp_id": "ctx_1k_mtp_on_run_4", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3890.818, "decode_tok_s": 32.897966443046165}
+{"exp_id": "ctx_4k_mtp_on_run_1", "prompt_n": 6926, "prompt_ms": 14121.757, "prefill_tok_s": 490.44888677804045, "predicted_n": 128, "predicted_ms": 3083.241, "decode_tok_s": 41.51475671217397}
+{"exp_id": "ctx_4k_mtp_on_run_2", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 2929.958, "decode_tok_s": 43.68663305071267}
+{"exp_id": "ctx_4k_mtp_on_run_3", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 4291.286, "decode_tok_s": 29.827888423190625}
+{"exp_id": "ctx_4k_mtp_on_run_4", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 4594.6, "decode_tok_s": 27.858790754363817}
+{"exp_id": "ctx_8k_mtp_on_run_1", "prompt_n": 13868, "prompt_ms": 28663.714, "prefill_tok_s": 483.8172750397942, "predicted_n": 128, "predicted_ms": 3591.984, "decode_tok_s": 35.634902605356814}
+{"exp_id": "ctx_8k_mtp_on_run_2", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 2572.187, "decode_tok_s": 49.76310042776828}
+{"exp_id": "ctx_8k_mtp_on_run_3", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 4436.085, "decode_tok_s": 28.854271277489048}
+{"exp_id": "ctx_8k_mtp_on_run_4", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 2831.002, "decode_tok_s": 45.213673462611474}
+{"exp_id": "ctx_16k_mtp_on_run_1", "prompt_n": 27833, "prompt_ms": 65930.584, "prefill_tok_s": 422.15612711696895, "predicted_n": 128, "predicted_ms": 4844.4, "decode_tok_s": 26.422260754685823}
+{"exp_id": "ctx_16k_mtp_on_run_2", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3087.881, "decode_tok_s": 41.45237462194949}
+{"exp_id": "ctx_16k_mtp_on_run_3", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3147.682, "decode_tok_s": 40.66484479690134}
+{"exp_id": "ctx_16k_mtp_on_run_4", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3451.558, "decode_tok_s": 37.08470203890533}
+{"exp_id": "ctx_32k_mtp_on_run_1", "prompt_n": 55874, "prompt_ms": 165598.363, "prefill_tok_s": 337.4067169975587, "predicted_n": 128, "predicted_ms": 4076.208, "decode_tok_s": 31.40173416076903}
+{"exp_id": "ctx_32k_mtp_on_run_2", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 3515.573, "decode_tok_s": 36.40942742477542}
+{"exp_id": "ctx_32k_mtp_on_run_3", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 4257.473, "decode_tok_s": 30.064782559983353}
+{"exp_id": "ctx_32k_mtp_on_run_4", "prompt_n": 4, "predicted_n": 128, "predicted_ms": 5989.727, "decode_tok_s": 21.36992220179651}
+Traceback (most recent call last):
+  File "<REPO_ROOT>/results/campaign.py", line 118, in <module>
+    main()
+    ~~~~^^
+  File "<REPO_ROOT>/results/campaign.py", line 70, in main
+    r=run_one(prompts[c], NPRED, spec_type="draft-mtp", seed=555+c, cache_prompt=False,
+              tag=exp); ma=metrics()
+  File "<REPO_ROOT>/results/bench.py", line 64, in run_one
+    body, wall = post("/completion", payload)
+                 ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>/results/bench.py", line 12, in post
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request

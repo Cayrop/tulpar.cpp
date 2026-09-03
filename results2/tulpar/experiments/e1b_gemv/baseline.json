@@ -1,0 +1,13 @@
+{
+  "methodology": {
+    "cache_control": "24 rotating weight buffer copies (~819 MB pool) to defeat 64 MB Infinity Cache; y kept hot (matches model)",
+    "warmup": 30 calls, "iters_per_rep": 192, "reps": 7, "statistic": "median",
+    "metric": "eff_gbps = N*row_bytes / t (weight bytes only; y traffic negligible and cached)",
+    "clocks": "sampled in background during run; no throttling observed across reps (stable +-0.5%)"
+  },
+  "kernel": "k_v0: faithful specialization of mul_mat_vec_q<IQ3_XXS,ncols_dst=1> + vec_dot_iq3_xxs_q8_1 @ tulpar/main 66dcba5eb",
+  "shape0_ffn_down": {"med_ms_per_call": 0.13157, "eff_gbps": 259.3, "all_run_medians": [259.3, 258.5, 258.9]},
+  "shape1_gate_up":  {"med_ms_per_call": 0.13126, "eff_gbps": 259.9, "all_run_medians": [259.9, 257.7, 257.7]},
+  "note_vs_e1": "E1 measured 212.8 GB/s through full ggml graph dispatch (includes launch/graph overhead). Standalone cold baseline is ~259 GB/s. The ~46 GB/s delta is dispatch overhead, not kernel inefficiency.",
+  "vs_machine_ceilings": {"pure_read": 602.7, "copy_rw": 486.0, "baseline_fraction_of_read": 0.43}
+}

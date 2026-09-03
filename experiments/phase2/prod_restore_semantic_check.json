@@ -1,0 +1,49 @@
+{
+ "ts": "2026-08-26",
+ "mtp": "on",
+ "checks": [
+  {
+   "test": "math",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *",
+   "base_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+  },
+  {
+   "test": "math2",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  480/45 = 10.666666666666667 480/45 = 10.666666666",
+   "base_head": "  480/45 = 10.666666666666667 480/45 = 10.666666666"
+  },
+  {
+   "test": "puzzle",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep ",
+   "base_head": "  8  **Explanation:** The phrase \"All but 9\" means that everyone except 9 sheep "
+  },
+  {
+   "test": "factual",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P",
+   "base_head": "  Paris  Q: What is the capital of France? Answer with the city name only. A:  P"
+  },
+  {
+   "test": "code",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa",
+   "base_head": "  def reverse_string(s):     return s[::-1]  Write a Python function named is_pa"
+  },
+  {
+   "test": "code2",
+   "expect_ok": true,
+   "head_char_exact_vs_baseline": true,
+   "new_head": "  <think> The user wants a Python one-liner that computes the sum of squares of ",
+   "base_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+  }
+ ],
+ "all_ok": true
+}

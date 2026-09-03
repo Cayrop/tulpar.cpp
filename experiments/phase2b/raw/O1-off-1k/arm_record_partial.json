@@ -1,0 +1,17 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 7.806,
+  "prompt_n": 991,
+  "prompt_ms": 1945.801,
+  "predicted_n": 128,
+  "predicted_ms": 5856.793,
+  "pp_tok_s": 509.3,
+  "tg_tok_s": 21.855,
+  "e2e_tok_s": 16.398,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog, golden skies, and ancient cities\u2014rather"
+ }
+]

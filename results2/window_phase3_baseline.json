@@ -1,0 +1,225 @@
+{
+ "tag": "phase3_baseline",
+ "binary": "/home/gencer/llama.cpp/build/bin/llama-server",
+ "spec": true,
+ "perf": [
+  {
+   "exp_id": "phase3_baseline_warmup",
+   "prompt_n": 5,
+   "predicted_n": 16,
+   "decode_tok_s": 25.447,
+   "per_token_ms": 39.297866666666664,
+   "prefill_tok_s": 31.77,
+   "draft_n": 5,
+   "draft_acc": 5
+  },
+  {
+   "exp_id": "phase3_baseline_1k_r1",
+   "prompt_n": 955,
+   "predicted_n": 128,
+   "decode_tok_s": 49.007,
+   "per_token_ms": 20.405055118110237,
+   "prefill_tok_s": 509.08,
+   "draft_n": 89,
+   "draft_acc": 89
+  },
+  {
+   "exp_id": "phase3_baseline_1k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 38.282,
+   "per_token_ms": 26.122023622047244,
+   "prefill_tok_s": 26.73,
+   "draft_n": 95,
+   "draft_acc": 77
+  },
+  {
+   "exp_id": "phase3_baseline_1k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 42.862,
+   "per_token_ms": 23.330716535433073,
+   "prefill_tok_s": 28.86,
+   "draft_n": 81,
+   "draft_acc": 81
+  },
+  {
+   "exp_id": "phase3_baseline_1k_r4",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 39.354,
+   "per_token_ms": 25.410251968503935,
+   "prefill_tok_s": 29.7,
+   "draft_n": 79,
+   "draft_acc": 77
+  },
+  {
+   "exp_id": "phase3_baseline_16k_r1",
+   "prompt_n": 16337,
+   "predicted_n": 128,
+   "decode_tok_s": 37.237,
+   "per_token_ms": 26.854897637795276,
+   "prefill_tok_s": 470.42,
+   "draft_n": 83,
+   "draft_acc": 79
+  },
+  {
+   "exp_id": "phase3_baseline_16k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 33.765,
+   "per_token_ms": 29.616291338582677,
+   "prefill_tok_s": 20.04,
+   "draft_n": 70,
+   "draft_acc": 70
+  },
+  {
+   "exp_id": "phase3_baseline_16k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 38.257,
+   "per_token_ms": 26.139346456692913,
+   "prefill_tok_s": 19.79,
+   "draft_n": 79,
+   "draft_acc": 79
+  }
+ ],
+ "gate": {
+  "tag": "phase3_baseline_g",
+  "ts": "2026-08-26 20:46:07",
+  "determinism_self": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "semantic_1k": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "semantic_16k": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "needle_16k": {
+   "pass": true,
+   "out": "\n\n<think>\nThe user is asking me to identify the \"magic word\""
+  },
+  "gen_16k": {
+   "text": "\n\n<think>\nThe user is asking me to identify the \"magic word\" from the text above. Let me search through the text for where it mentions a magic word.\n\nI found it: \"By the way, the magic word of this story is SILVER-COMPASS-93.\"\n\nThe user asks",
+   "tokens": [],
+   "tok_s": 36.3233818798215,
+   "per_token_ms": 27.530476190476193,
+   "draft_n": 43,
+   "draft_acc": 40,
+   "prompt_n": 24840,
+   "prompt_ms": 57221.669,
+   "wall_s": 59.07
+  },
+  "prompt16_n": 24840,
+  "gen_1k": {
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tokens": [],
+   "tok_s": 44.98331829154305,
+   "per_token_ms": 22.230463157894736,
+   "draft_n": 63,
+   "draft_acc": 63,
+   "prompt_n": 951,
+   "prompt_ms": 1823.22,
+   "wall_s": 4.07
+  }
+ }
+}

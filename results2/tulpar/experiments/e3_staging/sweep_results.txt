@@ -1,0 +1,7 @@
+# device AMD Radeon RX 7800 XT CUs=30
+T=16384  dequant best 1224.6 GB/s traffic (R 9.4 MB + W 33.6 MB) at grid=240 tpb=512
+T=16384  copy ref 765.6 GB/s (R+W)
+T=65536  dequant best 385.2 GB/s traffic (R 37.7 MB + W 134.2 MB) at grid=120 tpb=64
+T=65536  copy ref 486.1 GB/s (R+W)
+T=131072  dequant best 335.9 GB/s traffic (R 75.5 MB + W 268.4 MB) at grid=960 tpb=512
+T=131072  copy ref 485.8 GB/s (R+W)

@@ -1,0 +1,12 @@
+# device AMD Radeon RX 7800 XT CUs=30
+V0_baseline_wg32   regs=78 shared=0 local=0 occ32=64
+V1_wg64            regs=80 shared=128 local=0 occ32=64
+V2_wg128           regs=80 shared=384 local=0 occ32=64
+V3_rows2_wg32      regs=38 shared=0 local=0 occ32=64
+V4_rows4_wg128     regs=49 shared=1536 local=0 occ32=42
+V5_fastld_funnel   regs=75 shared=0 local=0 occ32=64
+V6_lds_grid        regs=79 shared=1024 local=0 occ32=64
+V7_ilp2            regs=69 shared=0 local=0 occ32=64
+V8_fastld_nt       regs=75 shared=0 local=0 occ32=64
+V9_pipe_prefetch   regs=81 shared=0 local=0 occ32=56
+V10_q8_uint4       regs=74 shared=0 local=0 occ32=64

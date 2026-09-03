@@ -1,0 +1,21 @@
+# device AMD Radeon RX 7800 XT CUs=30
+shape0 N=17408 K=5120 row_bytes=1960 |ref|max=25189.2734
+  V0_baseline_wg32   max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=1.0000
+  V1_wg64            max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=0.3473
+  V2_wg128           max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=0.3354
+  V3_rows2_wg32      max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=1.0000
+  V4_rows4_wg128     max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=0.3354
+  V5_fastld_funnel   max_abs=4.345e+08 mean_abs=7.520e+07 rel_max=1.725e+04 vs_ref | vs_base_bitmatch=0.0000
+  V6_lds_grid        max_abs=5.451e+08 mean_abs=1.055e+08 rel_max=2.164e+04 vs_ref | vs_base_bitmatch=0.0000
+  V7_ilp2            max_abs=1.824e+04 mean_abs=3.331e+03 rel_max=7.241e-01 vs_ref | vs_base_bitmatch=0.3473
+  V8_fastld_nt       max_abs=4.345e+08 mean_abs=7.520e+07 rel_max=1.725e+04 vs_ref | vs_base_bitmatch=0.0000
+shape1 N=5120 K=17408 row_bytes=6664 |ref|max=44923.5625
+  V0_baseline_wg32   max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=1.0000
+  V1_wg64            max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=0.2600
+  V2_wg128           max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=0.2480
+  V3_rows2_wg32      max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=1.0000
+  V4_rows4_wg128     max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=0.2480
+  V5_fastld_funnel   max_abs=6.154e+08 mean_abs=1.395e+08 rel_max=1.370e+04 vs_ref | vs_base_bitmatch=0.0000
+  V6_lds_grid        max_abs=9.306e+08 mean_abs=1.957e+08 rel_max=2.071e+04 vs_ref | vs_base_bitmatch=0.0000
+  V7_ilp2            max_abs=2.802e+04 mean_abs=6.367e+03 rel_max=6.236e-01 vs_ref | vs_base_bitmatch=0.2600
+  V8_fastld_nt       max_abs=6.154e+08 mean_abs=1.395e+08 rel_max=1.370e+04 vs_ref | vs_base_bitmatch=0.0000

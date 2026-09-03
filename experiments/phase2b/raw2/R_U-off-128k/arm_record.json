@@ -1,0 +1,36 @@
+{
+ "arm_id": "R_U-off-128k",
+ "mode": "untraced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234
+ },
+ "prompt_source": "raw2/prompt_128k_fit.txt",
+ "reps_planned": 1,
+ "started_ts": "2026-08-25 20:36:07",
+ "vram_peak_b": 15085158400,
+ "mem_after": {
+  "mem_avail_b": 19649511424,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 3609133056
+ },
+ "status": "OK",
+ "reps": [
+  {
+   "rep": 1,
+   "cache_prompt": false,
+   "wall_s": 565.992,
+   "prompt_n": 129048,
+   "prompt_ms": 557888.273,
+   "predicted_n": 96,
+   "predicted_ms": 7842.169,
+   "pp_tok_s": 231.32,
+   "tg_tok_s": 12.242
+  }
+ ],
+ "finished_ts": "2026-08-25 20:45:33"
+}

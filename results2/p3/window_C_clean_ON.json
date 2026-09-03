@@ -1,0 +1,117 @@
+{
+ "tag": "C_clean_ON",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "spec": true,
+ "perf": [
+  {
+   "exp_id": "C_clean_ON_warmup",
+   "prompt_n": 5,
+   "predicted_n": 16,
+   "decode_tok_s": 24.054,
+   "per_token_ms": 41.5724,
+   "prefill_tok_s": 23.56,
+   "draft_n": 5,
+   "draft_acc": 5
+  },
+  {
+   "exp_id": "C_clean_ON_1k_r1",
+   "prompt_n": 955,
+   "predicted_n": 128,
+   "decode_tok_s": 48.771,
+   "per_token_ms": 20.504133858267718,
+   "prefill_tok_s": 479.68,
+   "draft_n": 89,
+   "draft_acc": 89
+  },
+  {
+   "exp_id": "C_clean_ON_1k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 38.144,
+   "per_token_ms": 26.21648031496063,
+   "prefill_tok_s": 22.11,
+   "draft_n": 95,
+   "draft_acc": 77
+  },
+  {
+   "exp_id": "C_clean_ON_1k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 42.682,
+   "per_token_ms": 23.429228346456693,
+   "prefill_tok_s": 23.76,
+   "draft_n": 81,
+   "draft_acc": 81
+  },
+  {
+   "exp_id": "C_clean_ON_1k_r4",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 39.346,
+   "per_token_ms": 25.41548031496063,
+   "prefill_tok_s": 23.27,
+   "draft_n": 79,
+   "draft_acc": 77
+  },
+  {
+   "exp_id": "C_clean_ON_16k_r1",
+   "prompt_n": 16337,
+   "predicted_n": 128,
+   "decode_tok_s": 36.671,
+   "per_token_ms": 27.26974803149606,
+   "prefill_tok_s": 471.72,
+   "draft_n": 83,
+   "draft_acc": 79
+  },
+  {
+   "exp_id": "C_clean_ON_16k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 33.157,
+   "per_token_ms": 30.159338582677165,
+   "prefill_tok_s": 18.19,
+   "draft_n": 70,
+   "draft_acc": 70
+  },
+  {
+   "exp_id": "C_clean_ON_16k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 37.596,
+   "per_token_ms": 26.598401574803148,
+   "prefill_tok_s": 17.82,
+   "draft_n": 79,
+   "draft_acc": 79
+  },
+  {
+   "exp_id": "C_clean_ON_63k_r1",
+   "prompt_n": 63495,
+   "predicted_n": 380,
+   "decode_tok_s": 33.619,
+   "per_token_ms": 29.74505277044855,
+   "prefill_tok_s": 321.36,
+   "draft_n": 272,
+   "draft_acc": 269
+  },
+  {
+   "exp_id": "C_clean_ON_63k_r2",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 37.581,
+   "per_token_ms": 26.609042216358837,
+   "prefill_tok_s": 10.28,
+   "draft_n": 290,
+   "draft_acc": 290
+  },
+  {
+   "exp_id": "C_clean_ON_63k_r3",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 36.581,
+   "per_token_ms": 27.33667018469657,
+   "prefill_tok_s": 10.41,
+   "draft_n": 285,
+   "draft_acc": 285
+  }
+ ]
+}

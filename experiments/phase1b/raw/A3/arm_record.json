@@ -1,0 +1,99 @@
+{
+ "arm_id": "A3",
+ "mtp": "off",
+ "graph": "on",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "greedy": true
+ },
+ "started_ts": "2026-08-24 14:51:31",
+ "pid": 360148,
+ "server_log": "<REPO_ROOT>/experiments/phase1b/logs/srv_A3.log",
+ "health": "ok",
+ "prompt_n": 63514,
+ "n_predict": 380,
+ "reps_planned": 3,
+ "prompt_seed": 777001,
+ "prompt_text_head": "brown golden and and echo once fox of distant lazy untold cities ruled and beneath ruled clouds while over quick valleys the shores lazy of and cities forgotten yet quick of quick dog jumps endless carrying wandering once fox quick brown cities once endless yet drift jumps once drift whispers ruled ",
+ "prompt_text_tail": "h kings whispers yet horizons once the and where where whispers skies stories carrying over the timeless skies rivers quick clouds beneath\n\nQ: Summarize the topic of the text above in one sentence.\nA:",
+ "metrics_before": {
+  "prompt_tokens_total": 0.0,
+  "prompt_tokens_cached_total": 0.0,
+  "prompt_seconds_total": 0.0,
+  "tokens_predicted_total": 0.0,
+  "tokens_predicted_seconds_total": 0.0,
+  "n_decode_total": 0.0,
+  "n_tokens_max": 0.0,
+  "spec_decode_num_draft_tokens_total": 0.0,
+  "spec_decode_num_accepted_tokens_total": 0.0,
+  "spec_decode_num_drafts_total": 0.0,
+  "prompt_tokens_seconds": 0.0,
+  "predicted_tokens_seconds": 0.0,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 0.0
+ },
+ "metrics_after": {
+  "prompt_tokens_total": 63522.0,
+  "prompt_tokens_cached_total": 127020.0,
+  "prompt_seconds_total": 191.251,
+  "tokens_predicted_total": 1140.0,
+  "tokens_predicted_seconds_total": 72.5804,
+  "n_decode_total": 1172.0,
+  "n_tokens_max": 63893.0,
+  "spec_decode_num_draft_tokens_total": 0.0,
+  "spec_decode_num_accepted_tokens_total": 0.0,
+  "spec_decode_num_drafts_total": 0.0,
+  "prompt_tokens_seconds": 0.0,
+  "predicted_tokens_seconds": 15.6988,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0
+ },
+ "spec_metrics_final": {
+  "spec_decode_num_draft_tokens_total": 0.0,
+  "spec_decode_num_accepted_tokens_total": 0.0,
+  "spec_decode_num_drafts_total": 0.0
+ },
+ "vram_peak_b": 14724063232,
+ "vram_samples_n": 426,
+ "mem_before": {
+  "mem_total_b": 33565917184,
+  "mem_used_b": 4766056448,
+  "mem_avail_b": 28799860736,
+  "swap_total_b": 2701103104,
+  "swap_used_b": 30863810560,
+  "ts": "2026-08-24 14:51:31"
+ },
+ "mem_after": {
+  "mem_total_b": 33565917184,
+  "mem_used_b": 7785992192,
+  "mem_avail_b": 25779924992,
+  "swap_total_b": 3111194624,
+  "swap_used_b": 30453719040,
+  "ts": "2026-08-24 14:56:01"
+ },
+ "gpu_vram_before_b": 667004928,
+ "stop_rc": 0,
+ "gpu_vram_after_b": 998232064,
+ "status": "OK",
+ "finished_ts": "2026-08-24 14:56:06",
+ "summary": {
+  "tg_tok_s_median_all": 15.74,
+  "tg_tok_s_min": 15.636,
+  "tg_tok_s_max": 15.744,
+  "tg_tok_s_median_cached": 15.742,
+  "pp_tok_s_median_fresh": 332.85,
+  "reps_measured": 3
+ },
+ "acceptance": {
+  "draft_n_total": 0,
+  "draft_n_accepted_total": 0,
+  "rate": null
+ }
+}

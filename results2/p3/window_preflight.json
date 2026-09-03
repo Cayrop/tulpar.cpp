@@ -1,0 +1,42 @@
+{
+ "tag": "preflight_rebased",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "perf": [
+  {
+   "exp_id": "pf_16k_r1",
+   "prompt_n": 16337,
+   "decode_tok_s": 20.139,
+   "draft_acc": null,
+   "draft_n": null
+  },
+  {
+   "exp_id": "pf_16k_r2",
+   "prompt_n": 4,
+   "decode_tok_s": 20.126,
+   "draft_acc": null,
+   "draft_n": null
+  },
+  {
+   "exp_id": "pf_16k_r3",
+   "prompt_n": 4,
+   "decode_tok_s": 20.109,
+   "draft_acc": null,
+   "draft_n": null
+  },
+  {
+   "exp_id": "pf_128k_r1_fresh",
+   "prompt_n": 129469,
+   "decode_tok_s": 12.07,
+   "draft_acc": null,
+   "draft_n": null
+  },
+  {
+   "exp_id": "pf_128k_r2_cached",
+   "prompt_n": 4,
+   "decode_tok_s": 12.003,
+   "draft_acc": null,
+   "draft_n": null
+  }
+ ],
+ "needle128": true
+}

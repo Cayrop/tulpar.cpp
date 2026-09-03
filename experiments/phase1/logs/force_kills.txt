@@ -1,0 +1,9 @@
+2026-08-26T03:41:38+03:00 SIGKILL escalation for pid 126466 profile T-1k-OFF
+2026-08-26T03:48:00+03:00 SIGKILL escalation for pid 129663 profile T-16k-OFF
+2026-08-26T03:56:57+03:00 SIGKILL escalation for pid 130991 profile T-63k-OFF
+2026-08-26T04:12:00+03:00 SIGKILL escalation for pid 132012 profile T-128k-OFF
+2026-08-26T04:27:14+03:00 SIGKILL escalation for pid 134386 profile T-131k-OFF
+2026-08-26T04:33:04+03:00 SIGKILL escalation for pid 136805 profile T-1k-ON
+2026-08-26T04:39:26+03:00 SIGKILL escalation for pid 137431 profile T-16k-ON
+2026-08-26T04:48:30+03:00 SIGKILL escalation for pid 138144 profile T-63k-ON
+2026-08-26T05:03:58+03:00 SIGKILL escalation for pid 139253 profile T-128k-ON

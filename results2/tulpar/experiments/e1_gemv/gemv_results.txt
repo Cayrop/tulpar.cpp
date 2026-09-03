@@ -1,0 +1,31 @@
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+ggml_backend_cuda_graph_compute: CUDA graph warmup reset
+ggml_backend_cuda_graph_compute: CUDA graph warmup complete
+# device: AMD Radeon RX 7800 XT
+label,type,ne0,ne1,count,ms_per_call,gbps
+ffn_down,IQ3_XXS,17408,5120,64,0.1607,212.8
+ffn_gate,IQ3_XXS,5120,17408,64,0.1622,210.9
+ffn_up,IQ3_XXS,5120,17408,64,0.1638,208.9
+output,Q3_K,5120,248320,1,1.4999,364.9
+attn_q,IQ3_S,5120,12288,17,0.1249,217.0
+attn_output,IQ3_S,6144,5120,17,0.0754,179.9
+attn_v,IQ4_XS,5120,1024,17,0.0331,84.8
+ffn_down,IQ4_XS,17408,5120,1,0.0663,715.9
+ffn_gate,IQ4_XS,5120,17408,1,0.0676,701.8
+ffn_up,IQ4_XS,5120,17408,1,0.0669,708.9
+attn_k,IQ3_S,5120,1024,17,0.0384,59.2
+# predicted model GEMV total: 37.47 ms/token over 8.01 GB weights (213.9 GB/s aggregate)

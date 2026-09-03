@@ -1,0 +1,44 @@
+{
+  "experiment": "phase4e_subagent_e_independent_accumulators",
+  "date": "2026-08-25",
+  "gpu": "gfx1101 (RDNA3)",
+  "hipcc_version": "7.2.53211-3d9ef42",
+  "bit_exact": {
+    "status": "PASS",
+    "details": "All E variants (E1, E2, E3) produce bit-identical results to V0 across all 256 iq3xxs_grid entries (via sweep_shift 0-3) and 6 random seeds, for both unfused (ffn_down) and fused (ffn_gateup) cases."
+  },
+  "sass_chain_depth": {
+    "V0": 8,
+    "E1": 2,
+    "E2": 1,
+    "E3": 1,
+    "details": "SASS confirms: V0 has 8-deep v_dot4_i32_iu8 chain (all feed v1). E1 has 4 independent chains of depth 2. E2 and E3 have 8 independent dp4a operations (depth 1)."
+  },
+  "performance": {
+    "ffn_down": {
+      "K": 17408,
+      "N": 5120,
+      "fused": false,
+      "variants": {
+        "V0": { "gbps_weight": 161.457, "gbps_total": 161.738, "regs": 76, "occ_blocks": 64, "median_ms": 0.14232 },
+        "E1": { "gbps_weight": 162.506, "gbps_total": 162.79, "regs": 76, "occ_blocks": 64, "median_ms": 0.141401, "delta_gbps": 1.049, "delta_pct": 0.65 },
+        "E2": { "gbps_weight": 162.003, "gbps_total": 162.286, "regs": 76, "occ_blocks": 64, "median_ms": 0.14184, "delta_gbps": 0.546, "delta_pct": 0.34 },
+        "E3": { "gbps_weight": 162.552, "gbps_total": 162.836, "regs": 76, "occ_blocks": 64, "median_ms": 0.141361, "delta_gbps": 1.095, "delta_pct": 0.68 }
+      }
+    },
+    "ffn_gateup": {
+      "K": 5120,
+      "N": 17408,
+      "fused": true,
+      "variants": {
+        "V0": { "gbps_weight": 182.426, "gbps_total": 182.725, "regs": 33, "occ_blocks": 64, "median_ms": 0.251922 },
+        "E1": { "gbps_weight": 183.299, "gbps_total": 183.6, "regs": 33, "occ_blocks": 64, "median_ms": 0.250722, "delta_gbps": 0.873, "delta_pct": 0.48 },
+        "E2": { "gbps_weight": 180.647, "gbps_total": 180.943, "regs": 35, "occ_blocks": 64, "median_ms": 0.254403, "delta_gbps": -1.779, "delta_pct": -0.98 },
+        "E3": { "gbps_weight": 180.79, "gbps_total": 181.086, "regs": 37, "occ_blocks": 64, "median_ms": 0.254202, "delta_gbps": -1.636, "delta_pct": -0.90 }
+      }
+    }
+  },
+  "verdict": "MARGINAL",
+  "verdict_details": "E variants break the 8-deep v_dot4 chain (confirmed in SASS) and are bit-exact, but show only marginal performance improvement (~0.3-0.7% on ffn_down, ~0.5% on ffn_gateup for E1). E2/E3 show slight regression on ffn_gateup due to increased register usage (35-37 vs 33). The dp4a chain is NOT the primary bottleneck; the kernel remains memory-latency bound.",
+  "recommendation": "Do NOT adopt E variants. The marginal improvement does not justify the code complexity. The 8-deep v_dot4 chain is not the limiting factor for this memory-bound kernel."
+}

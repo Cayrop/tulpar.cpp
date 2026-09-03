@@ -1,0 +1,21 @@
+# device AMD Radeon RX 7800 XT CUs=30
+shape0 N=17408 K=5120 wbytes_per_call=34.12 MB
+shape0 V0_baseline_wg32   med_ms_per_call=0.13157 eff_gbps=259.3 reps=[0.13277 0.13366 0.13175 0.13157 0.13120 0.13155 0.13104 ]
+shape0 V1_wg64            med_ms_per_call=0.15845 eff_gbps=215.3 reps=[0.15845 0.15838 0.15862 0.15849 0.15845 0.15818 0.15935 ]
+shape0 V2_wg128           med_ms_per_call=0.21188 eff_gbps=161.0 reps=[0.21079 0.21092 0.21212 0.21141 0.21253 0.21188 0.21241 ]
+shape0 V3_rows2_wg32      med_ms_per_call=0.13133 eff_gbps=259.8 reps=[0.13281 0.13121 0.13136 0.13140 0.13045 0.13092 0.13133 ]
+shape0 V4_rows4_wg128     med_ms_per_call=0.19904 eff_gbps=171.4 reps=[0.19900 0.19868 0.19892 0.19917 0.19939 0.20022 0.19904 ]
+shape0 V5_fastld_funnel   med_ms_per_call=0.14524 eff_gbps=234.9 reps=[0.14542 0.14539 0.14524 0.14495 0.14479 0.14541 0.14484 ]
+shape0 V6_lds_grid        med_ms_per_call=0.13845 eff_gbps=246.4 reps=[0.13818 0.13855 0.13850 0.13845 0.13782 0.13841 0.13851 ]
+shape0 V7_ilp2            med_ms_per_call=0.13096 eff_gbps=260.5 reps=[0.13083 0.13122 0.13121 0.13120 0.13082 0.13096 0.13072 ]
+shape0 V8_fastld_nt       med_ms_per_call=0.14535 eff_gbps=234.7 reps=[0.14535 0.14564 0.14568 0.14532 0.14502 0.14497 0.14566 ]
+shape1 N=5120 K=17408 wbytes_per_call=34.12 MB
+shape1 V0_baseline_wg32   med_ms_per_call=0.13126 eff_gbps=259.9 reps=[0.13410 0.13411 0.13125 0.13175 0.13061 0.13126 0.13047 ]
+shape1 V1_wg64            med_ms_per_call=0.13962 eff_gbps=244.4 reps=[0.13976 0.13964 0.13962 0.13980 0.13911 0.13919 0.13923 ]
+shape1 V2_wg128           med_ms_per_call=0.15359 eff_gbps=222.1 reps=[0.15366 0.15359 0.15388 0.15395 0.15352 0.15345 0.15355 ]
+shape1 V3_rows2_wg32      med_ms_per_call=0.14745 eff_gbps=231.4 reps=[0.14746 0.14745 0.14719 0.14745 0.14672 0.14703 0.14751 ]
+shape1 V4_rows4_wg128     med_ms_per_call=0.15572 eff_gbps=219.1 reps=[0.15453 0.15482 0.15648 0.15537 0.15603 0.15649 0.15572 ]
+shape1 V5_fastld_funnel   med_ms_per_call=0.14687 eff_gbps=232.3 reps=[0.14758 0.14645 0.14733 0.14682 0.14684 0.14733 0.14687 ]
+shape1 V6_lds_grid        med_ms_per_call=0.13388 eff_gbps=254.8 reps=[0.13380 0.13407 0.13388 0.13416 0.13338 0.13374 0.13393 ]
+shape1 V7_ilp2            med_ms_per_call=0.13277 eff_gbps=257.0 reps=[0.13294 0.13263 0.13288 0.13277 0.13254 0.13250 0.13304 ]
+shape1 V8_fastld_nt       med_ms_per_call=0.14608 eff_gbps=233.6 reps=[0.14611 0.14572 0.14590 0.14614 0.14608 0.14599 0.14632 ]

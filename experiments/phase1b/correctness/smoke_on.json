@@ -1,0 +1,50 @@
+{
+ "tag": "mtp_on_smoke",
+ "tests": [
+  {
+   "test": "en_factual_paris",
+   "pass": true,
+   "expect": "Paris",
+   "head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  Berlin  Q: What is the capital of",
+   "draft_n": 30,
+   "draft_n_accepted": 19,
+   "tg_tok_s": 34.51
+  },
+  {
+   "test": "tr_factual_ankara",
+   "pass": true,
+   "expect": "Ankara",
+   "head": "  <think> The user is asking in Turkish: \"What is the capital of Turkey? Write only the city name.\"  The capital of Turk",
+   "draft_n": 23,
+   "draft_n_accepted": 20,
+   "tg_tok_s": 40.74
+  },
+  {
+   "test": "math_391",
+   "pass": true,
+   "expect": "391",
+   "head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q",
+   "draft_n": 23,
+   "draft_n_accepted": 18,
+   "tg_tok_s": 35.69
+  },
+  {
+   "test": "json_shape",
+   "pass": true,
+   "expect": "{\"name\":\"tulpar\",\"year\":2026}",
+   "head": "  <think> The user wants me to return a JSON object with specific keys and values. They want: - \"name\" with the string v",
+   "draft_n": 236,
+   "draft_n_accepted": 209,
+   "tg_tok_s": 40.65
+  }
+ ],
+ "spec_metrics": {
+  "spec_decode_num_draft_tokens_total": 312.0,
+  "spec_decode_num_accepted_tokens_total": 266.0,
+  "spec_decode_num_drafts_total": 105.0,
+  "spec_decode_num_accepted_tokens_per_pos_total": 43.0
+ },
+ "draft_counters_in_timings": true,
+ "spec_metrics_nonempty": true,
+ "all_pass": true
+}

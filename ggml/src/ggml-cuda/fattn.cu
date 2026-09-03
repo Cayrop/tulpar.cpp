@@ -524,7 +524,9 @@ static best_fattn_kernel ggml_cuda_get_best_fattn_kernel(const int device, const
                     return BEST_FATTN_KERNEL_VEC;
                 }
             }
-        } else {
+        } else if (!(GGML_CUDA_CC_IS_RDNA3(cc) && Q->ne[0] == 256)) {
+            // RDNA3 vector kernels with head size 256 use 256 VGPRs per thread and lose
+            // to the tile kernel for quantized KV, even with the tile F16 staging cost.
             if (Q->ne[1] <= 2) {
                 return BEST_FATTN_KERNEL_VEC;
             }
@@ -549,6 +551,12 @@ size_t ggml_cuda_flash_attn_ext_get_alloc_size(int device, const ggml_tensor * d
 
     switch (kernel) {
         case BEST_FATTN_KERNEL_TILE:
+            if (ggml_cuda_fattn_tile_fuses_quantized_kv(dst)) {
+                break; // K/V dequantization happens inside the tile kernel.
+            }
+            need_f16_K = true;
+            need_f16_V = true;
+            break;
         case BEST_FATTN_KERNEL_MMA_F16:
             need_f16_K = true;
             need_f16_V = true;

@@ -1,0 +1,8 @@
+V0_checksum K=17408 N=5120 fused=0 -> 00000af897816b9b
+verify K=17408 N=5120 fused=0 V0_vs_D1 -> BEYOND_3ULP max_abs_diff=0.25 max_rel_diff=0.000177202 differing=3964 ulp[1]=1293 ulp[2]=918 ulp[3]=351 ulp[4+]=2558
+verify K=17408 N=5120 fused=0 V0_vs_D2 -> BEYOND_3ULP max_abs_diff=0.25 max_rel_diff=0.000379795 differing=3921 ulp[1]=1291 ulp[2]=940 ulp[3]=323 ulp[4+]=2566
+verify K=17408 N=5120 fused=0 V0_vs_D3 -> BEYOND_3ULP max_abs_diff=0.25 max_rel_diff=0.000531713 differing=4004 ulp[1]=1329 ulp[2]=954 ulp[3]=361 ulp[4+]=2476
+V0_checksum K=5120 N=17408 fused=1 -> 00000bbf8a5cdbe4
+verify K=5120 N=17408 fused=1 V0_vs_D1 -> BEYOND_3ULP max_abs_diff=262144 max_rel_diff=0.0225205 differing=6712 ulp[1]=402 ulp[2]=1860 ulp[3]=1032 ulp[4+]=14114
+verify K=5120 N=17408 fused=1 V0_vs_D2 -> BEYOND_3ULP max_abs_diff=262144 max_rel_diff=0.00220305 differing=6886 ulp[1]=399 ulp[2]=1884 ulp[3]=1066 ulp[4+]=14059
+verify K=5120 N=17408 fused=1 V0_vs_D3 -> BEYOND_3ULP max_abs_diff=262144 max_rel_diff=0.0230391 differing=6905 ulp[1]=396 ulp[2]=1856 ulp[3]=1047 ulp[4+]=14109

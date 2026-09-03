@@ -1,0 +1,6 @@
+  Marketing Name:          AMD Ryzen 7 5700X 8-Core Processor 
+  Device Type:             CPU                                
+  Chip ID:                 0(0x0)                             
+  Marketing Name:          AMD Radeon RX 7800 XT              
+  Device Type:             GPU                                
+  Chip ID:                 29822(0x747e)                      

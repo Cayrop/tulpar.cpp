@@ -1,0 +1,50 @@
+{
+ "arm_id": "P3-off-128k",
+ "mode": "untraced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 888111,
+ "prompt_n": 129487,
+ "n_predict": 96,
+ "reps_planned": 1,
+ "started_ts": "2026-08-24 17:51:25",
+ "mem_before": {
+  "mem_total_b": 33565917184,
+  "mem_used_b": 16604573696,
+  "mem_avail_b": 16961343488,
+  "swap_total_b": 3182182400,
+  "swap_used_b": 30382731264,
+  "ts": "2026-08-24 17:51:25"
+ },
+ "gpu_vram_before_b": 14925103104,
+ "metrics_delta_keys": [],
+ "vram_peak_b": 14998003712,
+ "vram_samples_n": 910,
+ "mem_after": {
+  "mem_total_b": 33565917184,
+  "mem_used_b": 18100604928,
+  "mem_avail_b": 15465312256,
+  "swap_total_b": 3440504832,
+  "swap_used_b": 30124408832,
+  "ts": "2026-08-24 18:00:56"
+ },
+ "swap_delta_b": -258322432,
+ "status": "OK",
+ "finished_ts": "2026-08-24 18:00:56",
+ "summary": {
+  "tg_tok_s_median": 12.032,
+  "tg_tok_s_min": 12.032,
+  "tg_tok_s_max": 12.032,
+  "pp_tok_s_fresh": 230.21,
+  "reps_measured": 1
+ }
+}

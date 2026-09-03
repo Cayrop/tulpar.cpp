@@ -1,0 +1,11 @@
+RUNNING 2026-08-26 03:36:00
+T-1k-OFF rc=0 status=OK peak=9.88
+T-16k-OFF rc=0 status=OK peak=10.164
+T-63k-OFF rc=0 status=OK peak=11.197
+T-128k-OFF rc=0 status=OK peak=12.654
+T-131k-OFF rc=0 status=OK peak=12.743
+T-1k-ON rc=0 status=OK peak=11.399
+T-16k-ON rc=0 status=OK peak=11.735
+T-63k-ON rc=0 status=OK peak=12.962
+T-128k-ON rc=0 status=OK peak=14.738
+DONE ok=1 2026-08-26 05:04:11

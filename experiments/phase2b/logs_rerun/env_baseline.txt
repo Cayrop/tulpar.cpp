@@ -1,0 +1,10 @@
+prod_vram_used_B=14711828484
+MemAvail_B=20188246016
+SwapUsed_B=60174336
+after_stop_ts=2026-08-25T20:26:45+03:00
+MemAvail_B=21490237440
+SwapUsed_B=60166144
+restore_ts=2026-08-25T21:53:04+03:00
+prod_pid=51668
+GPU[0]		: VRAM Total Used Memory (B): 14930436096
+SwapUsed_B=6240501760

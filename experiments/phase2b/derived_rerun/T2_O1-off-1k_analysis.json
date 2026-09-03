@@ -1,0 +1,306 @@
+{
+ "arm": "T2_O1-off-1k",
+ "trace_csv": "<REPO_ROOT>/experiments/phase2b/phase2b_raw/T2_O1-off-1k/p2b_T2_O1-off-1k_kernel_trace.csv",
+ "dispatches_total": 92068,
+ "request_boundary_idxs": [
+  0,
+  4878,
+  14507
+ ],
+ "probe_kernels": 9629,
+ "decode_kernels": 77560,
+ "steps_found": 40,
+ "median_step_wall_ms": 46.714,
+ "clean_steps_used": 37,
+ "clean_step_indices": [
+  1,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39
+ ],
+ "excluded_steps": [
+  0,
+  2,
+  18
+ ],
+ "per_step_means_over_clean": {
+  "step_wall_ms": 47.045,
+  "kernel_busy_ms": 41.349,
+  "gap_nonstall_ms": 6.9096,
+  "quantize_row_launches": 433.0,
+  "quantize_row_ms": 0.6119,
+  "gdn_ms": 0.518,
+  "staging_dequant_ms": 0.1212,
+  "attn_tile_ms": 0.3305,
+  "gemv_iq3_xxs_ms": 30.4761,
+  "small_kernel_tail_ms": 2.4703
+ },
+ "categories_over_clean": {
+  "GEMV_IQ3_XXS": {
+   "calls_per_step": 224.0,
+   "ms_per_step": 30.4761,
+   "gap_before_ms_per_step": 0.7712,
+   "pct_of_busy": 73.71
+  },
+  "GEMV_IQ3_S": {
+   "calls_per_step": 96.0,
+   "ms_per_step": 4.8047,
+   "gap_before_ms_per_step": 0.3313,
+   "pct_of_busy": 11.62
+  },
+  "NORM_ROPE_ACT": {
+   "calls_per_step": 641.0,
+   "ms_per_step": 1.6623,
+   "gap_before_ms_per_step": 2.5805,
+   "pct_of_busy": 4.02
+  },
+  "GEMV_Q3_K": {
+   "calls_per_step": 1.0,
+   "ms_per_step": 1.4742,
+   "gap_before_ms_per_step": 0.0034,
+   "pct_of_busy": 3.57
+  },
+  "OTHER": {
+   "calls_per_step": 136.0,
+   "ms_per_step": 0.683,
+   "gap_before_ms_per_step": 0.6155,
+   "pct_of_busy": 1.65
+  },
+  "QUANT_ROW_decode": {
+   "calls_per_step": 433.0,
+   "ms_per_step": 0.6119,
+   "gap_before_ms_per_step": 1.4896,
+   "pct_of_busy": 1.48
+  },
+  "GDN": {
+   "calls_per_step": 160.0,
+   "ms_per_step": 0.518,
+   "gap_before_ms_per_step": 0.5564,
+   "pct_of_busy": 1.25
+  },
+  "GEMV_IQ1_M": {
+   "calls_per_step": 96.0,
+   "ms_per_step": 0.3524,
+   "gap_before_ms_per_step": 0.3259,
+   "pct_of_busy": 0.85
+  },
+  "ATTN_FA_TILE": {
+   "calls_per_step": 32.0,
+   "ms_per_step": 0.3305,
+   "gap_before_ms_per_step": 0.1105,
+   "pct_of_busy": 0.8
+  },
+  "KV_STORE_COPY": {
+   "calls_per_step": 64.0,
+   "ms_per_step": 0.1961,
+   "gap_before_ms_per_step": 0.2228,
+   "pct_of_busy": 0.47
+  },
+  "STAGING_dequant": {
+   "calls_per_step": 32.0,
+   "ms_per_step": 0.1212,
+   "gap_before_ms_per_step": 0.1083,
+   "pct_of_busy": 0.29
+  },
+  "GEMV_IQ4_XS": {
+   "calls_per_step": 16.0,
+   "ms_per_step": 0.1182,
+   "gap_before_ms_per_step": 0.0554,
+   "pct_of_busy": 0.29
+  }
+ },
+ "gap_distribution": {
+  "count": 71409,
+  "total_ms": 255.65,
+  "mean_ns": 3580,
+  "median_ms": 0.0034,
+  "p90_ms": 0.0036,
+  "p95_ms": 0.0038,
+  "p99_ms": 0.0041,
+  "max_ms": 0.5415,
+  "overlaps_sum_ms": 0.0,
+  "sampling_tail_ms_median": 0.7928,
+  "sampling_tail_ms_mean": 0.7746,
+  "stall_events_ge5ms": [
+   {
+    "step": 11,
+    "gap_ms": 9.667,
+    "after": "mul_mat_vec_q",
+    "before": "k_bin_bcast"
+   }
+  ],
+  "stalls_total_ms": 9.67
+ },
+ "top_gap_transitions": [
+  {
+   "transition": "quantize_q8_1 -> mul_mat_vec_q",
+   "total_ms": 55.028,
+   "count": 16021,
+   "mean_ms": 0.00343
+  },
+  {
+   "transition": "mul_mat_vec_q -> k_bin_bcast",
+   "total_ms": 21.914,
+   "count": 3552,
+   "mean_ms": 0.00617
+  },
+  {
+   "transition": "rms_norm_f32 -> quantize_q8_1",
+   "total_ms": 16.005,
+   "count": 4736,
+   "mean_ms": 0.00338
+  },
+  {
+   "transition": "mul_mat_vec_q -> rms_norm_f32",
+   "total_ms": 14.842,
+   "count": 4144,
+   "mean_ms": 0.00358
+  },
+  {
+   "transition": "unary_gated_op_kernel -> quantize_q8_1",
+   "total_ms": 13.912,
+   "count": 4144,
+   "mean_ms": 0.00336
+  },
+  {
+   "transition": "mul_mat_vec_q -> quantize_q8_1",
+   "total_ms": 9.105,
+   "count": 2368,
+   "mean_ms": 0.00385
+  },
+  {
+   "transition": "mul_mat_vec_q -> concat_cont",
+   "total_ms": 6.65,
+   "count": 1776,
+   "mean_ms": 0.00374
+  },
+  {
+   "transition": "__amd_rocclr_copyBuffer -> __amd_rocclr_copyBuffer",
+   "total_ms": 6.396,
+   "count": 222,
+   "mean_ms": 0.02881
+  },
+  {
+   "transition": "rms_norm_f32 -> k_get_rows_float",
+   "total_ms": 6.351,
+   "count": 1813,
+   "mean_ms": 0.0035
+  },
+  {
+   "transition": "k_get_rows_float_vec -> ssm_conv_f32",
+   "total_ms": 6.223,
+   "count": 1776,
+   "mean_ms": 0.0035
+  },
+  {
+   "transition": "unary_op_kernel -> gated_delta_net_cuda",
+   "total_ms": 6.22,
+   "count": 1776,
+   "mean_ms": 0.0035
+  },
+  {
+   "transition": "k_bin_bcast -> unary_gated_op_kernel",
+   "total_ms": 6.189,
+   "count": 1776,
+   "mean_ms": 0.00348
+  },
+  {
+   "transition": "mul_mat_vec_q -> unary_gated_op_kernel",
+   "total_ms": 6.179,
+   "count": 1776,
+   "mean_ms": 0.00348
+  },
+  {
+   "transition": "concat_cont -> cpy_scalar",
+   "total_ms": 6.174,
+   "count": 1776,
+   "mean_ms": 0.00348
+  },
+  {
+   "transition": "ssm_conv_f32 -> l2_norm_f32",
+   "total_ms": 6.17,
+   "count": 1776,
+   "mean_ms": 0.00347
+  }
+ ],
+ "pp_probe_phase": {
+  "kernels": 9629,
+  "busy_s": 1.922,
+  "span_s": 2.067,
+  "categories_pct": {
+   "MMQ_GEMM_IQ3_XXS": 69.72,
+   "MMQ_GEMM_IQ3_S": 10.73,
+   "GDN": 6.58,
+   "NORM_ROPE_ACT": 4.94,
+   "GEMV_IQ3_XXS": 2.13,
+   "ATTN_FA_TILE": 1.98,
+   "QUANT_MMQ_prefill": 1.54,
+   "STAGING_f32_to_f16": 0.45,
+   "MMQ_GEMM_IQ4_XS": 0.44,
+   "ROCBLAS_GEMM": 0.42,
+   "GEMV_IQ3_S": 0.33,
+   "KV_STORE_COPY": 0.29,
+   "OTHER": 0.2,
+   "GEMV_Q3_K": 0.08,
+   "STAGING_dequant": 0.06,
+   "QUANT_ROW_decode": 0.05,
+   "STAGING_f16_to_f32": 0.03,
+   "GEMV_IQ1_M": 0.03,
+   "GEMV_IQ4_XS": 0.01
+  },
+  "calls": {
+   "MMQ_GEMM_IQ3_XXS": 864,
+   "MMQ_GEMM_IQ3_S": 288,
+   "GDN": 640,
+   "NORM_ROPE_ACT": 3428,
+   "GEMV_IQ3_XXS": 288,
+   "ATTN_FA_TILE": 96,
+   "QUANT_MMQ_prefill": 1200,
+   "STAGING_f32_to_f16": 288,
+   "MMQ_GEMM_IQ4_XS": 48,
+   "ROCBLAS_GEMM": 288,
+   "GEMV_IQ3_S": 96,
+   "KV_STORE_COPY": 256,
+   "OTHER": 535,
+   "GEMV_Q3_K": 1,
+   "STAGING_dequant": 416,
+   "QUANT_ROW_decode": 497,
+   "STAGING_f16_to_f32": 288,
+   "GEMV_IQ1_M": 96,
+   "GEMV_IQ4_XS": 16
+  }
+ }
+}

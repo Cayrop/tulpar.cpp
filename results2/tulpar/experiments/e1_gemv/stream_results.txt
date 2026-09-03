@@ -1,0 +1,9 @@
+grid= 2048 tpb=256  read 602.7 GB/s   copy(R+W) 472.1 GB/s
+grid= 2048 tpb=512  read 599.4 GB/s   copy(R+W) 479.2 GB/s
+grid= 4096 tpb=256  read 598.1 GB/s   copy(R+W) 478.7 GB/s
+grid= 4096 tpb=512  read 598.8 GB/s   copy(R+W) 484.7 GB/s
+grid= 8192 tpb=256  read 599.4 GB/s   copy(R+W) 485.3 GB/s
+grid= 8192 tpb=512  read 599.7 GB/s   copy(R+W) 484.4 GB/s
+grid=16384 tpb=256  read 601.1 GB/s   copy(R+W) 482.2 GB/s
+grid=16384 tpb=512  read 601.6 GB/s   copy(R+W) 489.7 GB/s
+BEST: read 602.7 GB/s (copy 472.1 GB/s) at grid=2048 tpb=256  CUs=30

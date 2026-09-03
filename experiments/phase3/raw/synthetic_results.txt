@@ -1,0 +1,24 @@
+device=gfx1101 CUs=30 clock=2254 MHz
+
+=== shape ffn_down_K17408_N5120 ===
+type       batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+IQ3_XXS    1            0.1388        165.6         165.9        32     76     64
+IQ3_XXS    2            0.1494        153.8         154.3        32     90     64
+IQ3_XXS    4            0.1746        131.6         132.5        32     93     64
+IQ3_XXS    8            0.2210        104.0         105.4        32     37     64
+Q4_0       1            0.0464       1079.6        1080.4       256     17      8
+Q4_0       2            0.0570        878.9         880.4        32     25     64
+Q4_0       4            0.0929        539.5         541.3        32     41     64
+Q4_0       8            0.1591        315.1         317.1        32     69     64
+Q8_0       1            0.1717        551.5         551.7       256     17      8
+Q8_0       2            0.1782        531.4         531.9        32     22     64
+Q8_0       4            0.1798        526.8         527.7        32     32     64
+Q8_0       8            0.2287        414.1         415.5        32     52     64
+
+=== shape ffn_gateup_K5120_N17408 ===
+type       batch            ms GB/s(weight)   GB/s(total)   workgrp   regs    occ
+IQ3_XXS    1            0.2466        186.4         186.7        32     33     64 [fused-glu]
+IQ3_XXS    2            0.1501        306.2         307.2        32     90     64
+IQ3_XXS    4            0.1753        262.1         263.8        32     93     64
+IQ3_XXS    8            0.2173        211.5         214.2        32     37     64
+Memory access fault by GPU node-1 (Agent handle: 0x55fa6ab643e0) on address 0x7f494c600000. Reason: Page not present or supervisor privilege.

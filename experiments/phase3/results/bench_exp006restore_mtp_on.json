@@ -1,0 +1,12 @@
+{
+  "tag": "exp006restore_mtp_on",
+  "note": "Gather hoist (T14) build, MTP ON via running systemd server (-c 131072)",
+  "model": "/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf",
+  "server_pid_at_run": 542064,
+  "tests": [
+    {"ctx": "1k",   "prompt_n": 959,    "tg_tok_s": 28.478, "pp_tok_s": 476.307},
+    {"ctx": "16k",  "prompt_n": 16323,  "tg_tok_s": 29.398, "pp_tok_s": 463.562},
+    {"ctx": "63k",  "prompt_n": 63548,  "tg_tok_s": 37.582, "pp_tok_s": 314.006},
+    {"ctx": "131k", "prompt_n": 130011, "tg_tok_s": 24.545, "pp_tok_s": 215.708}
+  ]
+}

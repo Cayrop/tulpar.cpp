@@ -1,0 +1,134 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+PIDFILE="${ROOT}/ops/run/llama-server.pid"
+# Production binary: build-p3, validated in Phase-1B and Phase-2B.
+# FALLBACK_BIN is fallback only, never production.
+# This script validates /proc/PID/exe against PROD_BIN before stop.
+PROD_BIN="${ROOT}/build-p3/bin/llama-server"
+# FALLBACK (not production): recorded for reference only
+FALLBACK_BIN="${ROOT}/build/bin/llama-server"
+
+usage() {
+    echo "Usage: $0 --i-have-explicit-approval [--allow-force-kill]"
+    echo "Stop production llama-server (future-use only)."
+    echo ""
+    echo "This script is NOT executed in Phase-0.5."
+    echo "It is generated for Phase-1B use after measurement window approval."
+    echo ""
+    echo "Safety:"
+    echo "  - Reads PID only from pidfile."
+    echo "  - Validates PID via /proc/PID/exe and /proc/PID/cmdline."
+    echo "  - Requires --i-have-explicit-approval flag."
+    echo "  - Sends SIGTERM first, waits, then reports if still alive."
+    echo "  - SIGKILL requires --allow-force-kill (not default)."
+    echo "  - Cleans pidfile after stop; preserves logs/manifest."
+}
+
+EXPLICIT_APPROVAL=false
+ALLOW_FORCE_KILL=false
+
+for arg in "$@"; do
+    case "$arg" in
+        --i-have-explicit-approval) EXPLICIT_APPROVAL=true ;;
+        --allow-force-kill) ALLOW_FORCE_KILL=true ;;
+        *) echo "Unknown argument: $arg"; usage; exit 1 ;;
+    esac
+done
+
+if [[ "$EXPLICIT_APPROVAL" != "true" ]]; then
+    echo "ERROR: Explicit human approval required."
+    echo "Usage: $0 --i-have-explicit-approval [--allow-force-kill]"
+    exit 1
+fi
+
+echo "=== Production Stop Script ==="
+echo ""
+
+if [[ ! -f "$PIDFILE" ]]; then
+    echo "ERROR: pidfile not found: $PIDFILE"
+    echo "Cannot stop: no PID recorded."
+    exit 1
+fi
+
+PID_IN_FILE=$(cat "$PIDFILE" 2>/dev/null || echo "")
+if [[ -z "$PID_IN_FILE" ]] || ! [[ "$PID_IN_FILE" =~ ^[0-9]+$ ]]; then
+    echo "ERROR: pidfile contains invalid PID: $PID_IN_FILE"
+    exit 1
+fi
+
+echo "Pidfile PID: $PID_IN_FILE"
+
+if ! kill -0 "$PID_IN_FILE" 2>/dev/null; then
+    echo "PID $PID_IN_FILE is not alive."
+    echo "Removing stale pidfile."
+    rm -f "$PIDFILE"
+    exit 0
+fi
+
+EXE_PATH=$(readlink /proc/$PID_IN_FILE/exe 2>/dev/null || echo "")
+CMDLINE=$(cat /proc/$PID_IN_FILE/cmdline 2>/dev/null | tr '\0' ' ' || echo "")
+
+echo "Validating PID $PID_IN_FILE..."
+echo "  /proc/PID/exe: $EXE_PATH"
+echo "  /proc/PID/cmdline: $CMDLINE"
+
+VALIDATION_FAILED=false
+
+if [[ "$EXE_PATH" != *"$PROD_BIN" ]]; then
+    echo "ERROR: exe path does not match production binary."
+    echo "  expected: $PROD_BIN"
+    echo "  actual:   $EXE_PATH"
+    VALIDATION_FAILED=true
+fi
+
+if [[ "$CMDLINE" != *"/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf"* ]]; then
+    echo "ERROR: cmdline does not contain expected model path."
+    VALIDATION_FAILED=true
+fi
+
+if [[ "$VALIDATION_FAILED" == "true" ]]; then
+    echo "ABORT: PID validation failed. Not stopping."
+    exit 1
+fi
+
+echo "Validation passed. Proceeding with stop."
+
+echo "Sending SIGTERM to PID $PID_IN_FILE..."
+kill -INT "$PID_IN_FILE"
+
+echo "Waiting up to 120 seconds for process to exit..."
+STOPPED=false
+for i in $(seq 1 12); do
+    sleep 10
+    if ! kill -0 "$PID_IN_FILE" 2>/dev/null; then
+        STOPPED=true
+        echo "Process exited after $((i * 10)) seconds."
+        break
+    fi
+done
+
+if [[ "$STOPPED" != "true" ]]; then
+    echo "WARNING: Process still alive after 120 seconds."
+    if [[ "$ALLOW_FORCE_KILL" == "true" ]]; then
+        echo "Sending SIGKILL (force kill allowed)..."
+        kill -KILL "$PID_IN_FILE"
+        sleep 2
+        if ! kill -0 "$PID_IN_FILE" 2>/dev/null; then
+            echo "Process killed with SIGKILL."
+        else
+            echo "ERROR: Process still alive after SIGKILL."
+            exit 1
+        fi
+    else
+        echo "Process still alive. Use --allow-force-kill for SIGKILL."
+        echo "pidfile preserved for manual intervention."
+        exit 1
+    fi
+fi
+
+rm -f "$PIDFILE"
+echo "pidfile removed."
+echo ""
+echo "=== Production server stopped ==="

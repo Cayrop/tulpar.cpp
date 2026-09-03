@@ -1,0 +1,11 @@
+=== binaries ===
+-rwxr-xr-x 1 gencer gencer  6520 2026-08-20 12:58 build/bin/llama-server
+-rwxr-xr-x 1 gencer gencer 16000 2026-08-24 00:20 build-p3/bin/llama-server
+build-p3/bin/llama-server 16000 bytes mtime=2026-08-24 00:20:25.432254769 +0300
+build/bin/llama-server 6520 bytes mtime=2026-08-20 12:58:04.354292500 +0300
+build-p3/bin/libllama-server-impl.so 7055336 bytes mtime=2026-08-24 00:20:25.220873034 +0300
+280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13  build-p3/bin/llama-server
+6293e1b5af8092cf417f42be4f930030d79c6391058a001d97937b6148fe9535  build-p3/bin/libllama-server-impl.so
+d5b26a656a4b283c0e469bee2ab9015b84cd2d26e430e85c6a847290922b6f5e  build/bin/llama-server
+=== model ===
+/home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf 10676423744 bytes mtime=2026-08-14 19:00:44.298072015 +0300

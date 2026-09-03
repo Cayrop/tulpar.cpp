@@ -1,0 +1,1 @@
+46151b52a5cad673d90a00222103254864326c251130b8fc4381d6f34386b3c8  /home/gencer/models/qwen38/Qwen3.8-27B-UD-Q2_K_XL.gguf

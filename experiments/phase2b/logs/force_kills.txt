@@ -1,0 +1,10 @@
+2026-08-24T18:07:22+03:00 SIGKILL escalation for pid 467898 profile prof-p2b-traced-tP1pp
+2026-08-24T18:15:26+03:00 SIGKILL escalation for pid 469538 profile prof-p2b-traced-tP1tg
+2026-08-24T18:30:49+03:00 SIGKILL escalation for pid 476004 profile prof-p2b-traced-tP2pp
+2026-08-24T18:40:56+03:00 SIGKILL escalation for pid 479260 profile prof-p2b-traced-tP2tg
+2026-08-24T18:47:40+03:00 SIGKILL escalation for pid 483577 profile prof-p2b-traced-tO1
+2026-08-24T19:04:37+03:00 SIGKILL escalation for pid 487067 profile prof-p2b-traced-tP3
+2026-08-25T20:52:21+03:00 SIGKILL escalation for pid 36877 profile prof-p2b2-traced
+2026-08-25T21:00:56+03:00 SIGKILL escalation for pid 37918 profile prof-p2b2-traced
+2026-08-25T21:11:04+03:00 SIGKILL escalation for pid 40167 profile prof-p2b2-traced
+2026-08-25T21:27:44+03:00 SIGKILL escalation for pid 42414 profile prof-p2b2-traced

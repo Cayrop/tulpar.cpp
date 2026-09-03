@@ -1,0 +1,5 @@
+variant=B1 shape=1 batch=1 variant_arg=1
+  SQ_WAIT_INST_ANY: 48439779347.0
+  SQ_WAVE_CYCLES: 62092760310.0
+  SQ_WAVES: 1159840.0
+  stall_ratio: 0.7801

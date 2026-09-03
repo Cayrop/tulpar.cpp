@@ -1,0 +1,20 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 582.141,
+  "prompt_n": 129487,
+  "prompt_ms": 577973.776,
+  "predicted_n": 96,
+  "predicted_ms": 3920.726,
+  "pp_tok_s": 224.04,
+  "tg_tok_s": 24.485,
+  "e2e_tok_s": 0.165,
+  "draft_n": 66,
+  "draft_n_accepted": 66,
+  "draft_per_token_ms": null,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at the text carefully.\n\nThe text appears to be a massive"
+ }
+]

@@ -1,0 +1,42 @@
+{
+  "tag": "exp006_correctness_gate",
+  "binary_sha256_pre_change": "280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13",
+  "binary_sha256_post_change": "to_be_filled",
+  "test_backend_ops_iq3_xxs": {
+    "passed": 11,
+    "failed": 0,
+    "verdict": "OK"
+  },
+  "test_backend_ops_all_mul_mat": {
+    "verdict": "OK"
+  },
+  "deterministic_greedy_mtp_on": {
+    "det_pass": 12,
+    "det_total": 12,
+    "samp_pass": 8,
+    "samp_total": 9
+  },
+  "deterministic_greedy_mtp_off": {
+    "det_pass": 12,
+    "det_total": 12,
+    "samp_pass": 9,
+    "samp_total": 9
+  },
+  "short_context_bit_exact_vs_v2_baseline": {
+    "passed": 9,
+    "total": 9
+  },
+  "long_context_text_diff": {
+    "needle16k_single": "thinking_mode_prose_variance",
+    "needle_multi": "thinking_mode_prose_variance",
+    "longgen_story": "thinking_mode_prose_variance"
+  },
+  "prefill_regression_check": {
+    "1k_prefill_tok_s_delta_pct": -0.34,
+    "16k_prefill_tok_s_delta_pct": 1.38,
+    "63k_prefill_tok_s_delta_pct": -0.28,
+    "verdict": "NO_REGRESSION"
+  },
+  "verdict": "CORRECTNESS_PASS",
+  "decision": "REVERT_PER_PROTOCOL_THRESHOLD"
+}

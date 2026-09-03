@@ -1,0 +1,20 @@
+=== V0 down ===
+type=18 shape=0 batch=1 fused=0 variant=V0 ms=0.1396 min=0.1352 p10=0.1360 p90=0.1418 max=0.1514 GBps_weight=164.6 regs=76 occ_blocks=64 wg=32
+=== V0 gateup ===
+type=18 shape=1 batch=1 fused=1 variant=V0 ms=0.2486 min=0.2450 p10=0.2456 p90=0.2568 max=0.2646 GBps_weight=184.8 regs=33 occ_blocks=64 wg=32
+=== C1 down ===
+type=18 shape=0 batch=1 fused=0 variant=C1 ms=0.1419 min=0.1377 p10=0.1415 p90=0.1449 max=0.1534 GBps_weight=162.0 regs=81 occ_blocks=56 wg=32
+=== C1 gateup ===
+type=18 shape=1 batch=1 fused=1 variant=C1 ms=0.2578 min=0.2541 p10=0.2546 p90=0.2625 max=0.2926 GBps_weight=178.3 regs=83 occ_blocks=51 wg=32
+=== C2 down ===
+type=18 shape=0 batch=1 fused=0 variant=C2 ms=0.1417 min=0.1376 p10=0.1413 p90=0.1448 max=0.1530 GBps_weight=162.2 regs=81 occ_blocks=56 wg=32
+=== C2 gateup ===
+type=18 shape=1 batch=1 fused=1 variant=C2 ms=0.2579 min=0.2541 p10=0.2548 p90=0.2646 max=0.2795 GBps_weight=178.2 regs=83 occ_blocks=51 wg=32
+=== C3 down ===
+type=18 shape=0 batch=1 fused=0 variant=C3 ms=0.1434 min=0.1391 p10=0.1431 p90=0.1464 max=0.1624 GBps_weight=160.3 regs=81 occ_blocks=56 wg=32
+=== C3 gateup ===
+type=18 shape=1 batch=1 fused=1 variant=C3 ms=0.2604 min=0.2566 p10=0.2571 p90=0.2666 max=0.3356 GBps_weight=176.5 regs=83 occ_blocks=51 wg=32
+=== C4 down ===
+type=18 shape=0 batch=1 fused=0 variant=C4 ms=0.1389 min=0.1344 p10=0.1364 p90=0.1403 max=0.1672 GBps_weight=165.4 regs=76 occ_blocks=64 wg=32
+=== C4 gateup ===
+type=18 shape=1 batch=1 fused=1 variant=C4 ms=0.2488 min=0.2453 p10=0.2457 p90=0.2568 max=0.2699 GBps_weight=184.7 regs=33 occ_blocks=64 wg=32

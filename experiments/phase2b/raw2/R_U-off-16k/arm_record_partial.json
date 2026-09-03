@@ -1,0 +1,47 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 40.087,
+  "prompt_n": 16416,
+  "prompt_ms": 33843.842,
+  "predicted_n": 128,
+  "predicted_ms": 6210.705,
+  "pp_tok_s": 485.05,
+  "tg_tok_s": 20.61,
+  "e2e_tok_s": 3.193,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at this text carefully.\n\nThe text appears to be a massiv"
+ },
+ {
+  "rep": 2,
+  "cache_prompt": true,
+  "wall_s": 6.417,
+  "prompt_n": 4,
+  "prompt_ms": 185.264,
+  "predicted_n": 128,
+  "predicted_ms": 6199.207,
+  "pp_tok_s": 21.59,
+  "tg_tok_s": 20.648,
+  "e2e_tok_s": 19.947,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at this text carefully.\n\nThe text appears to be a massiv"
+ },
+ {
+  "rep": 3,
+  "cache_prompt": true,
+  "wall_s": 6.406,
+  "prompt_n": 4,
+  "prompt_ms": 172.548,
+  "predicted_n": 128,
+  "predicted_ms": 6200.635,
+  "pp_tok_s": 23.18,
+  "tg_tok_s": 20.643,
+  "e2e_tok_s": 19.981,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at this text carefully.\n\nThe text appears to be a massiv"
+ }
+]

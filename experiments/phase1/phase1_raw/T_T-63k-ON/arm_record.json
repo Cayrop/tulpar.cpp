@@ -1,0 +1,99 @@
+{
+ "arm_id": "T-63k-ON",
+ "mode": "traced",
+ "mtp": "on",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 64512,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 777001,
+ "prompt_n": 63528,
+ "npred_probe": 1,
+ "npred_main": 32,
+ "vram_guard_b": 16752282317,
+ "started_ts": "2026-08-26 04:40:10",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 5211451392,
+  "mem_avail_b": 28354146304,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1478672384,
+  "ts": "2026-08-26 04:40:10"
+ },
+ "gpu_vram_before_b": 13164462080,
+ "metrics_after": {
+  "prompt_tokens_total": 63532.0,
+  "prompt_tokens_cached_total": 63524.0,
+  "prompt_seconds_total": 194.8,
+  "tokens_predicted_total": 33.0,
+  "tokens_predicted_seconds_total": 1.11036,
+  "n_decode_total": 44.0,
+  "n_tokens_max": 63559.0,
+  "spec_decode_num_draft_tokens_total": 25.0,
+  "spec_decode_num_accepted_tokens_total": 21.0,
+  "spec_decode_num_drafts_total": 9.0,
+  "prompt_tokens_seconds": 34.7047,
+  "predicted_tokens_seconds": 27.9188,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0,
+  "spec_decode_num_accepted_tokens_per_pos_total": 2.0
+ },
+ "vram_peak_b": 13917921280,
+ "vram_peak_gib": 12.962,
+ "vram_samples_n": 321,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 6466359296,
+  "mem_avail_b": 27099238400,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1478660096,
+  "ts": "2026-08-26 04:43:30"
+ },
+ "swap_delta_b": -12288,
+ "acceptance": {
+  "draft_n_total": 25,
+  "draft_n_accepted_total": 21,
+  "rate": 0.84
+ },
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 194.809,
+   "prompt_n": 63528,
+   "prompt_ms": 194686.282,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 326.31,
+   "tg_tok_s": 1000000.0,
+   "draft_n": null,
+   "draft_n_accepted": null,
+   "stop_reason": null,
+   "content_head": "\n\n"
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 1.485,
+   "prompt_n": 4,
+   "prompt_ms": 257.646,
+   "predicted_n": 32,
+   "predicted_ms": 1110.363,
+   "pp_tok_s": 15.53,
+   "tg_tok_s": 28.819,
+   "draft_n": 25,
+   "draft_n_accepted": 21,
+   "stop_reason": null,
+   "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of a very long text in one sentence. Let me look at the text care"
+  }
+ ],
+ "finished_ts": "2026-08-26 04:43:30"
+}

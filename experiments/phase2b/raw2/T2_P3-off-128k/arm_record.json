@@ -1,0 +1,82 @@
+{
+ "arm_id": "T2_P3-off-128k",
+ "mode": "traced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 888111,
+ "prompt_n": 131102,
+ "npred_probe": 1,
+ "npred_main": 36,
+ "started_ts": "2026-08-25 21:12:29",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 12441194496,
+  "mem_avail_b": 21124403200,
+  "swap_total_b": 5396475904,
+  "swap_used_b": 28168437760,
+  "ts": "2026-08-25 21:12:29"
+ },
+ "gpu_vram_before_b": "ce ============================\n================================== Memory Usage (Bytes) ==================================\nGPU[0]\t\t: VRAM Total Memory (B): 17163091968\nGPU[0]\t\t: VRAM Total Used Memory (B): 14723710976\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+ "error": "HTTP Error 400: Bad Request",
+ "metrics_after": {
+  "prompt_tokens_total": 0.0,
+  "prompt_tokens_cached_total": 0.0,
+  "prompt_seconds_total": 0.0,
+  "tokens_predicted_total": 0.0,
+  "tokens_predicted_seconds_total": 0.0,
+  "n_decode_total": 0.0,
+  "n_tokens_max": 0.0,
+  "prompt_tokens_seconds": 0.0,
+  "predicted_tokens_seconds": 0.0,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 0.0
+ },
+ "vram_peak_b": 15127597056,
+ "vram_samples_n": 1,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 12011773952,
+  "mem_avail_b": 21553823744,
+  "swap_total_b": 5548036096,
+  "swap_used_b": 28016877568,
+  "ts": "2026-08-25 21:22:28"
+ },
+ "swap_delta_b": 8192,
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 557.443,
+   "prompt_n": 129048,
+   "prompt_ms": 557189.52,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 231.61,
+   "tg_tok_s": 1000000.0
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 3.592,
+   "prompt_n": 4,
+   "prompt_ms": 310.969,
+   "predicted_n": 36,
+   "predicted_ms": 3041.52,
+   "pp_tok_s": 12.86,
+   "tg_tok_s": 11.836
+  }
+ ],
+ "finished_ts": "2026-08-25 21:22:28",
+ "note": "attempt1 used build_prompt (400 overflow, no GPU work); attempt2 used saved fit prompt on SAME instance"
+}

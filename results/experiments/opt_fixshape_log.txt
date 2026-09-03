@@ -1,0 +1,9 @@
+[X_fixshape] launching
+{"exp_id": "X_fixshape_warmup", "variant": "X_fixshape", "prompt_n": 4, "predicted_n": 16, "decode_tok_s": 24.173001335961203, "per_token_ms": 41.36846666666667, "draft_n": 24, "draft_n_accepted": 8}
+{"exp_id": "X_fixshape_1k_run1", "variant": "X_fixshape", "prompt_n": 955, "predicted_n": 128, "decode_tok_s": 40.27395166428142, "per_token_ms": 24.829944881889762, "draft_n": 132, "draft_n_accepted": 93}
+{"exp_id": "X_fixshape_1k_run2", "variant": "X_fixshape", "prompt_n": 4, "predicted_n": 128, "decode_tok_s": 40.67520846044336, "per_token_ms": 24.585, "draft_n": 138, "draft_n_accepted": 91}
+{"exp_id": "X_fixshape_1k_run3", "variant": "X_fixshape", "prompt_n": 4, "predicted_n": 128, "decode_tok_s": 37.25309193329761, "per_token_ms": 26.843409448818896, "draft_n": 148, "draft_n_accepted": 89}
+[X_fixshape] 63k run1
+{"exp_id": "X_fixshape_63k_run1", "variant": "X_fixshape", "prompt_n": 63495, "predicted_n": 380, "decode_tok_s": 21.85032217982965, "per_token_ms": 45.76591556728232, "draft_n": 523, "draft_n_accepted": 248}
+[X_fixshape] 63k run2
+{"exp_id": "X_fixshape_63k_run2", "variant": "X_fixshape", "prompt_n": 4, "predicted_n": 380, "decode_tok_s": 25.56506379562681, "per_token_ms": 39.11588126649077, "draft_n": 439, "draft_n_accepted": 269}

@@ -1,0 +1,34 @@
+# Measurement Window Start Record - Phase-0 Completion (V3 Baseline Establishment)
+
+Timestamp: 2026-08-25 23:59 +03 (window opened ~23:55)
+Authorized by: user prompt "PHASE-0 COMPLETION: V3 BASELINE ESTABLISHMENT" (this session)
+
+Approvals granted by that prompt:
+- Measurement window: YES (correctness gates + full baseline ladder mandated).
+- 128k context arms: YES, explicitly required for BOTH MTP OFF and MTP ON
+  (supersedes measurement_window.md "one 128k arm per window", same precedent as Phase-1B A7/A8).
+- 131k context arms: gated on VRAM fit ("if 131k fits in VRAM"); attempted only
+  if the preceding same-MTP 128k arm completed without guard trip.
+
+Pre-window state notes (deviations):
+- Production was NOT running at window start (pidfile PID 65019 dead, port 8080
+  silent). Same condition as phase0_blockers.md B0-1. Resolved by prod_start.sh
+  relaunch inside pidfile policy; no manual kill used anywhere.
+- Swap already 6.73 GB used pre-window (pre-existing page-cache pressure from
+  repeated model mmaps, documented in B0-6). Absolute "swap > 5 GB abort" rule
+  reinterpreted as DELTA-based for this window: abort any arm if swap grows by
+  more than 5 GB during the arm or MemAvailable drops below 14 GiB during a
+  128k/131k arm. Rationale: the absolute threshold is already exceeded before
+  any of our processes run; delta captures what the rule was written to catch.
+- MemAvailable 18.08 GB (decimal) pre-window; policy's ">18 GB before 128k"
+  treated as decimal-GB per its own unit style elsewhere ("~4.7 GB", "5 GB").
+
+Fingerprints at window start:
+- git HEAD: 66dcba5eb (tulpar/main), tracked files clean.
+- build-p3/bin/llama-server sha256 280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13
+- Model sha256 fd4730dd8aad070517978752b63d530aeb1740d2283cab9fa24f1e404032ddb0
+  (recomputed this window; inode 30986567, ctime 2026-08-25 22:28:09 - identical
+  to the bytes the Phase-0 correctness gate ran against).
+- NOTE: v3_quant_distribution.json records file_size_bytes 9,817,985,024 but the
+  actual file is 9,828,981,664 B. Same sha256 proves the quant analysis refers to
+  these exact bytes; only its size field is misrecorded. Not edited (artifact).

@@ -1,0 +1,3 @@
+CPU(s) scaling MHz:                      73%
+İşlemci en yüksek MHz:                   5488,9761
+İşlemci asgari MHz:                      661,3230

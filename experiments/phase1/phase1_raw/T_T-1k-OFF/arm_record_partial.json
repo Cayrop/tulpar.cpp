@@ -1,0 +1,32 @@
+[
+ {
+  "req": "probe",
+  "cache_prompt": false,
+  "wall_s": 1.907,
+  "prompt_n": 991,
+  "prompt_ms": 1903.482,
+  "predicted_n": 1,
+  "predicted_ms": 0.001,
+  "pp_tok_s": 520.62,
+  "tg_tok_s": 1000000.0,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "stop_reason": null,
+  "content_head": "\n\n"
+ },
+ {
+  "req": "main",
+  "cache_prompt": true,
+  "wall_s": 1.57,
+  "prompt_n": 4,
+  "prompt_ms": 121.399,
+  "predicted_n": 32,
+  "predicted_ms": 1445.517,
+  "pp_tok_s": 32.95,
+  "tg_tok_s": 22.137,
+  "draft_n": null,
+  "draft_n_accepted": null,
+  "stop_reason": null,
+  "content_head": "\n\n<think>\nThe user wants me to summarize the topic of the text in one sentence. The text appears to be a jumbled collect"
+ }
+]

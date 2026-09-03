@@ -1,0 +1,424 @@
+{
+ "model_file": "Qwen3.8-27B-UD-Q2_K_XL.gguf",
+ "model_version": "V3",
+ "sha256": "fd4730dd8aad070517978752b63d530aeb1740d2283cab9fa24f1e404032ddb0",
+ "file_size_bytes": 9817985024,
+ "file_size_gb_dec": 9.818,
+ "total_params_b": 27.32,
+ "architecture": "qwen35 hybrid: 48 GDN + 16 dense trunk blocks + blk.64 MTP nextn; vocab 248320",
+ "source_dump": "experiments/phase0/env/gguf_dump_full.json",
+ "quant_types": {
+  "IQ3_XXS": {
+   "bytes": 2480701440,
+   "count": 112,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 301056000,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_output_dense": {
+     "bytes": 24084480,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 98344960,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 361267200,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 477675520,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 375316480,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 614154240,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 228802560,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "IQ2_S": {
+   "bytes": 1534935040,
+   "count": 67,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 80609280,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_qkv_dense": {
+     "bytes": 20152320,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 184729600,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 456785920,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 342589440,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 399687680,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 50380800,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "IQ3_S": {
+   "bytes": 1297612800,
+   "count": 57,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 27033600,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_output_dense": {
+     "bytes": 108134400,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 15769600,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 90112000,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 421273600,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 229785600,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 229785600,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 175718400,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "IQ2_XXS": {
+   "bytes": 919142400,
+   "count": 48,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 48660480,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_output_dense": {
+     "bytes": 8110080,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 32440320,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 94617600,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 183828480,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 321699840,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 229785600,
+     "layers": "blk.0-63 ffn_up"
+    }
+   }
+  },
+  "Q4_K": {
+   "bytes": 803635200,
+   "count": 21,
+   "categories": {
+    "attention_output_dense": {
+     "bytes": 17694720,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 53084160,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "gdn_ssm_out": {
+     "bytes": 17694720,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    },
+    "output_head": {
+     "bytes": 715161600,
+     "layers": "output.weight (lm_head)"
+    }
+   }
+  },
+  "Q2_K": {
+   "bytes": 702750720,
+   "count": 16,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 30965760,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_qkv_dense": {
+     "bytes": 144506880,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 51609600,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 29245440,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 29245440,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "token_embd": {
+     "bytes": 417177600,
+     "layers": "token_embd.weight (get_rows only, not streamed)"
+    }
+   }
+  },
+  "IQ2_XS": {
+   "bytes": 668344320,
+   "count": 34,
+   "categories": {
+    "attention_gate_gdn": {
+     "bytes": 36372480,
+     "layers": "blk.{0,1,2,4,5,6,8,9,...} attn_gate (48 tensors)"
+    },
+    "attention_output_dense": {
+     "bytes": 9093120,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 36372480,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "attention_qkv_gdn_fused": {
+     "bytes": 60620800,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 128819200,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 206110720,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 154583040,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 36372480,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "IQ4_XS": {
+   "bytes": 551485440,
+   "count": 19,
+   "categories": {
+    "attention_output_dense": {
+     "bytes": 50135040,
+     "layers": "dense trunk blk 3..63 attn_output + blk.64.attn_output"
+    },
+    "attention_qkv_dense": {
+     "bytes": 8355840,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 236748800,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 94699520,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 94699520,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 66846720,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "IQ1_S": {
+   "bytes": 348160000,
+   "count": 20,
+   "categories": {
+    "ffn_down": {
+     "bytes": 52224000,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_gate": {
+     "bytes": 174080000,
+     "layers": "blk.0-63 ffn_gate"
+    },
+    "ffn_up": {
+     "bytes": 121856000,
+     "layers": "blk.0-63 ffn_up"
+    }
+   }
+  },
+  "Q6_K": {
+   "bytes": 339763200,
+   "count": 6,
+   "categories": {
+    "nextn_blk64": {
+     "bytes": 339763200,
+     "layers": "MTP draft block blk.64 (Q6_K/Q8_0/F32; unused MTP OFF)"
+    }
+   }
+  },
+  "Q3_K": {
+   "bytes": 105881600,
+   "count": 5,
+   "categories": {
+    "attention_qkv_dense": {
+     "bytes": 2252800,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    },
+    "ffn_down": {
+     "bytes": 38297600,
+     "layers": "blk.0-63 ffn_down"
+    },
+    "ffn_up": {
+     "bytes": 38297600,
+     "layers": "blk.0-63 ffn_up"
+    },
+    "gdn_ssm_out": {
+     "bytes": 27033600,
+     "layers": "GDN layers ssm_out (48 tensors)"
+    }
+   }
+  },
+  "Q8_0": {
+   "bytes": 36208640,
+   "count": 98,
+   "categories": {
+    "gdn_ssm_other": {
+     "bytes": 25067520,
+     "layers": "ssm_conv1d/ssm_alpha/ssm_dt etc (Q8_0+F32)"
+    },
+    "nextn_blk64": {
+     "bytes": 11141120,
+     "layers": "MTP draft block blk.64 (Q6_K/Q8_0/F32; unused MTP OFF)"
+    }
+   }
+  },
+  "IQ1_M": {
+   "bytes": 11468800,
+   "count": 1,
+   "categories": {
+    "attention_qkv_gdn_fused": {
+     "bytes": 11468800,
+     "layers": "blk.0-62 GDN layers fused attn_qkv (48 tensors)"
+    }
+   }
+  },
+  "F32": {
+   "bytes": 10686464,
+   "count": 360,
+   "categories": {
+    "gdn_ssm_other": {
+     "bytes": 7907328,
+     "layers": "ssm_conv1d/ssm_alpha/ssm_dt etc (Q8_0+F32)"
+    },
+    "nextn_blk64": {
+     "bytes": 104448,
+     "layers": "MTP draft block blk.64 (Q6_K/Q8_0/F32; unused MTP OFF)"
+    },
+    "norm_misc": {
+     "bytes": 2674688,
+     "layers": "RMS norms + biases (F32)"
+    }
+   }
+  },
+  "Q5_K": {
+   "bytes": 7208960,
+   "count": 2,
+   "categories": {
+    "attention_qkv_dense": {
+     "bytes": 7208960,
+     "layers": "blk.{3,7,11,15,19,23,27,31,35,39,43,47,51,55,59,63} attn_q/k/v (48 tensors)"
+    }
+   }
+  }
+ },
+ "weight_stream_per_decode_step_mtp_off": {
+  "total_bytes": 9049798656,
+  "total_gib": 8.4283,
+  "by_type": {
+   "IQ3_XXS": 2480701440,
+   "IQ2_S": 1534935040,
+   "IQ3_S": 1297612800,
+   "IQ2_XXS": 919142400,
+   "Q4_K": 803635200,
+   "IQ2_XS": 668344320,
+   "IQ4_XS": 551485440,
+   "IQ1_S": 348160000,
+   "Q2_K": 285573120,
+   "Q3_K": 105881600,
+   "Q8_0": 25067520,
+   "IQ1_M": 11468800,
+   "F32": 10582016,
+   "Q5_K": 7208960,
+   "Q6_K": 0
+  },
+  "excluded_from_stream": [
+   "token_embd (get_rows)",
+   "blk.64 nextn tensors (MTP draft, unused when OFF)"
+  ]
+ },
+ "comparison_to_v2": {
+  "v2_source": "experiments/phase2a/evidence_ledger.md sec 2 fact 10 (corrected by phase2b blockers B8)",
+  "v2_streamed_total_mtp_off": 10022072320,
+  "v2_by_type": {
+   "IQ3_XXS": 8092385280,
+   "IQ3_S": 1376460800,
+   "Q3_K": 546304000,
+   "IQ4_XS": 217251840,
+   "IQ1_M": 5160960
+  },
+  "quant_distribution_changed": true,
+  "delta_stream_pct": -9.7,
+  "changes": [
+   "Streamed weights/decode step (MTP OFF): V2 10,022,072,320 B -> V3 9,049,798,656 B (-9.70%)",
+   "IQ3_XXS dominant share collapsed: V2 8,092,385,280 B -> V3 2,480,701,440 B",
+   "New low-bit types introduced: IQ2_S, IQ2_XXS, IQ2_XS, IQ1_S, Q2_K (non-embd), Q4_K, Q5_K, Q8_0",
+   "output.weight changed to Q4_K (715,161,600 B, 4.50 bpw over 5120x248320)",
+   "MTP draft block blk.64 upgraded to Q6_K/Q8_0/F32 (351,008,768 B total vs V2 nextn IQ3_S+IQ4_XS 215,490,560 B)",
+   "token_embd remains Q2_K 417,177,600 B (not streamed)"
+  ]
+ }
+}

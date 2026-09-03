@@ -1,0 +1,84 @@
+{
+ "arm_id": "T2_O1-off-1k",
+ "mode": "traced",
+ "mtp": "off",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 131072,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 4201024,
+ "prompt_n": 1040,
+ "npred_probe": 1,
+ "npred_main": 40,
+ "started_ts": "2026-08-25 20:47:03",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 10593206272,
+  "mem_avail_b": 22972391424,
+  "swap_total_b": 3680481280,
+  "swap_used_b": 29884432384,
+  "ts": "2026-08-25 20:47:03"
+ },
+ "gpu_vram_before_b": "ce ============================\n================================== Memory Usage (Bytes) ==================================\nGPU[0]\t\t: VRAM Total Memory (B): 17163091968\nGPU[0]\t\t: VRAM Total Used Memory (B): 14833041408\n==========================================================================================\n================================== End of ROCm SMI Log ===================================\n",
+ "metrics_after": {
+  "prompt_tokens_total": 1044.0,
+  "prompt_tokens_cached_total": 1036.0,
+  "prompt_seconds_total": 2.16101,
+  "tokens_predicted_total": 41.0,
+  "tokens_predicted_seconds_total": 1.96199,
+  "n_decode_total": 43.0,
+  "n_tokens_max": 1079.0,
+  "prompt_tokens_seconds": 47.1821,
+  "predicted_tokens_seconds": 19.8778,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0
+ },
+ "vram_peak_b": 14894194688,
+ "vram_samples_n": 12,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 10828587008,
+  "mem_avail_b": 22737010688,
+  "swap_total_b": 3874914304,
+  "swap_used_b": 29689999360,
+  "ts": "2026-08-25 20:47:10"
+ },
+ "swap_delta_b": -194433024,
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 2.082,
+   "prompt_n": 1040,
+   "prompt_ms": 2077.895,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 500.51,
+   "tg_tok_s": 1000000.0,
+   "stop_reason": null,
+   "content_head": "\n\n"
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 2.16,
+   "prompt_n": 4,
+   "prompt_ms": 194.123,
+   "predicted_n": 40,
+   "predicted_ms": 1961.986,
+   "pp_tok_s": 20.61,
+   "tg_tok_s": 20.388,
+   "stop_reason": null,
+   "content_head": "\n\nThe text is a stream-of-consciousness collection of abstract imagery and keywords\u2014featuring elements like a brown dog,"
+  }
+ ],
+ "finished_ts": "2026-08-25 20:47:10"
+}

@@ -1,0 +1,39 @@
+=== timestamp ===
+Pzt 24 Ağu 2026 14:20:56 +03
+Pzt 24 Ağu 2026 11:20:56 UTC
+=== git HEAD ===
+66dcba5eb7dd92cd460cfc040c7cae42f1254e20
+66dcba5eb cuda : use tile flash attention for quantized KV decode on RDNA3 with head size 256
+=== git status --short ===
+?? agents.md
+?? agents.md.bak-merge-20260824-102759
+?? agents.md.bak-phase05-20260824072120
+?? experiments/
+?? ops/
+?? results/
+?? results2/
+=== rocm-smi ===
+WARNING: AMD GPU device(s) is/are in a low-power state. Check power control/runtime_status
+
+
+
+============================================ ROCm System Management Interface ============================================
+====================================================== Concise Info ======================================================
+Device  Node  IDs              Temp    Power  Partitions          SCLK     MCLK     Fan     Perf    PwrCap  VRAM%  GPU%  
+[3m              (DID,     GUID)  (Edge)  (Avg)  (Mem, Compute, ID)                                                         [0m
+==========================================================================================================================
+0       1     0x747e,   55713  39.0°C  49.0W  N/A, N/A, 0         1559Mhz  1218Mhz  51.76%  manual  280.0W  3%     18%   
+==========================================================================================================================
+================================================== End of ROCm SMI Log ===================================================
+=== rocminfo gpu summary ===
+  Marketing Name:          AMD Ryzen 7 5700X 8-Core Processor 
+  Device Type:             CPU                                
+  Max Clock Freq. (MHz):   5488                               
+  Compute Unit:            16                                 
+  Name:                    gfx1101                            
+  Marketing Name:          AMD Radeon RX 7800 XT              
+  Device Type:             GPU                                
+  Max Clock Freq. (MHz):   2254                               
+  Compute Unit:            60                                 
+      Name:                    amdgcn-amd-amdhsa--gfx1101         
+      Name:                    amdgcn-amd-amdhsa--gfx11-generic   

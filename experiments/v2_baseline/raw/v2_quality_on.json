@@ -1,0 +1,50 @@
+{
+ "tag": "v2_quality_on",
+ "ts": "2026-08-26 18:00:23",
+ "mtp": "on",
+ "server_base": "http://localhost:8080",
+ "tests": [
+  {
+   "test": "svg_red_circle",
+   "prompt": "Create SVG code for a simple red circle",
+   "text": "\n\n<think>\nThe user wants a simple red circle in SVG. Let me create a clean, minimal SVG with a red circle. I'll include proper SVG structure with viewBox, and a circle element with red fill.\n</think>\n\n```svg\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n  <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"red\" />\n</svg>\n```\n\nThis creates a **200\u00d7200** SVG with a red circle centered in the middle:\n\n| Attribute | Value | Purpose |\n|-----------|-------|---------|\n| `cx` / `cy` | `100` | Centers the circle |\n| `r` | `80` | Radius (leaves a 20px margin) |\n| `fill` | `red` | Solid red color |\n\nYou can easily tweak the size, color, or add a stroke (`stroke=\"darkred\" stroke-width=\"4\"`) if needed. \ud83d\udfe5\n\nWant me to",
+   "tok_s": 39.71156014417009,
+   "prompt_n": 8,
+   "predicted_n": 256,
+   "checks": {
+    "has_svg_open": true,
+    "has_svg_close": true,
+    "has_circle": true,
+    "red_marker": true,
+    "xml_well_formed": true
+   },
+   "degen": {
+    "n_words": 124,
+    "uniq_ratio": 0.6935,
+    "max_consec_repeat": 2,
+    "bigram_rep_rate": 0.0407,
+    "trigram_rep_rate": 0.0164,
+    "longest_repeated_ngram": 4,
+    "last50_uniq": 37
+   }
+  },
+  {
+   "test": "reasoning_crt_bat_ball",
+   "expect": "0.05",
+   "pass_expected": true,
+   "text": "\n\nLet's solve this step by step.\n\n1.  **Define the variables:**\n    Let $b$ be the cost of the ball.\n    Let $t$ be the cost of the bat.\n\n2.  **Set up the equations based on the problem statement:**\n    *   The total cost is $1.10:\n        $$b + t = 1.10$$\n    *   The bat costs $1.00 more than the ball:\n        $$t = b + 1.00$$\n\n3.  **Substitute and solve:**\n    Substitute the value of $t$ from the second equation into the first equation:\n    $$b + (b + 1.00) = 1.10$$\n\n    Combine like terms:\n    $$2b + 1.00 = 1.10$$\n\n    Subtract 1.00 from both sides:\n    $$2b = 0.10$$\n\n    Divide by 2:\n    $$b = 0.05$$\n\n4.  **Verification:**\n    *   Cost of the ball: $0.05\n    *   Cost of the bat: $0.05 + 1.00 = 1.05$\n    *   Total cost: $0.05 + 1.05 = 1.10$ (This matches the total given).\n\nThe ball costs 0.05 dollars.\n\n0.05\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n**0.05**\n\n",
+   "tok_s": 51.012905865605106,
+   "prompt_n": 55,
+   "predicted_n": 384
+  },
+  {
+   "test": "reasoning_rate_diff",
+   "expect": "20",
+   "pass_expected": true,
+   "text": "\n\nTo determine how much faster the car is than the train, we need to calculate the speed of each vehicle in kilometers per hour (km/h) and then find the difference.\n\n**Step 1: Convert the time from minutes to hours.**\n*   Train time: 45 minutes. Since there are 60 minutes in an hour, $45 \\text{ minutes} = \\frac{45}{60} \\text{ hours} = 0.75 \\text{ hours}$.\n*   Car time: 36 minutes. $36 \\text{ minutes} = \\frac{36}{60} \\text{ hours} = 0.6 \\text{ hours}$.\n\n**Step 2: Calculate the speed of the train.**\n*   Speed = $\\frac{\\text{Distance}}{\\text{Time}}$\n*   Train Speed = $\\frac{60 \\text{ km}}{0.75 \\text{ hours}}$\n*   Train Speed = $80 \\text{ km/h}$\n\n**Step 3: Calculate the speed of the car.**\n*   Car Speed = $\\frac{60 \\text{ km}}{0.6 \\text{ hours}}$\n*   Car Speed = $100 \\text{ km/h}$\n\n**Step 4: Calculate the difference in speed.**\n*   Difference = Car Speed - Train Speed\n*   Difference = $100 \\text{ km/h} - 80 \\text{ km/h}$\n*   Difference = $20 \\text{ km/h}$\n\nAnswer: 20.000000000000000000000000000000000000",
+   "tok_s": 50.75925508208819,
+   "prompt_n": 55,
+   "predicted_n": 384
+  }
+ ]
+}

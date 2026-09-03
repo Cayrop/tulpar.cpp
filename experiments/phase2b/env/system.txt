@@ -1,0 +1,3 @@
+Linux cachyos-x8664 7.1.8-1-cachyos #1 SMP PREEMPT_DYNAMIC Tue, 11 Aug 2026 09:10:42 +0000 x86_64 GNU/Linux
+GPU[0]		: Card Series: 		AMD Radeon RX 7800 XT
+GPU[0]		: Card Model: 		0x747e

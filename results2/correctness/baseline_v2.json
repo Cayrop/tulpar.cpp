@@ -1,0 +1,527 @@
+{
+ "tag": "baseline_v2",
+ "ts_recorded": "2026-08-26 18:14:46",
+ "window": "phase-1b V2 model swap + baseline (EXP-002)",
+ "supersedes": [
+  "baseline_ON_prod_v3.json (V3) and baseline_ON_prod_v2.json (pre-window)"
+ ],
+ "model": {
+  "path": "/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf",
+  "version_label": "V2",
+  "sha256": "46151b52a5cad673d90a00222103254864326c251130b8fc4381d6f34386b3c8",
+  "file_size_bytes": 10676423744,
+  "note": "V2 path: qwen-v2/, V3 path: qwen38/. Detection based on file existence."
+ },
+ "binary": {
+  "path": "/home/gencer/llama.cpp/build-p3/bin/llama-server",
+  "sha256": "280556cca0310ac80d145336fde7f89da1e43610d935bff8f4514392ad070c13"
+ },
+ "git_head": "966f25454",
+ "gate_context": "EXP-002 V2 model swap + baseline measurement; fused q4_0 optimization active.",
+ "expected_v2_signature": {
+  "deterministic_passes": [
+   "factual_en",
+   "arith_simple",
+   "puzzle",
+   "code_func",
+   "code_oneliner",
+   "turkish",
+   "list_struct",
+   "needle16k_single",
+   "needle_multi",
+   "longgen_story"
+  ],
+  "note": "V2 expected to match V2 baseline: puzzle '9' (not V3 anomaly '8'); arith_multistep quirk-tolerant (accepts '40' as baseline); degen_trap_p1k returns 'and where...' loop surface (V2 pattern)."
+ },
+ "suite_mtp_on_ctx65536_prod_flags": {
+  "summary": {
+   "det_pass": 12,
+   "det_total": 12,
+   "samp_pass": 8,
+   "samp_total": 9
+  },
+  "tests": [
+   {
+    "test": "factual_en",
+    "pass": true,
+    "tok_s": 36.869916658299026,
+    "prompt_n": 19
+   },
+   {
+    "test": "arith_simple",
+    "pass": true,
+    "tok_s": 41.09027358253855,
+    "prompt_n": 21
+   },
+   {
+    "test": "arith_multistep",
+    "pass": true,
+    "tok_s": 43.7961075688016,
+    "prompt_n": 33
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "tok_s": 30.15851891992291,
+    "prompt_n": 34
+   },
+   {
+    "test": "code_func",
+    "pass": true,
+    "tok_s": 35.90246321131283,
+    "prompt_n": 15
+   },
+   {
+    "test": "code_oneliner",
+    "pass": true,
+    "tok_s": 52.15407301350626,
+    "prompt_n": 24
+   },
+   {
+    "test": "turkish",
+    "pass": true,
+    "tok_s": 35.275274734347164,
+    "prompt_n": 26
+   },
+   {
+    "test": "list_struct",
+    "pass": true,
+    "tok_s": 48.516256912803776,
+    "prompt_n": 20
+   },
+   {
+    "test": "needle16k_single",
+    "pass": true,
+    "tok_s": 37.092852537461845,
+    "prompt_n": 24840
+   },
+   {
+    "test": "needle_multi",
+    "pass": true,
+    "tok_s": 40.083316710546114,
+    "prompt_n": 24048
+   },
+   {
+    "test": "longgen_story",
+    "pass": true,
+    "tok_s": 27.668633163450238,
+    "prompt_n": 10
+   },
+   {
+    "test": "degen_trap_p1k",
+    "pass": true,
+    "tok_s": 44.060811340418006,
+    "prompt_n": 951
+   }
+  ],
+  "sampled": [
+   {
+    "test": "turkish",
+    "seed": 7,
+    "pass": false,
+    "bigram_rep": 0.8,
+    "last50_uniq": 4,
+    "head": "\n\n<think>\n\n</think>\n\nAnkara.\nAnkara.\nAnkara.\nAnkara.\nAnkara."
+   },
+   {
+    "test": "turkish",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.087,
+    "last50_uniq": 35,
+    "head": "\n\n<think>\nThe user is asking a simple question in Turkish: \""
+   },
+   {
+    "test": "turkish",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1579,
+    "last50_uniq": 26,
+    "head": " Ankara\n\nSoru: T\u00fcrkiye'nin en b\u00fcy\u00fck \u015fehri hangisidir? Yaln\u0131z"
+   },
+   {
+    "test": "story",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 40,
+    "head": "\n\n<think>\n\n</think>\n\nThe fog did not roll in; it seeped. It "
+   },
+   {
+    "test": "story",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.08,
+    "last50_uniq": 42,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "story",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1286,
+    "last50_uniq": 38,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "arith",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0893,
+    "last50_uniq": 30,
+    "head": "\n\n<think>\nThe user is asking for the average speed of a trai"
+   },
+   {
+    "test": "arith",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.1053,
+    "last50_uniq": 30,
+    "head": "\n\n<think>\nThe user is asking about average speed of a train."
+   },
+   {
+    "test": "arith",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1404,
+    "last50_uniq": 29,
+    "head": "\n\n<think>\nThe user is asking about average speed of a train."
+   }
+  ],
+  "raw": "results2/correctness/suite_on_v2.json"
+ },
+ "suite_mtp_off_ctx131072_no_spec": {
+  "summary": {
+   "det_pass": 12,
+   "det_total": 12,
+   "samp_pass": 8,
+   "samp_total": 9
+  },
+  "tests": [
+   {
+    "test": "factual_en",
+    "pass": true,
+    "tok_s": 22.01137098058316,
+    "prompt_n": 19
+   },
+   {
+    "test": "arith_simple",
+    "pass": true,
+    "tok_s": 22.044945422343634,
+    "prompt_n": 21
+   },
+   {
+    "test": "arith_multistep",
+    "pass": true,
+    "tok_s": 22.125168045919203,
+    "prompt_n": 33
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "tok_s": 22.080517483213548,
+    "prompt_n": 34
+   },
+   {
+    "test": "code_func",
+    "pass": true,
+    "tok_s": 22.125388067661763,
+    "prompt_n": 15
+   },
+   {
+    "test": "code_oneliner",
+    "pass": true,
+    "tok_s": 22.036686211274294,
+    "prompt_n": 24
+   },
+   {
+    "test": "turkish",
+    "pass": true,
+    "tok_s": 21.996248469622714,
+    "prompt_n": 26
+   },
+   {
+    "test": "list_struct",
+    "pass": true,
+    "tok_s": 22.129830566223028,
+    "prompt_n": 20
+   },
+   {
+    "test": "needle16k_single",
+    "pass": true,
+    "tok_s": 20.48581850444301,
+    "prompt_n": 24840
+   },
+   {
+    "test": "needle_multi",
+    "pass": true,
+    "tok_s": 20.400236642745057,
+    "prompt_n": 24048
+   },
+   {
+    "test": "longgen_story",
+    "pass": true,
+    "tok_s": 21.983880509132888,
+    "prompt_n": 10
+   },
+   {
+    "test": "degen_trap_p1k",
+    "pass": true,
+    "tok_s": 21.880089279976932,
+    "prompt_n": 951
+   }
+  ],
+  "sampled": [
+   {
+    "test": "turkish",
+    "seed": 7,
+    "pass": false,
+    "bigram_rep": 0.8,
+    "last50_uniq": 4,
+    "head": "\n\n<think>\n\n</think>\n\nAnkara.\nAnkara.\nAnkara.\nAnkara.\nAnkara."
+   },
+   {
+    "test": "turkish",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.087,
+    "last50_uniq": 35,
+    "head": "\n\n<think>\nThe user is asking a simple question in Turkish: \""
+   },
+   {
+    "test": "turkish",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1579,
+    "last50_uniq": 26,
+    "head": " Ankara\n\nSoru: T\u00fcrkiye'nin en b\u00fcy\u00fck \u015fehri hangisidir? Yaln\u0131z"
+   },
+   {
+    "test": "story",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0,
+    "last50_uniq": 40,
+    "head": "\n\n<think>\n\n</think>\n\nThe fog did not roll in; it seeped. It "
+   },
+   {
+    "test": "story",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.08,
+    "last50_uniq": 42,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "story",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1286,
+    "last50_uniq": 38,
+    "head": "\n\n<think>\nThe user wants a short story about a lighthouse ke"
+   },
+   {
+    "test": "arith",
+    "seed": 7,
+    "pass": true,
+    "bigram_rep": 0.0893,
+    "last50_uniq": 30,
+    "head": "\n\n<think>\nThe user is asking for the average speed of a trai"
+   },
+   {
+    "test": "arith",
+    "seed": 77,
+    "pass": true,
+    "bigram_rep": 0.1053,
+    "last50_uniq": 30,
+    "head": "\n\n<think>\nThe user is asking about average speed of a train."
+   },
+   {
+    "test": "arith",
+    "seed": 777,
+    "pass": true,
+    "bigram_rep": 0.1404,
+    "last50_uniq": 29,
+    "head": "\n\n<think>\nThe user is asking about average speed of a train."
+   }
+  ],
+  "raw": "results2/correctness/suite_off_v2.json"
+ },
+ "semantic_smoke_mtp_on": {
+  "ts": "2026-08-26 16:47:43",
+  "mtp": "on",
+  "server_base": "http://localhost:8080",
+  "semantic_smoke": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "determinism_self_1k_seed4242": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "gen_1k_head": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where"
+ },
+ "semantic_smoke_mtp_off": {
+  "ts": "2026-08-26 17:00:01",
+  "mtp": "off",
+  "server_base": "http://localhost:8080",
+  "semantic_smoke": [
+   {
+    "test": "math",
+    "pass": true,
+    "expect": [
+     "391"
+    ],
+    "out_head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *"
+   },
+   {
+    "test": "math2",
+    "pass": false,
+    "expect": [
+     "80"
+    ],
+    "out_head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di"
+   },
+   {
+    "test": "puzzle",
+    "pass": true,
+    "expect": [
+     "9"
+    ],
+    "out_head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th"
+   },
+   {
+    "test": "factual",
+    "pass": true,
+    "expect": [
+     "Paris"
+    ],
+    "out_head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  "
+   },
+   {
+    "test": "code",
+    "pass": true,
+    "expect": [
+     "def reverse_string"
+    ],
+    "out_head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. "
+   },
+   {
+    "test": "code2",
+    "pass": true,
+    "expect": [
+     "sum("
+    ],
+    "out_head": "  <think> The user wants a Python one-liner that computes the sum of squares of "
+   }
+  ],
+  "determinism_self_1k_seed4242": {
+   "mode": "text-prefix",
+   "match_chars": 480,
+   "len_a": 480,
+   "len_b": 480,
+   "identical": true
+  },
+  "gen_1k_head": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where"
+ },
+ "v2_quality_svg_reasoning": {
+  "tag": "v2_quality_off",
+  "ts": "2026-08-26 17:01:04",
+  "mtp": "off",
+  "server_base": "http://localhost:8080",
+  "tests": [
+   {
+    "test": "svg_red_circle",
+    "prompt": "Create SVG code for a simple red circle",
+    "text": "\n\n<think>\nThe user wants a simple red circle in SVG. Let me create a clean, minimal SVG with a red circle. I'll include proper SVG structure with viewBox, and a circle element with red fill.\n</think>\n\n```svg\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\">\n  <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"red\" />\n</svg>\n```\n\nThis creates a **200\u00d7200** SVG with a red circle centered in the middle:\n\n| Attribute | Value | Purpose |\n|-----------|-------|---------|\n| `cx` / `cy` | `100` | Centers the circle |\n| `r` | `80` | Radius (leaves a 20px margin) |\n| `fill` | `red` | Solid red color |\n\nYou can easily tweak the size, color, or add a stroke (`stroke=\"darkred\" stroke-width=\"4\"`) if needed. \ud83d\udfe5\n\nWant me to",
+    "tok_s": 22.019987585908176,
+    "prompt_n": 8,
+    "predicted_n": 256,
+    "checks": {
+     "has_svg_open": true,
+     "has_svg_close": true,
+     "has_circle": true,
+     "red_marker": true,
+     "xml_well_formed": true
+    },
+    "degen": {
+     "n_words": 124,
+     "uniq_ratio": 0.6935,
+     "max_consec_repeat": 2,
+     "bigram_rep_rate": 0.0407,
+     "trigram_rep_rate": 0.0164,
+     "longest_repeated_ngram": 4,
+     "last50_uniq": 37
+    }
+   },
+   {
+    "test": "reasoning_crt_bat_ball",
+    "expect": "0.05",
+    "pass_expected": true,
+    "text": "\n\nLet's solve this step by step.\n\n1.  **Define the variables:**\n    Let $b$ be the cost of the ball.\n    Let $t$ be the cost of the bat.\n\n2.  **Set up the equations based on the problem statement:**\n    *   The total cost is $1.10:\n        $$b + t = 1.10$$\n    *   The bat costs $1.00 more than the ball:\n        $$t = b + 1.00$$\n\n3.  **Substitute and solve:**\n    Substitute the value of $t$ from the second equation into the first equation:\n    $$b + (b + 1.00) = 1.10$$\n\n    Combine like terms:\n    $$2b + 1.00 = 1.10$$\n\n    Subtract 1.00 from both sides:\n    $$2b = 0.10$$\n\n    Divide by 2:\n    $$b = 0.05$$\n\n4.  **Verification:**\n    *   Cost of the ball: $0.05\n    *   Cost of the bat: $0.05 + 1.00 = 1.05$\n    *   Total cost: $0.05 + 1.05 = 1.10$ (This matches the total given).\n\nThe ball costs 0.05 dollars.\n\n0.05\n\n**Final Answer:**\n0.05\n\n**Answer:**\n0.05\n\n**Final Answer:**\n0.05\n\n**Answer:**\n0.05\n\n**Final Answer:**\n0.05\n\n**Answer:**\n0.05",
+    "tok_s": 22.04589344868574,
+    "prompt_n": 55,
+    "predicted_n": 384
+   },
+   {
+    "test": "reasoning_rate_diff",
+    "expect": "20",
+    "pass_expected": true,
+    "text": "\n\nTo determine how much faster the car is than the train, we need to calculate the speed of each vehicle in kilometers per hour (km/h) and then find the difference.\n\n**Step 1: Convert the time from minutes to hours.**\n*   Train time: 45 minutes. Since there are 60 minutes in an hour, $45 \\text{ minutes} = \\frac{45}{60} \\text{ hours} = 0.75 \\text{ hours}$.\n*   Car time: 36 minutes. $36 \\text{ minutes} = \\frac{36}{60} \\text{ hours} = 0.6 \\text{ hours}$.\n\n**Step 2: Calculate the speed of the train.**\n*   Speed = $\\frac{\\text{Distance}}{\\text{Time}}$\n*   Train Speed = $\\frac{60 \\text{ km}}{0.75 \\text{ hours}}$\n*   Train Speed = $80 \\text{ km/h}$\n\n**Step 3: Calculate the speed of the car.**\n*   Car Speed = $\\frac{60 \\text{ km}}{0.6 \\text{ hours}}$\n*   Car Speed = $100 \\text{ km/h}$\n\n**Step 4: Calculate the difference in speed.**\n*   Difference = Car Speed - Train Speed\n*   Difference = $100 \\text{ km/h} - 80 \\text{ km/h}$\n*   Difference = $20 \\text{ km/h}$\n\nAnswer: 20.000000000000000000000000000000000000",
+    "tok_s": 22.030126168775848,
+    "prompt_n": 55,
+    "predicted_n": 384
+   }
+  ]
+ },
+ "usage_as_restore_target": "Compare future restore checks against V2 semantic smoke heads (recorded with cache_prompt=False)."
+}

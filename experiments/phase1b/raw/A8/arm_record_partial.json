@@ -1,0 +1,20 @@
+[
+ {
+  "rep": 1,
+  "cache_prompt": false,
+  "wall_s": 593.129,
+  "prompt_n": 129443,
+  "prompt_ms": 588309.51,
+  "predicted_n": 96,
+  "predicted_ms": 4576.546,
+  "pp_tok_s": 220.03,
+  "tg_tok_s": 20.977,
+  "e2e_tok_s": 0.162,
+  "draft_n": 62,
+  "draft_n_accepted": 59,
+  "draft_per_token_ms": null,
+  "stop_reason": null,
+  "truncated": false,
+  "content_head": "\n\n<think>\nThe user is asking me to summarize the topic of the text above in one sentence. The text is an extremely long, repetitive, and nonsensical collection "
+ }
+]

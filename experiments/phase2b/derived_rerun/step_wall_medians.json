@@ -1,0 +1,38 @@
+{
+ "T2_O1-off-1k": {
+  "n": 39,
+  "median_ms": 48.891,
+  "clean_n": 37,
+  "clean_median_ms": 48.872,
+  "clean_mean_ms": 49.342,
+  "clean_min": 48.58,
+  "clean_max": 59.25
+ },
+ "T2_P1-off-16k": {
+  "n": 39,
+  "median_ms": 52.12,
+  "clean_n": 36,
+  "clean_median_ms": 52.089,
+  "clean_mean_ms": 52.207,
+  "clean_min": 51.724,
+  "clean_max": 55.324
+ },
+ "T2_P2-off-63k": {
+  "n": 39,
+  "median_ms": 67.243,
+  "clean_n": 38,
+  "clean_median_ms": 67.227,
+  "clean_mean_ms": 67.302,
+  "clean_min": 66.892,
+  "clean_max": 70.621
+ },
+ "T2_P3-off-128k": {
+  "n": 35,
+  "median_ms": 85.758,
+  "clean_n": 34,
+  "clean_median_ms": 85.745,
+  "clean_mean_ms": 85.876,
+  "clean_min": 85.52,
+  "clean_max": 88.68
+ }
+}

@@ -1,0 +1,17 @@
+{
+  "device": "AMD Radeon RX 7800 XT",
+  "note": "num_regs from hipFuncGetAttributes (VGPR count on ROCm)",
+  "kernels": [
+    {"name":"V0_baseline_wg32","num_regs":78,"shared_bytes":0,"local_bytes":0,"max_threads":32,"occ_blocks_at_32thr":64},
+    {"name":"V1_wg64","num_regs":80,"shared_bytes":128,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":64},
+    {"name":"V2_wg128","num_regs":80,"shared_bytes":384,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":64},
+    {"name":"V3_rows2_wg32","num_regs":38,"shared_bytes":0,"local_bytes":0,"max_threads":32,"occ_blocks_at_32thr":64},
+    {"name":"V4_rows4_wg128","num_regs":49,"shared_bytes":1536,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":42},
+    {"name":"V5_fastld_funnel","num_regs":75,"shared_bytes":0,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":64},
+    {"name":"V6_lds_grid","num_regs":79,"shared_bytes":1024,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":64},
+    {"name":"V7_ilp2","num_regs":69,"shared_bytes":0,"local_bytes":0,"max_threads":32,"occ_blocks_at_32thr":64},
+    {"name":"V8_fastld_nt","num_regs":75,"shared_bytes":0,"local_bytes":0,"max_threads":1024,"occ_blocks_at_32thr":64},
+    {"name":"V9_pipe_prefetch","num_regs":81,"shared_bytes":0,"local_bytes":0,"max_threads":32,"occ_blocks_at_32thr":56},
+    {"name":"V10_q8_uint4","num_regs":74,"shared_bytes":0,"local_bytes":0,"max_threads":32,"occ_blocks_at_32thr":64}
+  ]
+}

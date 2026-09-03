@@ -1,0 +1,98 @@
+{
+  "D1_down": {
+    "wave_issue_wait_pct": 55.40323584890206,
+    "wave_dep_wait_pct": 38.6613365503653,
+    "wave_issue_wait_p10": 46.39726907930434,
+    "wave_issue_wait_p90": 59.07344401437562,
+    "wave_dep_wait_p10": 34.22075745281755,
+    "wave_dep_wait_p90": 47.94922065882404,
+    "wave_cycles": 783135870.0,
+    "wait_inst_any": 349957808.0,
+    "wait_any": 315515164.0,
+    "n_dispatches": 35
+  },
+  "D1_gateup": {
+    "wave_issue_wait_pct": 68.23888802991178,
+    "wave_dep_wait_pct": 25.437590793769612,
+    "wave_issue_wait_p10": 68.11322203390621,
+    "wave_issue_wait_p90": 68.25911259004246,
+    "wave_dep_wait_p10": 25.417438503698122,
+    "wave_dep_wait_p90": 25.57128218194133,
+    "wave_cycles": 1209982858.0,
+    "wait_inst_any": 825663122.0,
+    "wait_any": 307790293.0,
+    "n_dispatches": 35
+  },
+  "D2_down": {
+    "wave_issue_wait_pct": 59.20693356179554,
+    "wave_dep_wait_pct": 34.36933674289827,
+    "wave_issue_wait_p10": 32.3377750650535,
+    "wave_issue_wait_p90": 65.16351868089609,
+    "wave_dep_wait_p10": 28.153773578172547,
+    "wave_dep_wait_p90": 62.77274797234761,
+    "wave_cycles": 915111066.0,
+    "wait_inst_any": 535286813.0,
+    "wait_any": 317001183.0,
+    "n_dispatches": 35
+  },
+  "D2_gateup": {
+    "wave_issue_wait_pct": 73.18516070703429,
+    "wave_dep_wait_pct": 20.58937204773324,
+    "wave_issue_wait_p10": 72.75982381369363,
+    "wave_issue_wait_p90": 73.19919117918144,
+    "wave_dep_wait_p10": 20.57482516367191,
+    "wave_dep_wait_p90": 21.01557245945059,
+    "wave_cycles": 1596307941.0,
+    "wait_inst_any": 1168288059.0,
+    "wait_any": 328669781.0,
+    "n_dispatches": 35
+  },
+  "D3_down": {
+    "wave_issue_wait_pct": 68.61192968065824,
+    "wave_dep_wait_pct": 24.91258849610765,
+    "wave_issue_wait_p10": 68.48811611215044,
+    "wave_issue_wait_p90": 68.64825475113335,
+    "wave_dep_wait_p10": 24.87539701130004,
+    "wave_dep_wait_p90": 25.026789414484856,
+    "wave_cycles": 660457016.0,
+    "wait_inst_any": 453149647.0,
+    "wait_any": 164543448.0,
+    "n_dispatches": 35
+  },
+  "D3_gateup": {
+    "wave_issue_wait_pct": 52.731496280766514,
+    "wave_dep_wait_pct": 39.27224983366074,
+    "wave_issue_wait_p10": 52.597354470079004,
+    "wave_issue_wait_p90": 52.803907209252635,
+    "wave_dep_wait_p10": 39.19996760278547,
+    "wave_dep_wait_p90": 39.40641703051451,
+    "wave_cycles": 1234229128.0,
+    "wait_inst_any": 650898695.0,
+    "wait_any": 484652180.0,
+    "n_dispatches": 35
+  },
+  "V0_down": {
+    "wave_issue_wait_pct": 78.28893430137829,
+    "wave_dep_wait_pct": 14.455013774835855,
+    "wave_issue_wait_p10": 78.1872251305034,
+    "wave_issue_wait_p90": 78.30722768282052,
+    "wave_dep_wait_p10": 14.436782930696975,
+    "wave_dep_wait_p90": 14.566632551594674,
+    "wave_cycles": 483339605.0,
+    "wait_inst_any": 378417231.0,
+    "wait_any": 69859138.0,
+    "n_dispatches": 35
+  },
+  "V0_gateup": {
+    "wave_issue_wait_pct": 67.01777124804316,
+    "wave_dep_wait_pct": 26.590256174871293,
+    "wave_issue_wait_p10": 66.86885418845675,
+    "wave_issue_wait_p90": 67.08740327894813,
+    "wave_dep_wait_p10": 26.519806141841816,
+    "wave_dep_wait_p90": 26.7462448016074,
+    "wave_cycles": 1033664129.0,
+    "wait_inst_any": 692762245.0,
+    "wait_any": 274863297.0,
+    "n_dispatches": 35
+  }
+}

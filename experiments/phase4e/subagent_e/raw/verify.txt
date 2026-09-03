@@ -1,0 +1,33 @@
+=== exhaustive bit-exact verification: V0 vs {V0, E1, E2, E3} ===
+=== type=IQ3_XXS, shapes: ffn_down K=17408 N=5120 (unfused) and fused gateup K=5120 N=17408 ===
+
+[seed=42]
+  shape=ffn_down(unfused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+[seed=1337]
+  shape=ffn_down(unfused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+[seed=9001]
+  shape=ffn_down(unfused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_down(unfused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=V0 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E1 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E2 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+  shape=ffn_gateup(fused) variant=E3 identical_runs=4/4 total_diffs=0 max_abs_diff=0 OK
+
+--- summary: 24 configs checked, 0 failed ---
+ALL VARIANTS BIT-EXACT AGAINST V0

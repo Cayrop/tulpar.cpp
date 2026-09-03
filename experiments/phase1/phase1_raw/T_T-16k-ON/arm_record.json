@@ -1,0 +1,99 @@
+{
+ "arm_id": "T-16k-ON",
+ "mode": "traced",
+ "mtp": "on",
+ "binary": "<REPO_ROOT>/build-p3/bin/llama-server",
+ "cache_k": "q4_0",
+ "cache_v": "q4_0",
+ "ctx_size": 17408,
+ "sampling": {
+  "temperature": 0.0,
+  "top_k": 1,
+  "seed": 1234,
+  "greedy": true
+ },
+ "prompt_seed": 555001,
+ "prompt_n": 16390,
+ "npred_probe": 1,
+ "npred_main": 32,
+ "vram_guard_b": 16752282317,
+ "started_ts": "2026-08-26 04:33:48",
+ "mem_before": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 4848488448,
+  "mem_avail_b": 28717109248,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1479753728,
+  "ts": "2026-08-26 04:33:48"
+ },
+ "gpu_vram_before_b": 11847696384,
+ "metrics_after": {
+  "prompt_tokens_total": 16394.0,
+  "prompt_tokens_cached_total": 16386.0,
+  "prompt_seconds_total": 34.151,
+  "tokens_predicted_total": 33.0,
+  "tokens_predicted_seconds_total": 0.953176,
+  "n_decode_total": 23.0,
+  "n_tokens_max": 16421.0,
+  "spec_decode_num_draft_tokens_total": 19.0,
+  "spec_decode_num_accepted_tokens_total": 19.0,
+  "spec_decode_num_drafts_total": 8.0,
+  "prompt_tokens_seconds": 0.0,
+  "predicted_tokens_seconds": 32.5229,
+  "requests_processing": 0.0,
+  "requests_deferred": 0.0,
+  "n_busy_slots_per_decode": 1.0,
+  "spec_decode_num_accepted_tokens_per_pos_total": 2.0
+ },
+ "vram_peak_b": 12600213504,
+ "vram_peak_gib": 11.735,
+ "vram_samples_n": 62,
+ "mem_after": {
+  "mem_total_b": 33565597696,
+  "mem_used_b": 5599997952,
+  "mem_avail_b": 27965599744,
+  "swap_total_b": 33564913664,
+  "swap_used_b": 1479749632,
+  "ts": "2026-08-26 04:34:26"
+ },
+ "swap_delta_b": -4096,
+ "acceptance": {
+  "draft_n_total": 19,
+  "draft_n_accepted_total": 19,
+  "rate": 1.0
+ },
+ "status": "OK",
+ "reps": [
+  {
+   "req": "probe",
+   "cache_prompt": false,
+   "wall_s": 34.097,
+   "prompt_n": 16390,
+   "prompt_ms": 34064.461,
+   "predicted_n": 1,
+   "predicted_ms": 0.001,
+   "pp_tok_s": 481.15,
+   "tg_tok_s": 1000000.0,
+   "draft_n": null,
+   "draft_n_accepted": null,
+   "stop_reason": null,
+   "content_head": "\n\n"
+  },
+  {
+   "req": "main",
+   "cache_prompt": true,
+   "wall_s": 1.142,
+   "prompt_n": 4,
+   "prompt_ms": 157.29,
+   "predicted_n": 32,
+   "predicted_ms": 953.175,
+   "pp_tok_s": 25.43,
+   "tg_tok_s": 33.572,
+   "draft_n": 19,
+   "draft_n_accepted": 19,
+   "stop_reason": null,
+   "content_head": "\n\n<think>\nThe user wants me to summarize the topic of the text in one sentence. Let me look at the text carefully.\n\nThe "
+  }
+ ],
+ "finished_ts": "2026-08-26 04:34:26"
+}

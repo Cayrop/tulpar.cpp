@@ -1,0 +1,229 @@
+{
+ "mode": "tail_5510ms",
+ "steps_in_run": 64,
+ "step_period_ms": 86.1,
+ "window_span_ms": 5511.42,
+ "gpu_busy_pct_of_window": 90.61,
+ "host_gap_pct_of_window": 9.39,
+ "classes": [
+  {
+   "class": "matmul_gemv",
+   "time_ms": 2397.56,
+   "count": 27863,
+   "pct_gpu_busy": 48.01
+  },
+  {
+   "class": "dequant_quant",
+   "time_ms": 1302.85,
+   "count": 29923,
+   "pct_gpu_busy": 26.09
+  },
+  {
+   "class": "attention",
+   "time_ms": 1093.64,
+   "count": 1030,
+   "pct_gpu_busy": 21.9
+  },
+  {
+   "class": "norm_rope_act",
+   "time_ms": 73.72,
+   "count": 24776,
+   "pct_gpu_busy": 1.48
+  },
+  {
+   "class": "copy_kv_io",
+   "time_ms": 62.05,
+   "count": 15892,
+   "pct_gpu_busy": 1.24
+  },
+  {
+   "class": "other",
+   "time_ms": 36.58,
+   "count": 18533,
+   "pct_gpu_busy": 0.73
+  },
+  {
+   "class": "gdn_ssm_conv",
+   "time_ms": 27.52,
+   "count": 6178,
+   "pct_gpu_busy": 0.55
+  }
+ ],
+ "top_kernels": [
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type18ELi1ELb1ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 1573.11,
+   "count": 8236,
+   "avg_us": 191.0
+  },
+  {
+   "name": "_ZL21dequantize_block_q4_0I6__halfEvPKvPT_i.kd",
+   "class": "dequant_quant",
+   "time_ms": 1264.56,
+   "count": 2060,
+   "avg_us": 613.9
+  },
+  {
+   "name": "_ZL15flash_attn_tileILi256ELi256ELi1ELi2ELb0EEvPKcS1_S1_S1_S1_PKiPfP15HIP_vector",
+   "class": "attention",
+   "time_ms": 1093.64,
+   "count": 1030,
+   "avg_us": 1061.8
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type18ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 391.68,
+   "count": 6177,
+   "avg_us": 63.4
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type21ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 256.09,
+   "count": 5149,
+   "avg_us": 49.7
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type11ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 93.9,
+   "count": 64,
+   "avg_us": 1467.2
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type21ELi1ELb1ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 52.53,
+   "count": 1029,
+   "avg_us": 51.1
+  },
+  {
+   "name": "_ZL13quantize_q8_1PKfPvlllllj15HIP_vector_typeIjLj3EE.kd",
+   "class": "dequant_quant",
+   "time_ms": 38.29,
+   "count": 27863,
+   "avg_us": 1.4
+  },
+  {
+   "name": "_ZL12rms_norm_f32ILi1024ELb1ELb0EEvPKfPfilllfS1_lll15HIP_vector_typeIjLj3EES4_S4",
+   "class": "norm_rope_act",
+   "time_ms": 33.85,
+   "count": 8300,
+   "avg_us": 4.1
+  },
+  {
+   "name": "_ZL20k_get_rows_float_vecIfEvPKT_PKiPS0_ll15HIP_vector_typeIjLj3EEmmmmmmmmm.kd",
+   "class": "copy_kv_io",
+   "time_ms": 27.1,
+   "count": 3089,
+   "avg_us": 8.8
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type29ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 22.67,
+   "count": 6178,
+   "avg_us": 3.7
+  },
+  {
+   "name": "_Z20gated_delta_net_cudaILi128ELb0ELb0EEvPKfS1_S1_S1_S1_S1_PfS2_llllllllllll15HI",
+   "class": "gdn_ssm_conv",
+   "time_ms": 21.04,
+   "count": 3089,
+   "avg_us": 6.8
+  },
+  {
+   "name": "_ZL11k_bin_bcastIXadL_ZL6op_addffEEfffJPKfEEvPKT0_PKT1_PT2_jjj15HIP_vector_typeI",
+   "class": "other",
+   "time_ms": 12.9,
+   "count": 6178,
+   "avg_us": 2.1
+  },
+  {
+   "name": "_ZL10cpy_scalarIXadL_ZL12cpy_1_scalarIffEvPKcPcEEEvS2_S3_lllllllllllllll.kd",
+   "class": "copy_kv_io",
+   "time_ms": 12.67,
+   "count": 4118,
+   "avg_us": 3.1
+  },
+  {
+   "name": "_ZL10rope_multiILb1ELb0EfEvPKT1_PS0_iiiiiiiiiiiPKifff14rope_corr_dimsfPKf14mrope",
+   "class": "norm_rope_act",
+   "time_ms": 11.93,
+   "count": 2060,
+   "avg_us": 5.8
+  },
+  {
+   "name": "_ZL11l2_norm_f32ILi32EEvPKfPfilllf.kd",
+   "class": "norm_rope_act",
+   "time_ms": 11.91,
+   "count": 6178,
+   "avg_us": 1.9
+  },
+  {
+   "name": "_ZL12rms_norm_f32ILi256ELb1ELb0EEvPKfPfilllfS1_lll15HIP_vector_typeIjLj3EES4_S4_",
+   "class": "norm_rope_act",
+   "time_ms": 9.68,
+   "count": 5149,
+   "avg_us": 1.9
+  },
+  {
+   "name": "_ZL16k_set_rows_quantIl10block_q4_0Li32ETnPFvPKfPT0_EXadL_ZL23quantize_f32_q4_0_",
+   "class": "copy_kv_io",
+   "time_ms": 7.82,
+   "count": 2060,
+   "avg_us": 3.8
+  },
+  {
+   "name": "_ZL13mul_mat_vec_qIL9ggml_type23ELi1ELb0ELb0ELb0EEvPKvS2_PKi31ggml_cuda_mm_fusio",
+   "class": "matmul_gemv",
+   "time_ms": 7.59,
+   "count": 1030,
+   "avg_us": 7.4
+  },
+  {
+   "name": "_ZL11concat_contIjLi0EEvPKT_S2_PS0_llllll.kd",
+   "class": "copy_kv_io",
+   "time_ms": 7.06,
+   "count": 3089,
+   "avg_us": 2.3
+  },
+  {
+   "name": "_ZL12ssm_conv_f32ILb1ELm128ELm4EEvPKfS1_S1_iiiiPfiiil.kd",
+   "class": "gdn_ssm_conv",
+   "time_ms": 6.48,
+   "count": 3089,
+   "avg_us": 2.1
+  },
+  {
+   "name": "_ZL21unary_gated_op_kernelIXadL_ZL7op_silufEEfEvPKT0_S2_PS0_llll.kd",
+   "class": "norm_rope_act",
+   "time_ms": 6.35,
+   "count": 3089,
+   "avg_us": 2.1
+  },
+  {
+   "name": "_ZL21unary_gated_op_kernelIXadL_ZL11op_softplusfEEfEvPKT0_S2_PS0_llll.kd",
+   "class": "other",
+   "time_ms": 6.15,
+   "count": 3089,
+   "avg_us": 2.0
+  },
+  {
+   "name": "_ZL16k_get_rows_floatIffEvPKT_PKiPT0_ll15HIP_vector_typeIjLj3EEmmmmmmmmm.kd",
+   "class": "copy_kv_io",
+   "time_ms": 6.14,
+   "count": 3152,
+   "avg_us": 1.9
+  },
+  {
+   "name": "_ZL26flash_attn_combine_resultsILi256EEvPKfPK15HIP_vector_typeIfLj2EEPfi.kd",
+   "class": "other",
+   "time_ms": 4.52,
+   "count": 1029,
+   "avg_us": 4.4
+  }
+ ]
+}

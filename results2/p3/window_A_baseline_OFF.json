@@ -1,0 +1,117 @@
+{
+ "tag": "A_baseline_OFF",
+ "binary": "<REPO_ROOT>/build/bin/llama-server",
+ "spec": false,
+ "perf": [
+  {
+   "exp_id": "A_baseline_OFF_warmup",
+   "prompt_n": 5,
+   "predicted_n": 16,
+   "decode_tok_s": 21.426,
+   "per_token_ms": 46.67333333333333,
+   "prefill_tok_s": 30.59,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_1k_r1",
+   "prompt_n": 955,
+   "predicted_n": 128,
+   "decode_tok_s": 21.585,
+   "per_token_ms": 46.32799212598425,
+   "prefill_tok_s": 523.74,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_1k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 21.488,
+   "per_token_ms": 46.53656692913386,
+   "prefill_tok_s": 21.69,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_1k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 21.485,
+   "per_token_ms": 46.54496850393701,
+   "prefill_tok_s": 22.99,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_1k_r4",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 21.474,
+   "per_token_ms": 46.56815748031496,
+   "prefill_tok_s": 23.02,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_16k_r1",
+   "prompt_n": 16337,
+   "predicted_n": 128,
+   "decode_tok_s": 17.901,
+   "per_token_ms": 55.86406299212598,
+   "prefill_tok_s": 486.61,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_16k_r2",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 17.906,
+   "per_token_ms": 55.84807086614173,
+   "prefill_tok_s": 22.25,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_16k_r3",
+   "prompt_n": 4,
+   "predicted_n": 128,
+   "decode_tok_s": 17.886,
+   "per_token_ms": 55.909125984251965,
+   "prefill_tok_s": 22.46,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_63k_r1",
+   "prompt_n": 63495,
+   "predicted_n": 380,
+   "decode_tok_s": 11.769,
+   "per_token_ms": 84.96714248021108,
+   "prefill_tok_s": 334.49,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_63k_r2",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 11.763,
+   "per_token_ms": 85.0153746701847,
+   "prefill_tok_s": 19.53,
+   "draft_n": null,
+   "draft_acc": null
+  },
+  {
+   "exp_id": "A_baseline_OFF_63k_r3",
+   "prompt_n": 4,
+   "predicted_n": 380,
+   "decode_tok_s": 11.76,
+   "per_token_ms": 85.03470712401055,
+   "prefill_tok_s": 19.39,
+   "draft_n": null,
+   "draft_acc": null
+  }
+ ]
+}

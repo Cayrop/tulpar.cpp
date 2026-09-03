@@ -1,0 +1,124 @@
+{
+ "tag": "B_clean_OFF",
+ "ts": "2026-08-23 14:03:33",
+ "p1k_seed4242_x5": [
+  {
+   "i": 0,
+   "cache": false,
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tok_s": 22.036011481921772,
+   "prompt_n": 951,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  },
+  {
+   "i": 1,
+   "cache": true,
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tok_s": 22.004880914217097,
+   "prompt_n": 4,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  },
+  {
+   "i": 2,
+   "cache": false,
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tok_s": 22.01696743389232,
+   "prompt_n": 951,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  },
+  {
+   "i": 3,
+   "cache": true,
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tok_s": 21.98276181237921,
+   "prompt_n": 4,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  },
+  {
+   "i": 4,
+   "cache": false,
+   "text": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+   "tok_s": 22.030967655756623,
+   "prompt_n": 951,
+   "metrics": {
+    "n_words": 96,
+    "uniq_ratio": 0.0208,
+    "max_consec_repeat": 1,
+    "bigram_rep_rate": 0.9789,
+    "trigram_rep_rate": 0.9787,
+    "longest_repeated_ngram": 12,
+    "last50_uniq": 2
+   }
+  }
+ ],
+ "all_identical": true,
+ "p1k_seed4201024": {
+  "text": " and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog and dog",
+  "metrics": {
+   "n_words": 96,
+   "uniq_ratio": 0.0208,
+   "max_consec_repeat": 1,
+   "bigram_rep_rate": 0.9789,
+   "trigram_rep_rate": 0.9787,
+   "longest_repeated_ngram": 12,
+   "last50_uniq": 2
+  }
+ },
+ "p1k_seed4242_n384": {
+  "text_head": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+  "text_tail": " and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where and where",
+  "metrics": {
+   "n_words": 384,
+   "uniq_ratio": 0.0052,
+   "max_consec_repeat": 1,
+   "bigram_rep_rate": 0.9948,
+   "trigram_rep_rate": 0.9948,
+   "longest_repeated_ngram": 12,
+   "last50_uniq": 2
+  }
+ },
+ "control_story_greedy": {
+  "text_head": "\n\n<think>\nThe user wants a short story about a lighthouse keeper. Let me think about what would make this compelling.\n\nI",
+  "metrics": {
+   "n_words": 81,
+   "uniq_ratio": 0.6914,
+   "max_consec_repeat": 1,
+   "bigram_rep_rate": 0.125,
+   "trigram_rep_rate": 0.038,
+   "longest_repeated_ngram": 4,
+   "last50_uniq": 36
+  }
+ }
+}

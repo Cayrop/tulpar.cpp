@@ -1,0 +1,2 @@
+gate_on_smoke_rc=0
+RERUN_DONE rc=0

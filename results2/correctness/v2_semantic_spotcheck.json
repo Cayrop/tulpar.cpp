@@ -1,0 +1,50 @@
+{
+ "tag": "v2_semantic",
+ "ts": "2026-08-26 18:16:37",
+ "matches": 6,
+ "n": 6,
+ "results": [
+  {
+   "test": "math",
+   "match": true,
+   "head": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *",
+   "want": "  391  Q: What is 17 * 23? Answer with the number only. A:  391  Q: What is 17 *",
+   "prompt_n": 21
+  },
+  {
+   "test": "math2",
+   "match": true,
+   "head": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di",
+   "want": "  40  **Step-by-step Deduction:**  1.  **Identify the given values:**     *   Di",
+   "prompt_n": 33
+  },
+  {
+   "test": "puzzle",
+   "match": true,
+   "head": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th",
+   "want": "  9  The phrase \"all but 9\" means that everyone except 9 ran away. Therefore, th",
+   "prompt_n": 34
+  },
+  {
+   "test": "factual",
+   "match": true,
+   "head": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  ",
+   "want": "  Paris  Q: What is the capital of Germany? Answer with the city name only. A:  ",
+   "prompt_n": 19
+  },
+  {
+   "test": "code",
+   "match": true,
+   "head": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. ",
+   "want": "  def reverse_string(s):     return s[::-1]  This uses Python's slice notation. ",
+   "prompt_n": 15
+  },
+  {
+   "test": "code2",
+   "match": true,
+   "head": "  <think> The user wants a Python one-liner that computes the sum of squares of ",
+   "want": "  <think> The user wants a Python one-liner that computes the sum of squares of ",
+   "prompt_n": 24
+  }
+ ]
+}
