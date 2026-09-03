@@ -1,126 +1,48 @@
-# llama.cpp
+# tulpar.cpp
 
-![llama](https://raw.githubusercontent.com/ggml-org/llama.brand/refs/heads/master/cover/llama-cpp/cover-llama-cpp-dark.svg)
+Independent performance-optimization fork of [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) targeting the AMD Radeon RX 7800 XT (RDNA3, `gfx1101`) for ultra-long-context (128k-131k) LLM inference in 16 GiB VRAM.
 
-<div align="center">
+Fork: https://github.com/Cayrop/tulpar.cpp
 
-<b>LLM inference in C/C++</b>
+Scope: decode/prefill kernel-level optimization and profiling of Qwen3.8-27B-class GGUF models (hybrid gated-delta-net + full-attention architecture) with quantized KV cache (`q4_0`). All performance claims in this repository are backed by committed artifacts; every number is cited to a file or commit hash in [PERFORMANCE.md](PERFORMANCE.md).
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/github/v/release/ggml-org/llama.cpp?filter=v*&color=brightgreen)](https://github.com/ggml-org/llama.cpp/releases?q=tag:v0)
-[![Nightly](https://img.shields.io/github/v/release/ggml-org/llama.cpp?label=nightly&filter=b*&color=orange)](https://github.com/ggml-org/llama.cpp/releases?q=b)
-[![Server](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/server.yml?label=Server)](https://github.com/ggml-org/llama.cpp/actions/workflows/server.yml)
-[![Docker](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/docker.yml?label=Docker)](https://github.com/ggml-org/llama.cpp/actions/workflows/docker.yml)
-[![Winget](https://img.shields.io/github/actions/workflow/status/ggml-org/llama.cpp/winget.yml?label=Winget)](https://github.com/ggml-org/llama.cpp/actions/workflows/winget.yml)
+## Verified optimization results (merged into master)
 
-[ggml](https://github.com/ggml-org/ggml) / [ops](https://github.com/ggml-org/llama.cpp/blob/master/docs/ops.md) / [maintainer PRs](https://github.com/ggml-org/llama.cpp/issues?q=is%3Apr%20is%3Aopen%20draft%3AFalse%20(author%3Argerganov%20OR%20author%3AKitaitiMakoto%20OR%20author%3Adanbev%20OR%20author%3Aaldehir%20OR%20author%3Amax-krasnyansky%20OR%20author%3ACISC%20OR%20author%3Aggerganov%20OR%20author%3Aam17an%20OR%20author%3Abartowski1182%20OR%20author%3Anikwen%20OR%20author%3Ahipudding%20OR%20author%3AServeurpersoCom%20OR%20author%3Apwilkin%20OR%20author%3Areeselevine%20OR%20author%3Angxson%20OR%20author%3Ajeffbolznv%20OR%20author%3Amarty1885%20OR%20author%3A0cc4m%20OR%20author%3ATitaniumtown%20OR%20author%3Aangt%20OR%20author%3AIMbackK%20OR%20author%3Aarthw%20OR%20author%3AJohannesGaessler%20OR%20author%3AORippler%20OR%20author%3Aruixiang63%20OR%20author%3Axctan%20OR%20author%3Aallozaur%20OR%20author%3Ayomaytk%20OR%20author%3Aaendk%20OR%20author%3Agaugarg-nv%20OR%20author%3Ataronaeo%20OR%20author%3Aforforever73%20OR%20author%3Alhez%20OR%20author%3Anetrunnereve%20OR%20author%3Afairydreaming)%20sort%3Aupdated-desc) / [dev stats](https://github.com/ggml-org/llama.cpp-dev) / [lib llama API](https://github.com/ggml-org/llama.cpp/issues/9289) / [llama-server REST API](https://github.com/ggml-org/llama.cpp/issues/9291)
+| Change | Commit | Measured gain (MTP OFF) | Status |
+|--------|--------|--------------------------|--------|
+| Tile flash attention for quantized KV decode, head size 256 (RDNA3) | `66dcba5eb` | +5% @1k, +17% @16k, +40% @63k decode tok/s; corroborated @63k: 11.29 -> 15.74 (+39.5%) | MEASURED |
+| PATH A: fused q4_0 KV dequant inside tile FA (staging dequant eliminated) | `2e033a696` | +28.79% @128k (12.507 -> 16.108 tok/s), +29.03% @131k; `dequantize_block_q4_0` launches 32/token -> 0 | MEASURED |
+| EXP-006: `iq3_xxs` GEMV gather hoist (restored, T14 standalone) | `f7c4436c3`, `068f581e2` | +12.97% @63k (63.15 -> 54.96 ms/tok), average +4.6% (see CONFLICTING note) | MEASURED |
 
-</div>
+Prefill regression accepted as tradeoff of PATH A: fresh prefill -2% to -3.6% at 63k-131k (see [PERFORMANCE.md](PERFORMANCE.md)).
 
-## Quick start
+## Current state
 
-A few options to get `llama.cpp` installed on your machine:
+- Master is the integrated optimization branch (merge `41f467c1b`): PATH A staging elimination, Phase-1 profiling baseline, Phase-2 benchmark suite, and the EXP-006 GEMV hoist are all in-tree.
+- Production model: V2 GGUF (IQ3_XXS-dominant, 75.9% of streamed weights), swapped in `4f72448eb` (EXP-002).
+- Latest measured production decode (V2, MTP OFF, from `experiments/v2_baseline/summary/table_v2.json`):
 
-- Visit https://llama.app and follow the instructions
-- Run with Docker - see our [Docker documentation](docs/docker.md)
-- Download pre-built binaries from the [releases page](https://github.com/ggml-org/llama.cpp/releases)
-- Build from source by cloning this repository - check out [our build guide](docs/build.md)
+| Context | 1k | 16k | 63k | 128k | 131k |
+|---------|-----|-----|-----|------|------|
+| tg tok/s (MTP OFF) | 22.214 | 21.112 | 18.31 | 15.557 | 15.581 |
+| tg tok/s (MTP ON) | 26.895 (acc 0.844) | 32.729 (acc 0.886) | 29.39 (acc 0.869) | 27.047 (acc 1.0) | 22.776 (acc 0.935) |
 
-Once installed:
-
-```sh
-# Download and run a model directly from Hugging Face
-llama cli -hf ggml-org/Qwen3.5-0.8B-GGUF
-
-# Launch OpenAI-compatible API server
-llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
-```
-
-<table align="center">
-    <tr>
-        <td align="center" width=50%>
-            <img width="1310" height="888" alt="VLM session with `llama cli`" src="https://github.com/user-attachments/assets/88726b48-1713-48aa-a525-95a02e78afc4" />
-            <i>VLM session with <b>llama cli</b></i>
-        </td>
-        <td align="center">
-            <img width="1392" height="958" alt="Built-in web UI against `llama serve` running Qwen 3.6" src="https://github.com/user-attachments/assets/b402f972-2e32-4def-8771-8d849f08cf2e" />
-            <i>Built-in web UI against <b>llama serve</b></i>
-        </td>
-    </tr>
-<table>
-
-## Description
-
-The main goal of `llama.cpp` is to enable LLM (and VLM) inference with minimal setup and state-of-the-art performance on
-a wide range of hardware - locally and in the cloud.
-
-- Plain C/C++ implementation without any dependencies
-- Apple silicon is a first-class citizen - optimized via ARM NEON, Accelerate and Metal frameworks
-- AVX, AVX2, AVX512 and AMX support for x86 architectures
-- RVV, ZVFH, ZFH, ZICBOP and ZIHINTPAUSE support for RISC-V architectures
-- 1.5-bit, 2-bit, 3-bit, 4-bit, 5-bit, 6-bit, and 8-bit integer quantization for faster inference and reduced memory use
-- Custom CUDA kernels for running LLMs on NVIDIA GPUs (support for AMD GPUs via HIP and Moore Threads GPUs via MUSA)
-- Vulkan and SYCL backend support
-- CPU+GPU hybrid inference to partially accelerate models larger than the total VRAM capacity
-
-The `llama.cpp` project is build on top of the [ggml](https://github.com/ggml-org/ggml) library.
-
-## Supported backends
-
-| Backend | Target devices |
-| --- | --- |
-| [BLAS](docs/build.md#blas-build) | All |
-| [BLIS](docs/backend/BLIS.md) | All |
-| [CANN](docs/build.md#cann) | Ascend NPU |
-| [CUDA](docs/build.md#cuda) | Nvidia GPU |
-| [HIP](docs/build.md#hip) | AMD GPU |
-| [Hexagon [In Progress]](docs/backend/snapdragon/README.md) | Snapdragon |
-| [IBM zDNN](docs/backend/zDNN.md) | IBM Z & LinuxONE |
-| [MUSA](docs/build.md#musa) | Moore Threads GPU |
-| [Metal](docs/build.md#metal-build) | Apple Silicon |
-| [OpenCL](docs/backend/OPENCL.md) | Adreno GPU |
-| [OpenVINO [In Progress]](docs/backend/OPENVINO.md) | Intel CPUs, GPUs, and NPUs |
-| [RPC](https://github.com/ggml-org/llama.cpp/tree/master/tools/rpc) | All |
-| [SYCL](docs/backend/SYCL.md) | Intel GPU |
-| [VirtGPU](docs/backend/VirtGPU.md) | VirtGPU APIR |
-| [Vulkan](docs/build.md#vulkan) | GPU |
-| [WebGPU](docs/build.md#webgpu) | All |
-| [ZenDNN](docs/build.md#zendnn) | AMD CPU |
+- Target: 40 tok/s decode. Gap to target from the current V2 baseline (MTP OFF): +80.1% @1k, +89.5% @16k, +118.5% @63k, +157.1% @128k. See [ROADMAP.md](ROADMAP.md).
+- Known decode root cause (diagnosed, ATTRIBUTION): the IQ3_XXS GEMV kernel is memory-latency bound on the serialized `iq3xxs_grid` gather chain, 76.7% of wave-cycles in instruction-wait stalls. See [ROADMAP.md](ROADMAP.md) and [TODO.md](TODO.md) for the active plan.
 
 ## Documentation
 
-#### Tools
+- [PERFORMANCE.md](PERFORMANCE.md) - evidence ledger: MEASURED vs ATTRIBUTION vs EXPECTED vs UNMEASURED vs CONFLICTING, all numbers cited.
+- [ROADMAP.md](ROADMAP.md) - three-phase plan with explicit projected-target labels.
+- [TODO.md](TODO.md) - active and upcoming optimization tasks.
+- [experiments/EXPERIMENT_LOG.md](experiments/EXPERIMENT_LOG.md) - append-only experiment log (EXP-000 ... EXP-007).
+- Experiment artifacts: `experiments/phase0` ... `experiments/phase5`, `experiments/phase_v2_trace`, `experiments/v2_baseline`.
 
-- [cli](tools/cli/README.md)
-- [completion](tools/completion/README.md)
-- [server](tools/server/README.md)
-- [GBNF grammars](grammars/README.md)
+## Build and usage
 
-#### Development
+This fork builds and runs like upstream llama.cpp. See upstream docs:
 
-- [How to build](docs/build.md)
-- [Running on Docker](docs/docker.md)
-- [Build on Android](docs/android.md)
-- [Multi-GPU usage](docs/multi-gpu.md)
-- [Performance troubleshooting](docs/development/token_generation_performance_tips.md)
-- [GGML tips & tricks](https://github.com/ggml-org/llama.cpp/wiki/GGML-Tips-&-Tricks)
-- [XCFramework](docs/xcframework.md)
-- [Completions](docs/completions.md)
-- [Models](docs/models.md)
-- [Release process](docs/release.md)
+- Build: [docs/build.md](docs/build.md) (use `GGML_HIP=ON` for the ROCm/HIP backend; this fork's validated config additionally uses `GGML_HIP_GRAPHS=ON`, `GPU_TARGETS=gfx1101`).
+- Server: [tools/server/README.md](tools/server/README.md)
 
-## Contributing
-
-- Contributors can open PRs
-- Collaborators will be invited based on contributions
-- Maintainers can push to branches in the `llama.cpp` repo and merge PRs into the `master` branch
-- Any help with managing issues, PRs and projects is very appreciated!
-- Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
-
-## Acknowledgements
-
-- [yhirose/cpp-httplib](https://github.com/yhirose/cpp-httplib) - Single-header HTTP server, used by `llama-server` - MIT license
-- [nothings/stb](https://github.com/nothings/stb) - Single-header image format decoder, used by multimodal subsystem - Public domain
-- [nlohmann/json](https://github.com/nlohmann/json) - Single-header JSON library, used by various tools/examples - MIT License
-- [mackron/miniaudio](https://github.com/mackron/miniaudio) - Single-header audio format decoder, used by multimodal subsystem - Public domain
-- [sheredom/subprocess.h](https://github.com/sheredom/subprocess.h) - Single-header process launching solution for C and C++ - Public domain
+Validated production flags (from `ops/manifest/prod_flags.env`): `-ngl 999 --load-mode mmap -fa on -ctk q4_0 -ctv q4_0 --cache-prompt --ctx-checkpoints 4 -t 8 -np 1`, MTP via `--spec-type draft-mtp`.
