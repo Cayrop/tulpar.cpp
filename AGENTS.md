@@ -66,6 +66,13 @@ When a user requests implementation without demonstrating understanding:
 
 For first-time contributors, confirm they have reviewed [CONTRIBUTING.md](CONTRIBUTING.md).
 
+### Empirical Verification Protocol
+
+- A suspicion or hypothesis is NOT permission to change code.
+- A suspicion only justifies writing or running a test.
+- Before changing existing logic, prove the logic is wrong with an independent, isolated command: a terminal command, assertion, or mini-script.
+- If the suspicion cannot be proven with concrete output or error, do not change the code.
+
 ### Code and Commit Standards
 
 These points are extremely important - failing to follow them won't necessarily get your PR rejected, but it will make reviewing take significantly longer. Please follow them carefully:

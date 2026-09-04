@@ -9933,6 +9933,12 @@ static std::vector<std::unique_ptr<test_case>> make_test_cases_eval() {
     // decode-shaped quantized KV with head size 256 (RDNA3 tile-vs-vector dispatch)
     test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {6, 1}, 512, 1, true, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
     test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {6, 1}, 512, 2, true, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
+    // decode no-mask D256 Q4_0, GQA ratio 8 (RDNA3 fused decode kernel path)
+    test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {8, 1}, 512, 1, false, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
+    // decode no-mask D256 Q4_0, model GQA ratio 6, split-KV boundary at 1k/8k/64k
+    test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {6, 1}, 1024, 1, false, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
+    test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {6, 1}, 8192, 1, false, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
+    test_cases.emplace_back(new test_flash_attn_ext(256, 256, 4, {6, 1}, 65536, 1, false, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q4_0, GGML_TYPE_Q4_0));
 
     // mixed quant and Q1_0 test cases
     test_cases.emplace_back(new test_flash_attn_ext(64, 64, 4, {1, 1}, 128, 2, true, false, 0, 0, GGML_PREC_F32, GGML_TYPE_Q8_0, GGML_TYPE_Q4_0));

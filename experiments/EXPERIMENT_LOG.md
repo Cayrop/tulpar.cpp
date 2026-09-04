@@ -479,3 +479,100 @@ CAVEAT
 VERDICT
 EXP-007: FAILED (rejected at feasibility analysis)
 HYPOTHESIS_B_FAILED
+
+
+## EXP-008: RDNA3 decode FA kernel (WS-2A verification)
+
+PROBLEM
+WS-2A requires correctness evidence for the gfx1101 Q4_0 decode flash-attention
+kernel before any WS-2B tuning. The decode kernel is selected for D=256, Q4_0
+K/V, single query, and dense decode attention. It must be verified at 1k/8k/64k
+split-KV boundaries and against the tile fallback for generation logits.
+
+CHANGE
+- ggml/src/ggml-cuda/fattn-decode-rdna3.cu/.cuh: RDNA3 decode FA kernel and
+  host dispatch wrapper.
+- ggml/src/ggml-cuda/fattn.cu: dispatch to the RDNA3 decode kernel when the
+  shape, GQA ratio, CC, and env toggle allow it; GGML_FA_DECODE_RDNA3_OFF=1
+  forces the tile fallback.
+- tests/test-backend-ops.cpp: add no-mask D256 Q4_0 decode cases for model
+  GQA ratio 6 at kv=1024/8192/65536 with nb=1.
+
+EVIDENCE
+A/B clean rebuild, llama-bench, model
+/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf, ROCm0 gfx1101.
+Log: experiments/fattn_decode_rdna3_bench/bench_20260904_1028.log
+- CTX=65536 A (RDNA3 decode ON): pp65536=338.89, tg512=22.76
+- CTX=65536 B (RDNA3 decode OFF): pp65536=349.08, tg512=23.87
+- CTX=131072 A (RDNA3 decode ON): pp131072=241.02, tg512=23.88
+- CTX=131072 B (RDNA3 decode OFF): pp131072=241.09, tg512=23.95
+The custom decode kernel is not faster: slightly slower at 65k and tied at 131k.
+
+G1 unit correctness:
+- Command:
+  bin/test-backend-ops -o FLASH_ATTN_EXT -p 'nr23=\[6,1\].*nb=1,mask=0'
+- Target cases:
+  - 256/256/4/{6,1}/kv=1024/nb=1/no-mask/Q4_0
+  - 256/256/4/{6,1}/kv=8192/nb=1/no-mask/Q4_0
+  - 256/256/4/{6,1}/kv=65536/nb=1/no-mask/Q4_0
+- Temporary selection print confirmed RDNA3 decode dispatch for all three:
+  - ne11=1024 n_splits=10 n_heads=24 gqa=6
+  - ne11=8192 n_splits=10 n_heads=24 gqa=6
+  - ne11=65536 n_splits=10 n_heads=24 gqa=6
+- All three cases passed on ROCm0: 3/3 tests passed.
+- Selection print was removed and the backend was rebuilt clean.
+
+G2 generation gate:
+PENDING. Needs deterministic 128-token generation with seed=42 and per-step
+logits capture, comparing token IDs/text and logits max abs diff < 1e-2 between
+RDNA3 ON and GGML_FA_DECODE_RDNA3_OFF=1.
+
+CAVEAT
+- The current kernel ignores the FA mask and is valid for dense single-token
+  decode all-zeros masking. Existing random mask=true test cases are not valid
+  for this kernel and were excluded from G1.
+- Sinks are still rejected and fall back to tile.
+- The A/B benchmark is a no-speedup result, not a correctness failure. The
+  performance evidence is logged because WS-2A requires the A/B measurement.
+
+VERDICT
+EXP-008: IN PROGRESS (G1 PASS, G2 PENDING)
+
+## EXP-009: G2 evidence tooling repair and corrected G2 result
+
+PROBLEM
+The first G2 comparison for EXP-008 was invalid because the comparator treated the logits-only `g2_logits_dump` binaries as token plus logits rows. The runner also masked the comparator exit status through `tee`.
+
+EVIDENCE
+- Artifact directory `experiments/g2_logits_dump/g2_20260904_133337/` contains `on.bin`, `off.bin`, `on.toks`, `off.toks`, `on.txt`, `off.txt`.
+- `on.bin`/`off.bin` size is `127139860` bytes, matching `20 + 128 * 248320 * 4` for a 20-byte header plus 128 full-vocabulary `f32` rows.
+- The header is `0x474c4732`, version `1`, seed `42`, `n_rows=128`, `n_vocab=248320`.
+- `cmp on.toks off.toks` and `cmp on.txt off.txt` match exactly.
+- The old `compare.log` was produced by the mismatched comparator and is not valid evidence.
+
+CHANGE
+- `experiments/g2_logits_dump/compare_g2.py`: read logits-only `.bin` files and token IDs from matching `.toks` sidecars; compare tokens before logits; report header, token match, and max logit diff.
+- `experiments/g2_logits_dump/run_g2.sh`: preserve the comparator exit status instead of masking it with `tee`.
+- No production `llama.cpp`/`ggml` kernel change was made in this correction.
+
+RESULT
+Corrected G2 comparison on the existing artifacts:
+- `tokens_match=true n_rows=128 n_vocab=248320 seed=42`
+- `logit_max_abs_diff=11.697541714 at row 72`
+- `G2 FAIL: logit max abs diff >= 0.01`
+
+Corrected output saved to `experiments/g2_logits_dump/g2_20260904_133337/compare_corrected.log`.
+
+Additional row diagnostics:
+- row `0` diff is exactly `0.000000`
+- row `1` diff is `0.217567`
+- many decode rows exceed `1.0`
+- row `72` max diff `11.6975417137146` at vocab `96330`
+- row `72` has `247591` entries above `0.01`, `171259` above `1.0`, and `4` above `10.0`
+- argmax is `220` in both ON and OFF
+
+CAVEAT
+The tokens and generated text match, but the full-vocabulary logits diverge far beyond the EXP-008 G2 threshold of `1e-2`. The evidence is consistent with a decode-stage attention or logit difference, but the exact RDNA3 decode dispatch and numerical source has not yet been isolated.
+
+VERDICT
+EXP-009: G2 FAIL under the EXP-008 gate. WS-2B remains blocked.
