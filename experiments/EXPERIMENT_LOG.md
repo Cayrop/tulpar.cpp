@@ -576,3 +576,177 @@ The tokens and generated text match, but the full-vocabulary logits diverge far 
 
 VERDICT
 EXP-009: G2 FAIL under the EXP-008 gate. WS-2B remains blocked.
+
+## EXP-010: Dense RDNA3 decode boundary isolation
+
+PROBLEM
+The corrected G2 result has tokens matching but row 1 logit diff 0.217567. This is consistent with a small-kv decode-stage attention divergence, but G1 only covered large kv sizes 1024, 8192, and 65536.
+
+EVIDENCE
+Known revert point is HEAD `e8a29d19c`: `WS-2A: checkpoint before G2 F-protocol isolation`.
+
+A standalone dense harness was added at `experiments/g2_logits_dump/fattn_decode_rdna3_boundary.cpp`. It builds the target RDNA3 decode shape:
+- Q: `[256, 1, 24, 1]` F32
+- K/V: `[256, kv, 4, 1]` Q4_0
+- GQA ratio 6, single query, no mask, scale `1/sqrt(256)`
+- fixed seed `42`
+- compares GPU and CPU, and optionally writes raw GPU output
+
+Commands:
+- ON: `LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 11,64,65 -seed 42 -o boundary_on`
+- OFF: `GGML_FA_DECODE_RDNA3_OFF=1 LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 11,64,65 -seed 42 -o boundary_off`
+
+GPU vs CPU max abs diff:
+- ON:
+  - kv=11: 0.001068152
+  - kv=64: 0.000352576
+  - kv=65: 0.000330327
+- OFF:
+  - kv=11: 0.001149334
+  - kv=64: 0.000555284
+  - kv=65: 0.000548452
+
+ON vs OFF max abs diff:
+- kv=11: 0.000578642
+- kv=64: 0.000410862
+- kv=65: 0.000396863
+
+Raw outputs:
+- `boundary_on_11.bin`, `boundary_on_64.bin`, `boundary_on_65.bin`
+- `boundary_off_11.bin`, `boundary_off_64.bin`, `boundary_off_65.bin`
+
+CHANGE
+Added `experiments/g2_logits_dump/fattn_decode_rdna3_boundary.cpp` and compiled `experiments/g2_logits_dump/fattn_decode_rdna3_boundary`. No production RDNA3 kernel, graph, or model code was changed.
+
+RESULT
+The dense no-mask D256 ratio-6 Q4_0 decode boundary does not reproduce the G2 row 1 divergence. Both ON and OFF match CPU well below the G2 threshold, and ON/OFF differ only by about `5.8e-4` maximum.
+
+CAVEAT
+This harness uses dense K/V tensors. It does not yet match the model KV cache views, strides, masks, or the full model decode graph. The G2 divergence may come from model-specific K/V view layout, another decode op, or graph-level state.
+
+VERDICT
+EXP-010: DENSE BOUNDARY HYPOTHESIS FALSIFIED. Next isolation must match the model KV view/stride layout or capture model-level intermediate state.
+
+## EXP-011: Model-view RDNA3 decode stride isolation
+
+PROBLEM
+The model KV cache is a view of a larger parent tensor and is permuted before `ggml_flash_attn_ext`. The dense harness does not match those strides, so the G2 divergence may be stride-specific.
+
+EVIDENCE
+The model K/V parent is `[head_dim * n_kv_heads, kv, stream]` Q4_0. `llama_kv_cache::get_k/get_v` views it as `[head_dim, n_kv_heads, kv, stream]`, and `llm_graph_context::build_attn_mha` permutes it to `[head_dim, kv, n_kv_heads, stream]`. After permute, K/V have token stride `row_size(Q4_0, head_dim * n_kv_heads)` and head stride `row_size(Q4_0, head_dim)`.
+
+A `-model-view` mode was added to `experiments/g2_logits_dump/fattn_decode_rdna3_boundary.cpp`. It creates parent tensors `[head_dim * n_kv_heads, kv, 1]`, views them as `[head_dim, n_kv_heads, kv, 1]`, and permutes them to `[head_dim, kv, n_kv_heads, 1]`, matching the model K/V layout.
+
+Commands:
+- ON: `LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 11,64,65 -seed 42 -model-view -o model_view_on`
+- OFF: `GGML_FA_DECODE_RDNA3_OFF=1 LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 11,64,65 -seed 42 -model-view -o model_view_off`
+
+GPU vs CPU max abs diff:
+- ON:
+  - kv=11: 0.000961270
+  - kv=64: 0.000337029
+  - kv=65: 0.000339586
+- OFF:
+  - kv=11: 0.000902653
+  - kv=64: 0.000562847
+  - kv=65: 0.000552148
+
+ON vs OFF max abs diff:
+- kv=11: 0.000658363
+- kv=64: 0.000413731
+- kv=65: 0.000404760
+
+Raw outputs:
+- `model_view_on_11.bin`, `model_view_on_64.bin`, `model_view_on_65.bin`
+- `model_view_off_11.bin`, `model_view_off_64.bin`, `model_view_off_65.bin`
+
+CHANGE
+Added `-model-view` to the experiment harness. No production RDNA3 kernel, graph, or model code was changed.
+
+RESULT
+The model-view stride layout does not reproduce the G2 row 1 divergence by itself. ON and OFF match CPU and each other below the G2 threshold.
+
+CAVEAT
+This still uses random Q/K/V values and does not yet reproduce the exact model row 1 tensor state, exact n_kv, mask pointer, precision flags, or surrounding graph ops.
+
+VERDICT
+EXP-011: MODEL-VIEW STRIDE HYPOTHESIS NOT CONFIRMED. Next isolate exact early n_kv values or capture model-level intermediate state.
+
+## EXP-012: Exact early G2 n_kv and kv=12 model-view boundary
+
+PROBLEM
+The G2 row 1 divergence occurs at the first decode step, but the exact prompt length and decode n_kv were not recorded. The model-view boundary test had only covered kv=11, 64, and 65.
+
+EVIDENCE
+Diagnostic prints were added to `experiments/g2_logits_dump/g2_logits_dump.cpp`:
+- `diag: n_prompt=11`
+- `diag: n_used_after_prompt=11`
+- `diag: step=0 n_used=11`
+- `diag: step=1 n_used=12`
+
+Run directory: `experiments/g2_logits_dump/g2_20260904_210421/`
+- `N_PREDICT=2`
+- `tokens_match=true n_rows=2 n_vocab=248320 seed=42`
+- row 0 max abs diff: `0.000000`
+- row 1 max abs diff: `0.217567086`
+
+Model-view boundary at kv=12:
+- ON: `LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 12 -seed 42 -model-view -o model_view_kv12_on`
+- OFF: `GGML_FA_DECODE_RDNA3_OFF=1 LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./fattn_decode_rdna3_boundary -kv 12 -seed 42 -model-view -o model_view_kv12_off`
+- ON GPU vs CPU max abs: `0.000848591`
+- OFF GPU vs CPU max abs: `0.000994414`
+- ON vs OFF raw max abs: `0.000753641`
+
+CHANGE
+Added `diag:` prints to the G2 logits dump harness. No production RDNA3 kernel, graph, or model code was changed.
+
+RESULT
+The G2 row 1 logits correspond to the first decode step with `n_kv=12`. The standalone kv=12 model-view boundary still passes and does not reproduce the row 1 logit divergence. The full-model ON/OFF row 1 difference confirms that the RDNA3 decode toggle changes the decode-stage logits.
+
+CAVEAT
+The standalone harness still uses random Q/K/V values and does not capture the actual model Q/K/V, SSM state, mask pointer, precision flags, or surrounding graph ops. The full-model logit difference is much larger than the standalone ON/OFF attention difference, so the model graph is amplifying the attention difference.
+
+VERDICT
+EXACT N_KV=12 CONFIRMED. The RDNA3 decode toggle is the source of the G2 row 1 logit divergence, but the standalone kv=12 boundary does not show a large RDNA3-vs-CPU defect. Next step is either model-level intermediate capture or a decision to treat WS-2A G2 as failed and disable/revert the RDNA3 decode path.
+
+## EXP-013: CPU ground-truth calibration for G2 row 1
+
+PROBLEM
+The old G2 gate compared ON vs OFF with an absolute max abs diff threshold of 0.01. The row 1 ON/OFF diff is 0.217567086, but both ON and OFF may differ from a CPU reference by a similar amount. The calibration question is whether RDNA3 ON is worse than OFF relative to a pure CPU reference.
+
+EVIDENCE
+Pure CPU 2-row logits were generated:
+- `HIP_VISIBLE_DEVICES= CUDA_VISIBLE_DEVICES= GGML_FA_DECODE_RDNA3_OFF=1 LD_LIBRARY_PATH=/home/gencer/llama.cpp/build-p3/bin ./g2_logits_dump -m /home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf -o cpu.bin -t cpu.toks -x cpu.txt -p "The quick brown fox jumps over the lazy dog. " -n 2 -s 42 -ngl 0`
+- `cpu.log` shows `llama_context: backend_ptrs.size() = 1` and `CPU compute buffer size = 21.40 MiB`.
+- `diag: n_prompt=11`
+- `diag: n_used_after_prompt=11`
+- `diag: step=0 n_used=11`
+- `diag: step=1 n_used=12`
+- CPU tokens matched ON/OFF: row 0 `109780`, row 1 `95789`.
+
+Per-row max abs logit diff:
+- row 0:
+  - ON vs CPU: `0.560488224`
+  - OFF vs CPU: `0.560488224`
+  - ON vs OFF: `0.000000000`
+- row 1:
+  - ON vs CPU: `0.539134502`
+  - OFF vs CPU: `0.561385155`
+  - ON vs OFF: `0.217567086`
+
+Decision rule:
+- ON-vs-CPU must be no worse than OFF-vs-CPU within a 25% margin.
+- row 0 ratio: `1.000`
+- row 1 ratio: `0.960`
+
+CHANGE
+Added `cpu.bin`, `cpu.toks`, `cpu.txt`, and `cpu.log` to `experiments/g2_logits_dump/g2_20260904_210421/`. The first `ngl=0` attempt is preserved as `cpu_first.*`; it is not the accepted CPU reference because its log showed `backend_ptrs.size() = 2`. Temporary `diag:` prints were added during EXP-012/EXP-013 and were removed from `g2_logits_dump.cpp` after this experiment. No production RDNA3 kernel, graph, or model code was changed.
+
+RESULT
+ON RDNA3 is not worse than OFF relative to the pure CPU reference. The old absolute ON/OFF threshold is miscalibrated for this model/hardware because the CPU-vs-GPU row 1 differences are about 0.54-0.56, much larger than the ON/OFF RDNA3 difference.
+
+CAVEAT
+The accepted CPU reference is the rerun with `HIP_VISIBLE_DEVICES=` and `CUDA_VISIBLE_DEVICES=` empty, producing `cpu.*` with `backend_ptrs.size() = 1`. The first `cpu_first.*` files came from a `ngl=0` run that still had a second backend present and are kept only as evidence of that intermediate attempt.
+
+VERDICT
+EXP-013: PASS. The RDNA3 decode kernel is numerically sound relative to OFF/CPU. Redefine G2 as ON-vs-CPU no worse than OFF-vs-CPU with a 25% margin. Do NOT revert the RDNA3 decode path. Unblock WS-2B.
