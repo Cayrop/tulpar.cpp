@@ -750,3 +750,143 @@ The accepted CPU reference is the rerun with `HIP_VISIBLE_DEVICES=` and `CUDA_VI
 
 VERDICT
 EXP-013: PASS. The RDNA3 decode kernel is numerically sound relative to OFF/CPU. Redefine G2 as ON-vs-CPU no worse than OFF-vs-CPU with a 25% margin. Do NOT revert the RDNA3 decode path. Unblock WS-2B.
+
+## EXP-014: B0 N_PREDICT=8 ON/OFF/CPU stability check
+
+PROBLEM
+WS-2B requires a cheap 8-row stability check that ON RDNA3 is not worse than OFF relative to a pure CPU reference before measurement-driven tuning.
+
+EVIDENCE
+`experiments/g2_logits_dump/run_b0.sh` stopped `llama-server.service`, waited for VRAM to drop below 5%, rebuilt the G2 dump binary, ran ON/OFF/CPU with `N_PREDICT=8`, seed `42`, prompt `"The quick brown fox jumps over the lazy dog. "`, model `/home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf`, then restarted the server.
+
+Per-row max abs logit diff:
+- row 0: ON-vs-CPU `0.560488224`, OFF-vs-CPU `0.560488224`, ratio `1.0000`
+- row 1: ON-vs-CPU `0.539134502`, OFF-vs-CPU `0.561385155`, ratio `0.9604`
+- row 2: ON-vs-CPU `0.589068413`, OFF-vs-CPU `0.658296108`, ratio `0.8948`
+- row 3: ON-vs-CPU `0.637577057`, OFF-vs-CPU `0.596829653`, ratio `1.0683`
+- row 4: ON-vs-CPU `0.541059494`, OFF-vs-CPU `0.528454542`, ratio `1.0239`
+- row 5: ON-vs-CPU `0.531627178`, OFF-vs-CPU `0.529940367`, ratio `1.0032`
+- row 6: ON-vs-CPU `0.649653554`, OFF-vs-CPU `0.687554359`, ratio `0.9449`
+- row 7: ON-vs-CPU `0.786873817`, OFF-vs-CPU `0.797480583`, ratio `0.9867`
+
+All rows satisfy ON-vs-CPU <= OFF-vs-CPU * 1.25. ON/OFF/CPU token IDs matched for all 8 rows.
+
+CHANGE
+Added `experiments/g2_logits_dump/run_b0.sh`. The script stops the server, waits for VRAM to free, runs ON/OFF/CPU, compares per-row ON/OFF vs CPU diffs and token identity, and restarts the server on exit. B0 evidence is stored in `experiments/g2_logits_dump/b0_n8_20260904_235736/`.
+
+RESULT
+B0 PASS. ON RDNA3 does not drift worse than OFF relative to the pure CPU reference over the first 8 generated rows.
+
+CAVEAT
+This is a stability gate, not a performance benchmark. It uses the EXP-013 prompt and seed with `N_PREDICT=8`.
+
+VERDICT
+B0: PASS. Proceed to WS-2B B1 profiling.
+
+## EXP-015: WS-2B B1 131k profile
+
+PROBLEM
+Measure the committed RDNA3 Q4_0 decode attention kernel at 131k after B0 PASS and identify the dominant decode bottleneck before B2 tuning.
+
+EVIDENCE
+Raw collection script:
+- `/home/gencer/rocmprof/b1_collect_131k.sh`
+- Server stopped before raw collection, restarted after raw collection.
+- Benchmark: `llama-bench -m /home/gencer/models/qwen-v2/Qwen3.8-27B-UD-Q2_K_XL.gguf -ngl 999 -ctk q4_0 -ctv q4_0 -p 131072 -n 512 -b 512`
+- Clean kernel-trace pass:
+  - `pp131072: 241.11 +/- 0.02 t/s`
+  - `tg512: 22.11 +/- 0.07 t/s`
+  - decoded tokens: `5 * 512 = 2560`
+  - clean decode wall: `115.8 s`
+
+Raw and CSV outputs:
+- Kernel DB: `/home/gencer/rocmprof/b1_ws2b/kernel/trace_kernel_131k_results.db`
+- Kernel CSV: `/home/gencer/rocmprof/b1_ws2b/kernel/trace_kernel_131k_kernel_trace.csv`
+- GL2C DB: `/home/gencer/rocmprof/b1_ws2b/pmc_gl2c/pmc_1/trace_pmc_gl2c_131k_results.db`
+- GL2C CSV: `/home/gencer/rocmprof/b1_ws2b/pmc_gl2c/pmc_1/trace_pmc_gl2c_131k_counter_collection_trace.csv`
+- Occupancy DB: `/home/gencer/rocmprof/b1_ws2b/pmc_occ/pmc_1/trace_pmc_occ_131k_results.db`
+- Occupancy CSV: `/home/gencer/rocmprof/b1_ws2b/pmc_occ/pmc_1/trace_pmc_occ_131k_counter_collection_trace.csv`
+
+Decode window from clean kernel trace:
+- Attention window: first RDNA3/combine start to last RDNA3/combine end
+- Attention window span: `115.836959 s`
+- Total GPU kernel time in decode window: `98.261260 s` = `38.38 ms/tok`
+- Non-GPU wall overhead: `17.576 s` = `6.87 ms/tok`
+
+Decode kernel split:
+- GEMV `mul_mat_vec_q`: `88.460345 s` = `34.55 ms/tok` = `90.03%` of decode GPU time = `76.37%` of clean decode wall
+- RDNA3 decode attention including `flash_attn_combine_results`: `0.713186 s` = `0.2786 ms/tok` = `0.73%` of decode GPU time = `0.62%` of clean decode wall
+- Other kernels: `9.087728 s` = `3.55 ms/tok` = `9.25%` of decode GPU time
+
+Top decode kernels:
+- `mul_mat_vec_q<(ggml_type)18, 1, true...>`: `57.942 s` = `49.9%` of clean decode wall
+- `mul_mat_vec_q<(ggml_type)18, 1, false...>`: `14.436 s` = `12.5%` of clean decode wall
+- `mul_mat_vec_q<(ggml_type)21, 1, false...>`: `9.476 s` = `8.2%` of clean decode wall
+- `mul_mat_vec_q<(ggml_type)11, 1, false...>`: `3.469 s` = `3.0%` of clean decode wall
+- `mul_mat_vec_q<(ggml_type)21, 1, true...>`: `1.959 s` = `1.7%` of clean decode wall
+- `flash_attn_decode_rdna3`: `0.605731 s`
+- `flash_attn_combine_results`: `0.107455 s`
+
+RDNA3 dispatch count: `40976` dispatches = `2561 * 16` layer/token units, matching the 5-repeat `tg512` run plus one warmup token unit. `flash_attn_combine_results` has `40976` dispatches in the full clean kernel trace.
+
+Resource inspection:
+- Static `llvm-readelf` from extracted GPU ELF:
+  - `vgpr_count = 81`
+  - `sgpr_count = 39`
+  - `group_segment_fixed_size = 2348` bytes LDS
+  - `private_segment_fixed_size = 0` bytes scratch
+- Runtime rocpd values:
+  - `Vgpr_Count = 88`
+  - `Sgpr_Count = 128`
+  - `Lds_Block_Size = 2348`
+  - `Scratch_Size = 0`
+- Dispatch shape:
+  - workgroup `(256, 1, 1)`
+  - grid `(6144, 4..8, 1)`
+
+RDNA3 PMC averages per dispatch:
+- `MeanOccupancyPerActiveCU`: avg `37.87`, min `25.14`, max `50.58`
+- `ALUStalledByLDS`: avg `0.1206`, min `0.0197`, max `0.5319`
+- `GL2C_HIT`: avg `16788`
+- `GL2C_MISS`: avg `4901`
+- `GL2C_MC_RDREQ`: avg `3740`
+- GL2C hit ratio `HIT / (HIT + MISS)`: `77.4%`
+
+CHANGE
+Added B1 raw collection, CSV export, and B1 profiling evidence. No production RDNA3 kernel, graph, or model code was changed.
+
+RESULT
+At 131k, the committed RDNA3 decode attention path is numerically stable from B0, but it is not the dominant decode bottleneck. Clean decode is dominated by Q4_0 GEMV `mul_mat_vec_q` kernels, while RDNA3 decode attention plus `flash_attn_combine_results` is only `0.2786 ms/tok`.
+
+CAVEAT
+B1 profile is only 131k. It does not measure the 64k short-context attention share. The `llama-bench` clean timing is from the kernel-trace pass, not from PMC passes.
+
+VERDICT
+B1: PASS. Do not tune RDNA3 blindly. Next is B2 baseline benchmarking at 64k, 128k, and 131k to locate the 64k regression and measure whether any RDNA3 tuning has primary-goal value.
+
+## EXP-016: B1 anomaly audit conclusion (2561 passes, 2.73 TB/s)
+
+PROBLEM
+Resolve the two B1 anomalies before WS-2B tuning: (1) why `2561` decode attention passes for a `tg512` run, and (2) whether the apparent `2.73 TB/s` KV bandwidth is real.
+
+EVIDENCE
+- Pass count: `llama-bench` default is `-r 5` (confirmed via `build-p3/bin/llama-bench -h`). The `tg512` test decodes `5 * 512 = 2560` tokens plus `1` warmup token = `2561` decode passes. `40976` fa dispatches / `16` attention layers = `2561`, exactly matching.
+- Grid Y: only `Y=4` (20496 dispatches) and `Y=8` (20480 dispatches) appear. `Y = n_splits = min(240/n_heads, ceil(ne11/64))`, `n_heads = 24`. `Y=4` -> `ne11 in (192,256]`; `Y=8` -> `ne11 in (448,512]`. So `ne11 <= 512` at every dispatch, confirming the Qwen3.5 SWA local window (256-512 tokens), NOT a full 131k scan.
+- Attention time: `flash_attn_decode_rdna3` (0.6057 s) + `flash_attn_combine_results` (0.1075 s) = `0.7132 s` / 2561 = `0.2785 ms/tok`, matching EXP-015.
+- Clean decode wall: `115.8369 s` / 2561 = `45.23 ms/tok` = `22.11 t/s` (clean, unprofiled). The `5.96 t/s` figure is from the `rocprofv3` PMC instrumentation pass (heavy overhead), not the clean run.
+
+CHANGE
+No code change. This logs the EXP-015 B1 profile audit conclusion.
+
+RESULT
+- The 2561 passes is explained: 5 repeats x 512 tokens + 1 warmup token. Not an anomaly.
+- The 2.73 TB/s is an ARTIFACT: it assumed attention scanned the full 131k KV per token, but the SWA window caps `ne11 <= 512` tokens, so the real per-token KV scan is ~250x smaller.
+- Attention is `0.2785 ms/tok` = `0.73%` of decode GPU time. It is NOT the decode bottleneck (Q4_0 GEMV is ~90%).
+
+CAVEAT
+- Grid Y alternates between 4 (ne11 ~256) and 8 (ne11 ~512) with near-equal counts (20496 vs 20480), consistent with the attention layers using local windows in the 256-512 range. The exact per-layer window assignment is not characterized, but `ne11 <= 512` is certain.
+- The deployed `build-p3` binary (grid x=6144) was built from an older commit (d719f6370). Current master (441e54b3b) launches with grid `(n_heads=24, n_splits)`. A rebuild changes the launch geometry, so the 131k baseline must be re-measured from current master before attributing any gain to a knob.
+- The 2.73 TB/s artifact does not change the EXP-015 verdict: attention is a small fraction of decode time.
+
+VERDICT
+B1 audit: RESOLVED. The 2561 passes (repeats+warmup) and the 2.73 TB/s (SWA-window artifact) are both explained. Attention is not the decode bottleneck. Proceed to measurement-driven tuning (KNOB 1) with the expectation that any knob must show a MEASURED gain to be kept, since attention is ~0.73% of decode time.
